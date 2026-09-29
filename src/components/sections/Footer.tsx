@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Headset, MapPin, MapPinned, ReceiptIndianRupee } from "lucide-react";
 import { serviceCategories } from "@/lib/services";
-import { addressLine, site, telLink, whatsappLink } from "@/lib/site";
+import { addressLine, site, telLink } from "@/lib/site";
 
 const trust = [
   { icon: MapPinned, label: "PAN India service" },
@@ -54,22 +54,22 @@ export function Footer() {
             <p className="font-display text-[13px] font-bold uppercase tracking-wider text-ink">Company</p>
             <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[14px] text-ink-muted sm:grid-cols-1">
               <li>
+                <a href="/about" className="hover:text-ink">
+                  About us
+                </a>
+              </li>
+              <li>
                 <a href="/chennai" className="hover:text-ink">
                   Chennai
                 </a>
               </li>
-              {site.nav.slice(1).map((n) => (
+              {site.nav.slice(1).filter((n) => n.label !== "FAQ").map((n) => (
                 <li key={n.href}>
                   <a href={n.href} className="hover:text-ink">
                     {n.label}
                   </a>
                 </li>
               ))}
-              <li>
-                <a href={whatsappLink("Hi National Filings, I have a question.")} target="_blank" rel="noopener noreferrer" className="hover:text-ink">
-                  WhatsApp
-                </a>
-              </li>
               {tel && (
                 <li>
                   <a href={tel} className="hover:text-ink">
@@ -93,7 +93,7 @@ export function Footer() {
           <p>
             © {year} {site.name}. A private consultancy, not a government website or portal.
           </p>
-          <ul className="flex gap-5">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1">
             {site.legal.map((l) => (
               <li key={l.href}>
                 <a href={l.href} className="inline-flex min-h-[32px] items-center hover:text-ink">

@@ -29,8 +29,9 @@ export const site = {
     { label: "Contact", href: "/contact" },
   ],
   legal: [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms and Conditions", href: "/terms" },
+    { label: "Security", href: "/security" },
     { label: "Disclaimer", href: "/disclaimer" },
   ],
 } as const;
