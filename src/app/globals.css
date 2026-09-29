@@ -77,6 +77,29 @@
     @apply relative whitespace-nowrap text-brand;
     background-image: linear-gradient(transparent 68%, rgba(201, 238, 124, 0.75) 68%, rgba(201, 238, 124, 0.75) 92%, transparent 92%);
   }
+  /* Body copy on legal pages: teal bullets, brand links, readable measure */
+  .legal-prose {
+    @apply space-y-4 text-[15px] leading-relaxed text-ink-soft sm:text-[16px];
+  }
+  .legal-prose h3 {
+    @apply pt-2 font-display text-[15px] font-bold text-ink sm:text-base;
+  }
+  .legal-prose strong {
+    @apply font-semibold text-ink;
+  }
+  .legal-prose a {
+    @apply font-semibold text-brand-deep underline decoration-brand/40 underline-offset-4 hover:decoration-brand-deep;
+  }
+  .legal-prose ul {
+    @apply space-y-2;
+  }
+  .legal-prose ul > li {
+    @apply relative pl-6;
+  }
+  .legal-prose ul > li::before {
+    content: "";
+    @apply absolute left-1 top-[0.6em] h-2 w-2 rounded-full bg-brand;
+  }
   .no-scrollbar {
     scrollbar-width: none;
   }

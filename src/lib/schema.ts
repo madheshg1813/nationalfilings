@@ -113,13 +113,14 @@ export function chennaiGraph(
         url: pageUrl,
         parentOrganization: { "@id": orgId },
         image: `${site.url}/brand/logo-full.png`,
-        // Locality as shown on the public Google and Justdial listings
+        // Same address as the Google Business Profile (lib/site.ts)
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Kundrathur, Chennai",
-          addressRegion: "Tamil Nadu",
-          postalCode: "600069",
-          addressCountry: "IN",
+          streetAddress: site.address.street,
+          addressLocality: site.address.city,
+          addressRegion: site.address.region,
+          postalCode: site.address.postalCode,
+          addressCountry: site.address.country,
         },
         areaServed: [
           { "@type": "City", name: "Chennai" },

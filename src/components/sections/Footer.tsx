@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Headset, MapPinned, ReceiptIndianRupee } from "lucide-react";
+import { Headset, MapPin, MapPinned, ReceiptIndianRupee } from "lucide-react";
 import { serviceCategories } from "@/lib/services";
-import { site, telLink, whatsappLink } from "@/lib/site";
+import { addressLine, site, telLink, whatsappLink } from "@/lib/site";
 
 const trust = [
   { icon: MapPinned, label: "PAN India service" },
@@ -11,6 +11,7 @@ const trust = [
 
 export function Footer() {
   const tel = telLink();
+  const address = addressLine();
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-ink/10 bg-white pb-[4.5rem] md:pb-0">
@@ -20,6 +21,12 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-[14px] leading-relaxed text-ink-muted">
             Tax, registration and compliance services for startups, SMEs, professionals and NGOs across India.
           </p>
+          {address && (
+            <address className="mt-4 flex max-w-sm gap-2 text-[13.5px] not-italic leading-relaxed text-ink-soft">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep" aria-hidden />
+              {address}
+            </address>
+          )}
           <ul className="mt-5 flex flex-wrap gap-2">
             {trust.map(({ icon: Icon, label }) => (
               <li key={label} className="chip gap-1.5 !py-1.5">
