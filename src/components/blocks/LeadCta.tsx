@@ -92,7 +92,7 @@ export function LeadCta({
                   <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/10">
                     <Clock className="h-4 w-4 text-lime" aria-hidden />
                   </span>
-                  {weekdays.days.replace(" – ", " to ")}, {weekdays.time}
+                  {weekdays.days.replace(" - ", " to ")}, {weekdays.time}
                 </li>
               )}
               <li className="flex items-center gap-2.5">

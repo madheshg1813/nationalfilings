@@ -140,15 +140,11 @@ export function Header() {
           </nav>
 
 
-          <a
-            href={whatsappLink(CTA_MESSAGE)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary !gap-1.5 !px-3.5 !py-2.5 !text-[13px] sm:!px-5 sm:!text-[14px] md:ml-1"
-          >
-            <WhatsAppIcon className="hidden h-4 w-4 sm:block" />
+          {/* header CTA goes to the contact page (the user's call); every other CTA opens WhatsApp */}
+          <a href="/contact" onClick={close} className="btn-primary group !gap-1.5 !px-3.5 !py-2.5 !text-[13px] sm:!px-5 sm:!text-[14px] md:ml-1">
             <span className="sm:hidden">Book now</span>
             <span className="hidden sm:inline">Talk to an expert</span>
+            <ArrowRight className="hidden h-4 w-4 transition-transform group-hover:translate-x-0.5 sm:block" aria-hidden />
           </a>
 
           <button

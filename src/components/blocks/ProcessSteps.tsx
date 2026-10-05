@@ -11,11 +11,11 @@ type Props = {
   className?: string;
 };
 
-// Static class maps so Tailwind keeps them (3–6 steps)
+// Static class maps so Tailwind keeps them (3-6 steps)
 const DESKTOP_COLS: Record<number, string> = { 3: "sm:grid-cols-3", 4: "sm:grid-cols-4", 5: "sm:grid-cols-5", 6: "sm:grid-cols-6" };
 const PHONE_COLS: Record<number, number> = { 3: 3, 4: 2, 5: 3, 6: 3 };
 
-/** Compact stepper: numbered black dots on one line, short title + 2–4 word subline, optional You/Us tags. */
+/** Compact stepper: numbered black dots on one line, short title + 2-4 word subline, optional You/Us tags. */
 export function ProcessSteps({ id = "process", eyebrow, title, steps, note, className = "" }: Props) {
   const n = steps.length;
   const perRow = PHONE_COLS[n] ?? 3;

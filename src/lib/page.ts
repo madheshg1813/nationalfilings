@@ -24,7 +24,7 @@ export type PageDef = {
   path: string;
   /** <title>, ≤ 60 chars, keyword first. Used as-is (no site suffix). */
   title: string;
-  /** Meta description, 140–160 chars */
+  /** Meta description, 140-160 chars */
   description: string;
   /** Visible headline, if different from the title (schema `headline`) */
   headline?: string;

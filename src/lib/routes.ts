@@ -81,7 +81,7 @@ export const pillars: Pillar[] = [
     label: "NGO Registration",
     short: "NGO registration",
     title: "NGO Registration in Chennai",
-    path: "/chennai/ngo-registration-service",
+    path: "/chennai/ngo-registration", // the user's URL (the architecture PDF used "-service")
     icon: "HeartHandshake",
     blurb: "Trusts, societies and Section 8 companies, with 12A and 80G tax exemptions.",
     clusters: [
@@ -96,7 +96,7 @@ export const pillars: Pillar[] = [
     label: "Trademark Registration",
     short: "trademark registration",
     title: "Trademark Registration Service in Chennai",
-    path: "/chennai/trademark-registration-service",
+    path: "/chennai/trademark-registration", // the brief's URL (the architecture PDF used "-service")
     icon: "ShieldCheck",
     blurb: "Protect your brand name and logo, reply to objections, and register copyright.",
     clusters: [c("P5-C1", "Copyright Registration", "copyright-registration-service")],
@@ -106,7 +106,7 @@ export const pillars: Pillar[] = [
     label: "PF & ESI Services",
     short: "PF & ESI services",
     title: "PF and ESI Consultant in Chennai",
-    path: "/chennai/pf-esi-consultant-service",
+    path: "/chennai/pf-esi-consultant", // the brief's URL (the architecture PDF used "-service")
     icon: "Users",
     blurb: "PF and ESI registration for employers, and monthly contribution filings.",
     clusters: [c("P6-C1", "PF Registration", "pf-esi-registration-service")],

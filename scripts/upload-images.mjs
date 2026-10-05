@@ -6,16 +6,41 @@
  * Runs before `npm run build` (prebuild) and on demand with `npm run images:upload`.
  * Needs CLOUDINARY_URL=cloudinary://<api_key>:<api_secret>@<cloud_name> (env var, or .env.local locally).
  * Without it, it skips: the image loader is only switched on when NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is set.
+ * It first checks that no Unsplash photo is used twice anywhere in src/ (the build fails if one is).
  */
 import { createHash } from "node:crypto";
 import { readdirSync, readFileSync } from "node:fs";
 import { extname, join, relative, sep } from "node:path";
 import { CLOUDINARY_FOLDER, cloudinaryId } from "../src/lib/cloudinary-id.mjs";
 
+function walkSrc(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const p = join(dir, e.name);
+    return e.isDirectory() ? walkSrc(p) : /\.(ts|tsx)$/.test(p) ? [p] : [];
+  });
+}
+
 try {
   process.loadEnvFile?.(".env.local");
 } catch {
   // no .env.local (hosting): use the real environment
+}
+
+// Every photo must be unique across the site (the user's rule): the same Unsplash photo on two cards or pages stops the build
+const seen = new Map(); // photo id -> first place it was found
+const dupes = [];
+for (const file of walkSrc("src")) {
+  readFileSync(file, "utf8").split("\n").forEach((line, i) => {
+    for (const [, id] of line.matchAll(/images\.unsplash\.com\/(photo-[\w-]+)/g)) {
+      const here = `${file}:${i + 1}`;
+      if (seen.has(id)) dupes.push(`${id} used in ${seen.get(id)} and ${here}`);
+      else seen.set(id, here);
+    }
+  });
+}
+if (dupes.length) {
+  console.error(`[upload-images] the same photo is used more than once:\n  ${dupes.join("\n  ")}`);
+  process.exit(1);
 }
 
 const config = process.env.CLOUDINARY_URL?.match(/^cloudinary:\/\/(\w+):([\w-]+)@([\w-]+)$/);

@@ -148,10 +148,10 @@ export const chennaiCta = {
 
 export const timeline = [
   { title: "Consultation", time: "Day 1", sub: "We understand your plans and confirm the right structure, capital and directors." },
-  { title: "Document collection", time: "1–2 days", sub: "You share KYC and office proof on WhatsApp or email. We check every detail before filing." },
-  { title: "Name approval", time: "2–4 working days", sub: "Digital signatures are issued and your preferred names are filed with the MCA." },
-  { title: "MCA filing", time: "1–2 days", sub: "We prepare the SPICe+ forms, MoA and AoA, and file them for incorporation." },
-  { title: "Certificate issued", time: "3–7 working days", sub: "The Registrar issues your Certificate of Incorporation with the company's PAN and TAN." },
+  { title: "Document collection", time: "1-2 days", sub: "You share KYC and office proof on WhatsApp or email. We check every detail before filing." },
+  { title: "Name approval", time: "2-4 working days", sub: "Digital signatures are issued and your preferred names are filed with the MCA." },
+  { title: "MCA filing", time: "1-2 days", sub: "We prepare the SPICe+ forms, MoA and AoA, and file them for incorporation." },
+  { title: "Certificate issued", time: "3-7 working days", sub: "The Registrar issues your Certificate of Incorporation with the company's PAN and TAN." },
   { title: "Post registration support", time: "Ongoing", sub: "Bank account, commencement of business filing, auditor appointment and your compliance calendar." },
 ];
 

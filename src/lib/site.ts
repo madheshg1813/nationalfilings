@@ -22,7 +22,7 @@ export const site = {
   },
   /** Opening hours as shown on the Google Business Profile (checked 2026-09-30). Keep identical to it. */
   hours: [
-    { days: "Monday – Saturday", time: "9:00 am – 7:00 pm", dayCodes: ["Mo", "Tu", "We", "Th", "Fr", "Sa"], opens: "09:00", closes: "19:00" },
+    { days: "Monday - Saturday", time: "9:00 am - 7:00 pm", dayCodes: ["Mo", "Tu", "We", "Th", "Fr", "Sa"], opens: "09:00", closes: "19:00" },
     { days: "Sunday", time: "Closed", dayCodes: ["Su"], opens: "", closes: "" },
   ],
   /** Public Google Business Profile (directions, reviews) */

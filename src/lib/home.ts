@@ -18,7 +18,7 @@ export const headlineOptions = {
   // E: names the core services (matches the page title keywords) + authority.
   E: { before: "GST, Tax & Company Registration,", lineTwoBefore: "handled by ", accent: "experts", after: "." },
   // F: client's wording, broken after "Tax &" so it stays on 2 lines at 76px
-  F: { before: "Business Registration, Tax &", lineTwoBefore: "Compliance — Managed by ", accent: "Experts", after: "" },
+  F: { before: "Business Registration, Tax &", lineTwoBefore: "Compliance - Managed by ", accent: "Experts", after: "" },
 } as const;
 
 export const hero = {
@@ -185,15 +185,15 @@ export const comparison = {
 /* Who we help                                                         */
 /* ------------------------------------------------------------------ */
 
-export const audiences: { title: string; useCase: string; icon: IconName; needs: string[]; message: string }[] = [
-  { title: "Startups", useCase: "Incorporate, protect the brand, get GST-ready.", icon: "Rocket", needs: ["Private Limited", "Trademark", "GST registration"], message: "Hi National Filings, I'm starting up and need help with registration." },
-  { title: "Shops & small businesses", useCase: "Get licensed and keep monthly GST on track.", icon: "Store", needs: ["GST returns", "Shop licence", "Proprietorship"], message: "Hi National Filings, I run a small business and need compliance help." },
-  { title: "Professionals & freelancers", useCase: "File ITR and GST on professional income.", icon: "Briefcase", needs: ["ITR filing", "GST registration", "Tax planning"], message: "Hi National Filings, I'm a professional and need help with tax filing." },
-  { title: "Salaried individuals", useCase: "File returns, claim refunds, answer notices.", icon: "UserRound", needs: ["ITR filing", "Refund support", "Notice reply"], message: "Hi National Filings, I need help with my income tax return." },
-  { title: "NGOs & trusts", useCase: "Register, get 12A/80G, become CSR-eligible.", icon: "HeartHandshake", needs: ["12A & 80G", "Trust registration", "CSR registration"], message: "Hi National Filings, I need help registering an NGO or trust." },
-  { title: "Food businesses", useCase: "FSSAI and local licences before you open.", icon: "UtensilsCrossed", needs: ["FSSAI", "Udyam MSME", "Trade licence"], message: "Hi National Filings, I need an FSSAI licence for my food business." },
-  { title: "Importers & exporters", useCase: "IEC and DGFT paperwork to trade overseas.", icon: "Ship", needs: ["IEC", "DGFT services", "GST registration"], message: "Hi National Filings, I need help with IEC / DGFT registration." },
-  { title: "Growing companies", useCase: "Payroll, TDS and ROC as the team grows.", icon: "TrendingUp", needs: ["ROC filings", "PF & ESI", "TDS returns"], message: "Hi National Filings, our company needs ongoing compliance support." },
+export const audiences: { title: string; useCase: string; icon: IconName; needs: string[] }[] = [
+  { title: "Startups", useCase: "Incorporate, protect the brand, get GST-ready.", icon: "Rocket", needs: ["Private Limited", "Trademark", "GST registration"] },
+  { title: "Shops & small businesses", useCase: "Get licensed and keep monthly GST on track.", icon: "Store", needs: ["GST returns", "Shop licence", "Proprietorship"] },
+  { title: "Professionals & freelancers", useCase: "File ITR and GST on professional income.", icon: "Briefcase", needs: ["ITR filing", "GST registration", "Tax planning"] },
+  { title: "Salaried individuals", useCase: "File returns, claim refunds, answer notices.", icon: "UserRound", needs: ["ITR filing", "Refund support", "Notice reply"] },
+  { title: "NGOs & trusts", useCase: "Register, get 12A/80G, become CSR-eligible.", icon: "HeartHandshake", needs: ["12A & 80G", "Trust registration", "CSR registration"] },
+  { title: "Food businesses", useCase: "FSSAI and local licences before you open.", icon: "UtensilsCrossed", needs: ["FSSAI", "Udyam MSME", "Trade licence"] },
+  { title: "Importers & exporters", useCase: "IEC and DGFT paperwork to trade overseas.", icon: "Ship", needs: ["IEC", "DGFT services", "GST registration"] },
+  { title: "Growing companies", useCase: "Payroll, TDS and ROC as the team grows.", icon: "TrendingUp", needs: ["ROC filings", "PF & ESI", "TDS returns"] },
 ];
 
 /* ------------------------------------------------------------------ */

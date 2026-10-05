@@ -2,7 +2,7 @@ import { Check, Phone } from "lucide-react";
 import { telLink, whatsappLink } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
-/** Slim mid-page CTA: one line of copy, click-to-call + WhatsApp. Use every 2–3 sections. */
+/** Slim mid-page CTA: one line of copy, click-to-call + WhatsApp. Use every 2-3 sections. */
 export function InlineCta({
   title,
   sub,

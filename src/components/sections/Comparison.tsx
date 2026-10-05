@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, UserRound } from "lucide-react";
+import { ArrowRight, UserRound } from "lucide-react";
 import { barLevels, comparison, metrics, type Factor } from "@/lib/home";
 import { whatsappLink } from "@/lib/site";
 import { LucideByName } from "@/components/ui/LucideByName";
@@ -29,17 +30,20 @@ function Panel({ f, tone, on }: { f: Factor; tone: "alone" | "ours"; on: boolean
   return (
     <div className={`card relative h-full p-6 ${ours ? "border-brand/40 ring-1 ring-brand/20" : ""}`}>
       {ours && <span className="tag-green absolute right-4 top-4">Handled for you</span>}
-      <div className="flex items-center gap-2.5">
-        <span className={`grid h-9 w-9 place-items-center rounded-full ${ours ? "bg-brand-tint" : "border border-ink/10"}`}>
-          {ours ? (
-            <Check className="h-4 w-4 text-brand-deep" strokeWidth={2.6} />
-          ) : (
-            <UserRound className="h-4 w-4 text-ink-muted" strokeWidth={1.8} />
-          )}
-        </span>
-        <h3 className={`font-display text-[17px] font-bold ${ours ? "text-ink" : "text-ink-soft"}`}>
-          {ours ? "With National Filings" : "Doing it alone"}
-        </h3>
+      {/* same height on both panels so the rows below line up */}
+      <div className="flex min-h-14 items-center gap-2.5">
+        {ours ? (
+          <h3>
+            <Image src="/brand/logo-full.png" alt="With National Filings" width={924} height={465} className="h-14 w-auto" />
+          </h3>
+        ) : (
+          <>
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-ink/10">
+              <UserRound className="h-4 w-4 text-ink-muted" strokeWidth={1.8} />
+            </span>
+            <h3 className="font-display text-[17px] font-bold text-ink-soft">Doing it alone</h3>
+          </>
+        )}
       </div>
       <ul className="mt-6 space-y-4">
         {metrics.map((mt, i) => (
@@ -62,13 +66,15 @@ function Panel({ f, tone, on }: { f: Factor; tone: "alone" | "ours"; on: boolean
 function MobileRows({ f, on }: { f: Factor; on: boolean }) {
   return (
     <div className="card divide-y divide-ink/5 !rounded-2xl">
-      <div className="flex items-center justify-between px-4 py-3 text-[11px] font-semibold">
-        <span className="flex items-center gap-1.5 text-ink-muted">
-          <span className="h-2 w-2 rounded-full bg-ink/40" /> Alone
+      {/* column headers, aligned with the two columns below (same as the desktop panels: icon vs logo) */}
+      <div className="grid grid-cols-2 items-center gap-3 px-4 py-2.5">
+        <span className="flex items-center gap-2 text-[13px] font-bold text-ink-soft">
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-ink/10">
+            <UserRound className="h-3.5 w-3.5 text-ink-muted" strokeWidth={1.8} />
+          </span>
+          Doing it alone
         </span>
-        <span className="flex items-center gap-1.5 text-brand-deep">
-          <span className="h-2 w-2 rounded-full bg-brand" /> With National Filings
-        </span>
+        <Image src="/brand/logo-full.png" alt="With National Filings" width={924} height={465} className="h-11 w-auto" />
       </div>
       {metrics.map((mt, i) => (
         <div key={mt.key} className="px-4 py-3">

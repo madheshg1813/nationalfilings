@@ -1,7 +1,7 @@
 import { BadgeCheck, Building2, FileText, IndianRupee, Landmark, ReceiptIndianRupee, ShieldCheck, type LucideIcon } from "lucide-react";
 
 /**
- * Very faint decorative icons behind a centred hero: a few large filing symbols at 3–5% opacity,
+ * Very faint decorative icons behind a centred hero: a few large filing symbols at 3-5% opacity,
  * placed off-centre so they read as texture, never as content. Decorative only (aria-hidden).
  * Phones show three, smaller.
  */

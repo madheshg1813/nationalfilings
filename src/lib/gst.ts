@@ -105,8 +105,8 @@ export const benefits = [
 export const steps = [
   { title: "Consultation", time: "Day 1", sub: "We check eligibility, scheme and HSN/SAC codes." },
   { title: "Document collection", time: "1 day", sub: "Share documents on WhatsApp or email." },
-  { title: "GST application", time: "1–2 days", sub: "Form REG-01 filed with Aadhaar authentication." },
-  { title: "Government processing", time: "3–7 working days", sub: "We answer any officer queries for you." },
+  { title: "GST application", time: "1-2 days", sub: "Form REG-01 filed with Aadhaar authentication." },
+  { title: "Government processing", time: "3-7 working days", sub: "We answer any officer queries for you." },
   { title: "GST certificate", time: "On approval", sub: "GSTIN and certificate issued on the portal." },
   { title: "Ongoing compliance", time: "Monthly", sub: "Returns, reconciliation and reminders." },
 ];
