@@ -21,6 +21,13 @@ type Props = {
   ticks: string[];
   /** Use the real stats from lib/proof.ts for the ticks (homepage) */
   useStats?: boolean;
+  /** Smaller headline (68px desktop) for long headlines that would wrap to 3 lines at 76px */
+  long?: boolean;
+};
+
+const HEADLINE_SIZE = {
+  normal: "text-[2.625rem] sm:text-[2.35rem] md:text-[2.75rem] lg:text-[3.85rem] xl:text-[4.75rem]",
+  long: "text-[2.25rem] sm:text-[1.95rem] md:text-[2.35rem] lg:text-[3.15rem] xl:text-[4.25rem]",
 };
 
 /**
@@ -28,7 +35,7 @@ type Props = {
  * headline (2 lines, 76px desktop / 42px phones, gradient accent) → primary CTA → sub → quiet trust row.
  * ~90vh on desktop with a very faint icon backdrop. Supporting content is capped at 900px; the headline may run wider to stay on 2 lines.
  */
-export function ServiceHero({ trail, kicker, eyebrow, headline: h, sub, primary, secondary, ticks, useStats }: Props) {
+export function ServiceHero({ trail, kicker, eyebrow, headline: h, sub, primary, secondary, ticks, useStats, long }: Props) {
   return (
     <section className="relative overflow-hidden bg-white" aria-labelledby="hero-title">
       <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-70" aria-hidden />
@@ -46,7 +53,7 @@ export function ServiceHero({ trail, kicker, eyebrow, headline: h, sub, primary,
 
         <h1 id="hero-title" className="w-full">
           {eyebrow && <span className="eyebrow-text mb-4 block sm:mb-5">{eyebrow} </span>}
-          <span className="mx-auto block max-w-[1180px] font-display text-[2.625rem] font-extrabold leading-[1] tracking-[-0.04em] text-ink sm:text-[2.35rem] md:text-[2.75rem] lg:text-[3.85rem] xl:text-[4.75rem]">
+          <span className={`mx-auto block max-w-[1180px] font-display font-extrabold leading-[1] tracking-[-0.04em] text-ink ${HEADLINE_SIZE[long ? "long" : "normal"]}`}>
             <span className="block">{h.line1}</span>
             <span className="mt-1 block sm:mt-2">
               {h.line2Before}

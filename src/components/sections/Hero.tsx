@@ -12,6 +12,7 @@ export function Hero() {
       secondary={hero.secondary}
       ticks={hero.ticks}
       useStats
+      long={hero.longHeadline}
     />
   );
 }

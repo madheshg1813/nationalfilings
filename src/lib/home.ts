@@ -7,7 +7,7 @@ import type { IconName } from "@/components/ui/LucideByName";
 /**
  * Headline options (one green accent each, ≤ 7 words). `hero.headline` picks the live one.
  * A: covers every service + the deadline pain.  B: the original pain-point line.  C: action-led.
- * D: authority-led.  E: names the core services, keyword-first.  Live: B (client's choice).
+ * D: authority-led.  E: names the core services, keyword-first.  F: services + expertise.  Live: F (client's choice, 2026-10-05).
  */
 export const headlineOptions = {
   A: { before: "Every filing done right,", lineTwoBefore: "and ", accent: "on time", after: "." },
@@ -17,13 +17,17 @@ export const headlineOptions = {
   D: { before: "Your business compliance,", lineTwoBefore: "handled by ", accent: "experts", after: "." },
   // E: names the core services (matches the page title keywords) + authority.
   E: { before: "GST, Tax & Company Registration,", lineTwoBefore: "handled by ", accent: "experts", after: "." },
+  // F: client's wording, broken after "Tax &" so it stays on 2 lines at 76px
+  F: { before: "Business Registration, Tax &", lineTwoBefore: "Compliance — Managed by ", accent: "Experts", after: "" },
 } as const;
 
 export const hero = {
   /** Small authority line above the H1 */
   kicker: "Trusted by startups, SMEs & NGOs",
-  headline: headlineOptions.B,
-  sub: "Company registration, GST, income tax, trademarks, NGO approvals and ROC compliance, prepared, filed and followed up by one team of consultants.",
+  headline: headlineOptions.F,
+  /** F is longer than the others: use the 68px headline size so it stays on 2 lines */
+  longHeadline: true,
+  sub: "Supporting startups, SMEs, professionals and NGOs with registration, taxation and regulatory compliance services across India.",
   primary: { label: "Talk to an expert", message: "Hi National Filings, I'd like to talk to an expert." },
   secondary: { label: "See services", href: "#services" },
   ticks: ["PAN India", "Upfront fees", "Single contact"],
