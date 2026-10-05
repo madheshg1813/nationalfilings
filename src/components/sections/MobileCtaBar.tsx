@@ -10,7 +10,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
  * Phones only. Appears once the hero buttons scroll away, hides while the final CTA is on screen.
  * The mobile menu has its own buttons, so the bar is hidden while it's open (CSS, via data-menu-open).
  */
-export function MobileCtaBar() {
+export function MobileCtaBar({ callLabel = "Call us", message }: { callLabel?: string; message?: string } = {}) {
   const [heroGone, setHeroGone] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);
   const tel = telLink();
@@ -40,7 +40,7 @@ export function MobileCtaBar() {
     >
       <div className="shell flex items-center gap-2.5 pt-2.5">
         <a
-          href={whatsappLink(finalCta.whatsapp.message)}
+          href={whatsappLink(message ?? finalCta.whatsapp.message)}
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={show ? 0 : -1}
@@ -56,7 +56,7 @@ export function MobileCtaBar() {
         >
           {tel ? (
             <>
-              <Phone className="h-4 w-4" /> Call us
+              <Phone className="h-4 w-4 max-[359px]:hidden" /> {callLabel}
             </>
           ) : (
             <>

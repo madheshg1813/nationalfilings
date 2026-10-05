@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Ban, FileLock2, Share2, UserCheck } from "lucide-react";
+import { definePage } from "@/lib/page";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 import { addressLine, site, telLink, whatsappLink } from "@/lib/site";
 
-// TODO(client): have a lawyer review this draft and name the grievance officer, then remove `robots` and add to the sitemap.
-export const metadata: Metadata = {
-  title: "Privacy Policy",
+// TODO(client): have a lawyer review this draft and name the grievance officer, before launch (the site-wide SITE_INDEXABLE switch keeps it noindex until then).
+const page = definePage({
+  path: "/privacy-policy",
+  title: `Privacy Policy | ${site.name}`,
   description: `How ${site.name} collects, uses, shares and protects the personal information and documents you give us.`,
-  robots: { index: false, follow: true },
-  alternates: { canonical: "/privacy" },
-};
+  trail: [{ name: "Privacy Policy", path: "/privacy-policy" }],
+});
+export const metadata = page.metadata;
 
 const UPDATED = "29 September 2026";
 
@@ -264,6 +265,7 @@ const sections: LegalSection[] = [
 export default function Page() {
   return (
     <LegalPage
+      page={page}
       title="Privacy Policy"
       accent="Policy"
       updated={UPDATED}

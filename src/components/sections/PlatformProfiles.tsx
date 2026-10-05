@@ -53,13 +53,13 @@ function PlatformCard({ p }: { p: Platform }) {
       <dl className="mt-5 grid grid-cols-2 divide-x divide-ink/10 rounded-2xl border border-ink/10 bg-cream-soft/60 sm:mt-6">
         {p.stats.map((st, i) => (
           <div key={st.label} className="flex min-w-0 flex-col justify-end px-3.5 py-3.5 min-[375px]:px-4 sm:px-5 sm:py-4">
-            {i === 0 && p.rating !== undefined && (
-              <span className="mb-2">
-                <Stars rating={p.rating} />
-              </span>
-            )}
             <dt className="sr-only">{st.label}</dt>
             <dd>
+              {i === 0 && p.rating !== undefined && (
+                <span className="mb-2 block">
+                  <Stars rating={p.rating} />
+                </span>
+              )}
               <p className="font-display text-[19px] font-extrabold leading-none tracking-tight text-ink min-[375px]:text-[22px] sm:text-[26px]">{st.value}</p>
               <p className="mt-1 text-[12.5px] font-medium text-ink-muted">{st.label}</p>
             </dd>

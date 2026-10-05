@@ -42,7 +42,7 @@ export function RecentActivity() {
   });
 
   return (
-    <section ref={ref} className="section bg-cream-soft" aria-labelledby="activity-title">
+    <section ref={ref} className="section border-t border-ink/10" aria-labelledby="activity-title">
       <div className="shell grid items-center gap-7 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         <div className="text-center lg:text-left">
           <p className="eyebrow-text">Recent work</p>

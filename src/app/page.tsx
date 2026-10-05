@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { PortalStrip } from "@/components/sections/PortalStrip";
@@ -9,37 +8,32 @@ import { Audiences } from "@/components/sections/Audiences";
 import { Process } from "@/components/sections/Process";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { PlatformProfiles } from "@/components/sections/PlatformProfiles";
-import { Team } from "@/components/sections/Team";
 import { RecentActivity } from "@/components/sections/RecentActivity";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 import { MobileCtaBar } from "@/components/sections/MobileCtaBar";
-import { JsonLd } from "@/components/JsonLd";
-import { homeGraph } from "@/lib/schema";
-import { faqs } from "@/lib/home";
+import { PageSchema } from "@/components/PageSchema";
+import { definePage } from "@/lib/page";
+import { servicesItemList } from "@/lib/schema";
 import { testimonials, visible } from "@/lib/proof";
 import { getGoogleReviews } from "@/lib/google-reviews";
 
-export const metadata: Metadata = {
-  title: { absolute: "GST, Tax & Company Registration | National Filings" },
+const page = definePage({
+  path: "/",
+  title: "GST, Tax & Company Registration | National Filings",
   description:
     "Company registration, GST returns, income tax, TDS, trademark, NGO 12A/80G and licences, handled end to end by National Filings for businesses across India.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "GST, Tax & Company Registration | National Filings",
-    description: "Registrations, returns and compliance handled end to end for startups, SMEs, professionals and NGOs across India.",
-    url: "/",
-    images: [{ url: "/brand/logo-full.png", width: 924, height: 465, alt: "National Filings" }],
-  },
-};
+  headline: "Paperwork slowing you down? We handle it.",
+});
+export const metadata = page.metadata;
 
 export default async function HomePage() {
   const google = await getGoogleReviews(); // null until GOOGLE_PLACES_API_KEY is set
   const hasReviews = Boolean(google?.reviews.length) || visible(testimonials).length > 0;
   return (
     <>
-      <JsonLd data={homeGraph(faqs)} />
+      <PageSchema page={page} extra={[servicesItemList()]} />
       <Header />
       <main>
         <Hero />
@@ -52,9 +46,8 @@ export default async function HomePage() {
         <Testimonials google={google} />
         {/* Same cream band as the testimonials, so it reads as their verification layer */}
         <PlatformProfiles continued={hasReviews} google={google} />
-        <Team />
         <RecentActivity />
-        <Faq />
+        <Faq className="bg-cream-soft" />
         <FinalCta />
       </main>
       <Footer />

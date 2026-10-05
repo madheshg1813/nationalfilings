@@ -1,4 +1,5 @@
 import type { IconName } from "@/components/ui/LucideByName";
+import { whatsappLink } from "./site";
 
 /**
  * Chennai page map, from "National_Filings_SEO_Site_Architecture_v2".
@@ -26,7 +27,8 @@ export const pillars: Pillar[] = [
     label: "Company Registration",
     short: "company registration",
     title: "Company Registration Service in Chennai",
-    path: "/chennai/company-registration-service",
+    path: "/chennai/company-registration",
+    live: true,
     icon: "Building2",
     blurb: "Private limited, LLP, OPC, partnership and proprietorship, plus ongoing ROC compliance.",
     clusters: [
@@ -43,6 +45,7 @@ export const pillars: Pillar[] = [
     short: "GST services",
     title: "GST Consultant in Chennai",
     path: "/chennai/gst-consultant-service",
+    live: true,
     icon: "ReceiptIndianRupee",
     blurb: "Registration, monthly and quarterly returns, cancellation and replies to GST notices.",
     clusters: [
@@ -110,5 +113,13 @@ export const licences: Licence[] = [
   { id: "L3", label: "Trade License", title: "Trade License in Chennai", path: "/chennai/trade-license-service", icon: "ScrollText", blurb: "Local authority permission to run your trade." },
   { id: "L4", label: "Shop & Establishment", title: "Shop and Establishment Registration in Chennai", path: "/chennai/shop-and-establishment-registration-service", icon: "Store", blurb: "State registration for shops, offices and outlets." },
 ];
+
+/** Where a service link points: the page once it's live, otherwise a WhatsApp chat about it (so no link 404s). */
+export function serviceHref(p: ServicePage, name = p.title): string {
+  return p.live ? p.path : whatsappLink(`Hi National Filings, I need help with ${name}.`);
+}
+
+/** Extra <a> props so off-site links (WhatsApp) open in a new tab */
+export const linkTarget = (href: string) => (/^https?:/.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : {});
 
 export const cityHub = { path: "/chennai", title: "National Filings Chennai" };

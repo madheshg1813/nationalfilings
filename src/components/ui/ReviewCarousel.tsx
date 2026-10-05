@@ -4,7 +4,7 @@ import { Children, useCallback, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const AUTO_MS = 3500;
+const AUTO_MS = 2500;
 const PAUSE_MS = 6000;
 
 /**

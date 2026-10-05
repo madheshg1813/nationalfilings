@@ -58,7 +58,7 @@ export function Header() {
                 <li key={n.href}>
                   <a
                     href={n.href}
-                    className="rounded-full px-3.5 py-2 text-[14px] font-medium text-ink-soft transition hover:bg-ink/[0.04] hover:text-ink"
+                    className="whitespace-nowrap rounded-full px-3.5 py-2 text-[14px] font-medium text-ink-soft transition md:px-2.5 lg:px-3.5 hover:bg-ink/[0.04] hover:text-ink"
                   >
                     {n.label}
                   </a>
@@ -67,11 +67,6 @@ export function Header() {
             </ul>
           </nav>
 
-          {tel && (
-            <a href={tel} className="hidden items-center gap-1.5 px-2 text-[14px] font-semibold text-ink lg:flex">
-              <Phone className="h-4 w-4" /> {site.phone}
-            </a>
-          )}
 
           <a
             href={whatsappLink(CTA_MESSAGE)}

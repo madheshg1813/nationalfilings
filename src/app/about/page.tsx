@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArrowRight, Star } from "lucide-react";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
@@ -6,27 +5,28 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ContactCard } from "@/components/sections/ContactCard";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { PlatformProfiles } from "@/components/sections/PlatformProfiles";
-import { Team } from "@/components/sections/Team";
-import { JsonLd } from "@/components/JsonLd";
+import { PageSchema } from "@/components/PageSchema";
+import { definePage } from "@/lib/page";
 import { LucideByName } from "@/components/ui/LucideByName";
 import { Reveal } from "@/components/ui/Reveal";
 import { serviceCategories } from "@/lib/services";
+import { audiences, process } from "@/lib/home";
+import { ProcessSteps } from "@/components/blocks/ProcessSteps";
+import { SectionHeader } from "@/components/blocks/SectionHeader";
 import { platforms } from "@/lib/proof";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: { absolute: "About National Filings | Registration & Tax Consultants, Chennai" },
+const page = definePage({
+  path: "/about",
+  title: "About National Filings | Registration & Tax Consultants, Chennai",
   description:
     "National Filings is a Chennai-based registration, tax and compliance firm helping startups, SMEs, professionals and NGOs across India since 2012.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About National Filings",
-    description: "A Chennai-based registration, tax and compliance firm helping businesses across India since 2012.",
-    url: "/about",
-    images: [{ url: "/brand/logo-full.png", width: 924, height: 465, alt: site.name }],
-  },
-};
+  headline: "Your filing team in Chennai, since 2012",
+  type: "AboutPage",
+  trail: [{ name: "About us", path: "/about" }],
+});
+export const metadata = page.metadata;
 
 // Facts come from the public profiles in lib/proof.ts, so this page and the home page never disagree
 const google = platforms.find((p) => p.id === "google");
@@ -43,37 +43,15 @@ const facts = [
 
 export default async function AboutPage() {
   const googleLive = await getGoogleReviews();
-  const graph = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "AboutPage",
-        "@id": `${site.url}/about#webpage`,
-        url: `${site.url}/about`,
-        name: "About National Filings",
-        isPartOf: { "@id": `${site.url}/#website` },
-        about: { "@id": `${site.url}/#organization` },
-        breadcrumb: { "@id": `${site.url}/about#breadcrumb` },
-        inLanguage: "en-IN",
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${site.url}/about#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-          { "@type": "ListItem", position: 2, name: "About us", item: `${site.url}/about` },
-        ],
-      },
-    ],
-  };
 
   return (
     <>
-      <JsonLd data={graph} />
+      <PageSchema page={page} />
       <Header />
       <main>
         <PageHero
           crumb="About us"
+          path="/about"
           eyebrow="About us"
           title="Your filing team in Chennai, since 2012"
           accent="since 2012"
@@ -148,9 +126,39 @@ export default async function AboutPage() {
           </div>
         </section>
 
-        <WhyUs eyebrow="How we work" title="What you can expect from us" id="how-we-work" />
+        <section className="section bg-cream-soft" aria-labelledby="industries-title">
+          <div className="shell">
+            <SectionHeader
+              id="industries-title"
+              eyebrow="Industries we serve"
+              title="Who we work with"
+              lead="From first-time founders to established companies and charities, across every state."
+            />
+            <ul className="mt-7 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-4 lg:grid-cols-4">
+              {audiences.map((a, i) => (
+                <Reveal as="li" key={a.title} delay={(i % 4) * 0.04} className="h-full">
+                  <div className="card flex h-full flex-col p-4 sm:p-5">
+                    <LucideByName name={a.icon} className="h-5 w-5 text-ink sm:h-6 sm:w-6" />
+                    <p className="mt-3 font-display text-[14px] font-bold leading-snug text-ink [text-wrap:balance] sm:text-[16px]">{a.title}</p>
+                    <p className="mt-1 text-[12.5px] leading-snug text-ink-muted sm:text-[14px]">{a.useCase}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <WhyUs eyebrow="Why National Filings" title="Why clients choose us" id="why-us" className="bg-white" />
+
+        <ProcessSteps
+          id="how-we-work"
+          className="border-t border-ink/10"
+          eyebrow="How we work"
+          title={process.title}
+          steps={process.steps}
+          note="After you share your documents, we take it from drafting to delivery and update you at every step."
+        />
         <PlatformProfiles google={googleLive} />
-        <Team />
         <div className="pt-4 sm:pt-8" />
         <ContactCard
           title="Let's talk about your filing"

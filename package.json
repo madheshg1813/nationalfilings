@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:schema": "node scripts/check-schema.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",

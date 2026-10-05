@@ -1,8 +1,12 @@
-import { ChevronRight } from "lucide-react";
+import { Breadcrumbs, type Crumb } from "@/components/ui/Breadcrumbs";
 
 type Props = {
   /** Breadcrumb label for this page */
   crumb: string;
+  /** This page's path, used for the breadcrumb schema (e.g. "/about") */
+  path: string;
+  /** Full trail when the page sits deeper than Home › Page (defaults to [{ crumb, path }]) */
+  trail?: Crumb[];
   eyebrow: string;
   title: string;
   /** Word(s) inside `title` drawn with the brand marker, as in the home page H1 */
@@ -12,7 +16,7 @@ type Props = {
 };
 
 /** Inner-page hero: breadcrumb, eyebrow, H1 with accent word, intro, on the grid backdrop with the logo's arcs. */
-export function PageHero({ crumb, eyebrow, title, accent, intro, children }: Props) {
+export function PageHero({ crumb, path, trail, eyebrow, title, accent, intro, children }: Props) {
   const at = accent ? title.indexOf(accent) : -1;
   const [before, after] = at >= 0 ? [title.slice(0, at), title.slice(at + accent!.length)] : [title, ""];
   return (
@@ -24,21 +28,7 @@ export function PageHero({ crumb, eyebrow, title, accent, intro, children }: Pro
         <path d="M60 230a140 140 0 0 0 280 0h-56a84 84 0 0 1-168 0z" fill="#E6F5F5" />
       </svg>
       <div className="shell relative pb-10 pt-6 sm:pb-16 sm:pt-10">
-        <nav aria-label="Breadcrumb" className="text-[12.5px] text-ink-muted">
-          <ol className="flex items-center gap-1">
-            <li>
-              <a href="/" className="hover:text-ink">
-                Home
-              </a>
-            </li>
-            <li aria-hidden>
-              <ChevronRight className="h-3.5 w-3.5" />
-            </li>
-            <li aria-current="page" className="font-medium text-ink-soft">
-              {crumb}
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumbs trail={trail ?? [{ name: crumb, path }]} />
 
         <h1 id="page-title" className="mt-5 max-w-3xl sm:mt-8">
           <span className="eyebrow-text block">{eyebrow}</span>

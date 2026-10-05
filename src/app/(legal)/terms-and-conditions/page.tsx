@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { CalendarClock, FileSignature, Landmark, ReceiptIndianRupee } from "lucide-react";
+import { definePage } from "@/lib/page";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 import { site, whatsappLink } from "@/lib/site";
 
-// TODO(client): have a lawyer review this draft (fees, refunds, liability, jurisdiction), then remove `robots` and add to the sitemap.
-export const metadata: Metadata = {
-  title: "Terms and Conditions",
+// TODO(client): have a lawyer review this draft (fees, refunds, liability, jurisdiction), before launch (the site-wide SITE_INDEXABLE switch keeps it noindex until then).
+const page = definePage({
+  path: "/terms-and-conditions",
+  title: `Terms and Conditions | ${site.name}`,
   description: `The terms that apply when you use the ${site.name} website or engage us for registration, tax and compliance services.`,
-  robots: { index: false, follow: true },
-  alternates: { canonical: "/terms" },
-};
+  trail: [{ name: "Terms and Conditions", path: "/terms-and-conditions" }],
+});
+export const metadata = page.metadata;
 
 const UPDATED = "29 September 2026";
 
@@ -25,7 +26,7 @@ const sections: LegalSection[] = [
           document applies to that piece of work.
         </p>
         <p>
-          How we handle your personal information is explained in our <a href="/privacy">Privacy Policy</a>.
+          How we handle your personal information is explained in our <a href="/privacy-policy">Privacy Policy</a>.
         </p>
       </>
     ),
@@ -100,7 +101,7 @@ const sections: LegalSection[] = [
       <p>
         We keep your information and documents confidential and use them only for your work, except where we need to share them with
         government portals or professionals working on your file, or where the law requires it. See our{" "}
-        <a href="/privacy">Privacy Policy</a> and <a href="/security">Security</a> page for details.
+        <a href="/privacy-policy">Privacy Policy</a> and <a href="/security">Security</a> page for details.
       </p>
     ),
   },
@@ -174,6 +175,7 @@ const sections: LegalSection[] = [
 export default function Page() {
   return (
     <LegalPage
+      page={page}
       title="Terms and Conditions"
       accent="Conditions"
       updated={UPDATED}

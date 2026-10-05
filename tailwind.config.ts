@@ -10,8 +10,8 @@ const config: Config = {
         ink: {
           DEFAULT: "#1C1917",
           soft: "#44403C",
-          muted: "#78716C",
-          faint: "#A8A29E",
+          muted: "#625D58", // AA on white and cream
+          faint: "#736D68", // AA on white, cream and tints
         },
         cream: { soft: "#F5F1EA" },
         // National Filings brand (from the logo)

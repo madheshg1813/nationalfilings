@@ -2,6 +2,7 @@ import { Plus } from "lucide-react";
 import { faqs as homeFaqs } from "@/lib/home";
 import { whatsappLink } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 function Item({ q, a, open }: { q: string; a: string; open?: boolean }) {
@@ -24,16 +25,29 @@ export function Faq({
   title = "Questions people ask us",
   message = "Hi National Filings, I have a question.",
   className = "",
+  schema = true,
 }: {
   items?: { q: string; a: string }[];
   title?: string;
   message?: string;
   className?: string;
+  /** FAQPage JSON-LD is emitted wherever the FAQ is used (on by default) */
+  schema?: boolean;
 }) {
   const faqs = items;
   const half = Math.ceil(faqs.length / 2);
   const cols = [faqs.slice(0, half), faqs.slice(half)];
   return (
+    <>
+    {schema && (
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        }}
+      />
+    )}
     <section id="faq" className={`section scroll-mt-16 ${className}`} aria-labelledby="faq-title">
       <div className="shell">
         <Reveal className="mx-auto max-w-2xl text-center">
@@ -66,5 +80,6 @@ export function Faq({
         </div>
       </div>
     </section>
+    </>
   );
 }

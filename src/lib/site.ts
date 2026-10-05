@@ -7,7 +7,7 @@
 export const site = {
   name: "National Filings",
   tagline: "Innovative Accountant",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nationalfillings.co.in", // from the SEO architecture doc; public profiles use nationalfilings.co.in (confirm)
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nationalfilings.co.in", // confirmed by the client (single L), same as the Google and Justdial profiles
   description:
     "Company registration, GST, income tax, TDS, trademark, NGO and licence services for startups, SMEs, professionals and NGOs across India.",
   phone: "+91 89391 01000" as string, // display format
@@ -20,19 +20,33 @@ export const site = {
     postalCode: "600069" as string,
     country: "IN",
   },
+  /** Opening hours as shown on the Google Business Profile (checked 2026-09-30). Keep identical to it. */
+  hours: [
+    { days: "Monday – Saturday", time: "9:00 am – 7:00 pm", dayCodes: ["Mo", "Tu", "We", "Th", "Fr", "Sa"], opens: "09:00", closes: "19:00" },
+    { days: "Sunday", time: "Closed", dayCodes: ["Su"], opens: "", closes: "" },
+  ],
+  /** Public Google Business Profile (directions, reviews) */
+  googleProfile: "https://share.google/zjLwaTCe8tTkQ7DkT",
   socials: [] as { label: string; href: string }[], // real profiles only
   nav: [
     { label: "Services", href: "/#services" },
     { label: "Why us", href: "/#why-us" },
     { label: "How it works", href: "/#process" },
-    { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/contact" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms and Conditions", href: "/terms" },
-    { label: "Security", href: "/security" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms and Conditions", href: "/terms-and-conditions" },
     { label: "Disclaimer", href: "/disclaimer" },
+    { label: "Refund Policy", href: "/refund-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Security", href: "/security" },
+  ],
+  quickLinks: [
+    { label: "Home", href: "/" },
+    { label: "Chennai", href: "/chennai" },
+    { label: "About us", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
 } as const;
 
@@ -44,6 +58,12 @@ export function whatsappLink(message: string): string {
 
 export function telLink(): string | null {
   return site.phone ? `tel:${site.phone.replace(/[^\d+]/g, "")}` : null;
+}
+
+/** Google Maps search link / keyless embed for the office address */
+export function mapsLink(embed = false): string {
+  const q = encodeURIComponent(`${site.name}, ${addressLine() ?? site.address.city}`);
+  return embed ? `https://www.google.com/maps?q=${q}&output=embed` : `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
 
 /** One-line postal address for display, or null if not set */

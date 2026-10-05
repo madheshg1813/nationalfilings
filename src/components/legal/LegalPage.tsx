@@ -4,12 +4,17 @@ import { Footer } from "@/components/sections/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactCard } from "@/components/sections/ContactCard";
 import { LegalToc } from "@/components/legal/LegalToc";
+import { CompanyDetails } from "@/components/ui/CompanyDetails";
+import { PageSchema } from "@/components/PageSchema";
+import type { Page } from "@/lib/page";
 
 export type LegalSection = { id: string; title: string; body: React.ReactNode };
 export type LegalHighlight = { icon: LucideIcon; title: string; text: string };
 
 type Props = {
   title: string;
+  /** From definePage(): drives the breadcrumb, canonical and JSON-LD */
+  page: Page;
   /** Word(s) inside `title` drawn with the brand marker, as in the home page H1 */
   accent?: string;
   intro?: React.ReactNode;
@@ -22,18 +27,23 @@ type Props = {
   contact?: { title: string; text: string; message: string };
 };
 
-export function LegalPage({ title, accent, intro, updated, highlights, sections, children, contact }: Props) {
+export function LegalPage({ title, page, accent, intro, updated, highlights, sections: pageSections, children, contact }: Props) {
   const help = contact ?? {
     title: "Questions about this page?",
     text: "Message us and a member of the team will get back to you.",
     message: `Hi National Filings, I have a question about your ${title.toLowerCase()}.`,
   };
 
+  // Every legal page ends with the same company details (NAP, hours, PAN India, private consultancy)
+  const companySection: LegalSection = { id: "company-details", title: "Company details", body: <CompanyDetails /> };
+  const sections = pageSections && pageSections.length > 0 ? [...pageSections, companySection] : undefined;
+
   return (
     <>
+      <PageSchema page={page} />
       <Header />
       <main>
-        <PageHero crumb={title} eyebrow="Legal" title={title} accent={accent} intro={intro}>
+        <PageHero crumb={title} path={page.path} eyebrow="Legal" title={title} accent={accent} intro={intro}>
           {updated && (
             <p className="chip mt-5 gap-1.5 sm:mt-6">
               <CalendarDays className="h-3.5 w-3.5 text-brand-deep" aria-hidden />
@@ -82,7 +92,11 @@ export function LegalPage({ title, accent, intro, updated, highlights, sections,
               </div>
             </div>
           ) : (
-            <div className="legal-prose mx-auto max-w-3xl">{children}</div>
+            <div className="legal-prose mx-auto max-w-3xl">
+              {children}
+              <h2 className="!mt-10 font-display text-[1.25rem] font-bold text-ink">Company details</h2>
+              <CompanyDetails />
+            </div>
           )}
         </div>
 

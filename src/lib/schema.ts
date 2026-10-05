@@ -1,23 +1,49 @@
 import { site } from "./site";
 import { serviceCategories } from "./services";
+import { platforms } from "./proof";
 
 const orgId = `${site.url}/#organization`;
 const webId = `${site.url}/#website`;
 
-/** Site-wide graph. Empty contact fields are left out rather than invented. */
-export function siteGraph() {
+export const localBusinessId = `${site.url}/#localbusiness`;
+
+/** Real public listings (Google Business Profile, Justdial) plus social profiles, for `sameAs` */
+function sameAs(): string[] {
+  const listings = platforms.filter((p) => !p.sample && p.url).map((p) => p.url);
+  return [...new Set([...listings, ...site.socials.map((s) => s.href)])];
+}
+
+function postalAddress() {
   const a = site.address;
-  const hasAddress = Boolean(a.street && a.city);
+  if (!a.street || !a.city) return undefined;
+  return {
+    "@type": "PostalAddress",
+    streetAddress: a.street,
+    addressLocality: a.city,
+    addressRegion: a.region,
+    postalCode: a.postalCode,
+    addressCountry: a.country,
+  };
+}
+
+/**
+ * Site-wide graph, on every page: Organization + LocalBusiness + WebSite.
+ * NAP and hours come from lib/site.ts (identical to the Google Business Profile). Empty fields are left out, never invented.
+ * No aggregateRating: Google ignores or penalises self-published review markup.
+ */
+export function siteGraph() {
+  const address = postalAddress();
+  const links = sameAs();
   const org: Record<string, unknown> = {
-    "@type": ["Organization", "ProfessionalService"],
+    "@type": "Organization",
     "@id": orgId,
     name: site.name,
     slogan: site.tagline,
     url: site.url,
-    logo: `${site.url}/brand/logo-full.png`,
-    image: `${site.url}/brand/logo-full.png`,
+    logo: { "@type": "ImageObject", url: `${site.url}/brand/logo-full.png`, width: 924, height: 465 },
     description: site.description,
     areaServed: { "@type": "Country", name: "India" },
+    ...(address && { address }),
     ...(site.phone && { telephone: site.phone }),
     ...(site.email && { email: site.email }),
     ...((site.phone || site.email) && {
@@ -25,121 +51,88 @@ export function siteGraph() {
         "@type": "ContactPoint",
         contactType: "customer service",
         areaServed: "IN",
-        availableLanguage: ["en", "hi"],
+        availableLanguage: ["en", "ta", "hi"],
         ...(site.phone && { telephone: site.phone }),
         ...(site.email && { email: site.email }),
       },
     }),
-    ...(hasAddress && {
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: a.street,
-        addressLocality: a.city,
-        addressRegion: a.region,
-        postalCode: a.postalCode,
-        addressCountry: a.country,
-      },
+    ...(links.length > 0 && { sameAs: links }),
+  };
+
+  const open = site.hours.filter((h) => h.opens && h.closes);
+  const business: Record<string, unknown> = {
+    "@type": "AccountingService",
+    "@id": localBusinessId,
+    name: site.name,
+    url: site.url,
+    image: `${site.url}/brand/logo-full.png`,
+    logo: `${site.url}/brand/logo-full.png`,
+    description: site.description,
+    parentOrganization: { "@id": orgId },
+    ...(address && { address }),
+    ...(site.phone && { telephone: site.phone }),
+    ...(site.email && { email: site.email }),
+    ...(site.googleProfile && { hasMap: site.googleProfile }),
+    ...(open.length > 0 && {
+      openingHoursSpecification: open.map((h) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: h.dayCodes.map((d) => DAY_NAMES[d]),
+        opens: h.opens,
+        closes: h.closes,
+      })),
     }),
-    ...(site.socials.length > 0 && { sameAs: site.socials.map((s) => s.href) }),
+    areaServed: [
+      { "@type": "City", name: "Chennai" },
+      { "@type": "Country", name: "India" },
+    ],
+    ...(links.length > 0 && { sameAs: links }),
   };
-  return {
-    "@context": "https://schema.org",
-    "@graph": [org, { "@type": "WebSite", "@id": webId, url: site.url, name: site.name, publisher: { "@id": orgId }, inLanguage: "en-IN" }],
-  };
-}
 
-export function homeGraph(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${site.url}/#webpage`,
-        url: site.url,
-        name: `${site.name} | GST, Tax & Company Registration`,
-        isPartOf: { "@id": webId },
-        about: { "@id": orgId },
-        inLanguage: "en-IN",
-      },
-      {
-        "@type": "ItemList",
-        name: "Services",
-        itemListElement: serviceCategories.map((c, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          item: { "@type": "Service", name: c.name, provider: { "@id": orgId }, areaServed: "IN" },
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-      },
+      org,
+      business,
+      { "@type": "WebSite", "@id": webId, url: site.url, name: site.name, publisher: { "@id": orgId }, inLanguage: "en-IN" },
     ],
   };
 }
 
-/** C0 city hub: branded local page. No self-published review markup (Google ignores or penalises it). */
-export function chennaiGraph(
-  faqs: { q: string; a: string }[],
-  pillarLinks: { name: string; path: string }[],
-) {
-  const pageUrl = `${site.url}/chennai`;
+const DAY_NAMES: Record<string, string> = {
+  Mo: "Monday",
+  Tu: "Tuesday",
+  We: "Wednesday",
+  Th: "Thursday",
+  Fr: "Friday",
+  Sa: "Saturday",
+  Su: "Sunday",
+};
+
+/** Extra node for the homepage graph: the service categories as an ItemList. */
+export function servicesItemList() {
   return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${pageUrl}#webpage`,
-        url: pageUrl,
-        name: "National Filings Chennai – Registration, Tax & Compliance Services",
-        headline: "Helping Chennai Businesses Grow Without Paperwork",
-        isPartOf: { "@id": webId },
-        about: { "@id": `${pageUrl}#business` },
-        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
-        inLanguage: "en-IN",
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${pageUrl}#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-          { "@type": "ListItem", position: 2, name: "Chennai", item: pageUrl },
-        ],
-      },
-      {
-        "@type": "AccountingService",
-        "@id": `${pageUrl}#business`,
-        name: "National Filings Chennai",
-        url: pageUrl,
-        parentOrganization: { "@id": orgId },
-        image: `${site.url}/brand/logo-full.png`,
-        // Same address as the Google Business Profile (lib/site.ts)
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.address.street,
-          addressLocality: site.address.city,
-          addressRegion: site.address.region,
-          postalCode: site.address.postalCode,
-          addressCountry: site.address.country,
-        },
-        areaServed: [
-          { "@type": "City", name: "Chennai" },
-          { "@type": "Country", name: "India" },
-        ],
-        ...(site.phone && { telephone: site.phone }),
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Services in Chennai",
-          itemListElement: pillarLinks.map((p) => ({
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: p.name, url: `${site.url}${p.path}` },
-          })),
-        },
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-      },
-    ],
+    "@type": "ItemList",
+    name: "Services",
+    itemListElement: serviceCategories.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: { "@type": "Service", name: c.name, provider: { "@id": localBusinessId }, areaServed: "IN" },
+    })),
+  };
+}
+
+/** Extra node for the Chennai hub: adds its service catalogue to the site-wide LocalBusiness (same @id, so Google merges them). */
+export function chennaiCatalogue(pillarLinks: { name: string; path: string }[]) {
+  return {
+    "@type": "AccountingService",
+    "@id": localBusinessId,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Services in Chennai",
+      itemListElement: pillarLinks.map((p) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: p.name, url: `${site.url}${p.path}` },
+      })),
+    },
   };
 }

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { MobileCtaBar } from "@/components/sections/MobileCtaBar";
@@ -12,33 +11,32 @@ import { ServiceDirectory, LicenceGrid, ExploreServices } from "@/components/cit
 import { CityAudiences } from "@/components/city/CityAudiences";
 import { CityAreas } from "@/components/city/CityAreas";
 import { CityCta } from "@/components/city/CityCta";
-import { JsonLd } from "@/components/JsonLd";
+import { PageSchema } from "@/components/PageSchema";
+import { definePage } from "@/lib/page";
 import { chennaiFaqs, chennaiWhy } from "@/lib/chennai";
 import { pillars } from "@/lib/routes";
-import { chennaiGraph } from "@/lib/schema";
+import { chennaiCatalogue } from "@/lib/schema";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import { testimonials, visible } from "@/lib/proof";
 
 // C0 · City hub. Branded keyword only ("national filings chennai"); service keywords belong to pillar pages.
-export const metadata: Metadata = {
-  title: { absolute: "National Filings Chennai | Registration, Tax & Compliance" },
+const page = definePage({
+  path: "/chennai",
+  title: "National Filings Chennai | Registration, Tax & Compliance",
   description:
     "National Filings Chennai helps startups, businesses, professionals and NGOs with registrations, tax filing, licences and compliance. Talk to an expert today.",
-  alternates: { canonical: "/chennai" },
-  openGraph: {
-    title: "National Filings Chennai | Registration, Tax & Compliance",
-    description: "Registrations, tax compliance, licences and ongoing support for businesses across Chennai.",
-    url: "/chennai",
-    images: [{ url: "/brand/logo-full.png", width: 924, height: 465, alt: "National Filings Chennai" }],
-  },
-};
+  headline: "Helping Chennai Businesses Grow Without Paperwork",
+  type: "CollectionPage",
+  trail: [{ name: "Chennai", path: "/chennai" }],
+});
+export const metadata = page.metadata;
 
 export default async function ChennaiPage() {
   const google = await getGoogleReviews();
   const hasReviews = Boolean(google?.reviews.length) || visible(testimonials).length > 0;
   return (
     <>
-      <JsonLd data={chennaiGraph(chennaiFaqs, pillars.map((p) => ({ name: p.label, path: p.path })))} />
+      <PageSchema page={page} extra={[chennaiCatalogue(pillars.map((p) => ({ name: p.label, path: p.path })))]} />
       <Header />
       <main>
         <CityHero />

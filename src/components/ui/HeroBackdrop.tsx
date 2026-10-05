@@ -1,95 +1,30 @@
-import {
-  BadgeCheck,
-  Building2,
-  Calculator,
-  FileCheck2,
-  FileText,
-  IndianRupee,
-  Landmark,
-  Percent,
-  ReceiptIndianRupee,
-  ShieldCheck,
-  Stamp,
-  type LucideIcon,
-} from "lucide-react";
+import { BadgeCheck, Building2, FileText, IndianRupee, Landmark, ReceiptIndianRupee, ShieldCheck, type LucideIcon } from "lucide-react";
 
 /**
- * Soft background texture for a centred hero: faint filing icons scattered at random
- * (fixed seed, so server and browser render the same layout), including behind the text.
- * A jittered grid keeps the scatter even without looking aligned.
- * The centre is dimmed, not cleared, so the headline stays crisp. Decorative only.
+ * Very faint decorative icons behind a centred hero: a few large filing symbols at 3–5% opacity,
+ * placed off-centre so they read as texture, never as content. Decorative only (aria-hidden).
+ * Phones show three, smaller.
  */
+type Mark = { Icon: LucideIcon; cls: string; teal?: boolean; phone?: boolean };
 
-const ICONS: LucideIcon[] = [
-  ReceiptIndianRupee,
-  IndianRupee,
-  FileText,
-  Building2,
-  ShieldCheck,
-  Percent,
-  Landmark,
-  BadgeCheck,
-  FileCheck2,
-  Calculator,
-  Stamp,
+const MARKS: Mark[] = [
+  { Icon: ReceiptIndianRupee, cls: "left-[4%] top-[10%] h-24 w-24 -rotate-12 sm:h-40 sm:w-40 lg:h-48 lg:w-48", teal: true, phone: true },
+  { Icon: Building2, cls: "right-[5%] top-[7%] h-24 w-24 rotate-6 sm:h-36 sm:w-36 lg:h-44 lg:w-44", phone: true },
+  { Icon: IndianRupee, cls: "left-[13%] top-[56%] h-32 w-32 rotate-[8deg] lg:h-40 lg:w-40" },
+  { Icon: ShieldCheck, cls: "right-[11%] top-[50%] h-36 w-36 -rotate-6 lg:h-48 lg:w-48", teal: true },
+  { Icon: FileText, cls: "left-[30%] top-[2%] h-24 w-24 rotate-[14deg] lg:h-28 lg:w-28" },
+  { Icon: Landmark, cls: "right-[27%] bottom-[4%] h-24 w-24 -rotate-[10deg] lg:h-32 lg:w-32" },
+  { Icon: BadgeCheck, cls: "bottom-[6%] left-[5%] h-20 w-20 rotate-12 sm:h-28 sm:w-28 lg:h-36 lg:w-36", teal: true, phone: true },
 ];
-
-// Small deterministic PRNG (mulberry32)
-function rng(seed: number) {
-  return () => {
-    seed |= 0;
-    seed = (seed + 0x6d2b79f5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-type Mark = { Icon: LucideIcon; left: number; top: number; size: number; rotate: number; teal: boolean; phone: boolean };
-
-const COLS = 7;
-const ROWS = 4;
-
-const MARKS: Mark[] = (() => {
-  const r = rng(20260928);
-  const out: Mark[] = [];
-  for (let row = 0; row < ROWS; row++) {
-    for (let col = 0; col < COLS; col++) {
-      if (r() < 0.12) continue; // leave a few gaps so it never reads as a grid
-      out.push({
-        Icon: ICONS[Math.floor(r() * ICONS.length)],
-        left: ((col + 0.1 + r() * 0.8) / COLS) * 100,
-        top: ((row + 0.1 + r() * 0.8) / ROWS) * 100,
-        size: 34 + Math.round(r() * 86), // 34–120px on desktop
-        rotate: Math.round(r() * 44 - 22),
-        teal: r() < 0.28,
-        phone: (col + row) % 2 === 0, // checkerboard subset on phones
-      });
-    }
-  }
-  return out;
-})();
 
 export function HeroBackdrop() {
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:radial-gradient(ellipse_60%_55%_at_50%_48%,rgba(0,0,0,0.35)_20%,#000_80%)] [-webkit-mask-image:radial-gradient(ellipse_60%_55%_at_50%_48%,rgba(0,0,0,0.35)_20%,#000_80%)]"
-    >
-      {MARKS.map(({ Icon, left, top, size, rotate, teal, phone }, i) => (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      {MARKS.map(({ Icon, cls, teal, phone }, i) => (
         <Icon
           key={i}
-          className={`absolute -translate-x-1/2 -translate-y-1/2 ${phone ? "" : "hidden md:block"} ${
-            teal ? "text-brand/[0.15]" : "text-ink/[0.065]"
-          }`}
-          style={{
-            left: `${left}%`,
-            top: `${top}%`,
-            width: `clamp(30px, ${(size / 12).toFixed(2)}vw, ${size}px)`,
-            height: `clamp(30px, ${(size / 12).toFixed(2)}vw, ${size}px)`,
-            transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
-          }}
-          strokeWidth={1.1}
+          className={`absolute ${cls} ${phone ? "" : "hidden md:block"} ${teal ? "text-brand/[0.05]" : "text-ink/[0.04]"}`}
+          strokeWidth={1}
         />
       ))}
     </div>

@@ -1,27 +1,27 @@
-import type { Metadata } from "next";
-import { ChevronRight, MapPin, Phone, Star } from "lucide-react";
+import { Phone, Star } from "lucide-react";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { MapEmbed } from "@/components/contact/MapEmbed";
+import { CompanyDetails } from "@/components/ui/CompanyDetails";
+import { CtaBand } from "@/components/blocks/CtaBand";
+import { SectionHeader } from "@/components/blocks/SectionHeader";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { JsonLd } from "@/components/JsonLd";
-import { serviceOptions } from "@/lib/contact";
-import { addressLine, site, telLink, whatsappLink } from "@/lib/site";
+import { PageSchema } from "@/components/PageSchema";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { definePage } from "@/lib/page";
+import { addressLine, mapsLink, site, telLink, whatsappLink } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: { absolute: "Contact National Filings | GST, Tax & Registration Experts" },
+const page = definePage({
+  path: "/contact",
+  title: "Contact National Filings | GST, Tax & Registration Experts",
   description:
     "Call, WhatsApp or send us your requirement and a National Filings expert will call you back with the documents, fee and next steps.",
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: "Contact National Filings",
-    description: "Tell us what you need to file and we'll call you back with the documents, fee and next steps.",
-    url: "/contact",
-    images: [{ url: "/brand/logo-full.png", width: 924, height: 465, alt: site.name }],
-  },
-};
-
-const GOOGLE_PROFILE = "https://share.google/zjLwaTCe8tTkQ7DkT";
+  headline: "Talk to a filing expert",
+  type: "ContactPage",
+  trail: [{ name: "Contact", path: "/contact" }],
+});
+export const metadata = page.metadata;
 
 const steps = [
   { title: "We call you back", text: "An expert calls you, usually within working hours on the same day." },
@@ -29,39 +29,14 @@ const steps = [
   { title: "We file and follow up", text: "We prepare, file and track your application until it's approved." },
 ];
 
-export default async function ContactPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
-  const { service } = await searchParams;
-  const preset = service && serviceOptions.includes(service) ? service : undefined;
+export default function ContactPage() {
   const tel = telLink();
   const address = addressLine();
 
-  const graph = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ContactPage",
-        "@id": `${site.url}/contact#webpage`,
-        url: `${site.url}/contact`,
-        name: "Contact National Filings",
-        isPartOf: { "@id": `${site.url}/#website` },
-        about: { "@id": `${site.url}/#organization` },
-        breadcrumb: { "@id": `${site.url}/contact#breadcrumb` },
-        inLanguage: "en-IN",
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${site.url}/contact#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-          { "@type": "ListItem", position: 2, name: "Contact", item: `${site.url}/contact` },
-        ],
-      },
-    ],
-  };
 
   return (
     <>
-      <JsonLd data={graph} />
+      <PageSchema page={page} />
       <Header />
       <main>
         <section className="relative overflow-hidden bg-white" aria-labelledby="contact-title">
@@ -72,21 +47,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
           </svg>
 
           <div className="shell relative pb-12 pt-6 sm:pb-20 sm:pt-10">
-            <nav aria-label="Breadcrumb" className="text-[12.5px] text-ink-muted">
-              <ol className="flex items-center gap-1">
-                <li>
-                  <a href="/" className="hover:text-ink">
-                    Home
-                  </a>
-                </li>
-                <li aria-hidden>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                </li>
-                <li aria-current="page" className="font-medium text-ink-soft">
-                  Contact
-                </li>
-              </ol>
-            </nav>
+            <Breadcrumbs trail={[{ name: "Contact", path: "/contact" }]} />
 
             {/* Phones: intro, form, then details. Desktop: intro and details on the left, form on the right. */}
             <div className="mt-5 grid gap-8 sm:mt-8 lg:grid-cols-[1fr_1.1fr] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-0">
@@ -118,7 +79,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
               <div id="enquiry" className="card relative scroll-mt-24 p-5 shadow-lift sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
                 <h2 className="font-display text-[1.3rem] font-extrabold tracking-tight text-ink sm:text-[1.6rem]">Request a call back</h2>
                 <p className="mb-6 mt-1 text-[14px] text-ink-muted">Takes under a minute. We reply during working hours.</p>
-                <ContactForm defaultService={preset} page="/contact" />
+                <ContactForm page="/contact" />
               </div>
 
               <div className="lg:col-start-1">
@@ -134,30 +95,38 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                   ))}
                 </ol>
 
-                {address && (
-                  <div className="card mt-8 flex gap-3.5 p-5 sm:mt-10">
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-tint text-brand-deep">
-                      <MapPin className="h-5 w-5" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="font-display text-[15px] font-bold text-ink">Visit our office</p>
-                      <address className="mt-1 text-[14px] not-italic leading-relaxed text-ink-soft">{address}</address>
-                      <a
-                        href={GOOGLE_PROFILE}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-brand-deep underline-offset-4 hover:underline"
-                      >
-                        <Star className="h-3.5 w-3.5 fill-current" aria-hidden />
-                        Directions and reviews on Google
-                      </a>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           </div>
         </section>
+
+        <section id="visit" className="section scroll-mt-16 border-t border-ink/10 bg-cream-soft/60" aria-labelledby="visit-title">
+          <div className="shell">
+            <SectionHeader
+              id="visit-title"
+              eyebrow="Visit or call us"
+              title="Our Chennai office"
+              lead="Walk in during business hours, or call before you come so the right consultant is free to meet you."
+            />
+            <div className="mx-auto mt-7 grid max-w-5xl gap-4 sm:mt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-6">
+              <CompanyDetails />
+              <MapEmbed embedUrl={mapsLink(true)} linkUrl={site.googleProfile || mapsLink()} label={address ?? site.address.city} />
+            </div>
+            <p className="mt-5 text-center text-[13px] text-ink-muted sm:mt-6">
+              <a href={site.googleProfile} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-brand-deep underline-offset-4 hover:underline">
+                <Star className="h-3.5 w-3.5 fill-current" aria-hidden />
+                See our reviews and directions on Google
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <CtaBand
+          title="Prefer to talk it through?"
+          sub="Call or message us with what you need to file. We'll tell you the documents, the fee and the timeline."
+          primary={tel ? { label: `Call ${site.phone}`, shortLabel: "Call us", href: tel, icon: "phone" } : { label: "WhatsApp us", href: whatsappLink("Hi National Filings, I'd like to talk to an expert."), external: true, icon: "whatsapp" }}
+          secondary={{ label: "WhatsApp us", shortLabel: "WhatsApp", href: whatsappLink("Hi National Filings, I'd like to talk to an expert."), external: true, icon: "whatsapp" }}
+        />
       </main>
       <Footer />
     </>

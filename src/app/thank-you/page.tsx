@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { definePage } from "@/lib/page";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
@@ -6,7 +6,13 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { LeadTracked } from "@/components/contact/LeadTracked";
 import { whatsappLink } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Thank you", robots: { index: false, follow: false } };
+const page = definePage({
+  path: "/thank-you",
+  title: "Thank you | National Filings",
+  description: "Thanks for contacting National Filings. An expert will call you back shortly.",
+  noindex: true,
+});
+export const metadata = page.metadata;
 
 export default async function ThankYouPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
   const { service } = await searchParams;

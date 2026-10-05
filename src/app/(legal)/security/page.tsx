@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { BadgeAlert, KeyRound, ShieldCheck, LockKeyhole } from "lucide-react";
+import { definePage } from "@/lib/page";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 import { site, telLink, whatsappLink } from "@/lib/site";
 
 // TODO(client): confirm these practices match how the office actually works.
-export const metadata: Metadata = {
-  title: "Security",
+const page = definePage({
+  path: "/security",
+  title: `Security | ${site.name}`,
   description: `How ${site.name} protects your documents, portal logins and digital signatures, and how to spot fraud using our name.`,
-  alternates: { canonical: "/security" },
-};
+  trail: [{ name: "Security", path: "/security" }],
+});
+export const metadata = page.metadata;
 
 const UPDATED = "29 September 2026";
 
@@ -103,7 +105,7 @@ const sections: LegalSection[] = [
     body: (
       <p>
         This website is served over a secure HTTPS connection. The contact form collects only what we need to call you back, and those
-        details are handled as described in our <a href="/privacy">Privacy Policy</a>.
+        details are handled as described in our <a href="/privacy-policy">Privacy Policy</a>.
       </p>
     ),
   },
@@ -132,6 +134,7 @@ const sections: LegalSection[] = [
 export default function Page() {
   return (
     <LegalPage
+      page={page}
       title="Security"
       accent="Security"
       updated={UPDATED}

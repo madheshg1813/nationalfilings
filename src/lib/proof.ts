@@ -1,7 +1,7 @@
 import type { IconName } from "@/components/ui/LucideByName";
 
 /**
- * Social proof: stats, testimonials, team and recent approvals.
+ * Social proof: stats, testimonials and recent approvals.
  *
  * Nothing here is real yet. Every item marked `sample: true` shows on the local
  * dev server with a "Sample" tag so the design can be reviewed, and is left out of
@@ -33,6 +33,16 @@ export const stats: Stat[] = [
   { value: "10+", label: "Years of experience", note: "In tax and compliance", icon: "Award", tick: "10+ years", sample: true },
   { value: "PAN India", label: "Service coverage", note: "Online, from any state", icon: "MapPinned", tick: "PAN India" },
 ];
+
+/** GST pillar trust bar only (kept out of `stats` so the home hero ticks don't change). Sample until confirmed. */
+export const gstFilingsStat = { value: "2,000+", label: "GST filings completed", sample: true };
+
+/* Client logos ------------------------------------------------------- */
+
+export type ClientLogo = { name: string; /** File in /public, e.g. "/clients/acme.svg" */ src: string; width: number; height: number };
+
+/** Add real client logos (with permission). While empty, the section shows placeholder slots on dev only. */
+export const clientLogos: ClientLogo[] = [];
 
 /* Testimonials ------------------------------------------------------- */
 
@@ -72,24 +82,6 @@ export type Testimonial = {
 // Real Google reviews now come from Featurable (see lib/google-reviews.ts).
 // Hand-added testimonials go here and are shown only if Google reviews can't be loaded.
 export const testimonials: Testimonial[] = [];
-
-/* Team --------------------------------------------------------------- */
-
-export type Member = {
-  name: string;
-  role: string;
-  credential: string;
-  focus: string[];
-  photo?: string; // /team/<file>.jpg (natural photo, not stock)
-  sample?: boolean;
-};
-
-export const team: Member[] = [
-  { name: "Founder name", role: "Founder", credential: "Add qualification, e.g. CA / CS", focus: ["Business advisory", "Tax planning"], sample: true },
-  { name: "Team member", role: "Compliance expert", credential: "Add qualification", focus: ["ROC filings", "Annual compliance"], sample: true },
-  { name: "Team member", role: "GST specialist", credential: "Add qualification", focus: ["GST returns", "Notices"], sample: true },
-  { name: "Team member", role: "Registration consultant", credential: "Add qualification", focus: ["Company & LLP", "NGO & trust"], sample: true },
-];
 
 /* Recent approvals --------------------------------------------------- */
 

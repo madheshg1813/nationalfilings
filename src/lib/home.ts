@@ -11,7 +11,7 @@ import type { IconName } from "@/components/ui/LucideByName";
  */
 export const headlineOptions = {
   A: { before: "Every filing done right,", lineTwoBefore: "and ", accent: "on time", after: "." },
-  B: { before: "Paperwork slowing you down?", lineTwoBefore: "We ", accent: "handle", after: " it." },
+  B: { before: "Paperwork slowing you down?", lineTwoBefore: "We ", accent: "handle it", after: "." },
   C: { before: "Register, file and stay", lineTwoBefore: "", accent: "compliant", after: "." },
   // D: authority-led; professional tone for business owners and NGOs alike.
   D: { before: "Your business compliance,", lineTwoBefore: "handled by ", accent: "experts", after: "." },
@@ -20,6 +20,8 @@ export const headlineOptions = {
 } as const;
 
 export const hero = {
+  /** Small authority line above the H1 */
+  kicker: "Trusted by startups, SMEs & NGOs",
   headline: headlineOptions.B,
   sub: "Company registration, GST, income tax, trademarks, NGO approvals and ROC compliance, prepared, filed and followed up by one team of consultants.",
   primary: { label: "Talk to an expert", message: "Hi National Filings, I'd like to talk to an expert." },

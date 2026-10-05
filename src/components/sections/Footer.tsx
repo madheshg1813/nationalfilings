@@ -1,107 +1,110 @@
 import Image from "next/image";
-import { Headset, MapPin, MapPinned, ReceiptIndianRupee } from "lucide-react";
+import { Check, Clock3, MapPin, Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services";
-import { addressLine, site, telLink } from "@/lib/site";
+import { addressLine, mapsLink, site, telLink } from "@/lib/site";
 
-const trust = [
-  { icon: MapPinned, label: "PAN India service" },
-  { icon: ReceiptIndianRupee, label: "Fee shared upfront" },
-  { icon: Headset, label: "Dedicated support" },
+// Subtle trust line (text ticks, not badges) so the footer never competes with page content
+const trust = ["PAN India services", "Transparent pricing", "Dedicated support", "Secure document handling"];
+
+const company = [
+  { label: "Why us", href: "/#why-us" },
+  { label: "How it works", href: "/#process" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Security", href: "/security" },
 ];
+
+function Column({ title, links, className = "" }: { title: string; links: { label: string; href: string }[]; className?: string }) {
+  return (
+    <nav aria-label={title} className={className}>
+      <p className="font-display text-[12.5px] font-bold uppercase tracking-wider text-ink">{title}</p>
+      <ul className="mt-3 space-y-2 text-[13.5px] text-ink-muted sm:space-y-2.5 sm:text-[14px]">
+        {links.map((l) => (
+          <li key={l.href + l.label}>
+            <a href={l.href} className="transition hover:text-ink">
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 
 export function Footer() {
   const tel = telLink();
   const address = addressLine();
   const year = new Date().getFullYear();
+  const openHours = site.hours.find((h) => h.opens);
+  const closed = site.hours.filter((h) => !h.opens).map((h) => h.days);
+
   return (
     <footer className="border-t border-ink/10 bg-white pb-[4.5rem] md:pb-0">
-      <div className="shell grid gap-8 py-10 sm:py-14 lg:grid-cols-[1.2fr_2fr]">
+      <div className="shell grid gap-9 py-10 sm:py-14 lg:grid-cols-[1.35fr_2.4fr] lg:gap-12">
+        {/* Brand + NAP (identical to the Google Business Profile) */}
         <div>
-          <Image src="/brand/logo-full.png" alt={`${site.name}, ${site.tagline}`} width={924} height={465} className="h-16 w-auto sm:h-20" />
-          <p className="mt-4 max-w-sm text-[14px] leading-relaxed text-ink-muted">
+          <Image src="/brand/logo-full.png" alt={`${site.name}, ${site.tagline}`} width={924} height={465} className="h-14 w-auto sm:h-16" />
+          <p className="mt-4 max-w-sm text-[13.5px] leading-relaxed text-ink-muted sm:text-[14px]">
             Tax, registration and compliance services for startups, SMEs, professionals and NGOs across India.
           </p>
-          {address && (
-            <address className="mt-4 flex max-w-sm gap-2 text-[13.5px] not-italic leading-relaxed text-ink-soft">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep" aria-hidden />
-              {address}
-            </address>
-          )}
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {trust.map(({ icon: Icon, label }) => (
-              <li key={label} className="chip gap-1.5 !py-1.5">
-                <Icon className="h-3.5 w-3.5 text-brand-deep" strokeWidth={1.8} aria-hidden />
-                {label}
+          <ul className="mt-5 space-y-2.5 text-[13px] leading-relaxed text-ink-soft sm:text-[13.5px]">
+            <li className="flex font-display text-[14px] font-bold text-ink">{site.name}</li>
+            {address && (
+              <li className="flex gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep" strokeWidth={1.8} aria-hidden />
+                {/* Opens the Google Business Profile (reviews, hours, directions) */}
+                <a
+                  href={site.googleProfile || mapsLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-4 hover:text-ink hover:underline"
+                  aria-label={`${address} (opens our Google Business Profile)`}
+                >
+                  <address className="not-italic">{address}</address>
+                </a>
+              </li>
+            )}
+            {tel && (
+              <li className="flex gap-2">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep" strokeWidth={1.8} aria-hidden />
+                <a href={tel} className="font-semibold hover:text-ink">
+                  {site.phone}
+                </a>
+              </li>
+            )}
+            {openHours && (
+              <li className="flex gap-2">
+                <Clock3 className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep" strokeWidth={1.8} aria-hidden />
+                <span>
+                  {openHours.days}, {openHours.time}
+                  {closed.length > 0 && ` · ${closed.join(", ")} closed`}
+                </span>
+              </li>
+            )}
+          </ul>
+          <ul className="mt-5 grid max-w-sm grid-cols-2 gap-x-3 gap-y-1.5 text-[12px] text-ink-muted sm:text-[12.5px]">
+            {trust.map((t) => (
+              <li key={t} className="flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 shrink-0 text-brand-deep" strokeWidth={2.4} aria-hidden />
+                {t}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
-          <div className="col-span-2">
-            <p className="font-display text-[13px] font-bold uppercase tracking-wider text-ink">Services</p>
-            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[14px] text-ink-muted">
-              {serviceCategories.map((c) => (
-                <li key={c.slug}>
-                  <a href="/#services" className="hover:text-ink">
-                    {c.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="col-span-2 sm:col-span-1">
-            <p className="font-display text-[13px] font-bold uppercase tracking-wider text-ink">Company</p>
-            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[14px] text-ink-muted sm:grid-cols-1">
-              <li>
-                <a href="/about" className="hover:text-ink">
-                  About us
-                </a>
-              </li>
-              <li>
-                <a href="/chennai" className="hover:text-ink">
-                  Chennai
-                </a>
-              </li>
-              {site.nav.slice(1).filter((n) => n.label !== "FAQ").map((n) => (
-                <li key={n.href}>
-                  <a href={n.href} className="hover:text-ink">
-                    {n.label}
-                  </a>
-                </li>
-              ))}
-              {tel && (
-                <li>
-                  <a href={tel} className="hover:text-ink">
-                    {site.phone}
-                  </a>
-                </li>
-              )}
-              {site.email && (
-                <li>
-                  <a href={`mailto:${site.email}`} className="break-all hover:text-ink">
-                    {site.email}
-                  </a>
-                </li>
-              )}
-            </ul>
-          </div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+          <Column title="Services" links={serviceCategories.map((c) => ({ label: c.name, href: "/#services" }))} />
+          <Column title="Company" links={company} />
+          <Column title="Legal" links={site.legal.filter((l) => l.href !== "/security")} />
+          <Column title="Quick links" links={site.quickLinks.map((l) => ({ label: l.label, href: l.href }))} />
         </div>
       </div>
+
       <div className="border-t border-ink/10">
-        <div className="shell flex flex-col gap-3 py-5 text-[12px] leading-relaxed text-ink-faint lg:flex-row lg:items-center lg:justify-between">
+        <div className="shell flex flex-col gap-1.5 py-5 text-[12px] leading-relaxed text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.name}. A private consultancy, not a government website or portal.
+            © {year} {site.name}. All rights reserved.
           </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-1">
-            {site.legal.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="inline-flex min-h-[32px] items-center hover:text-ink">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p>A private consultancy, not a government website or portal.</p>
         </div>
       </div>
     </footer>
