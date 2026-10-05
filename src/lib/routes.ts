@@ -68,7 +68,7 @@ export const pillars: Pillar[] = [
     label: "Income Tax Services",
     short: "income tax services",
     title: "Income Tax Consultant in Chennai",
-    path: "/chennai/income-tax-consultant-service",
+    path: "/chennai/income-tax-consultant", // the brief's URL (the architecture PDF used "-service")
     icon: "IndianRupee",
     blurb: "Income tax returns, TDS returns, tax planning and help with notices and refunds.",
     clusters: [

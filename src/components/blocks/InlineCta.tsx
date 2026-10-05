@@ -38,7 +38,7 @@ export function InlineCta({
         <p className="font-display text-[16px] font-bold leading-snug text-ink [text-wrap:balance] sm:text-[19px]">{title}</p>
         {sub && <p className="mt-1 text-[13.5px] leading-relaxed text-ink-muted sm:text-[15px]">{sub}</p>}
       </div>
-      <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
+      <div className="flex shrink-0 flex-wrap items-center justify-center gap-2 sm:gap-2.5">
         {tel && (
           <a href={tel} className="btn-primary !py-3 max-[374px]:!px-3.5 max-[374px]:!text-[13px]">
             <Phone className="h-4 w-4 max-[374px]:hidden" aria-hidden />

@@ -9,7 +9,11 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
+    // With a Cloudinary cloud name set, images are served from Cloudinary's CDN (see src/lib/cloudinary-loader.ts)
+    ...(process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME && { loader: "custom", loaderFile: "./src/lib/cloudinary-loader.ts" }),
     formats: ["image/avif", "image/webp"],
+    // Pages ask for 90 on photos; Cloudinary picks quality itself (q_auto), the default optimizer uses these
+    qualities: [75, 90],
     // Unsplash photos (free licence) are hotlinked and resized by next/image
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },

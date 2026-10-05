@@ -5,12 +5,13 @@
   "scripts": {
     "predev": "node scripts/gen-pages.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/gen-pages.mjs",
+    "prebuild": "node scripts/gen-pages.mjs && node scripts/upload-images.mjs",
     "build": "next build",
     "start": "next start",
     "pretypecheck": "node scripts/gen-pages.mjs",
     "typecheck": "tsc --noEmit",
-    "check:schema": "node scripts/check-schema.mjs"
+    "check:schema": "node scripts/check-schema.mjs",
+    "images:upload": "node scripts/upload-images.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",

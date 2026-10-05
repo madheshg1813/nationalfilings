@@ -55,7 +55,7 @@ export function LeadCta({
             </h2>
             <p className="relative mx-auto mt-3 max-w-xl text-[14px] leading-relaxed text-white/70 sm:mt-4 sm:text-[17px] lg:mx-0">{sub}</p>
 
-            <div className="relative mt-7 flex items-center justify-center gap-2 min-[375px]:gap-2.5 sm:mt-8 sm:gap-3 lg:justify-start">
+            <div className="relative mt-7 flex flex-wrap items-center justify-center gap-2 min-[375px]:gap-2.5 sm:mt-8 sm:gap-3 lg:justify-start">
               {tel && (
                 <a href={tel} className="btn-primary max-[374px]:!px-3.5 max-[374px]:!text-[13px]">
                   <Phone className="h-4 w-4 max-[374px]:hidden" aria-hidden />
