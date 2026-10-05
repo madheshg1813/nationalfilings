@@ -18,8 +18,6 @@ const nextConfig = {
     return [
       { source: "/privacy", destination: "/privacy-policy", permanent: true },
       { source: "/terms", destination: "/terms-and-conditions", permanent: true },
-      // The architecture PDF's original slug; the page lives at the shorter URL
-      { source: "/chennai/company-registration-service", destination: "/chennai/company-registration", permanent: true },
     ];
   },
   async headers() {

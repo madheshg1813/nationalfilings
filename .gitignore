@@ -5,3 +5,7 @@ out
 .env*.local
 *.tsbuildinfo
 .DS_Store
+
+# Chennai hub and pillar pages: not launched yet, kept local only
+/src/app/chennai/
+/p1/

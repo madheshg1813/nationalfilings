@@ -18,7 +18,6 @@ const page = (path: string, priority: number, changeFrequency: Entry["changeFreq
 export default function sitemap(): MetadataRoute.Sitemap {
   const core: Entry[] = [
     page("/", 1, "weekly"),
-    page("/chennai", 0.9, "weekly"),
     page("/about", 0.6, "monthly"),
     page("/contact", 0.6, "monthly"),
   ];

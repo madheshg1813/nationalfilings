@@ -28,7 +28,6 @@ export const pillars: Pillar[] = [
     short: "company registration",
     title: "Company Registration Service in Chennai",
     path: "/chennai/company-registration",
-    live: true,
     icon: "Building2",
     blurb: "Private limited, LLP, OPC, partnership and proprietorship, plus ongoing ROC compliance.",
     clusters: [
@@ -45,7 +44,6 @@ export const pillars: Pillar[] = [
     short: "GST services",
     title: "GST Consultant in Chennai",
     path: "/chennai/gst-consultant-service",
-    live: true,
     icon: "ReceiptIndianRupee",
     blurb: "Registration, monthly and quarterly returns, cancellation and replies to GST notices.",
     clusters: [
