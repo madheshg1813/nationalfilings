@@ -1,5 +1,6 @@
 import { site } from "./site";
 import { serviceCategories } from "./services";
+import { isBuilt } from "./routes";
 import { platforms } from "./proof";
 
 const orgId = `${site.url}/#organization`;
@@ -131,7 +132,7 @@ export function chennaiCatalogue(pillarLinks: { name: string; path: string }[]) 
       name: "Services in Chennai",
       itemListElement: pillarLinks.map((p) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: p.name, url: `${site.url}${p.path}` },
+        itemOffered: { "@type": "Service", name: p.name, ...(isBuilt(p.path) && { url: `${site.url}${p.path}` }) },
       })),
     },
   };

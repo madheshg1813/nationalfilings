@@ -1,13 +1,23 @@
 import type { IconName } from "@/components/ui/LucideByName";
 import { whatsappLink } from "./site";
+import { builtPages } from "./pages.generated";
 
 /**
  * Chennai page map, from "National_Filings_SEO_Site_Architecture_v2".
  * One registry so every link (city hub, footer, sitemap, future pillar pages) uses the same path and title.
- * `live: true` once the page is built; only live pages go in the sitemap.
+ * A page is live when its folder exists in src/app at build time (see scripts/gen-pages.mjs), so links,
+ * sitemap and breadcrumbs follow what is deployed with no flags to flip.
  */
 
-export type ServicePage = { id: string; title: string; path: string; live?: boolean };
+export type ServicePage = { id: string; title: string; path: string };
+
+const built = new Set(builtPages.map((p) => p.path));
+
+/** True when an internal link's page exists in this build. Anchors on built pages and external links count as built. */
+export function isBuilt(href: string): boolean {
+  if (!href.startsWith("/")) return true;
+  return built.has(href.split(/[?#]/)[0] || "/");
+}
 
 export type Pillar = ServicePage & {
   /** Short nav label (the page's H1 is the full title) */
@@ -112,9 +122,9 @@ export const licences: Licence[] = [
   { id: "L4", label: "Shop & Establishment", title: "Shop and Establishment Registration in Chennai", path: "/chennai/shop-and-establishment-registration-service", icon: "Store", blurb: "State registration for shops, offices and outlets." },
 ];
 
-/** Where a service link points: the page once it's live, otherwise a WhatsApp chat about it (so no link 404s). */
+/** Where a service link points: the page once it's built, otherwise a WhatsApp chat about it (so no link 404s). */
 export function serviceHref(p: ServicePage, name = p.title): string {
-  return p.live ? p.path : whatsappLink(`Hi National Filings, I need help with ${name}.`);
+  return isBuilt(p.path) ? p.path : whatsappLink(`Hi National Filings, I need help with ${name}.`);
 }
 
 /** Extra <a> props so off-site links (WhatsApp) open in a new tab */

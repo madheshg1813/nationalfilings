@@ -9,3 +9,6 @@ out
 # Chennai hub and pillar pages: not launched yet, kept local only
 /src/app/chennai/
 /p1/
+
+# Page manifest, regenerated before every dev/build (scripts/gen-pages.mjs)
+src/lib/pages.generated.ts

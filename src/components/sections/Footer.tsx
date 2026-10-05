@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Check, Clock3, MapPin, Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services";
+import { isBuilt } from "@/lib/routes";
 import { addressLine, mapsLink, site, telLink } from "@/lib/site";
 
 // Subtle trust line (text ticks, not badges) so the footer never competes with page content
@@ -94,8 +95,8 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           <Column title="Services" links={serviceCategories.map((c) => ({ label: c.name, href: "/#services" }))} />
           <Column title="Company" links={company} />
-          <Column title="Legal" links={site.legal.filter((l) => l.href !== "/security")} />
-          <Column title="Quick links" links={site.quickLinks.map((l) => ({ label: l.label, href: l.href }))} />
+          <Column title="Legal" links={site.legal.filter((l) => l.href !== "/security" && isBuilt(l.href))} />
+          <Column title="Quick links" links={site.quickLinks.filter((l) => isBuilt(l.href))} />
         </div>
       </div>
 

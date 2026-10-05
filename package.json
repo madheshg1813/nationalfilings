@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/gen-pages.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/gen-pages.mjs",
     "build": "next build",
     "start": "next start",
+    "pretypecheck": "node scripts/gen-pages.mjs",
     "typecheck": "tsc --noEmit",
     "check:schema": "node scripts/check-schema.mjs"
   },

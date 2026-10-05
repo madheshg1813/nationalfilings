@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "./site";
-import { licences, pillars, cityHub, type ServicePage } from "./routes";
+import { licences, pillars, cityHub, isBuilt, type ServicePage } from "./routes";
 
 /**
  * ONE definition per page → its <head> metadata AND its JSON-LD, so a new page can't ship without schema.
@@ -104,14 +104,15 @@ export function definePage(def: PageDef): Page {
 type Found = { page: ServicePage & { label?: string; blurb?: string }; parents: Crumb[] };
 
 function findService(path: string): Found | null {
-  const hub: Crumb = { name: "Chennai", path: cityHub.path };
+  // Breadcrumbs only include parent pages that are in this build, so they never point at a 404
+  const hub: Crumb[] = isBuilt(cityHub.path) ? [{ name: "Chennai", path: cityHub.path }] : [];
   for (const p of pillars) {
-    if (p.path === path) return { page: p, parents: [hub] };
+    if (p.path === path) return { page: p, parents: hub };
     const c = p.clusters.find((x) => x.path === path);
-    if (c) return { page: c, parents: [hub, { name: p.label, path: p.path }] };
+    if (c) return { page: c, parents: [...hub, ...(isBuilt(p.path) ? [{ name: p.label, path: p.path }] : [])] };
   }
   const l = licences.find((x) => x.path === path);
-  return l ? { page: l, parents: [hub] } : null;
+  return l ? { page: l, parents: hub } : null;
 }
 
 /**

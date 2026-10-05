@@ -7,11 +7,11 @@
 export const site = {
   name: "National Filings",
   tagline: "Innovative Accountant",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nationalfilings.co.in", // confirmed by the client (single L), same as the Google and Justdial profiles
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.nationalfilings.co.in", // confirmed by the client (single L). www is the main host: GoDaddy forwards the bare domain to it
   description:
     "Company registration, GST, income tax, TDS, trademark, NGO and licence services for startups, SMEs, professionals and NGOs across India.",
   phone: "+91 89391 01000" as string, // display format
-  whatsapp: "" as string, // digits only with country code, e.g. "9198xxxxxxxx"
+  whatsapp: "918939101000" as string, // digits only with country code (same number as the phone, confirmed 2026-10-05)
   email: "" as string,
   address: {
     street: "Corporate Office No 27, 1st Floor, Pallavaram to Main Road, Karaima Nagar, Kundrathur" as string,
@@ -44,6 +44,7 @@ export const site = {
   ],
   quickLinks: [
     { label: "Home", href: "/" },
+    { label: "Chennai", href: "/chennai" }, // hidden automatically while /chennai isn't in the build
     { label: "About us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
