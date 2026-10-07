@@ -1,6 +1,7 @@
 {
   "_comment": "Work log + publish schedule. Entries with a `path` are page launches: on Railway, a page folder is left out of the build until its IST date arrives (scripts/gate-pages.mjs). Every entry dated today or earlier appears in /publish-log.csv, which the 'national filings works' Google Sheet imports. Add a row here to log other work.",
   "log": [
+    { "date": "2026-10-04", "work": "Published home page", "page": "National Filings home page", "path": "/" },
     { "date": "2026-10-07", "work": "Published Chennai hub page", "page": "National Filings Chennai", "path": "/chennai" },
     { "date": "2026-10-08", "work": "Published pillar page", "page": "Company Registration Service in Chennai", "path": "/chennai/company-registration" },
     { "date": "2026-10-09", "work": "Published pillar page", "page": "GST Consultant in Chennai", "path": "/chennai/gst-consultant-service" },
