@@ -6,8 +6,9 @@ out
 *.tsbuildinfo
 .DS_Store
 
-# Chennai hub and pillar pages: not launched yet, kept local only
-/src/app/chennai/
+# Chennai pillar pages: not launched yet, kept local only. The hub (/chennai) is live.
+/src/app/chennai/*
+!/src/app/chennai/page.tsx
 /p1/
 
 # Page manifest, regenerated before every dev/build (scripts/gen-pages.mjs)
