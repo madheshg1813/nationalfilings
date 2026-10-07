@@ -1,0 +1,77 @@
+# Daily page publish: 7:00 AM IST.
+# If a page in src/lib/publish-schedule.json is due today (IST), redeploy Railway (the build's publish gate
+# then includes it), wait for the deploy, and check the page is live. A failure fails the run, and GitHub emails you.
+# Manual runs (Actions tab > Daily page publish > Run workflow) always deploy, as a test.
+name: Daily page publish
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST (GitHub may start scheduled runs a few minutes late)
+  workflow_dispatch:
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  RAILWAY_API: https://backboard.railway.com/graphql/v2
+  RAILWAY_SERVICE_ID: 1f7aa3d3-aeef-41c3-bd87-4f378288a47f # national-filings / web
+  RAILWAY_ENVIRONMENT_ID: cadefc4f-c651-44d5-a55e-ca9ccdc20fa2 # production
+  SITE: https://www.nationalfilings.co.in
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: What is due today (IST)
+        id: due
+        run: |
+          TODAY=$(TZ=Asia/Kolkata date +%F)
+          DUE=$(node -e '
+            const { log } = require("./src/lib/publish-schedule.json");
+            process.stdout.write(log.filter((e) => e.path && e.date === process.argv[1]).map((e) => e.path).join(" "));
+          ' "$TODAY")
+          echo "today=$TODAY" >> "$GITHUB_OUTPUT"
+          echo "paths=$DUE" >> "$GITHUB_OUTPUT"
+          echo "Today $TODAY IST. Due: ${DUE:-nothing}"
+
+      - name: Deploy on Railway
+        if: steps.due.outputs.paths != '' || github.event_name == 'workflow_dispatch'
+        id: deploy
+        env:
+          TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          gql() { curl -sS "$RAILWAY_API" -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d "$1"; }
+          RES=$(gql "{\"query\":\"mutation { serviceInstanceDeployV2(serviceId: \\\"$RAILWAY_SERVICE_ID\\\", environmentId: \\\"$RAILWAY_ENVIRONMENT_ID\\\", commitSha: \\\"$GITHUB_SHA\\\") }\"}")
+          ID=$(echo "$RES" | jq -r '.data.serviceInstanceDeployV2 // empty')
+          if [ -z "$ID" ]; then echo "Deploy request failed: $RES"; exit 1; fi
+          echo "Deployment $ID for commit ${GITHUB_SHA:0:7}"
+          for i in $(seq 1 60); do
+            STATUS=$(gql "{\"query\":\"{ deployment(id: \\\"$ID\\\") { status } }\"}" | jq -r '.data.deployment.status')
+            echo "$(date +%T) $STATUS"
+            case "$STATUS" in
+              SUCCESS) exit 0 ;;
+              FAILED|CRASHED|REMOVED|SKIPPED) echo "Deploy ended with $STATUS (the live site is unchanged)"; exit 1 ;;
+            esac
+            sleep 20
+          done
+          echo "Timed out waiting for the deploy"; exit 1
+
+      - name: Check the new pages are live
+        if: steps.due.outputs.paths != ''
+        run: |
+          for P in ${{ steps.due.outputs.paths }}; do
+            for i in $(seq 1 12); do
+              CODE=$(curl -s -o /dev/null -w '%{http_code}' "$SITE$P")
+              [ "$CODE" = "200" ] && break
+              sleep 10
+            done
+            echo "$SITE$P -> $CODE"
+            [ "$CODE" = "200" ] || exit 1
+            curl -s "$SITE/sitemap.xml" | grep -q "$SITE$P<" || { echo "$P missing from sitemap"; exit 1; }
+            curl -s "$SITE/publish-log.csv" | grep -q "$SITE$P" || { echo "$P missing from publish-log.csv"; exit 1; }
+          done
+          echo "Published: ${{ steps.due.outputs.paths }}"

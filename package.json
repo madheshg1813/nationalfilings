@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "node scripts/gen-pages.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/gen-pages.mjs && node scripts/upload-images.mjs",
+    "prebuild": "node scripts/gate-pages.mjs && node scripts/gen-pages.mjs && node scripts/upload-images.mjs",
     "build": "next build",
     "start": "next start",
     "pretypecheck": "node scripts/gen-pages.mjs",
