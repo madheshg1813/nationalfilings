@@ -130,4 +130,3 @@ export function serviceHref(p: ServicePage, name = p.title): string {
 /** Extra <a> props so off-site links (WhatsApp) open in a new tab */
 export const linkTarget = (href: string) => (/^https?:/.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : {});
 
-export const cityHub = { path: "/chennai", title: "National Filings Chennai" };

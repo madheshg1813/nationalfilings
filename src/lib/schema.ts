@@ -1,6 +1,5 @@
 import { site } from "./site";
 import { serviceCategories } from "./services";
-import { isBuilt } from "./routes";
 import { platforms } from "./proof";
 
 const orgId = `${site.url}/#organization`;
@@ -122,18 +121,3 @@ export function servicesItemList() {
   };
 }
 
-/** Extra node for the Chennai hub: adds its service catalogue to the site-wide LocalBusiness (same @id, so Google merges them). */
-export function chennaiCatalogue(pillarLinks: { name: string; path: string }[]) {
-  return {
-    "@type": "AccountingService",
-    "@id": localBusinessId,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Services in Chennai",
-      itemListElement: pillarLinks.map((p) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: p.name, ...(isBuilt(p.path) && { url: `${site.url}${p.path}` }) },
-      })),
-    },
-  };
-}

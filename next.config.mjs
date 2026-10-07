@@ -22,6 +22,8 @@ const nextConfig = {
     return [
       { source: "/privacy", destination: "/privacy-policy", permanent: true },
       { source: "/terms", destination: "/terms-and-conditions", permanent: true },
+      // The Chennai hub page was live on 7 Oct 2026 and then removed; send its URL to the home page
+      { source: "/chennai", destination: "/", permanent: true },
     ];
   },
   async headers() {

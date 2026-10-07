@@ -16,7 +16,6 @@ const legalPaths = new Set<string>(site.legal.map((l) => l.href));
 
 function role(path: string): Pick<Entry, "priority" | "changeFrequency"> {
   if (path === "/") return { priority: 1, changeFrequency: "weekly" };
-  if (path === "/chennai") return { priority: 0.9, changeFrequency: "weekly" };
   if (pillarPaths.has(path)) return { priority: 0.8, changeFrequency: "weekly" };
   if (childPaths.has(path)) return { priority: 0.7, changeFrequency: "monthly" };
   if (legalPaths.has(path)) return { priority: 0.3, changeFrequency: "yearly" };

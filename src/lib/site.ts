@@ -44,7 +44,6 @@ export const site = {
   ],
   quickLinks: [
     { label: "Home", href: "/" },
-    { label: "Chennai", href: "/chennai" }, // hidden automatically while /chennai isn't in the build
     { label: "About us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

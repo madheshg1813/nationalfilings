@@ -7,7 +7,7 @@ export type Crumb = { name: string; path: string };
 /**
  * Visible breadcrumb trail + matching BreadcrumbList schema, from one list.
  * `trail` excludes Home; the last item is the current page (not linked).
- * e.g. [{ name: "Chennai", path: "/chennai" }, { name: "Company Registration", path: "/chennai/company-registration" }]
+ * e.g. [{ name: "Company Registration", path: "/chennai/company-registration" }]
  * Page graphs can reference it as { "@id": breadcrumbId(lastPath) }.
  */
 export const breadcrumbId = (path: string) => `${site.url}${path}#breadcrumb`;

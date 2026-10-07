@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "./site";
-import { licences, pillars, cityHub, isBuilt, type ServicePage } from "./routes";
+import { licences, pillars, isBuilt, type ServicePage } from "./routes";
 
 /**
  * ONE definition per page → its <head> metadata AND its JSON-LD, so a new page can't ship without schema.
@@ -104,20 +104,19 @@ export function definePage(def: PageDef): Page {
 type Found = { page: ServicePage & { label?: string; blurb?: string }; parents: Crumb[] };
 
 function findService(path: string): Found | null {
-  // Breadcrumbs only include parent pages that are in this build, so they never point at a 404
-  const hub: Crumb[] = isBuilt(cityHub.path) ? [{ name: "Chennai", path: cityHub.path }] : [];
+  // No Chennai hub page (removed 2026-10-07). Breadcrumbs only include parent pages in this build, so they never point at a 404
   for (const p of pillars) {
-    if (p.path === path) return { page: p, parents: hub };
+    if (p.path === path) return { page: p, parents: [] };
     const c = p.clusters.find((x) => x.path === path);
-    if (c) return { page: c, parents: [...hub, ...(isBuilt(p.path) ? [{ name: p.label, path: p.path }] : [])] };
+    if (c) return { page: c, parents: isBuilt(p.path) ? [{ name: p.label, path: p.path }] : [] };
   }
   const l = licences.find((x) => x.path === path);
-  return l ? { page: l, parents: hub } : null;
+  return l ? { page: l, parents: [] } : null;
 }
 
 /**
  * Page definition for any pillar, cluster or licence page, from its path alone.
- * Breadcrumb: Home › Chennai › [Pillar ›] Page. Schema: WebPage + Service (Chennai). Override copy via `overrides`.
+ * Breadcrumb: Home › [Pillar ›] Page. Schema: WebPage + Service (Chennai). Override copy via `overrides`.
  */
 export function servicePage(path: string, overrides: Partial<PageDef> = {}): Page {
   const found = findService(path);
