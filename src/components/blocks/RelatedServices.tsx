@@ -8,10 +8,10 @@ type Item = { title: string; href: string; group: string };
 function allServices(): Item[] {
   return [
     ...pillars.flatMap((p) => [
-      { title: p.label, href: serviceHref(p, p.label), group: p.label },
+      { title: p.label, href: serviceHref(p), group: p.label },
       ...p.clusters.map((c) => ({ title: c.title, href: serviceHref(c), group: p.label })),
     ]),
-    ...licences.map((l) => ({ title: l.label, href: serviceHref(l, l.label), group: "Licences" })),
+    ...licences.map((l) => ({ title: l.label, href: serviceHref(l), group: "Licences" })),
   ];
 }
 

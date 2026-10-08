@@ -46,6 +46,8 @@ export const audiences = [
 export type GstService = {
   icon: string;
   title: string;
+  /** GST sub-page id in lib/routes.ts: the card links to it once it's published */
+  page: string;
   line: string;
   benefits: [string, string];
   cta: string;
@@ -56,6 +58,7 @@ export const services: GstService[] = [
   {
     icon: "FilePlus2",
     title: "GST Registration Service in Chennai",
+    page: "P2-C1", // links to this sub-page once it is published; plain card until then
     line: "New GSTIN for your business, filed with the right category and HSN/SAC codes.",
     benefits: ["Eligibility and scheme check", "Application tracked to approval"],
     cta: "Register for GST",
@@ -64,6 +67,7 @@ export const services: GstService[] = [
   {
     icon: "FileSpreadsheet",
     title: "GST Return Filing in Chennai",
+    page: "P2-C2", // links to this sub-page once it is published; plain card until then
     line: "GSTR-1 and GSTR-3B filed monthly or quarterly, on time, every time.",
     benefits: ["Sales and purchase data checked", "Due-date reminders"],
     cta: "Start return filing",
@@ -72,6 +76,7 @@ export const services: GstService[] = [
   {
     icon: "FileX2",
     title: "GST Cancellation in Chennai",
+    page: "P2-C3", // links to this sub-page once it is published; plain card until then
     line: "Close your GSTIN properly, including pending returns and the final return.",
     benefits: ["Pending returns cleared first", "Final return (GSTR-10) filed"],
     cta: "Cancel my GST",
@@ -80,6 +85,7 @@ export const services: GstService[] = [
   {
     icon: "MailWarning",
     title: "GST Notice Reply in Chennai",
+    page: "P2-C4", // links to this sub-page once it is published; plain card until then
     line: "Clear, documented replies to GST notices before the deadline.",
     benefits: ["Notice reviewed and explained", "Reply and documents prepared"],
     cta: "Get notice help",

@@ -1,4 +1,5 @@
 import schedule from "@/lib/publish-schedule.json";
+import { builtPages } from "@/lib/pages.generated";
 import { site } from "@/lib/site";
 
 /**
@@ -22,6 +23,8 @@ export function GET() {
   const today = process.env.GATE_DATE || new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
   const rows = schedule.log
     .filter((e) => e.date <= today)
+    // a page launch is only logged once the page is actually in the build, so the sheet never claims a missing page
+    .filter((e) => !e.path || builtPages.some((p) => p.path === e.path))
     .map((e) => [readable(e.date), e.work, e.page, e.path ? `${site.url}${e.path}` : ""].map(cell).join(","));
   const csv = ["Date,Work done,Page,URL", ...rows].join("\n") + "\n";
   return new Response(csv, {

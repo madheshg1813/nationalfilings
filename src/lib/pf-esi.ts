@@ -1,5 +1,4 @@
 import { pillars, serviceHref } from "./routes";
-import { whatsappLink } from "./site";
 
 /**
  * P6 · PF & ESI pillar (/chennai/pf-esi-consultant). Same framework as the Company Registration pillar;
@@ -19,9 +18,9 @@ const byId = (id: string) => pillars.find((p) => p.id === id)!;
 
 export const paths = {
   registration,
-  company: serviceHref(byId("P1"), "Company Registration"),
-  gst: serviceHref(byId("P2"), "GST Services"),
-  incomeTax: serviceHref(byId("P3"), "Income Tax Services"),
+  company: serviceHref(byId("P1")),
+  gst: serviceHref(byId("P2")),
+  incomeTax: serviceHref(byId("P3")),
   tds: serviceHref(byId("P3").clusters.find((c) => c.id === "P3-C2")!),
 };
 
@@ -50,8 +49,6 @@ export type PfEsiService = {
   tag?: string;
 };
 
-// Services without their own page yet open a WhatsApp chat about that service
-const ask = (what: string) => whatsappLink(`Hi National Filings, I need help with ${what}.`);
 
 export const services: PfEsiService[] = [
   {
@@ -97,7 +94,7 @@ export const services: PfEsiService[] = [
     icon: "UserPlus",
     bestFor: "Businesses hiring regularly that need every joiner set up right",
     advantages: ["UAN generated or linked", "KYC and nominations updated", "ESI registration for new joiners"],
-    href: ask("PF and ESI for new employees"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Employee onboarding compliance",
   },
   {
@@ -106,7 +103,7 @@ export const services: PfEsiService[] = [
     icon: "ArrowLeftRight",
     bestFor: "Employees moving PF from a previous employer",
     advantages: ["Transfer claims raised online", "Employer approvals completed", "Service history kept in one account"],
-    href: ask("PF transfer"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "PF transfer assistance",
   },
   {
@@ -115,7 +112,7 @@ export const services: PfEsiService[] = [
     icon: "ClipboardCheck",
     bestFor: "Employers who have received an EPFO or ESIC inspection or notice",
     advantages: ["Records prepared and checked", "Gaps found and fixed before the visit", "Replies to notices drafted"],
-    href: ask("a PF or ESI inspection"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Inspection support",
   },
   {
@@ -124,7 +121,7 @@ export const services: PfEsiService[] = [
     icon: "Scale",
     bestFor: "Growing employers who need wider workforce compliance",
     advantages: ["Applicable registrations checked", "Registers and records set up", "Updates as labour rules change"],
-    href: ask("labour law compliance"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Labour law compliance",
   },
 ];

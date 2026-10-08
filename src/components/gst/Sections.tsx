@@ -50,6 +50,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { AutoScrollRow } from "@/components/ui/AutoScrollRow";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappLink } from "@/lib/site";
+import { pillars, serviceHref } from "@/lib/routes";
 import { DocumentTabs } from "./DocumentTabs";
 import {
   audiences,
@@ -65,6 +66,9 @@ import {
   steps,
   stepsNote,
 } from "@/lib/gst";
+
+/** Published page for a GST sub-page id (lib/routes.ts), or "" while it isn't published */
+const pageHref = (id: string) => serviceHref(pillars.flatMap((p) => p.clusters).find((c) => c.id === id)!);
 
 const ICONS: Record<string, LucideIcon> = {
   ArrowLeftRight, Award, BadgeIndianRupee, Briefcase, CalendarCheck, CalendarClock, CalendarRange, CalendarX2, Factory,
@@ -139,15 +143,16 @@ export function Services() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={whatsappLink(s.message)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14px] font-semibold text-brand-deep hover:text-brand-hover"
-              >
-                {s.cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-              </a>
+              {/* cards never open WhatsApp: the link appears once the sub-page is published */}
+              {pageHref(s.page) && (
+                <a
+                  href={pageHref(s.page)}
+                  className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14px] font-semibold text-brand-deep hover:text-brand-hover"
+                >
+                  Learn more<span className="sr-only">: {s.title}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </a>
+              )}
             </div>
           </article>
         </li>

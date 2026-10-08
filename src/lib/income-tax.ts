@@ -1,5 +1,4 @@
 import { pillars, serviceHref } from "./routes";
-import { whatsappLink } from "./site";
 
 /**
  * P3 · Income Tax pillar (/chennai/income-tax-consultant). Same framework as the Company Registration pillar.
@@ -16,7 +15,7 @@ export const pillar = pillars.find((p) => p.id === "P3")!;
 const cluster = (id: string) => serviceHref(pillar.clusters.find((c) => c.id === id)!);
 const sibling = (pillarId: string, clusterId?: string) => {
   const p = pillars.find((x) => x.id === pillarId)!;
-  return clusterId ? serviceHref(p.clusters.find((c) => c.id === clusterId)!) : serviceHref(p, p.label);
+  return clusterId ? serviceHref(p.clusters.find((c) => c.id === clusterId)!) : serviceHref(p);
 };
 
 export const paths = {
@@ -52,8 +51,6 @@ export type TaxService = {
   tag?: string;
 };
 
-// Services without their own page yet open a WhatsApp chat about that service
-const ask = (what: string) => whatsappLink(`Hi National Filings, I need help with ${what}.`);
 
 export const services: TaxService[] = [
   {
@@ -72,7 +69,7 @@ export const services: TaxService[] = [
     icon: "Calculator",
     bestFor: "Anyone who wants to plan investments and deductions before the year ends",
     advantages: ["Old and new regime compared on your numbers", "Deductions planned before 31 March", "Clear, legal ways to save tax"],
-    href: ask("tax planning"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Tax planning",
   },
   {
@@ -81,7 +78,7 @@ export const services: TaxService[] = [
     icon: "MailWarning",
     bestFor: "Taxpayers who received an intimation, demand or scrutiny notice",
     advantages: ["Notice explained in plain words", "Reply drafted with supporting documents", "Response filed on the portal on time"],
-    href: ask("an income tax notice"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Tax notice assistance",
   },
   {
@@ -90,7 +87,7 @@ export const services: TaxService[] = [
     icon: "TrendingUp",
     bestFor: "Investors who sold shares, mutual funds, property or gold",
     advantages: ["Short- and long-term gains worked out", "Reinvestment exemptions checked where they apply", "Losses set off and carried forward"],
-    href: ask("capital gains tax"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Capital gains tax",
   },
   {
@@ -99,7 +96,7 @@ export const services: TaxService[] = [
     icon: "Briefcase",
     bestFor: "Proprietors, partnership firms and companies with business income",
     advantages: ["Taxable profit worked out from your books", "Presumptive taxation checked where eligible", "Tax audit coordinated when turnover requires it"],
-    href: ask("business taxation"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Business taxation",
   },
   {
@@ -108,7 +105,7 @@ export const services: TaxService[] = [
     icon: "CalendarClock",
     bestFor: "Freelancers, investors and business owners whose tax isn't fully covered by TDS",
     advantages: ["Instalments worked out for each due date", "Interest for late payment avoided", "Challans prepared for you"],
-    href: ask("advance tax"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Advance tax support",
   },
   {
@@ -126,7 +123,7 @@ export const services: TaxService[] = [
     icon: "Globe",
     bestFor: "NRIs with rent, interest, capital gains or other income in India",
     advantages: ["Residential status worked out", "Tax treaty (DTAA) relief checked", "Excess TDS claimed back as a refund"],
-    href: ask("NRI income tax"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "NRI tax services",
   },
 ];

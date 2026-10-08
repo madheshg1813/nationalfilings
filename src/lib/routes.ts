@@ -1,5 +1,4 @@
 import type { IconName } from "@/components/ui/LucideByName";
-import { whatsappLink } from "./site";
 import { builtPages } from "./pages.generated";
 
 /**
@@ -115,16 +114,27 @@ export const pillars: Pillar[] = [
 
 export type Licence = ServicePage & { label: string; icon: IconName; blurb: string };
 
+// Licence, registration and certification pages. Paths follow the user's briefs (no "-service" suffix).
 export const licences: Licence[] = [
-  { id: "L1", label: "MSME Registration", title: "MSME / Udyam Registration in Chennai", path: "/chennai/msme-registration-service", icon: "Factory", blurb: "Udyam certificate for loans, subsidies and schemes." },
-  { id: "L2", label: "FSSAI Registration", title: "FSSAI Registration in Chennai", path: "/chennai/fssai-registration-service", icon: "UtensilsCrossed", blurb: "Food licence for restaurants, kitchens and sellers." },
-  { id: "L3", label: "Trade License", title: "Trade License in Chennai", path: "/chennai/trade-license-service", icon: "ScrollText", blurb: "Local authority permission to run your trade." },
-  { id: "L4", label: "Shop & Establishment", title: "Shop and Establishment Registration in Chennai", path: "/chennai/shop-and-establishment-registration-service", icon: "Store", blurb: "State registration for shops, offices and outlets." },
+  { id: "L1", label: "MSME Registration", title: "MSME / Udyam Registration in Chennai", path: "/chennai/msme-registration", icon: "Factory", blurb: "Udyam certificate for loans, subsidies and schemes." },
+  { id: "L2", label: "FSSAI Registration", title: "FSSAI Registration in Chennai", path: "/chennai/fssai-registration", icon: "UtensilsCrossed", blurb: "Food licence for restaurants, kitchens and sellers." },
+  { id: "L3", label: "Trade License", title: "Trade License in Chennai", path: "/chennai/trade-license", icon: "ScrollText", blurb: "Local authority permission to run your trade." },
+  { id: "L4", label: "Shop & Establishment", title: "Shop and Establishment Registration in Chennai", path: "/chennai/shop-establishment-registration", icon: "Store", blurb: "State registration for shops, offices and outlets." },
+  { id: "L5", label: "IEC Registration", title: "IEC Registration in Chennai", path: "/chennai/iec-registration", icon: "Globe", blurb: "Import Export Code for international trade." },
+  { id: "L6", label: "Digital Signature Certificate", title: "Digital Signature Certificate in Chennai", path: "/chennai/digital-signature-certificate", icon: "KeyRound", blurb: "DSC for MCA, GST and government filings." },
+  { id: "L7", label: "ISO Certification", title: "ISO Certification in Chennai", path: "/chennai/iso-certification", icon: "BadgeCheck", blurb: "ISO certification to raise business standards." },
 ];
 
-/** Where a service link points: the page once it's built, otherwise a WhatsApp chat about it (so no link 404s). */
-export function serviceHref(p: ServicePage, name = p.title): string {
-  return isBuilt(p.path) ? p.path : whatsappLink(`Hi National Filings, I need help with ${name}.`);
+/**
+ * Where a service card links on the live site: the page once it's in the build (published), otherwise "" (no link).
+ * Cards never open WhatsApp (the user's rule): with "" a card renders as a plain card and becomes a link
+ * automatically on its page's publish date. Only CTA buttons open WhatsApp.
+ */
+export function serviceHref(p: ServicePage): string {
+  // Local development: every card links to its intended page so the interlinking can be previewed (unbuilt ones 404 locally).
+  // Production builds (the live site): only published pages are linked.
+  if (process.env.NODE_ENV !== "production") return p.path;
+  return isBuilt(p.path) ? p.path : "";
 }
 
 /** Extra <a> props so off-site links (WhatsApp) open in a new tab */

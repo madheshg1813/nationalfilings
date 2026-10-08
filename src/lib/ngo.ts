@@ -1,5 +1,4 @@
 import { pillars, serviceHref } from "./routes";
-import { whatsappLink } from "./site";
 
 /**
  * P4 · NGO Registration pillar (/chennai/ngo-registration). Same framework as the Company Registration pillar;
@@ -20,7 +19,7 @@ export const paths = {
   society: cluster("P4-C2"),
   section8: cluster("P4-C3"),
   exemptions: cluster("P4-C4"),
-  company: serviceHref(pillars.find((p) => p.id === "P1")!, "Company Registration"),
+  company: serviceHref(pillars.find((p) => p.id === "P1")!),
 };
 
 export const SERVICE = "NGO Registration"; // must match a contact form option (pillar label)
@@ -48,8 +47,6 @@ export type NgoService = {
   tag?: string;
 };
 
-// Services without their own page yet open a WhatsApp chat about that service
-const ask = (what: string) => whatsappLink(`Hi National Filings, I need help with ${what}.`);
 
 export const services: NgoService[] = [
   {
@@ -104,7 +101,7 @@ export const services: NgoService[] = [
     icon: "Handshake",
     bestFor: "NGOs preparing to receive CSR funds from companies",
     advantages: ["CSR-1 registration with the MCA", "Eligibility checked before you apply", "Documents CSR partners ask for"],
-    href: ask("CSR registration for our NGO"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "CSR registration support",
   },
   {
@@ -113,7 +110,7 @@ export const services: NgoService[] = [
     icon: "ClipboardCheck",
     bestFor: "Registered NGOs that need records and approvals kept up to date",
     advantages: ["Books and audit coordinated", "Meeting minutes and registers", "Trustee and member changes recorded"],
-    href: ask("NGO compliance"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "NGO compliance",
   },
   {
@@ -122,7 +119,7 @@ export const services: NgoService[] = [
     icon: "CalendarCheck",
     bestFor: "Trusts, societies and Section 8 companies with yearly deadlines",
     advantages: ["NGO income tax return filed", "Audit report filed on time", "Registrar or ROC annual returns"],
-    href: ask("annual filings for our NGO"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "NGO annual filings",
   },
 ];

@@ -90,6 +90,17 @@ function Icon({ name, className }: { name: string; className?: string }) {
   return <I className={className} strokeWidth={1.75} aria-hidden />;
 }
 
+/** A link when the card has a page to go to, otherwise the same card as plain content (cards never open WhatsApp) */
+function CardLink({ href, className, children }: { href: string; className: string; children: React.ReactNode }) {
+  return href ? (
+    <a href={href} {...linkTarget(href)} className={`${className} transition duration-300 hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-lift`}>
+      {children}
+    </a>
+  ) : (
+    <div className={className}>{children}</div>
+  );
+}
+
 const tile = "grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-ink/10 bg-white sm:h-11 sm:w-11";
 
 /* 1 · Structures ---------------------------------------------------- */
@@ -120,6 +131,10 @@ export function StructureCards() {
               ))}
             </ul>
 
+            {/* plain card until its page is published (cards never open WhatsApp) */}
+
+            {s.href && (
+
             <a
               href={s.href}
               {...linkTarget(s.href)}
@@ -128,6 +143,8 @@ export function StructureCards() {
               Learn more<span className="sr-only">: {s.linkLabel}</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </a>
+
+            )}
           </article>
         </li>
       ))}
@@ -534,20 +551,17 @@ export function RelatedRegistrations() {
     <ul className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
       {items.map((s, i) => (
         <li key={s.id} className={items.length % 2 === 1 && i === items.length - 1 ? "col-span-2 md:col-span-1" : ""}>
-          <a
-            href={s.href}
-            {...linkTarget(s.href)}
-            className="card group flex h-full flex-col !rounded-2xl p-4 transition duration-300 hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-lift sm:p-5"
-          >
+          {/* links once the page is published; a plain card until then */}
+          <CardLink href={s.href} className="card group flex h-full flex-col !rounded-2xl p-4 sm:p-5">
             <span className="flex items-start justify-between">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint">
                 <Icon name={s.icon} className="h-5 w-5 text-brand-deep" />
               </span>
-              <ArrowUpRight className="h-4 w-4 text-ink-faint transition group-hover:text-ink" aria-hidden />
+              {s.href && <ArrowUpRight className="h-4 w-4 text-ink-faint transition group-hover:text-ink" aria-hidden />}
             </span>
             <span className="mt-4 font-display text-[14.5px] font-bold leading-snug text-ink sm:text-[16px]">{s.linkLabel.replace(/^\w/, (c) => c.toUpperCase())}</span>
             <span className="mt-1 text-[12.5px] text-ink-muted sm:text-[13px]">in Chennai</span>
-          </a>
+          </CardLink>
         </li>
       ))}
     </ul>

@@ -1,19 +1,20 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { homePillars, keyServices, type PillarCard, type PreviewKind } from "@/lib/services";
-import { linkTarget, pillars, serviceHref, type Pillar, type ServicePage } from "@/lib/routes";
+import { pillars, serviceHref, type Pillar, type ServicePage } from "@/lib/routes";
 import { whatsappLink } from "@/lib/site";
 import { LucideByName } from "@/components/ui/LucideByName";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { ServicePreview } from "./ServicePreview";
 
-// Each card links to its page once it's live (on its publish date) and opens a WhatsApp chat about it until then.
+// Each card links to its page once that page is published, and is a plain card until then.
+// Cards never open WhatsApp (the user's rule); only the "Not sure which service" CTA below does.
 type Card = PillarCard & { page: Pillar; href: string; live: boolean };
 
 const cards: Card[] = homePillars.map((c) => {
   const page = pillars.find((p) => p.id === c.id)!;
-  const href = serviceHref(page, page.label);
-  return { ...c, page, href, live: !href.startsWith("http") };
+  const href = serviceHref(page);
+  return { ...c, page, href, live: Boolean(href) };
 });
 const featured = cards.filter((c) => c.featured);
 const regular = cards.filter((c) => !c.featured);
@@ -21,15 +22,19 @@ const regular = cards.filter((c) => !c.featured);
 const key = keyServices.map((k) => {
   const c = pillars.flatMap((p) => p.clusters).find((x) => x.id === k.id) as ServicePage;
   const href = serviceHref(c);
-  return { ...k, title: c.title, href, live: !href.startsWith("http") };
+  return { ...k, title: c.title, href, live: Boolean(href) };
 });
 
-/** Card link props: new tab + WhatsApp label until the page is live */
-const linkProps = (c: { href: string; live: boolean }, name: string) => ({
-  href: c.href,
-  ...linkTarget(c.href),
-  "aria-label": c.live ? undefined : `${name}: ask an expert on WhatsApp`,
-});
+/** The card itself: a link when its page is published, otherwise the same card without link or hover */
+function Shell({ href, className, plain, children }: { href: string; className: string; plain: string; children: React.ReactNode }) {
+  return href ? (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  ) : (
+    <div className={plain}>{children}</div>
+  );
+}
 
 function PopularBadge() {
   return (
@@ -76,12 +81,14 @@ function CardCta({ label }: { label: string }) {
 
 const cardBase =
   "card group relative flex h-full flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-ink/20 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2";
+// Same card before its page is published: no link, no hover lift
+const cardPlain = "card relative flex h-full flex-col overflow-hidden";
 
 function FeaturedCard({ c }: { c: Card }) {
   return (
-    <a {...linkProps(c, c.page.label)} className={cardBase}>
+    <Shell href={c.href} className={cardBase} plain={cardPlain}>
       {c.popular && <PopularBadge />}
-      <CornerArrow />
+      {c.live && <CornerArrow />}
       <PreviewArea preview={c.preview} tall />
       <div className="flex flex-1 flex-col p-4 sm:p-6">
         <div className="flex items-center gap-3">
@@ -97,17 +104,17 @@ function FeaturedCard({ c }: { c: Card }) {
             </li>
           ))}
         </ul>
-        <CardCta label={c.live ? "View service" : "Ask an expert"} />
+        {c.live && <CardCta label="View service" />}
       </div>
-    </a>
+    </Shell>
   );
 }
 
 function CategoryCard({ c }: { c: Card }) {
   return (
-    <a {...linkProps(c, c.page.label)} className={cardBase}>
+    <Shell href={c.href} className={cardBase} plain={cardPlain}>
       {c.popular && <PopularBadge />}
-      <CornerArrow />
+      {c.live && <CornerArrow />}
       <PreviewArea preview={c.preview} />
       <div className="flex flex-1 flex-col p-3.5 sm:p-5">
         <div className="flex items-center gap-3">
@@ -124,25 +131,25 @@ function CategoryCard({ c }: { c: Card }) {
             </li>
           ))}
         </ul>
-        <CardCta label={c.live ? "View service" : "Enquire"} />
+        {c.live && <CardCta label="View service" />}
       </div>
-    </a>
+    </Shell>
   );
 }
 
 /** Small tile for a key cluster service: icon + name only (the user's call: small cards). The line shows as a tooltip. */
 function KeyServiceCard({ k }: { k: (typeof key)[number] }) {
   return (
-    <a
-      {...linkProps(k, k.title)}
-      title={k.line}
+    <Shell
+      href={k.href}
       className="card group flex h-full items-center gap-2.5 !rounded-xl px-3 py-2.5 transition duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+      plain="card flex h-full items-center gap-2.5 !rounded-xl px-3 py-2.5"
     >
       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-tint transition group-hover:bg-brand-deep">
         <LucideByName name={k.icon} className="h-4 w-4 text-brand-deep transition group-hover:text-white" />
       </span>
       <span className="min-w-0 font-display text-[12.5px] font-bold leading-tight text-ink [text-wrap:balance] sm:text-[13.5px]">{k.title}</span>
-    </a>
+    </Shell>
   );
 }
 

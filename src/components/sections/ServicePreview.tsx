@@ -7,15 +7,15 @@ import type { PreviewKind } from "@/lib/services";
  * Purely decorative: aria-hidden, no real numbers.
  */
 
-const Bar = ({ w, tone = "ink" }: { w: string; tone?: "ink" | "soft" }) => (
+export const Bar = ({ w, tone = "ink" }: { w: string; tone?: "ink" | "soft" }) => (
   <span className={`block h-[5px] rounded-full ${tone === "ink" ? "bg-ink/15" : "bg-ink/[0.07]"}`} style={{ width: w }} />
 );
 
-const Tick = ({ className = "" }: { className?: string }) => (
+export const Tick = ({ className = "" }: { className?: string }) => (
   <Check className={`h-2.5 w-2.5 shrink-0 text-brand-deep sm:h-3 sm:w-3 ${className}`} strokeWidth={3} />
 );
 
-const Pill = ({ children, done = true }: { children: React.ReactNode; done?: boolean }) => (
+export const Pill = ({ children, done = true }: { children: React.ReactNode; done?: boolean }) => (
   <span
     className={`inline-flex items-center gap-0.5 rounded-full px-1.5 py-[1px] text-[8px] font-semibold sm:text-[9px] ${
       done ? "bg-brand-tint text-brand-deep" : "border border-ink/15 text-ink-muted"
@@ -26,7 +26,7 @@ const Pill = ({ children, done = true }: { children: React.ReactNode; done?: boo
   </span>
 );
 
-const Window = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+export const Window = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <div
     className={`rounded-xl border border-ink/10 bg-white p-2.5 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.35)] sm:p-3 ${className}`}
   >
@@ -249,7 +249,7 @@ function Trademark() {
   );
 }
 
-function ImportExport() {
+export function ImportExport() {
   return (
     <Window className="w-[88%] max-w-[240px]">
       <div className="flex items-center justify-between">

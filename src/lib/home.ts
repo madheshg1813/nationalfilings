@@ -56,6 +56,31 @@ export const portals: { name: string; caption: string; icon: IconName }[] = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* Licences, registrations & certifications                            */
+/* ------------------------------------------------------------------ */
+
+/** One card per licence page in lib/routes.ts (by id): links to the page once it's live, WhatsApp until then */
+export const licenceSection = {
+  eyebrow: "Registrations",
+  title: "Licences, Registrations & Certifications",
+  lead: "From MSME registration and food licences to import-export approvals and ISO certifications, our experts help businesses stay compliant and ready for growth.",
+  cards: [
+    { id: "L1", name: "MSME / Udyam Registration", icon: "Building2", line: "Get your MSME certificate and unlock government benefits for your business." },
+    { id: "L2", name: "FSSAI Registration", icon: "ShieldCheck", line: "Food licence registration for restaurants, manufacturers and food businesses." },
+    { id: "L3", name: "Trade License", icon: "Briefcase", line: "Obtain municipal approvals required for legally operating your business." },
+    { id: "L4", name: "Shop & Establishment Registration", short: "Shop & Establishment", icon: "Store", line: "Register your office, shop or commercial establishment with ease." },
+    { id: "L5", name: "IEC Registration", icon: "Globe", line: "Import Export Code registration for businesses involved in international trade." },
+    { id: "L6", name: "Digital Signature Certificate", icon: "KeyRound", line: "Secure DSC certificates for MCA, GST and government filings." },
+    { id: "L7", name: "ISO Certification", icon: "BadgeCheck", line: "Build trust and improve business standards through ISO certification." },
+  ] as { id: string; name: string; short?: string; icon: IconName; line: string }[],
+  cta: {
+    title: "Not sure which registration you need?",
+    sub: "Talk with our experts and get guidance based on your business type, industry and compliance requirements.",
+    message: "Hi National Filings, I'm not sure which registration or licence my business needs. Can you guide me?",
+  },
+};
+
+/* ------------------------------------------------------------------ */
 /* Why National Filings                                                */
 /* ------------------------------------------------------------------ */
 

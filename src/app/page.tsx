@@ -2,6 +2,7 @@ import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { PortalStrip } from "@/components/sections/PortalStrip";
 import { Services } from "@/components/sections/Services";
+import { Licences } from "@/components/sections/Licences";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Comparison } from "@/components/sections/Comparison";
 import { Audiences } from "@/components/sections/Audiences";
@@ -39,6 +40,7 @@ export default async function HomePage() {
         <Hero />
         <PortalStrip />
         <Services />
+        <Licences />
         <WhyUs />
         <Comparison />
         <Audiences />

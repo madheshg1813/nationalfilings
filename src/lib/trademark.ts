@@ -1,5 +1,4 @@
 import { licences, pillars, serviceHref } from "./routes";
-import { whatsappLink } from "./site";
 
 /**
  * P5 · Trademark Registration pillar (/chennai/trademark-registration). Same framework as the Company Registration pillar;
@@ -18,9 +17,9 @@ const byId = (id: string) => pillars.find((p) => p.id === id)!;
 
 export const paths = {
   copyright: serviceHref(pillar.clusters.find((c) => c.id === "P5-C1")!),
-  company: serviceHref(byId("P1"), "Company Registration"),
-  gst: serviceHref(byId("P2"), "GST Services"),
-  msme: serviceHref(licences.find((l) => l.id === "L1")!, "MSME Registration"),
+  company: serviceHref(byId("P1")),
+  gst: serviceHref(byId("P2")),
+  msme: serviceHref(licences.find((l) => l.id === "L1")!),
 };
 
 export const SERVICE = "Trademark Registration"; // must match a contact form option (pillar label)
@@ -48,8 +47,6 @@ export type TrademarkService = {
   tag?: string;
 };
 
-// Services without their own page yet open a WhatsApp chat about that service
-const ask = (what: string) => whatsappLink(`Hi National Filings, I need help with ${what}.`);
 
 export const services: TrademarkService[] = [
   {
@@ -68,7 +65,7 @@ export const services: TrademarkService[] = [
     icon: "Palette",
     bestFor: "Brands whose logo or symbol is a key part of their identity",
     advantages: ["Logo filed as a device mark", "Colours and elements described correctly", "Can be filed alongside the word mark"],
-    href: ask("logo trademark registration"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Logo trademark registration",
   },
   {
@@ -77,7 +74,7 @@ export const services: TrademarkService[] = [
     icon: "Type",
     bestFor: "Brand names you want protected in any font, style or colour",
     advantages: ["Broadest protection for the name", "Covers how the name is written and spoken", "Works across packaging, websites and ads"],
-    href: ask("word mark registration"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Word mark registration",
   },
   {
@@ -86,7 +83,7 @@ export const services: TrademarkService[] = [
     icon: "RefreshCw",
     bestFor: "Registered marks nearing the end of their 10-year term",
     advantages: ["Renewal filed before expiry", "Late renewal and restoration options checked", "Reminder set for the next renewal"],
-    href: ask("trademark renewal"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Trademark renewal",
   },
   {
@@ -104,7 +101,7 @@ export const services: TrademarkService[] = [
     icon: "ArrowLeftRight",
     bestFor: "Owners transferring or selling a trademark, or moving it into a company",
     advantages: ["Assignment deed drafted", "Change recorded with the registry", "Ownership records kept clean"],
-    href: ask("trademark assignment"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Trademark assignment",
   },
   {
@@ -113,7 +110,7 @@ export const services: TrademarkService[] = [
     icon: "SearchCheck",
     bestFor: "Founders choosing a new brand name before investing in it",
     advantages: ["Identical and similar marks checked", "Risk explained before you file", "Stronger alternatives suggested"],
-    href: ask("a trademark search"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Trademark search",
   },
   {
@@ -122,7 +119,7 @@ export const services: TrademarkService[] = [
     icon: "ShieldCheck",
     bestFor: "Brands facing copycats or similar new applications",
     advantages: ["Trade Marks Journal watch", "Oppositions to similar applications", "Help with cease-and-desist notices"],
-    href: ask("brand protection"),
+    href: "" /* no page yet: plain card until one is published */,
     linkLabel: "Brand protection support",
   },
 ];
