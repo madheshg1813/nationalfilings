@@ -22,9 +22,9 @@ export type PageType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage
 
 export type PageDef = {
   path: string;
-  /** <title>, ≤ 60 chars, keyword first. Used as-is (no site suffix). */
+  /** <title>, 50-60 chars, primary keyword included. Used as-is (no site suffix). */
   title: string;
-  /** Meta description, 140-160 chars */
+  /** Meta description, 140-150 chars: keyword, a key benefit, Chennai where relevant. No em/en dashes. */
   description: string;
   /** Visible headline, if different from the title (schema `headline`) */
   headline?: string;
@@ -45,7 +45,22 @@ const localBusinessId = `${site.url}/#localbusiness`;
 const webId = `${site.url}/#website`;
 const abs = (path: string) => `${site.url}${path === "/" ? "/" : path}`;
 
+/** The site's SEO meta rule for every indexable page. Dev shows an error so new pages can't ship off-spec; production only warns so publishing never breaks. */
+function checkMeta(def: PageDef) {
+  if (def.noindex) return;
+  const problems = [
+    (def.title.length < 50 || def.title.length > 60) && `title is ${def.title.length} chars (needs 50-60)`,
+    (def.description.length < 140 || def.description.length > 150) && `description is ${def.description.length} chars (needs 140-150)`,
+    /[\u2013\u2014]/.test(def.title + def.description) && "contains an em/en dash",
+  ].filter(Boolean);
+  if (!problems.length) return;
+  const msg = `SEO meta for ${def.path}: ${problems.join("; ")}`;
+  if (process.env.NODE_ENV !== "production") throw new Error(msg);
+  console.warn(msg);
+}
+
 export function definePage(def: PageDef): Page {
+  checkMeta(def);
   const url = abs(def.path);
   const image = def.image ?? "/brand/logo-full.png";
 

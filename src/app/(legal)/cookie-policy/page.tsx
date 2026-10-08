@@ -6,8 +6,8 @@ import { site } from "@/lib/site";
 // TODO(client): review before launch. Keep this page in sync if analytics, chat or advertising tools are added.
 const page = definePage({
   path: "/cookie-policy",
-  title: `Cookie Policy | ${site.name}`,
-  description: `What cookies the ${site.name} website uses (analytics only, if switched on), third-party cookies, and how to control them.`,
+  title: "Cookie Policy | How National Filings Uses Website Cookies",
+  description: "See which cookies the National Filings website uses, including optional analytics and third-party cookies, and how to manage or switch them off.",
   trail: [{ name: "Cookie Policy", path: "/cookie-policy" }],
 });
 export const metadata = page.metadata;

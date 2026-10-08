@@ -36,9 +36,11 @@ export function Audiences() {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-3.5 sm:p-5">
-                <h3 className="font-display text-[14px] font-bold leading-snug text-ink [text-wrap:balance] sm:text-[16px]">{a.title}</h3>
-                <p className="mt-1 text-[12px] leading-snug text-ink-muted sm:mt-1.5 sm:text-[14px]">{a.useCase}</p>
-                <ul className="mt-auto flex flex-wrap gap-1 pt-3 sm:gap-1.5 sm:pt-4">
+                {/* fixed heights for title and description, so the tags start at the same line in every card */}
+                <h3 className="font-display text-[14px] font-bold leading-snug text-ink sm:min-h-[1.4em] sm:text-[16px]">{a.title}</h3>
+                <p className="mt-1 min-h-[2.75em] text-[12px] leading-snug text-ink-muted sm:mt-1.5 sm:text-[14px]">{a.useCase}</p>
+                {/* one tag per line, left-aligned: every card shows the same tidy column instead of ragged wrapping */}
+                <ul className="mt-auto flex flex-col items-start gap-1.5 pt-3 sm:pt-4">
                   {a.needs.map((n) => (
                     <li
                       key={n}

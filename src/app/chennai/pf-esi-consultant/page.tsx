@@ -30,9 +30,8 @@ import { audienceCta, CALL_LABEL, comparisonCta, faqs, finalCta, hero, includedC
 
 // P6 · PF & ESI pillar, built on the Company Registration pillar framework. Primary keyword: "pf esi consultant in chennai".
 const page = servicePage(pillar.path, {
-  title: "PF & ESI Consultant in Chennai | Registration & Monthly Filing | National Filings",
-  description:
-    "PF and ESI consultant in Chennai for registration, monthly PF and ESI return filing, employee onboarding and inspections. Compliance handled by experts.",
+  title: "PF & ESI Consultant in Chennai | Registration & Returns",
+  description: "PF and ESI consultant in Chennai for registration, monthly returns and employee compliance. On-time filing that keeps interest and penalties away.",
   headline: "PF & ESI Consultant in Chennai",
 });
 export const metadata = page.metadata;

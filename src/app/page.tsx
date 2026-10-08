@@ -22,9 +22,8 @@ import { getGoogleReviews } from "@/lib/google-reviews";
 
 const page = definePage({
   path: "/",
-  title: "GST, Tax & Company Registration | National Filings",
-  description:
-    "Company registration, GST returns, income tax, TDS, trademark, NGO 12A/80G and licences, handled end to end by National Filings for businesses across India.",
+  title: "Business Registration, GST & Tax Services | National Filings",
+  description: "Company registration, GST returns, income tax and business licences handled by expert consultants. Clear fees and on-time filing across India.",
   headline: "Business Registration, Tax & Compliance - Managed by Experts",
 });
 export const metadata = page.metadata;

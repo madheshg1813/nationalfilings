@@ -32,9 +32,8 @@ import { audienceCta, CALL_LABEL, classCta, faqs, finalCta, hero, includedCta, m
 
 // P5 · Trademark pillar, built on the Company Registration pillar framework. Primary keyword: "trademark registration in chennai".
 const page = servicePage(pillar.path, {
-  title: "Trademark Registration in Chennai | Brand & Logo Filing | National Filings",
-  description:
-    "Trademark registration in Chennai for brand names, logos and slogans. Trademark search, filing, objection replies and renewals handled by IP consultants.",
+  title: "Trademark Registration in Chennai | Protect Your Brand Name",
+  description: "Trademark registration in Chennai for brand names, logos and slogans. Search, filing, objection replies and renewals handled by IP consultants.",
   headline: "Trademark Registration in Chennai",
 });
 export const metadata = page.metadata;

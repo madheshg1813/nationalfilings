@@ -29,9 +29,8 @@ import { faqs, finalCta, hero, pillar, problemsCta, processCta, SERVICE, service
 
 // P2 · GST Consultant pillar. Primary keyword: "gst consultant in chennai".
 const page = servicePage(pillar.path, {
-  title: "GST Consultant in Chennai | National Filings",
-  description:
-    "GST consultant in Chennai for GST registration, return filing, notices, amendments, cancellation and refunds. Dedicated GST experts with updates on WhatsApp.",
+  title: "GST Consultant in Chennai | GST Registration & Return Filing",
+  description: "Expert GST consultant in Chennai for GST registration, monthly returns, notices and refunds. Accurate, on-time filing with every update on WhatsApp.",
   headline: "GST Consultant in Chennai",
 });
 export const metadata = page.metadata;

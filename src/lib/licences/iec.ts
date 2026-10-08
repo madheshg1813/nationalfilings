@@ -6,8 +6,8 @@ export const iecPage: LicencePageData = {
   id: "L5",
   service: "IEC Registration",
   meta: {
-    title: "IEC Registration in Chennai | Import Export Code | National Filings",
-    description: "IEC registration in Chennai for importers and exporters. Import Export Code filed on the DGFT portal, plus the yearly IEC update, with expert help.",
+    title: "IEC Registration in Chennai | Import Export Code Online",
+    description: "IEC registration in Chennai for importers and exporters. Get your Import Export Code from DGFT fast, with reminders for the mandatory yearly update.",
   },
   hero: {
     headline: { line1: "IEC Registration", line2Before: "", accent: "in Chennai" },

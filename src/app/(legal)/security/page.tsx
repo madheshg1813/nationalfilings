@@ -6,8 +6,8 @@ import { site, telLink, whatsappLink } from "@/lib/site";
 // TODO(client): confirm these practices match how the office actually works.
 const page = definePage({
   path: "/security",
-  title: `Security | ${site.name}`,
-  description: `How ${site.name} protects your documents, portal logins and digital signatures, and how to spot fraud using our name.`,
+  title: "Security | How National Filings Keeps Your Documents Safe",
+  description: "Learn how National Filings protects your documents, portal logins and digital signatures, and how to spot fraud or fake messages using our name.",
   trail: [{ name: "Security", path: "/security" }],
 });
 export const metadata = page.metadata;

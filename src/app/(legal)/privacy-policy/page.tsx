@@ -6,8 +6,8 @@ import { addressLine, site, telLink, whatsappLink } from "@/lib/site";
 // TODO(client): have a lawyer review this draft and name the grievance officer, before launch (the site-wide SITE_INDEXABLE switch keeps it noindex until then).
 const page = definePage({
   path: "/privacy-policy",
-  title: `Privacy Policy | ${site.name}`,
-  description: `How ${site.name} collects, uses, shares and protects the personal information and documents you give us.`,
+  title: "Privacy Policy | How National Filings Protects Your Data",
+  description: "See how National Filings collects, uses, stores and protects your personal information and documents when you use our website and filing services.",
   trail: [{ name: "Privacy Policy", path: "/privacy-policy" }],
 });
 export const metadata = page.metadata;

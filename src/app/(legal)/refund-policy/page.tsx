@@ -6,8 +6,8 @@ import { site, telLink, whatsappLink } from "@/lib/site";
 // TODO(client): confirm the refund rules and add a processing time (e.g. "within X working days"), then have a lawyer review before launch.
 const page = definePage({
   path: "/refund-policy",
-  title: `Refund Policy | ${site.name}`,
-  description: `When ${site.name} refunds professional fees, what can't be refunded (government and third-party fees), and how to request a refund.`,
+  title: "Refund Policy | National Filings Professional Fee Refunds",
+  description: "Understand when National Filings refunds professional fees, which government and third-party charges can't be refunded, and how to ask for one.",
   trail: [{ name: "Refund Policy", path: "/refund-policy" }],
 });
 export const metadata = page.metadata;

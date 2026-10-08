@@ -6,8 +6,8 @@ export const tradeLicensePage: LicencePageData = {
   id: "L3",
   service: "Trade License",
   meta: {
-    title: "Trade License in Chennai | Corporation Trade Licence | National Filings",
-    description: "Trade license in Chennai for shops, offices, restaurants and units. Application, documents and annual renewal with the local corporation, handled by experts.",
+    title: "Trade License in Chennai | Apply and Renew with Expert Help",
+    description: "Get your trade license in Chennai without the running around. We prepare documents, file the application and remind you before every renewal.",
   },
   hero: {
     headline: { line1: "Trade License", line2Before: "", accent: "in Chennai" },

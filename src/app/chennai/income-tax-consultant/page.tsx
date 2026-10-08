@@ -29,9 +29,8 @@ import { audienceCta, CALL_LABEL, faqs, finalCta, hero, includedCta, messages, p
 
 // P3 · Income Tax pillar, built on the Company Registration pillar framework. Primary keyword: "income tax consultant in chennai".
 const page = servicePage(pillar.path, {
-  title: "Income Tax Consultant in Chennai | ITR Filing | National Filings",
-  description:
-    "Income tax consultant in Chennai for ITR filing, tax planning, capital gains, NRI tax and notice replies. Salaried, business and professional returns, reviewed by experts.",
+  title: "Income Tax Consultant in Chennai | ITR Filing & Tax Planning",
+  description: "Income tax consultant in Chennai for ITR filing, tax planning, capital gains and notice replies. Every return is reviewed by an expert before filing.",
   headline: "Income Tax Consultant in Chennai",
 });
 export const metadata = page.metadata;

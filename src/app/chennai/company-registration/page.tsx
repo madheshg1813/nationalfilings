@@ -29,9 +29,8 @@ import { chennaiCta, faqs, finalCta, hero, includedCta, messages, packagesCta, p
 
 // P1 · Company Registration pillar. Primary keyword: "company registration service chennai".
 const page = servicePage(pillar.path, {
-  title: "Company Registration Service in Chennai | National Filings",
-  description:
-    "Company registration service in Chennai for Private Limited, LLP and OPC. Name approval, MCA filing and post-registration compliance from one expert team.",
+  title: "Company Registration in Chennai | Pvt Ltd, LLP & OPC Experts",
+  description: "Company registration in Chennai for Private Limited, LLP and OPC. Name approval, MCA filing and incorporation handled by experts, with a clear quote.",
   headline: "Company Registration Service in Chennai",
 });
 export const metadata = page.metadata;

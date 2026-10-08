@@ -6,8 +6,8 @@ export const dscPage: LicencePageData = {
   id: "L6",
   service: "Digital Signature Certificate",
   meta: {
-    title: "Digital Signature Certificate in Chennai | Class 3 DSC | National Filings",
-    description: "Class 3 digital signature certificate in Chennai for MCA, GST, income tax, DGFT and tenders. Quick online verification and USB token, with expert help.",
+    title: "Digital Signature Certificate in Chennai | Class 3 DSC",
+    description: "Class 3 digital signature certificate in Chennai for MCA, GST, tax and tenders. Online video KYC, quick issuance and USB token setup by our experts.",
   },
   hero: {
     headline: { line1: "Digital Signature Certificate", line2Before: "", accent: "in Chennai" },

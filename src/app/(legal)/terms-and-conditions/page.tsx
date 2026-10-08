@@ -6,8 +6,8 @@ import { site, whatsappLink } from "@/lib/site";
 // TODO(client): have a lawyer review this draft (fees, refunds, liability, jurisdiction), before launch (the site-wide SITE_INDEXABLE switch keeps it noindex until then).
 const page = definePage({
   path: "/terms-and-conditions",
-  title: `Terms and Conditions | ${site.name}`,
-  description: `The terms that apply when you use the ${site.name} website or engage us for registration, tax and compliance services.`,
+  title: "Terms and Conditions | National Filings Services & Website",
+  description: "The terms that apply when you use the National Filings website or engage our Chennai team for registration, tax, licence and compliance services.",
   trail: [{ name: "Terms and Conditions", path: "/terms-and-conditions" }],
 });
 export const metadata = page.metadata;

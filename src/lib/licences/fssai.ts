@@ -6,8 +6,8 @@ export const fssaiPage: LicencePageData = {
   id: "L2",
   service: "FSSAI Registration",
   meta: {
-    title: "FSSAI Registration in Chennai | Food Licence | National Filings",
-    description: "FSSAI registration and food licence in Chennai for restaurants, cloud kitchens, manufacturers and sellers. Right licence type, filed on FoSCoS with expert help.",
+    title: "FSSAI Registration in Chennai | Food Licence Made Easy",
+    description: "FSSAI registration in Chennai for restaurants, cloud kitchens and food makers. We choose the right licence and file it correctly on FoSCoS for you.",
   },
   hero: {
     headline: { line1: "FSSAI Registration", line2Before: "", accent: "in Chennai" },

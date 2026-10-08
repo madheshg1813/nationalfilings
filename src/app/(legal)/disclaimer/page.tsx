@@ -6,8 +6,8 @@ import { site } from "@/lib/site";
 // TODO(client): have a lawyer review this draft before launch (the site-wide SITE_INDEXABLE switch keeps it noindex until then).
 const page = definePage({
   path: "/disclaimer",
-  title: `Disclaimer | ${site.name}`,
-  description: `${site.name} is a private consultancy, not a government body. Read how we handle outcomes, timelines, advice and third-party names.`,
+  title: "Disclaimer | National Filings, an Independent Consultancy",
+  description: "National Filings is a private consultancy, not a government body. Read how we handle advice, timelines, outcomes and third-party names on our site.",
   trail: [{ name: "Disclaimer", path: "/disclaimer" }],
 });
 export const metadata = page.metadata;

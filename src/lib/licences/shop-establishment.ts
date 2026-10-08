@@ -6,8 +6,8 @@ export const shopEstablishmentPage: LicencePageData = {
   id: "L4",
   service: "Shop & Establishment",
   meta: {
-    title: "Shop and Establishment Registration in Chennai | National Filings",
-    description: "Shop and Establishment registration in Chennai under the Tamil Nadu Shops and Establishments Act. Online application for shops, offices and outlets with expert help.",
+    title: "Shop and Establishment Registration in Chennai, Filed Online",
+    description: "Shop and Establishment registration in Chennai for shops, offices and outlets. We file online with the Labour Department and handle later changes.",
   },
   hero: {
     headline: { line1: "Shop & Establishment", line2Before: "Registration ", accent: "in Chennai" },

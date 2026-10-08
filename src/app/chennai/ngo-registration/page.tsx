@@ -30,9 +30,8 @@ import { audienceCta, CALL_LABEL, comparisonCta, faqs, finalCta, hero, includedC
 
 // P4 · NGO Registration pillar, built on the Company Registration pillar framework. Primary keyword: "ngo registration in chennai".
 const page = servicePage(pillar.path, {
-  title: "NGO Registration in Chennai | Trust, Society & Section 8 | National Filings",
-  description:
-    "NGO registration in Chennai for trusts, societies and Section 8 companies, with 12A, 80G and CSR registration support. Expert guidance from structure to compliance.",
+  title: "NGO Registration in Chennai | Trust, Society & Section 8",
+  description: "NGO registration in Chennai for trusts, societies and Section 8 companies, with 12A, 80G and CSR support. Expert help from structure to compliance.",
   headline: "NGO Registration in Chennai",
 });
 export const metadata = page.metadata;

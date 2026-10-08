@@ -19,9 +19,8 @@ import { site } from "@/lib/site";
 
 const page = definePage({
   path: "/about",
-  title: "About National Filings | Registration & Tax Consultants, Chennai",
-  description:
-    "National Filings is a Chennai-based registration, tax and compliance firm helping startups, SMEs, professionals and NGOs across India since 2012.",
+  title: "About National Filings | Chennai Tax & Compliance Experts",
+  description: "Meet National Filings, a Chennai team helping startups, SMEs, professionals and NGOs with registration, tax and compliance across India since 2012.",
   headline: "Your filing team in Chennai, since 2012",
   type: "AboutPage",
   trail: [{ name: "About us", path: "/about" }],

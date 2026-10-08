@@ -14,9 +14,8 @@ import { addressLine, mapsLink, site, telLink, whatsappLink } from "@/lib/site";
 
 const page = definePage({
   path: "/contact",
-  title: "Contact National Filings | GST, Tax & Registration Experts",
-  description:
-    "Call, WhatsApp or send us your requirement and a National Filings expert will call you back with the documents, fee and next steps.",
+  title: "Contact National Filings | Talk to a Tax & Filing Expert",
+  description: "Call, WhatsApp or send your requirement to National Filings in Chennai. An expert replies with the documents, fees and next steps for your filing.",
   headline: "Talk to a filing expert",
   type: "ContactPage",
   trail: [{ name: "Contact", path: "/contact" }],

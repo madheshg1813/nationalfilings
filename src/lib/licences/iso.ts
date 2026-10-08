@@ -10,8 +10,8 @@ export const isoPage: LicencePageData = {
   id: "L7",
   service: "ISO Certification",
   meta: {
-    title: "ISO Certification in Chennai | ISO 9001, 14001, 27001 | National Filings",
-    description: "ISO certification in Chennai with expert guidance: ISO 9001, 14001, 45001, 27001 and 22000. Gap analysis, documentation and audit with an accredited body.",
+    title: "ISO Certification in Chennai | ISO 9001, 27001 & More",
+    description: "ISO certification in Chennai with expert guidance. Gap analysis, documents and audit support with accredited bodies for ISO 9001, 14001 and 27001.",
   },
   hero: {
     headline: { line1: "ISO Certification", line2Before: "", accent: "in Chennai" },

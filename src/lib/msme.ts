@@ -210,8 +210,8 @@ export const msmePage: LicencePageData = {
   id: "L1",
   service: SERVICE,
   meta: {
-    title: "MSME Registration in Chennai | Udyam Certificate | National Filings",
-    description: "MSME registration in Chennai with expert help. Get your Udyam certificate online for MSME loans, subsidies, tender exemptions and delayed-payment protection.",
+    title: "MSME Registration in Chennai | Udyam Certificate Online",
+    description: "MSME registration in Chennai made simple. Get your Udyam certificate online to unlock MSME loans, subsidies and tenders. The government fee is zero.",
   },
   hero,
   illustration: { icon: "Factory", kicker: "Udyam Registration", title: "MSME Certificate", line: "Your Business · Micro", stamp: "Registered", chips: ["Aadhaar verified", "NIC code set", "PAN linked"], steps: ["Details", "Aadhaar", "Submit", "Verify", "Certificate"] },
