@@ -1,0 +1,101 @@
+import { sharedReasons, type LicencePageData } from "./types";
+import { link } from "./links";
+
+/** L3 · Trade License (/chennai/trade-license). Primary keyword: "trade license in chennai". */
+export const tradeLicensePage: LicencePageData = {
+  id: "L3",
+  service: "Trade License",
+  meta: {
+    title: "Trade License in Chennai | Corporation Trade Licence | National Filings",
+    description: "Trade license in Chennai for shops, offices, restaurants and units. Application, documents and annual renewal with the local corporation, handled by experts.",
+  },
+  hero: {
+    headline: { line1: "Trade License", line2Before: "", accent: "in Chennai" },
+    sub: "Get the municipal trade licence your business needs to operate legally in Chennai, with the application, documents and yearly renewal handled for you.",
+    badges: ["Corporation Filing Support", "Document Checklist", "Renewal Reminders", "Transparent Process"],
+    whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about a trade license in Chennai.",
+  },
+  illustration: { icon: "ScrollText", kicker: "Local corporation", title: "Trade Licence", line: "Your Business · Chennai", stamp: "Approved", chips: ["Trade type chosen", "Premises documents", "Fees calculated"], steps: ["Details", "Documents", "Apply", "Inspect", "Licence"] },
+  benefitsSection: {
+    title: "Benefits of a trade license in Chennai",
+    lead: "A trade licence is the local authority's permission to run your trade from your premises.",
+    cta: { title: "Not sure if your business needs a trade licence?", sub: "Tell us your trade and premises. We'll confirm whether a licence applies and what it needs.", message: "Hi National Filings, does my business need a trade license in Chennai?" },
+  },
+  benefits: [
+    { icon: "ShieldCheck", title: "Legal permission to trade", line: "Run your business from your premises with the local authority's approval." },
+    { icon: "Landmark", title: "Avoid fines and sealing", line: "Trading without a licence can lead to penalties or closure by the authority." },
+    { icon: "BadgeCheck", title: "Business credibility", line: "Landlords, banks and clients often ask to see a trade licence." },
+    { icon: "Briefcase", title: "Easier bank accounts and loans", line: "A trade licence supports your business address and activity." },
+    { icon: "ClipboardCheck", title: "Clean compliance record", line: "Inspections go smoothly when your licence is current." },
+    { icon: "RefreshCw", title: "Simple yearly renewal", line: "Once issued, renewing on time keeps the licence valid." },
+  ],
+  applicantsSection: { title: "Who needs a trade license in Chennai", lead: "Most businesses trading from a premises within corporation limits need one." },
+  applicants: [
+    { icon: "Store", title: "Shops and retailers", line: "Retail stores, showrooms and outlets." },
+    { icon: "Soup", title: "Restaurants and eateries", line: "Restaurants, bakeries and cafes." },
+    { icon: "Factory", title: "Small manufacturing units", line: "Workshops and small production units." },
+    { icon: "Briefcase", title: "Offices and agencies", line: "Commercial offices and service firms." },
+    { icon: "Hotel", title: "Lodges and hospitality", line: "Lodges, guest houses and salons." },
+    { icon: "Truck", title: "Warehouses and godowns", line: "Storage and distribution premises." },
+    { icon: "Stethoscope", title: "Clinics and labs", line: "Private clinics and diagnostic centres." },
+    { icon: "Package", title: "Wholesalers and traders", line: "Wholesale and trading businesses." },
+  ],
+  documentsSection: { title: "Documents required for a trade license in Chennai", lead: "Mostly owner and premises documents. We share the exact checklist for your trade." },
+  documents: [
+    { icon: "UserRound", title: "For the owner", items: ["PAN", "Aadhaar or photo ID", "Passport-size photo", "Mobile number and email"], hint: "For a company or firm, the authorised person's details and registration proof." },
+    { icon: "Building2", title: "For the premises", items: ["Property tax receipt", "Rent agreement, if rented", "Owner's no-objection letter", "Premises address and area"], hint: "Some trades also need extra approvals, which we flag early." },
+  ],
+  documentsNote: { title: "Most of the application is online", sub: "Share scans on WhatsApp and we prepare and submit the application for you.", message: "Hi National Filings, I'd like to send my documents for a trade license." },
+  processSection: {
+    title: "Trade license process in Chennai",
+    lead: "Five steps from your details to the trade licence.",
+    cta: { title: "Ready to apply for your trade licence?", sub: "Share your premises documents and we'll start the application.", message: "Hi National Filings, I'm ready to apply for a trade license. Can we start?" },
+  },
+  steps: [
+    { title: "Trade and premises details", time: "Day 1", sub: "We understand your trade, premises and the licence category." },
+    { title: "Document preparation", time: "1-2 days", sub: "We check owner and premises documents against the checklist." },
+    { title: "Application submission", time: "Same day", sub: "We submit the application and the fee to the local authority." },
+    { title: "Review or inspection", time: "Varies", sub: "The authority reviews the application and may inspect the premises." },
+    { title: "Trade licence issued", time: "On approval", sub: "You receive the licence; we note the renewal date." },
+  ],
+  processNote: "Timelines depend on the local authority and whether an inspection is needed. We follow up until the licence is issued.",
+  mistakesSection: { title: "Common trade license mistakes in Chennai", lead: "These cause delays or a licence that doesn't match your business." },
+  mistakes: [
+    { icon: "Shuffle", title: "Wrong trade category", problem: "Choosing a trade description that doesn't match the actual business.", fix: "We pick the category that matches what you actually do." },
+    { icon: "FileWarning", title: "Premises document gaps", problem: "Missing property tax receipt, rent agreement or owner consent.", fix: "We collect and check every premises document before applying." },
+    { icon: "ShieldAlert", title: "Missing other approvals", problem: "Some trades need extra permissions that hold up the licence.", fix: "We flag any extra approvals your trade needs at the start." },
+    { icon: "Clock", title: "Late renewal", problem: "Letting the licence lapse at the end of its term.", fix: "We track the renewal date and file before it's due." },
+  ],
+  costSection: {
+    title: "Trade license cost factors in Chennai",
+    lead: "Government fees depend on your trade and premises. Our fee is quoted upfront.",
+    cta: { title: "Get an exact quote for your trade licence", sub: "Tell us your trade and premises and we'll share the fees before starting.", message: "Hi National Filings, can I get a quote for a trade license?" },
+  },
+  costs: [
+    { icon: "Landmark", label: "Set by authority", highlight: true, title: "Government fees", line: "Depend on the type of trade and the premises. Paid directly to the local authority." },
+    { icon: "Headset", label: "Quoted upfront", title: "Professional assistance", line: "Covers the checklist, application, submission and follow-up." },
+    { icon: "ShieldAlert", label: "If needed", title: "Other approvals", line: "Extra permissions some trades need, quoted separately." },
+    { icon: "RefreshCw", label: "Yearly", title: "Renewals", line: "Renewal on time keeps the licence valid without penalties." },
+  ],
+  reasonsTitle: "Why choose National Filings for a trade license in Chennai",
+  reasons: sharedReasons,
+  faqTitle: "Trade license in Chennai: your questions",
+  faqs: [
+    { q: "What is a trade license?", a: "A trade license is permission from the local authority, such as the city corporation, to run a particular trade or business from a specific premises. It confirms the business follows local rules for that trade." },
+    { q: "Who needs a trade license in Chennai?", a: "Most businesses that trade from a premises within corporation limits, including shops, restaurants, offices, small units, clinics and warehouses. We confirm whether your trade needs one." },
+    { q: "How long does it take to get a trade license?", a: "It depends on the local authority and whether the premises is inspected. We submit quickly once documents are ready and follow up until it's issued." },
+    { q: "Is a trade license the same as a Shop and Establishment registration?", a: "No. A trade license comes from the local authority for the trade at your premises; Shop and Establishment registration is with the state Labour Department. Many businesses need both." },
+    { q: "Do I need a trade license if I work from home?", a: "It depends on the activity. Some home-based businesses need one, especially if customers visit or goods are stored. We check your case." },
+    { q: "Does a trade license need renewal?", a: "Yes. A trade licence has to be renewed periodically, usually every year. We remind you before it's due." },
+    { q: "Can I operate while the licence is being processed?", a: "It's safest to apply before you start trading. We can file quickly so the gap is as short as possible." },
+    { q: "How can National Filings help with a trade license in Chennai?", a: "We confirm the trade category, check owner and premises documents, submit the application, follow up with the authority and remind you before renewal." },
+  ],
+  related: [
+    { icon: "Store", label: "Shop & establishment registration", href: link("L4") },
+    { icon: "UtensilsCrossed", label: "FSSAI registration", href: link("L2") },
+    { icon: "Factory", label: "MSME registration", href: link("L1") },
+    { icon: "Building2", label: "Company registration", href: link("P1") },
+  ],
+  final: { title: "Get your trade license in Chennai today", sub: "Talk with our experts and get your trade licence application filed quickly and correctly.", message: "Hi National Filings, I'd like to get a trade license in Chennai. Please guide me." },
+  catalogue: ["Trade license application", "Trade license renewal"],
+};

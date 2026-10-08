@@ -41,6 +41,33 @@ import {
   Users,
   X,
   Zap,
+  UtensilsCrossed,
+  ChefHat,
+  Package,
+  Soup,
+  Coffee,
+  Hotel,
+  RefreshCw,
+  ScrollText,
+  Home,
+  Clock,
+  KeyRound,
+  Globe,
+  Plane,
+  Lock,
+  Fingerprint,
+  Gavel,
+  BadgeCheck,
+  Leaf,
+  HardDrive,
+  Scale,
+  SearchCheck,
+  FileText,
+  Mail,
+  Gauge,
+  ShieldAlert,
+  Eye,
+  Signature,
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
@@ -48,25 +75,14 @@ import { AutoScrollRow } from "@/components/ui/AutoScrollRow";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappLink } from "@/lib/site";
 import { linkTarget } from "@/lib/routes";
-import {
-  applicants,
-  benefits,
-  costs,
-  documents,
-  documentsNote,
-  industries,
-  mistakes,
-  opportunitiesIntro,
-  processNote,
-  reasons,
-  related,
-  steps,
-} from "@/lib/msme";
+import type { LicencePageData } from "@/lib/licences/types";
 
 const ICONS: Record<string, LucideIcon> = {
   Award, BadgeIndianRupee, Briefcase, Building2, ClipboardCheck, Factory, FileCheck2, FilePen, FileWarning, GraduationCap, HardHat,
   Headset, IdCard, IndianRupee, Landmark, Laptop, Layers, ListTree, MapPinned, MessageCircle, ReceiptIndianRupee, ReceiptText, Rocket,
   ShieldCheck, Ship, ShoppingBag, ShoppingCart, Shuffle, Stethoscope, Store, TrendingUp, Truck, UserCheck, UserRound, Users, Zap,
+  UtensilsCrossed, ChefHat, Package, Soup, Coffee, Hotel, CalendarClock, RefreshCw, ScrollText, Home, Clock, KeyRound, Globe, Plane,
+  Lock, Fingerprint, Gavel, BadgeCheck, Leaf, HardDrive, Scale, SearchCheck, FileText, Mail, Gauge, ShieldAlert, Eye, Signature,
 };
 
 function Icon({ name, className }: { name: string; className?: string }) {
@@ -87,7 +103,7 @@ function CardLink({ href, className, children }: { href: string; className: stri
 
 /* 2 · Benefits: tinted icon cards, 4 across ---------------------------- */
 
-export function BenefitCards() {
+export function BenefitCards({ benefits }: { benefits: LicencePageData["benefits"] }) {
   return (
     <ul className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
       {benefits.map((b, i) => (
@@ -107,7 +123,7 @@ export function BenefitCards() {
 
 /* 3 · Who should apply: compact rows, icon left ------------------------- */
 
-export function ApplicantGrid() {
+export function ApplicantGrid({ applicants }: { applicants: LicencePageData["applicants"] }) {
   return (
     <ul className="grid gap-2.5 min-[420px]:grid-cols-2 sm:gap-3 lg:grid-cols-4">
       {applicants.map((a, i) => (
@@ -129,12 +145,12 @@ export function ApplicantGrid() {
 
 /* 4 · MSME opportunities in Chennai: photo tiles (Business Opportunities style) */
 
-export function IndustryTiles() {
+export function IndustryTiles({ intro: opportunitiesIntro, industries }: Omit<NonNullable<LicencePageData["opportunities"]>, "title">) {
   return (
     <>
       <p className="mx-auto max-w-3xl text-center text-[15px] leading-relaxed text-ink-soft sm:text-[17px]">{opportunitiesIntro}</p>
       {/* phones: swipeable row (snap); sm+: grid */}
-      <AutoScrollRow label="MSME sectors in Chennai" className="-mx-5 mt-8 flex snap-x snap-mandatory scroll-px-5 gap-2.5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:scroll-px-0 sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+      <AutoScrollRow label="Sectors in Chennai" className="-mx-5 mt-8 flex snap-x snap-mandatory scroll-px-5 gap-2.5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:scroll-px-0 sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
         {industries.map((x) => (
           // no reveal animation: off-screen items in a swipe row would stay hidden until swiped
           <li key={x.title} className="w-[40%] shrink-0 snap-start sm:h-full sm:w-auto">
@@ -164,7 +180,7 @@ export function IndustryTiles() {
 
 /* 5 · Documents: two cards + online note -------------------------------- */
 
-export function DocumentCards() {
+export function DocumentCards({ documents, documentsNote }: Pick<LicencePageData, "documents" | "documentsNote">) {
   return (
     <>
       <ul className="grid gap-3 sm:grid-cols-2 sm:gap-5">
@@ -217,7 +233,7 @@ export function DocumentCards() {
 
 /* 6 · Process: horizontal timeline (vertical on phones) ------------------ */
 
-export function HorizontalTimeline() {
+export function HorizontalTimeline({ steps, processNote }: Pick<LicencePageData, "steps" | "processNote">) {
   return (
     <>
       <ol className="relative grid gap-5 lg:grid-cols-5 lg:gap-4">
@@ -252,7 +268,7 @@ export function HorizontalTimeline() {
 
 /* 7 · Mistakes: problem / prevention cards ------------------------------- */
 
-export function MistakeCards() {
+export function MistakeCards({ mistakes }: { mistakes: LicencePageData["mistakes"] }) {
   return (
     <ul className="grid gap-3 sm:grid-cols-2 sm:gap-5">
       {mistakes.map((m, i) => (
@@ -288,11 +304,11 @@ export function MistakeCards() {
 
 /* 8 · Cost factors: label-led cards -------------------------------------- */
 
-export function CostCards() {
+export function CostCards({ costs }: { costs: LicencePageData["costs"] }) {
   return (
     <ul className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
       {costs.map((c, i) => {
-        const free = c.label === "₹0";
+        const free = Boolean(c.highlight);
         return (
           <Reveal as="li" key={c.title} delay={(i % 4) * 0.05} className="h-full">
             <div className={`relative h-full overflow-hidden rounded-3xl p-5 sm:p-6 ${free ? "bg-ink text-white" : "border border-ink/[0.07] bg-white"}`}>
@@ -314,7 +330,7 @@ export function CostCards() {
 
 /* 9 · Why choose National Filings ---------------------------------------- */
 
-export function ReasonCards() {
+export function ReasonCards({ reasons }: { reasons: LicencePageData["reasons"] }) {
   return (
     <ul className="grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-8 sm:gap-y-8 lg:grid-cols-3">
       {reasons.map((r, i) => (
@@ -334,11 +350,11 @@ export function ReasonCards() {
 
 /* 11 · Related services (internal links) --------------------------------- */
 
-export function RelatedMsmeServices() {
+export function RelatedLinks({ related }: { related: LicencePageData["related"] }) {
   return (
-    <ul className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
+    <ul className="flex flex-wrap justify-center gap-2.5 sm:gap-4">
       {related.map((s) => (
-        <li key={s.label}>
+        <li key={s.label} className="w-[calc(50%-5px)] sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)]">
           <CardLink href={s.href} className="card group flex h-full flex-col !rounded-2xl p-4 sm:p-5">
             <span className="flex items-start justify-between">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint">
@@ -352,6 +368,29 @@ export function RelatedMsmeServices() {
             </span>
           </CardLink>
         </li>
+      ))}
+    </ul>
+  );
+}
+
+/* Page-specific section: label-led cards (licence types, standards, uses...) */
+
+export function HighlightCards({ items }: { items: NonNullable<LicencePageData["highlights"]>["items"] }) {
+  return (
+    <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
+      {items.map((h, i) => (
+        <Reveal as="li" key={h.title} delay={(i % 4) * 0.05} className="w-full min-[420px]:w-[calc(50%-6px)] lg:w-[calc(25%-12px)]">
+          <div className={`h-full rounded-3xl p-5 sm:p-6 ${h.highlight ? "bg-ink text-white" : "border border-ink/[0.07] bg-white"}`}>
+            <div className="flex items-center justify-between gap-3">
+              <span className={`grid h-10 w-10 place-items-center rounded-xl ${h.highlight ? "bg-white/10" : "bg-brand-tint"}`}>
+                <Icon name={h.icon} className={`h-5 w-5 ${h.highlight ? "text-lime" : "text-brand-deep"}`} />
+              </span>
+              {h.label && <span className={`rounded-full px-2.5 py-1 text-[11.5px] font-bold ${h.highlight ? "bg-lime text-ink" : "bg-cream-soft text-ink-soft"}`}>{h.label}</span>}
+            </div>
+            <h3 className={`mt-4 font-display text-[17px] font-bold leading-snug ${h.highlight ? "text-white" : "text-ink"}`}>{h.title}</h3>
+            <p className={`mt-1.5 text-[13.5px] leading-relaxed ${h.highlight ? "text-white/70" : "text-ink-muted"}`}>{h.line}</p>
+          </div>
+        </Reveal>
       ))}
     </ul>
   );

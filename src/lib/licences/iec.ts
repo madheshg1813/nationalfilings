@@ -1,0 +1,112 @@
+import { sharedReasons, type LicencePageData } from "./types";
+import { link } from "./links";
+
+/** L5 · IEC Registration (/chennai/iec-registration). Primary keyword: "iec registration in chennai". */
+export const iecPage: LicencePageData = {
+  id: "L5",
+  service: "IEC Registration",
+  meta: {
+    title: "IEC Registration in Chennai | Import Export Code | National Filings",
+    description: "IEC registration in Chennai for importers and exporters. Import Export Code filed on the DGFT portal, plus the yearly IEC update, with expert help.",
+  },
+  hero: {
+    headline: { line1: "IEC Registration", line2Before: "", accent: "in Chennai" },
+    sub: "Get your Import Export Code from DGFT online and start trading internationally, with the application and yearly update handled by experts.",
+    badges: ["DGFT Filing Support", "Fast Application", "Yearly Update Reminders", "PAN India Service"],
+    whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about IEC registration.",
+  },
+  illustration: { icon: "Globe", kicker: "DGFT", title: "Import Export Code", line: "Your Business · India", stamp: "Active", chips: ["PAN verified", "Bank linked", "Filed on DGFT"], steps: ["Details", "Documents", "Apply", "Verify", "IEC"] },
+  benefitsSection: {
+    title: "Benefits of IEC registration in Chennai",
+    lead: "An IEC is the code you need to import or export goods and services from India.",
+    cta: { title: "Planning to import or export?", sub: "Tell us what you trade and where. We'll get your IEC and guide you on what comes next.", message: "Hi National Filings, I'm planning to import or export and need an IEC." },
+  },
+  benefits: [
+    { icon: "Globe", title: "Trade internationally", line: "Required to import or export goods through Indian customs." },
+    { icon: "Ship", title: "Customs clearance", line: "Customs and shipping agents ask for your IEC on every consignment." },
+    { icon: "Landmark", title: "Bank remittances", line: "Banks use the IEC for foreign payments and export proceeds." },
+    { icon: "TrendingUp", title: "Export schemes", line: "Needed to claim benefits under DGFT export promotion schemes." },
+    { icon: "ShoppingCart", title: "Global marketplaces", line: "Sell overseas through export marketplaces and platforms." },
+    { icon: "RefreshCw", title: "One code, no renewal", line: "The IEC doesn't expire, as long as you update it every year." },
+  ],
+  applicantsSection: { title: "Who needs IEC registration in Chennai", lead: "Any business that imports or exports goods or services." },
+  applicants: [
+    { icon: "Ship", title: "Exporters", line: "Manufacturers and merchant exporters." },
+    { icon: "Package", title: "Importers", line: "Businesses buying goods from abroad." },
+    { icon: "ShoppingCart", title: "Ecommerce sellers", line: "Brands selling to overseas customers." },
+    { icon: "Laptop", title: "Service exporters", line: "IT and service firms billing abroad." },
+    { icon: "Factory", title: "Manufacturers", line: "Units importing machinery or materials." },
+    { icon: "Truck", title: "Traders", line: "Wholesale and trading businesses." },
+    { icon: "Rocket", title: "Startups", line: "New brands planning global sales." },
+    { icon: "Briefcase", title: "Proprietors and firms", line: "Individuals, firms, LLPs and companies." },
+  ],
+  highlights: {
+    eyebrow: "Yearly update",
+    title: "Keeping your IEC active in Chennai",
+    lead: "An IEC doesn't need renewal, but it must be updated on the DGFT portal every year to stay active.",
+    items: [
+      { icon: "Globe", label: "One time", title: "IEC application", line: "Filed online on the DGFT portal with your PAN, address and bank details." },
+      { icon: "CalendarClock", label: "Every year", title: "Annual IEC update", line: "Confirm or update your details on the DGFT portal each year, even if nothing has changed.", highlight: true },
+      { icon: "FilePen", label: "When needed", title: "IEC modification", line: "Update address, bank, partners or directors when they change." },
+      { icon: "ShieldAlert", label: "If missed", title: "Reactivation", line: "An IEC not updated can be deactivated; we help reactivate it." },
+    ],
+  },
+  documentsSection: { title: "Documents required for IEC registration in Chennai", lead: "A short list, all shared digitally." },
+  documents: [
+    { icon: "UserRound", title: "For the applicant", items: ["PAN of the business or proprietor", "Aadhaar or photo ID", "Mobile number and email"], hint: "For companies and firms, the authorised signatory's details." },
+    { icon: "Building2", title: "For the business", items: ["Address proof of the premises", "Bank details or cancelled cheque", "Business registration proof, if any"], hint: "The IEC is linked to your PAN and bank account." },
+  ],
+  documentsNote: { title: "Filed online on the DGFT portal", sub: "Share scans on WhatsApp and we prepare and file the application for you.", message: "Hi National Filings, I'd like to send my documents for IEC registration." },
+  processSection: {
+    title: "IEC registration process in Chennai",
+    lead: "Five steps from your details to the Import Export Code.",
+    cta: { title: "Ready to get your IEC?", sub: "Share your PAN and bank details and we'll start today.", message: "Hi National Filings, I'm ready to apply for IEC registration. Can we start?" },
+  },
+  steps: [
+    { title: "Business details", time: "Day 1", sub: "We confirm your business type, PAN and what you trade." },
+    { title: "Document check", time: "Same day", sub: "We check PAN, address and bank details." },
+    { title: "DGFT application", time: "Same day", sub: "We file the application and pay the government fee online." },
+    { title: "Verification", time: "Usually quick", sub: "Details are verified on the DGFT portal." },
+    { title: "IEC issued", time: "On approval", sub: "Your IEC certificate is issued online." },
+  ],
+  processNote: "Most IEC applications are processed quickly once details match. We also remind you of the yearly update.",
+  mistakesSection: { title: "Common IEC registration mistakes in Chennai", lead: "Avoid these and your IEC stays valid and usable at customs." },
+  mistakes: [
+    { icon: "FileWarning", title: "PAN and name mismatch", problem: "The business name differs from PAN records.", fix: "We match every detail with your PAN before filing." },
+    { icon: "Landmark", title: "Wrong bank details", problem: "Bank account details that don't match the bank proof.", fix: "We check bank details against your cheque or certificate." },
+    { icon: "CalendarClock", title: "Skipping the yearly update", problem: "Not updating the IEC each year, so it gets deactivated.", fix: "We remind you and file the update every year." },
+    { icon: "Shuffle", title: "Outdated details", problem: "Not modifying the IEC after an address or partner change.", fix: "We file modifications as soon as details change." },
+  ],
+  costSection: {
+    title: "IEC registration cost factors in Chennai",
+    lead: "DGFT charges a fixed government fee. Our fee is quoted upfront.",
+    cta: { title: "Get an exact quote for your IEC", sub: "We share the government fee and our fee before starting.", message: "Hi National Filings, can I get a quote for IEC registration?" },
+  },
+  costs: [
+    { icon: "Landmark", label: "Fixed by DGFT", highlight: true, title: "Government fee", line: "A fixed fee paid online to DGFT with the application." },
+    { icon: "Headset", label: "Quoted upfront", title: "Professional assistance", line: "Covers document checks, filing and follow-up." },
+    { icon: "CalendarClock", label: "Yearly", title: "Annual update", line: "The yearly IEC update on the DGFT portal, if you'd like us to handle it." },
+    { icon: "FilePen", label: "If needed", title: "Modifications", line: "Changes to address, bank or partners later." },
+  ],
+  reasonsTitle: "Why choose National Filings for IEC registration in Chennai",
+  reasons: sharedReasons,
+  faqTitle: "IEC registration in Chennai: your questions",
+  faqs: [
+    { q: "What is an IEC?", a: "An Import Export Code is a 10-character code issued by the Directorate General of Foreign Trade (DGFT). It is required for importing or exporting from India and is linked to your PAN." },
+    { q: "Who needs IEC registration in Chennai?", a: "Any business importing or exporting goods, and many service exporters, including proprietors, firms, LLPs and companies. Some exceptions exist for personal use and specific cases." },
+    { q: "How long does IEC registration take?", a: "It is filed online on the DGFT portal and is usually processed quickly once your details match PAN and bank records." },
+    { q: "Does an IEC need renewal?", a: "No, it has no expiry. But it must be updated on the DGFT portal every year, even if nothing has changed, or it can be deactivated." },
+    { q: "Can a proprietor get an IEC?", a: "Yes. A proprietor can get an IEC in their own name using their PAN." },
+    { q: "Do I need GST to get an IEC?", a: "GST registration is not required to apply for an IEC, though most active traders will also need GST. We can help with both." },
+    { q: "Can I use one IEC for multiple branches?", a: "Yes. One IEC covers the business, and branches can be added to it on the DGFT portal." },
+    { q: "How can National Filings help with IEC registration in Chennai?", a: "We check your details, file the application on the DGFT portal, follow up until it's issued and remind you of the yearly update." },
+  ],
+  related: [
+    { icon: "ReceiptIndianRupee", label: "GST consultant", href: link("P2") },
+    { icon: "Building2", label: "Company registration", href: link("P1") },
+    { icon: "KeyRound", label: "Digital signature certificate", href: link("L6") },
+    { icon: "ShieldCheck", label: "Trademark registration", href: link("P5") },
+  ],
+  final: { title: "Get your IEC registration in Chennai today", sub: "Talk with our experts and get your Import Export Code filed quickly and correctly.", message: "Hi National Filings, I'd like to get an IEC. Please guide me." },
+  catalogue: ["IEC registration", "IEC annual update", "IEC modification"],
+};

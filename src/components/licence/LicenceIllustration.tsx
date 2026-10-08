@@ -1,12 +1,14 @@
-import { BadgeCheck, Check, Factory, IdCard, ListTree } from "lucide-react";
+import { BadgeCheck, Check, ListTree, ShieldCheck } from "lucide-react";
+import { LucideByName, type IconName } from "@/components/ui/LucideByName";
+import type { LicencePageData } from "@/lib/licences/types";
 import { IndiaFlag, TricolourBand } from "@/components/ui/IndiaFlag";
 
 /**
- * Decorative hero illustration for the MSME page: a stylised Udyam certificate with the steps around it.
- * Same layout as IncorporationIllustration. Generic shapes only, no government emblem or Udyam numbers.
+ * Decorative hero illustration for the licence pages: a stylised certificate with the steps around it.
+ * Same layout as IncorporationIllustration; text comes from the page data. Generic shapes only, no emblems or numbers.
  */
-export function UdyamIllustration() {
-  const steps = ["Details", "Aadhaar", "Submit", "Verify", "Certificate"];
+export function LicenceIllustration({ data: d }: { data: LicencePageData["illustration"] }) {
+  const steps = d.steps;
   return (
     <div className="relative mx-auto aspect-[6/5] w-full max-w-[520px]">
 
@@ -18,15 +20,15 @@ export function UdyamIllustration() {
         <TricolourBand className="absolute inset-x-0 top-0" />
         <div className="flex items-center gap-2.5">
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-tint">
-            <Factory className="h-[18px] w-[18px] text-brand-deep" />
+            <LucideByName name={d.icon as IconName} className="h-[18px] w-[18px] text-brand-deep" />
           </span>
           <div className="min-w-0">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-ink-faint">Udyam Registration</p>
-            <p className="font-display text-[14px] font-bold leading-tight text-ink lg:text-[15px]">MSME Certificate</p>
+            <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-ink-faint">{d.kicker}</p>
+            <p className="font-display text-[14px] font-bold leading-tight text-ink lg:text-[15px]">{d.title}</p>
           </div>
         </div>
         <p className="mt-4 flex items-center gap-2 font-display text-[13px] font-semibold text-ink lg:text-[14px]">
-          Your Business · Micro
+          {d.line}
           <IndiaFlag className="h-3.5 w-[21px]" />
         </p>
         <div className="mt-3 space-y-2">
@@ -37,7 +39,7 @@ export function UdyamIllustration() {
         <div className="mt-5 flex items-end justify-between">
           <div className="space-y-1.5">
             <div className="h-1.5 w-16 rounded-full bg-ink/[0.07]" />
-            <div className="font-display text-[15px] italic text-ink-faint [font-family:cursive]">Registered</div>
+            <div className="font-display text-[15px] italic text-ink-faint [font-family:cursive]">{d.stamp}</div>
           </div>
           <span className="relative grid h-14 w-14 place-items-center rounded-full bg-brand-deep text-white ring-4 ring-lime/70">
             <BadgeCheck className="h-7 w-7" strokeWidth={1.75} />
@@ -50,23 +52,23 @@ export function UdyamIllustration() {
         <span className="grid h-6 w-6 place-items-center rounded-full bg-[#E7F8EE]">
           <Check className="h-3.5 w-3.5 text-[#15803D]" strokeWidth={3} />
         </span>
-        <span className="text-[12.5px] font-semibold text-ink">Aadhaar verified</span>
+        <span className="text-[12.5px] font-semibold text-ink">{d.chips[0]}</span>
       </div>
 
       <div className="absolute left-0 top-[46%] flex items-center gap-2 rounded-xl border border-ink/10 bg-white px-3 py-2.5 shadow-lift">
         <ListTree className="h-4 w-4 text-brand-deep" />
-        <span className="text-[12.5px] font-semibold text-ink">NIC code set</span>
+        <span className="text-[12.5px] font-semibold text-ink">{d.chips[1]}</span>
       </div>
 
       <div className="absolute right-[4%] top-[56%] flex items-center gap-2 rounded-xl border border-ink/10 bg-white px-3 py-2.5 shadow-lift">
-        <IdCard className="h-4 w-4 text-brand-deep" />
-        <span className="text-[12.5px] font-semibold text-ink">PAN linked</span>
+        <ShieldCheck className="h-4 w-4 text-brand-deep" />
+        <span className="text-[12.5px] font-semibold text-ink">{d.chips[2]}</span>
       </div>
 
       {/* progress card */}
       <div className="absolute bottom-[3%] left-[10%] right-[14%] rounded-2xl border border-ink/10 bg-white p-4 shadow-lift">
         <div className="flex items-center justify-between">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-faint">Udyam progress</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-faint">Progress</p>
           <p className="text-[11.5px] font-semibold text-brand-deep">4 of 5</p>
         </div>
         <ol className="mt-3 grid grid-cols-5 gap-1.5">

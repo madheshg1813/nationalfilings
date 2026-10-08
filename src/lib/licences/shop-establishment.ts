@@ -1,0 +1,101 @@
+import { sharedReasons, type LicencePageData } from "./types";
+import { link } from "./links";
+
+/** L4 · Shop & Establishment Registration (/chennai/shop-establishment-registration). Primary keyword: "shop and establishment registration in chennai". */
+export const shopEstablishmentPage: LicencePageData = {
+  id: "L4",
+  service: "Shop & Establishment",
+  meta: {
+    title: "Shop and Establishment Registration in Chennai | National Filings",
+    description: "Shop and Establishment registration in Chennai under the Tamil Nadu Shops and Establishments Act. Online application for shops, offices and outlets with expert help.",
+  },
+  hero: {
+    headline: { line1: "Shop & Establishment", line2Before: "Registration ", accent: "in Chennai" },
+    sub: "Register your shop, office or commercial establishment with the Tamil Nadu Labour Department, online and correctly, with expert help.",
+    badges: ["Online Application", "Labour Law Guidance", "Fast Filing Support", "Transparent Process"],
+    whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about Shop and Establishment registration.",
+  },
+  illustration: { icon: "Store", kicker: "Labour Department", title: "Shop & Establishment", line: "Your Shop · Chennai", stamp: "Registered", chips: ["Employee count set", "Premises verified", "Filed online"], steps: ["Details", "Documents", "Apply", "Review", "Certificate"] },
+  benefitsSection: {
+    title: "Benefits of Shop and Establishment registration in Chennai",
+    lead: "Registration is proof that your shop or office is a legally recognised establishment in Tamil Nadu.",
+    cta: { title: "Not sure if your establishment needs registration?", sub: "Tell us your type of business and number of employees, and we'll confirm what applies.", message: "Hi National Filings, does my shop or office need Shop and Establishment registration?" },
+  },
+  benefits: [
+    { icon: "ShieldCheck", title: "Legal recognition", line: "Registers your shop, office or outlet under state labour law." },
+    { icon: "Landmark", title: "Current account opening", line: "Banks often ask for it as business proof for a current account." },
+    { icon: "Users", title: "Employee compliance", line: "Sets out working hours, holidays and leave rules for staff." },
+    { icon: "ShieldAlert", title: "Avoid penalties", line: "Operating without required registration can attract fines." },
+    { icon: "BadgeCheck", title: "Business proof", line: "Used as address and activity proof for other registrations." },
+    { icon: "Award", title: "Credibility", line: "Shows clients and landlords you run a registered establishment." },
+  ],
+  applicantsSection: { title: "Who needs Shop and Establishment registration in Chennai", lead: "Shops, offices and commercial establishments covered by the Tamil Nadu Act." },
+  applicants: [
+    { icon: "Store", title: "Retail shops", line: "Stores, showrooms and outlets." },
+    { icon: "Briefcase", title: "Offices", line: "Corporate, consulting and agency offices." },
+    { icon: "Laptop", title: "IT and service firms", line: "Software, BPO and service businesses." },
+    { icon: "Soup", title: "Restaurants and cafes", line: "Eateries, bakeries and food outlets." },
+    { icon: "Hotel", title: "Hotels and lodges", line: "Hospitality and accommodation." },
+    { icon: "GraduationCap", title: "Training centres", line: "Coaching and training institutes." },
+    { icon: "Stethoscope", title: "Clinics and salons", line: "Clinics, spas and salons." },
+    { icon: "Truck", title: "Warehouses", line: "Godowns and storage businesses." },
+  ],
+  documentsSection: { title: "Documents required for Shop and Establishment registration in Chennai", lead: "A few owner, premises and staff details." },
+  documents: [
+    { icon: "UserRound", title: "For the employer", items: ["PAN", "Aadhaar or photo ID", "Passport-size photo", "Business registration proof"], hint: "For a company or firm, the authorised signatory's details." },
+    { icon: "Building2", title: "For the establishment", items: ["Premises address proof", "Rent agreement, if rented", "Number of employees", "Nature of business"], hint: "Employee details decide how the registration is filed." },
+  ],
+  documentsNote: { title: "Registration is filed online", sub: "Share scans on WhatsApp and we prepare and file the application on the Labour Department portal.", message: "Hi National Filings, I'd like to send my documents for Shop and Establishment registration." },
+  processSection: {
+    title: "Shop and Establishment registration process in Chennai",
+    lead: "Five steps from your details to the registration certificate.",
+    cta: { title: "Ready to register your establishment?", sub: "Share your premises and employee details and we'll start today.", message: "Hi National Filings, I'm ready to apply for Shop and Establishment registration. Can we start?" },
+  },
+  steps: [
+    { title: "Establishment details", time: "Day 1", sub: "We confirm your business type, premises and employee count." },
+    { title: "Document check", time: "Same day", sub: "We check owner, premises and business documents." },
+    { title: "Online application", time: "1 day", sub: "We file the application on the Labour Department portal." },
+    { title: "Department review", time: "Varies", sub: "The Labour Department reviews the application." },
+    { title: "Certificate issued", time: "On approval", sub: "You receive your registration certificate." },
+  ],
+  processNote: "Timelines depend on the Labour Department. We file promptly and follow up until the certificate is issued.",
+  mistakesSection: { title: "Common Shop and Establishment registration mistakes in Chennai", lead: "Avoid these and the registration goes through without queries." },
+  mistakes: [
+    { icon: "Users", title: "Wrong employee count", problem: "Declaring staff numbers that don't match records.", fix: "We confirm the employee count before filing." },
+    { icon: "FileWarning", title: "Address mismatch", problem: "Premises address differs across documents.", fix: "We match the address on every document before submitting." },
+    { icon: "Shuffle", title: "Wrong category of business", problem: "Choosing a business type that doesn't match the activity.", fix: "We select the category that fits your establishment." },
+    { icon: "Clock", title: "Not updating changes", problem: "Not reporting a change of address, name or employees.", fix: "We file amendments when your establishment changes." },
+  ],
+  costSection: {
+    title: "Shop and Establishment registration cost factors in Chennai",
+    lead: "Government charges are set by the state. Our fee is quoted upfront.",
+    cta: { title: "Get an exact quote for your registration", sub: "Tell us your establishment details and we'll share the charges before starting.", message: "Hi National Filings, can I get a quote for Shop and Establishment registration?" },
+  },
+  costs: [
+    { icon: "Landmark", label: "Set by state", highlight: true, title: "Government charges", line: "Depend on the establishment and are paid directly to the department where applicable." },
+    { icon: "Headset", label: "Quoted upfront", title: "Professional assistance", line: "Covers document checks, the online application and follow-up." },
+    { icon: "FilePen", label: "If needed", title: "Amendments", line: "Changes to address, name or employees after registration." },
+    { icon: "Layers", label: "Optional", title: "Related registrations", line: "Trade licence, GST or PF and ESI, quoted separately." },
+  ],
+  reasonsTitle: "Why choose National Filings for Shop and Establishment registration in Chennai",
+  reasons: sharedReasons,
+  faqTitle: "Shop and Establishment registration in Chennai: your questions",
+  faqs: [
+    { q: "What is Shop and Establishment registration?", a: "It is registration of a shop, office or commercial establishment under the Tamil Nadu Shops and Establishments Act. It sets rules for working hours, holidays and employee conditions, and gives the business legal recognition." },
+    { q: "Who needs Shop and Establishment registration in Chennai?", a: "Shops, offices, restaurants, hotels and other commercial establishments covered by the Act. Requirements can depend on the type of establishment and the number of employees, so we confirm your case." },
+    { q: "Is it different from a trade license?", a: "Yes. Shop and Establishment registration is with the state Labour Department and covers employment rules; a trade license is from the local authority for your trade at the premises. Many businesses need both." },
+    { q: "Can I apply online?", a: "Yes. The application is filed online on the Tamil Nadu Labour Department portal. We prepare and file it for you." },
+    { q: "How long does registration take?", a: "It depends on the department's review. We file promptly once documents are ready and follow up until the certificate is issued." },
+    { q: "Do I need it for a bank current account?", a: "Banks often accept the Shop and Establishment certificate as business proof when opening a current account." },
+    { q: "Do I need to update it if things change?", a: "Yes. Changes like a new address, business name or employee numbers should be updated with the department. We handle these amendments." },
+    { q: "How can National Filings help with Shop and Establishment registration in Chennai?", a: "We confirm whether you need it, check your documents, file the online application, follow up with the department and handle later amendments." },
+  ],
+  related: [
+    { icon: "ScrollText", label: "Trade license", href: link("L3") },
+    { icon: "Users", label: "PF & ESI consultant", href: link("P6") },
+    { icon: "ReceiptIndianRupee", label: "GST consultant", href: link("P2") },
+    { icon: "Factory", label: "MSME registration", href: link("L1") },
+  ],
+  final: { title: "Get your Shop and Establishment registration in Chennai", sub: "Talk with our experts and complete your registration quickly and correctly.", message: "Hi National Filings, I'd like Shop and Establishment registration. Please guide me." },
+  catalogue: ["Shop and Establishment registration", "Shop and Establishment amendment"],
+};

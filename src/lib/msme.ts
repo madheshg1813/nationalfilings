@@ -1,4 +1,5 @@
 import { licences, pillars, serviceHref } from "./routes";
+import { sharedReasons, type LicencePageData } from "./licences/types";
 
 /**
  * L1 · MSME / Udyam Registration page (/chennai/msme-registration).
@@ -115,7 +116,7 @@ export const mistakes = [
 /* 8 · Cost factors -------------------------------------------------- */
 
 export const costs = [
-  { icon: "Landmark", label: "₹0", title: "Government fees", line: "Udyam registration is free on the official government portal. Be wary of websites that charge a \"government fee\" for it." },
+  { icon: "Landmark", label: "₹0", highlight: true, title: "Government fees", line: "Udyam registration is free on the official government portal. Be wary of websites that charge a \"government fee\" for it." },
   { icon: "Headset", label: "Quoted upfront", title: "Professional assistance", line: "Our fee covers NIC code selection, the application and follow-up, and is shared before we start." },
   { icon: "FilePen", label: "If needed", title: "Corrections or amendments", line: "Updating address, activity or bank details later is done online and quoted separately." },
   { icon: "Layers", label: "Optional", title: "Additional registrations", line: "GST, trademark or licences you may need alongside Udyam, each quoted separately." },
@@ -202,4 +203,38 @@ export const finalCta = {
   // the brief's heading, with "in Chennai" added for the every-H2-names-the-city rule
   title: "Get your MSME registration certificate in Chennai today",
   sub: "Talk with our experts and complete your MSME registration process quickly and correctly.",
+};
+
+/* Everything above, in the shared licence-page format (components/licence/LicencePage.tsx) */
+export const msmePage: LicencePageData = {
+  id: "L1",
+  service: SERVICE,
+  meta: {
+    title: "MSME Registration in Chennai | Udyam Certificate | National Filings",
+    description: "MSME registration in Chennai with expert help. Get your Udyam certificate online for MSME loans, subsidies, tender exemptions and delayed-payment protection.",
+  },
+  hero,
+  illustration: { icon: "Factory", kicker: "Udyam Registration", title: "MSME Certificate", line: "Your Business · Micro", stamp: "Registered", chips: ["Aadhaar verified", "NIC code set", "PAN linked"], steps: ["Details", "Aadhaar", "Submit", "Verify", "Certificate"] },
+  benefitsSection: { title: "Benefits of MSME registration in Chennai", lead: "A Udyam certificate opens the credit, schemes and protections built for small businesses.", cta: benefitsCta },
+  benefits: [...benefits],
+  applicantsSection: { title: "Who should apply for MSME registration in Chennai", lead: "If you run a business in manufacturing, services or trade, Udyam registration is usually worth having." },
+  applicants: [...applicants],
+  opportunities: { title: "MSME opportunities in Chennai", intro: opportunitiesIntro, industries: [...industries] },
+  documentsSection: { title: "Documents required for Udyam registration in Chennai", lead: "Just a few details, no paperwork to upload." },
+  documents: documents.map((d) => ({ ...d, items: [...d.items] })),
+  documentsNote,
+  processSection: { title: "MSME registration process in Chennai", lead: "Five steps from your details to the Udyam certificate.", cta: processCta },
+  steps: [...steps],
+  processNote,
+  mistakesSection: { title: "Common MSME registration mistakes in Chennai", lead: "Small errors in the Udyam form can block benefits later. We check each one before filing." },
+  mistakes: [...mistakes],
+  costSection: { title: "MSME registration cost factors in Chennai", lead: "The government step is free. You pay only for expert help, quoted upfront.", cta: costCta },
+  costs: [...costs],
+  reasonsTitle: "Why choose National Filings for MSME registration in Chennai",
+  reasons: [...reasons].length ? [...reasons] : sharedReasons,
+  faqTitle: "MSME registration in Chennai: your questions",
+  faqs,
+  related: [...related],
+  final: { title: finalCta.title, sub: finalCta.sub, message: messages.final },
+  catalogue: ["Udyam registration", "Udyam certificate update"],
 };
