@@ -1,13 +1,35 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { featuredCategories, regularCategories, type ServiceCategory } from "@/lib/services";
+import { homePillars, keyServices, type PillarCard, type PreviewKind } from "@/lib/services";
+import { linkTarget, pillars, serviceHref, type Pillar, type ServicePage } from "@/lib/routes";
 import { whatsappLink } from "@/lib/site";
 import { LucideByName } from "@/components/ui/LucideByName";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { ServicePreview } from "./ServicePreview";
 
-// Category pages come next; until then each card opens a WhatsApp chat about that category.
-const cardHref = (c: ServiceCategory) => whatsappLink(`Hi National Filings, I need help with ${c.name}.`);
+// Each card links to its page once it's live (on its publish date) and opens a WhatsApp chat about it until then.
+type Card = PillarCard & { page: Pillar; href: string; live: boolean };
+
+const cards: Card[] = homePillars.map((c) => {
+  const page = pillars.find((p) => p.id === c.id)!;
+  const href = serviceHref(page, page.label);
+  return { ...c, page, href, live: !href.startsWith("http") };
+});
+const featured = cards.filter((c) => c.featured);
+const regular = cards.filter((c) => !c.featured);
+
+const key = keyServices.map((k) => {
+  const c = pillars.flatMap((p) => p.clusters).find((x) => x.id === k.id) as ServicePage;
+  const href = serviceHref(c);
+  return { ...k, title: c.title, href, live: !href.startsWith("http") };
+});
+
+/** Card link props: new tab + WhatsApp label until the page is live */
+const linkProps = (c: { href: string; live: boolean }, name: string) => ({
+  href: c.href,
+  ...linkTarget(c.href),
+  "aria-label": c.live ? undefined : `${name}: ask an expert on WhatsApp`,
+});
 
 function PopularBadge() {
   return (
@@ -25,7 +47,7 @@ function CornerArrow() {
   );
 }
 
-function PreviewArea({ c, tall }: { c: ServiceCategory; tall?: boolean }) {
+function PreviewArea({ preview, tall }: { preview: PreviewKind; tall?: boolean }) {
   return (
     <div
       className={`relative flex items-center justify-center overflow-hidden border-b border-ink/10 bg-cream-soft/70 px-3 ${
@@ -37,7 +59,7 @@ function PreviewArea({ c, tall }: { c: ServiceCategory; tall?: boolean }) {
         aria-hidden
         className="relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-[1.04]"
       >
-        <ServicePreview kind={c.preview} />
+        <ServicePreview kind={preview} />
       </div>
     </div>
   );
@@ -55,18 +77,18 @@ function CardCta({ label }: { label: string }) {
 const cardBase =
   "card group relative flex h-full flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-ink/20 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2";
 
-function FeaturedCard({ c }: { c: ServiceCategory }) {
+function FeaturedCard({ c }: { c: Card }) {
   return (
-    <a href={cardHref(c)} target="_blank" rel="noopener noreferrer" aria-label={`${c.name}: ask an expert on WhatsApp`} className={cardBase}>
+    <a {...linkProps(c, c.page.label)} className={cardBase}>
       {c.popular && <PopularBadge />}
       <CornerArrow />
-      <PreviewArea c={c} tall />
+      <PreviewArea preview={c.preview} tall />
       <div className="flex flex-1 flex-col p-4 sm:p-6">
         <div className="flex items-center gap-3">
           <span className="hidden h-11 w-11 shrink-0 place-items-center rounded-xl border border-ink/10 sm:grid">
-            <LucideByName name={c.icon} className="h-5 w-5 text-ink" />
+            <LucideByName name={c.page.icon} className="h-5 w-5 text-ink" />
           </span>
-          <h3 className="font-display text-[17px] font-bold leading-snug text-ink sm:text-xl">{c.name}</h3>
+          <h3 className="font-display text-[17px] font-bold leading-snug text-ink sm:text-xl">{c.page.label}</h3>
         </div>
         <ul className="mt-3.5 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
           {c.items?.map((i) => (
@@ -75,24 +97,24 @@ function FeaturedCard({ c }: { c: ServiceCategory }) {
             </li>
           ))}
         </ul>
-        <CardCta label="Ask an expert" />
+        <CardCta label={c.live ? "View service" : "Ask an expert"} />
       </div>
     </a>
   );
 }
 
-function CategoryCard({ c }: { c: ServiceCategory }) {
+function CategoryCard({ c }: { c: Card }) {
   return (
-    <a href={cardHref(c)} target="_blank" rel="noopener noreferrer" aria-label={`${c.name}: ask an expert on WhatsApp`} className={cardBase}>
+    <a {...linkProps(c, c.page.label)} className={cardBase}>
       {c.popular && <PopularBadge />}
       <CornerArrow />
-      <PreviewArea c={c} />
+      <PreviewArea preview={c.preview} />
       <div className="flex flex-1 flex-col p-3.5 sm:p-5">
         <div className="flex items-center gap-3">
           <span className="hidden h-10 w-10 shrink-0 place-items-center rounded-xl border border-ink/10 sm:grid">
-            <LucideByName name={c.icon} className="h-[18px] w-[18px] text-ink" />
+            <LucideByName name={c.page.icon} className="h-[18px] w-[18px] text-ink" />
           </span>
-          <h3 className="font-display text-[14px] font-bold leading-snug text-ink [text-wrap:balance] sm:text-[16px]">{c.name}</h3>
+          <h3 className="font-display text-[14px] font-bold leading-snug text-ink [text-wrap:balance] sm:text-[16px]">{c.page.label}</h3>
         </div>
         <ul className="mt-4 hidden space-y-2 border-t border-ink/5 pt-4 sm:block">
           {c.features.map((f, i) => (
@@ -102,8 +124,24 @@ function CategoryCard({ c }: { c: ServiceCategory }) {
             </li>
           ))}
         </ul>
-        <CardCta label="Enquire" />
+        <CardCta label={c.live ? "View service" : "Enquire"} />
       </div>
+    </a>
+  );
+}
+
+/** Small tile for a key cluster service: icon + name only (the user's call: small cards). The line shows as a tooltip. */
+function KeyServiceCard({ k }: { k: (typeof key)[number] }) {
+  return (
+    <a
+      {...linkProps(k, k.title)}
+      title={k.line}
+      className="card group flex h-full items-center gap-2.5 !rounded-xl px-3 py-2.5 transition duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+    >
+      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-tint transition group-hover:bg-brand-deep">
+        <LucideByName name={k.icon} className="h-4 w-4 text-brand-deep transition group-hover:text-white" />
+      </span>
+      <span className="min-w-0 font-display text-[12.5px] font-bold leading-tight text-ink [text-wrap:balance] sm:text-[13.5px]">{k.title}</span>
     </a>
   );
 }
@@ -117,21 +155,30 @@ export function Services() {
           <h2 id="services-title" className="h2">
             Every registration and filing, one team
           </h2>
-          <p className="lead mt-3">Tap a category to ask an expert about it. Popular ones are marked.</p>
+          <p className="lead mt-3">Explore our core services, or jump straight to a key filing below. Popular ones are marked.</p>
         </Reveal>
 
         <div className="mt-7 grid gap-3 sm:mt-12 sm:gap-5 md:grid-cols-2">
-          {featuredCategories.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 0.06} className="h-full">
+          {featured.map((c, i) => (
+            <Reveal key={c.id} delay={i * 0.06} className="h-full">
               <FeaturedCard c={c} />
             </Reveal>
           ))}
         </div>
 
         <ul className="mt-3 grid grid-cols-2 gap-3 sm:mt-5 sm:gap-5 lg:grid-cols-4">
-          {regularCategories.map((c, i) => (
-            <Reveal as="li" key={c.slug} delay={(i % 4) * 0.05} className="h-full">
+          {regular.map((c, i) => (
+            <Reveal as="li" key={c.id} delay={(i % 4) * 0.05} className="h-full">
               <CategoryCard c={c} />
+            </Reveal>
+          ))}
+        </ul>
+
+        <h3 className="mt-8 text-center font-display text-[16px] font-bold text-ink sm:mt-12 sm:text-[18px]">Key services</h3>
+        <ul className="mt-4 grid grid-cols-2 gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6">
+          {key.map((k, i) => (
+            <Reveal as="li" key={k.id} delay={(i % 6) * 0.04} className="h-full">
+              <KeyServiceCard k={k} />
             </Reveal>
           ))}
         </ul>

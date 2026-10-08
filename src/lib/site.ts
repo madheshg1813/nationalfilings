@@ -28,11 +28,11 @@ export const site = {
   /** Public Google Business Profile (directions, reviews) */
   googleProfile: "https://share.google/zjLwaTCe8tTkQ7DkT",
   socials: [] as { label: string; href: string }[], // real profiles only
+  // Header menu (the user's call): Services, Why us, About us, then the CTA button (which goes to /contact)
   nav: [
     { label: "Services", href: "/#services" },
     { label: "Why us", href: "/#why-us" },
-    { label: "How it works", href: "/#process" },
-    { label: "Contact", href: "/contact" },
+    { label: "About us", href: "/about" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },

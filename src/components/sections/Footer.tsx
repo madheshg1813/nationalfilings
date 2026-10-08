@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Check, Clock3, MapPin, Phone } from "lucide-react";
-import { serviceCategories } from "@/lib/services";
-import { isBuilt } from "@/lib/routes";
+import { isBuilt, pillars } from "@/lib/routes";
 import { addressLine, mapsLink, site, telLink } from "@/lib/site";
+
+// Pillar pages that are live in this build: each one appears on its publish date
+const serviceLinks = pillars.filter((p) => isBuilt(p.path)).map((p) => ({ label: p.label, href: p.path }));
 
 // Subtle trust line (text ticks, not badges) so the footer never competes with page content
 const trust = ["PAN India services", "Transparent pricing", "Dedicated support", "Secure document handling"];
@@ -93,7 +95,7 @@ export function Footer() {
         </div>
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
-          <Column title="Services" links={serviceCategories.map((c) => ({ label: c.name, href: "/#services" }))} />
+          {serviceLinks.length > 0 && <Column title="Services" links={serviceLinks} />}
           <Column title="Company" links={company} />
           <Column title="Legal" links={site.legal.filter((l) => l.href !== "/security" && isBuilt(l.href))} />
           <Column title="Quick links" links={site.quickLinks.filter((l) => isBuilt(l.href))} />

@@ -168,7 +168,7 @@ export function Header() {
           className="fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col overflow-y-auto border-t border-ink/10 bg-white md:hidden"
         >
           <nav aria-label="Mobile" className="shell w-full py-3">
-            <ul className="grid grid-cols-2 gap-2">
+            <ul className="grid grid-cols-3 gap-2">
               {site.nav.map((n) => (
                 <li key={n.href}>
                   <a
