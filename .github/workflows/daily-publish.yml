@@ -87,3 +87,15 @@ jobs:
             curl -s "$SITE/publish-log.csv" | grep -q "$SITE$P" || { echo "$P missing from publish-log.csv"; exit 1; }
           done
           echo "Published: ${{ steps.due.outputs.paths }}"
+
+      # Writes the work log into the "national filings works" Google Sheet (scripts/work-log-sheet.gs).
+      # Runs on every day with a launch, even when the page was already live, so a missed update is caught up.
+      - name: Update the Google Sheet
+        if: steps.due.outputs.paths != '' || github.event_name == 'workflow_dispatch'
+        env:
+          HOOK: ${{ secrets.SHEET_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "SHEET_HOOK_URL is not set yet, skipping the sheet update"; exit 0; fi
+          OUT=$(curl -sSL --max-time 60 "$HOOK")
+          echo "Sheet: $OUT"
+          case "$OUT" in ok*) ;; *) echo "Sheet update failed"; exit 1 ;; esac
