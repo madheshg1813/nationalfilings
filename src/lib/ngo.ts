@@ -1,4 +1,5 @@
 import { pillars, serviceHref } from "./routes";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * P4 · NGO Registration pillar (/chennai/ngo-registration). Same framework as the Company Registration pillar;
@@ -29,7 +30,7 @@ export const hero = {
   // H1 carries the primary keyword "NGO registration in Chennai"
   headline: { line1: "NGO Registration", line2Before: "", accent: "in Chennai" },
   sub: "Start your NGO, Trust, Society or Section 8 Company with expert guidance on registration, documentation and compliance.",
-  badges: ["Trust Registration Support", "Society Registration Assistance", "Section 8 Company Experts", "Dedicated Compliance Team"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about registering an NGO.",
 };
 
@@ -444,8 +445,8 @@ export const messages = {
 
 export const finalCta = {
   // the brief's heading, with "in Chennai" added for the every-H2-names-the-city rule
-  title: "Need help registering your NGO in Chennai?",
-  sub: "Speak with an NGO registration expert and get guidance on choosing the right structure and completing registration smoothly.",
+  title: "Need help with NGO registration in Chennai?",
+  sub: "Talk with our experts and get personalised guidance.",
 };
 
 /* Section 11 · Related services ------------------------------------- */
@@ -457,3 +458,14 @@ export const related = [
   { icon: "ShieldCheck", label: "12A & 80G registration", href: paths.exemptions },
   { icon: "Briefcase", label: "Company registration", href: paths.company },
 ] as const;
+
+/* Why National Filings (the SEO/CRO system's six reasons, written for this service) --- */
+
+export const reasons = [
+  { icon: "ReceiptText", title: "Transparent fees", line: "A clear quote for your structure, with registration fees shown at actuals." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One expert guides your trustees or members through every step." },
+  { icon: "Award", title: "Expert team", line: "Specialists in trusts, societies and Section 8 companies." },
+  { icon: "Zap", title: "Fast processing", line: "Deeds, bylaws and applications drafted as soon as details are final." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Registration, 12A and 80G status updates sent on WhatsApp." },
+  { icon: "ClipboardCheck", title: "Compliance guidance", line: "Annual filings, 12A and 80G renewals and CSR readiness tracked for you." },
+];

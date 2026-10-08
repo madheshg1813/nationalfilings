@@ -28,7 +28,8 @@ import {
 } from "@/components/trademark/Sections";
 import { servicePage } from "@/lib/page";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { audienceCta, CALL_LABEL, classCta, faqs, finalCta, hero, includedCta, messages, pillar, processCta, SERVICE, services } from "@/lib/trademark";
+import { audienceCta, CALL_LABEL, classCta, faqs, finalCta, hero, includedCta, messages, pillar, processCta, SERVICE, services, reasons } from "@/lib/trademark";
+import { ReasonCards } from "@/components/licence/Sections";
 
 // P5 · Trademark pillar, built on the Company Registration pillar framework. Primary keyword: "trademark registration in chennai".
 const page = servicePage(pillar.path, {
@@ -174,6 +175,10 @@ export default async function TrademarkRegistrationPage() {
           lead="An objection is common and can usually be answered. What matters is replying well, and on time."
         >
           <ObjectionGuide />
+        </PillarSection>
+
+        <PillarSection id="why-us" tone="cream" eyebrow="Why National Filings" title="Why choose National Filings for trademark registration in Chennai">
+          <ReasonCards reasons={reasons} />
         </PillarSection>
 
         <Faq items={faqs} title="Trademark registration in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />

@@ -46,10 +46,10 @@ export type LicencePageData = {
 
 /** "Why choose National Filings" cards shared by the licence pages */
 export const sharedReasons: Item[] = [
-  { icon: "UserCheck", title: "Dedicated expert", line: "One person handles your application from start to certificate." },
+  { icon: "ReceiptText", title: "Transparent fees", line: "A clear quote upfront, with government fees shown separately." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One person handles your application from start to certificate." },
+  { icon: "Award", title: "Expert team", line: "Registration specialists serving businesses from Chennai since 2012." },
   { icon: "Zap", title: "Fast processing", line: "Applications are filed as soon as your details are complete." },
-  { icon: "ReceiptText", title: "Transparent pricing", line: "A clear quote upfront, with government fees shown separately." },
-  { icon: "MessageCircle", title: "WhatsApp support", line: "Share documents and get updates on WhatsApp, Monday to Saturday." },
-  { icon: "MapPinned", title: "PAN India service", line: "Based in Chennai, serving businesses across India online." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Share documents and get status updates on WhatsApp, Monday to Saturday." },
   { icon: "ClipboardCheck", title: "Compliance guidance", line: "Renewal reminders and help with related registrations." },
 ];

@@ -74,7 +74,9 @@ export function definePage(def: PageDef): Page {
       url: def.path,
       images: [{ url: image, width: 924, height: 465, alt: site.name }],
     },
-    ...(def.noindex && { robots: { index: false, follow: false } }),
+    robots: def.noindex
+      ? { index: false, follow: false }
+      : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   };
 
   const nodes: Record<string, unknown>[] = [

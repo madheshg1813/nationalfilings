@@ -1,5 +1,6 @@
 import { sharedReasons, type LicencePageData } from "./types";
 import { link } from "./links";
+import { heroTrustPoints } from "@/lib/proof";
 
 /** L2 · FSSAI Registration (/chennai/fssai-registration). Primary keyword: "fssai registration in chennai". */
 export const fssaiPage: LicencePageData = {
@@ -12,7 +13,7 @@ export const fssaiPage: LicencePageData = {
   hero: {
     headline: { line1: "FSSAI Registration", line2Before: "", accent: "in Chennai" },
     sub: "Get the right FSSAI registration or food licence for your restaurant, kitchen, manufacturing unit or food business, filed correctly the first time.",
-    badges: ["Right Licence Type", "FoSCoS Filing Support", "Renewal Reminders", "Transparent Process"],
+    badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about FSSAI registration.",
   },
   illustration: { icon: "UtensilsCrossed", kicker: "FSSAI", title: "Food Licence", line: "Your Kitchen · State", stamp: "Licensed", chips: ["Licence type chosen", "Food category set", "Premises verified"], steps: ["Details", "Type", "Filing", "Review", "Licence"] },
@@ -111,6 +112,6 @@ export const fssaiPage: LicencePageData = {
     { icon: "ReceiptIndianRupee", label: "GST consultant", href: link("P2") },
     { icon: "ShieldCheck", label: "Trademark registration", href: link("P5") },
   ],
-  final: { title: "Get your FSSAI licence in Chennai today", sub: "Talk with our experts and get the right food licence filed quickly and correctly.", message: "Hi National Filings, I'd like to get FSSAI registration for my food business. Please guide me." },
+  final: { title: "Need help with FSSAI registration in Chennai?", sub: "Talk with our experts and get personalised guidance.", message: "Hi National Filings, I'd like to get FSSAI registration for my food business. Please guide me." },
   catalogue: ["FSSAI basic registration", "FSSAI state licence", "FSSAI central licence", "FSSAI renewal"],
 };

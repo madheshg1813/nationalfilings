@@ -1,5 +1,6 @@
 import { sharedReasons, type LicencePageData } from "./types";
 import { link } from "./links";
+import { heroTrustPoints } from "@/lib/proof";
 
 /** L5 · IEC Registration (/chennai/iec-registration). Primary keyword: "iec registration in chennai". */
 export const iecPage: LicencePageData = {
@@ -12,7 +13,7 @@ export const iecPage: LicencePageData = {
   hero: {
     headline: { line1: "IEC Registration", line2Before: "", accent: "in Chennai" },
     sub: "Get your Import Export Code from DGFT online and start trading internationally, with the application and yearly update handled by experts.",
-    badges: ["DGFT Filing Support", "Fast Application", "Yearly Update Reminders", "PAN India Service"],
+    badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about IEC registration.",
   },
   illustration: { icon: "Globe", kicker: "DGFT", title: "Import Export Code", line: "Your Business · India", stamp: "Active", chips: ["PAN verified", "Bank linked", "Filed on DGFT"], steps: ["Details", "Documents", "Apply", "Verify", "IEC"] },
@@ -107,6 +108,6 @@ export const iecPage: LicencePageData = {
     { icon: "KeyRound", label: "Digital signature certificate", href: link("L6") },
     { icon: "ShieldCheck", label: "Trademark registration", href: link("P5") },
   ],
-  final: { title: "Get your IEC registration in Chennai today", sub: "Talk with our experts and get your Import Export Code filed quickly and correctly.", message: "Hi National Filings, I'd like to get an IEC. Please guide me." },
+  final: { title: "Need help with IEC registration in Chennai?", sub: "Talk with our experts and get personalised guidance.", message: "Hi National Filings, I'd like to get an IEC. Please guide me." },
   catalogue: ["IEC registration", "IEC annual update", "IEC modification"],
 };

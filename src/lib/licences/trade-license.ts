@@ -1,5 +1,6 @@
 import { sharedReasons, type LicencePageData } from "./types";
 import { link } from "./links";
+import { heroTrustPoints } from "@/lib/proof";
 
 /** L3 · Trade License (/chennai/trade-license). Primary keyword: "trade license in chennai". */
 export const tradeLicensePage: LicencePageData = {
@@ -12,7 +13,7 @@ export const tradeLicensePage: LicencePageData = {
   hero: {
     headline: { line1: "Trade License", line2Before: "", accent: "in Chennai" },
     sub: "Get the municipal trade licence your business needs to operate legally in Chennai, with the application, documents and yearly renewal handled for you.",
-    badges: ["Corporation Filing Support", "Document Checklist", "Renewal Reminders", "Transparent Process"],
+    badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about a trade license in Chennai.",
   },
   illustration: { icon: "ScrollText", kicker: "Local corporation", title: "Trade Licence", line: "Your Business · Chennai", stamp: "Approved", chips: ["Trade type chosen", "Premises documents", "Fees calculated"], steps: ["Details", "Documents", "Apply", "Inspect", "Licence"] },
@@ -96,6 +97,6 @@ export const tradeLicensePage: LicencePageData = {
     { icon: "Factory", label: "MSME registration", href: link("L1") },
     { icon: "Building2", label: "Company registration", href: link("P1") },
   ],
-  final: { title: "Get your trade license in Chennai today", sub: "Talk with our experts and get your trade licence application filed quickly and correctly.", message: "Hi National Filings, I'd like to get a trade license in Chennai. Please guide me." },
+  final: { title: "Need help with your trade license in Chennai?", sub: "Talk with our experts and get personalised guidance.", message: "Hi National Filings, I'd like to get a trade license in Chennai. Please guide me." },
   catalogue: ["Trade license application", "Trade license renewal"],
 };

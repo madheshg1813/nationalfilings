@@ -1,5 +1,6 @@
 import { sharedReasons, type LicencePageData } from "./types";
 import { link } from "./links";
+import { heroTrustPoints } from "@/lib/proof";
 
 /** L6 · Digital Signature Certificate (/chennai/digital-signature-certificate). Primary keyword: "digital signature certificate in chennai". */
 export const dscPage: LicencePageData = {
@@ -12,7 +13,7 @@ export const dscPage: LicencePageData = {
   hero: {
     headline: { line1: "Digital Signature Certificate", line2Before: "", accent: "in Chennai" },
     sub: "Get a Class 3 digital signature certificate for MCA, GST, income tax, DGFT and tender filings, with quick online verification and expert help.",
-    badges: ["Class 3 DSC", "Online Verification", "Fast Issuance", "Renewal Support"],
+    badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about a digital signature certificate.",
   },
   illustration: { icon: "KeyRound", kicker: "Class 3", title: "Digital Signature", line: "Director · 2 years", stamp: "Issued", chips: ["Identity verified", "Video KYC done", "Token ready"], steps: ["Details", "KYC", "Verify", "Issue", "Token"] },
@@ -107,6 +108,6 @@ export const dscPage: LicencePageData = {
     { icon: "Globe", label: "IEC registration", href: link("L5") },
     { icon: "IndianRupee", label: "Income tax consultant", href: link("P3") },
   ],
-  final: { title: "Get your digital signature certificate in Chennai today", sub: "Talk with our experts and get the right DSC issued quickly and correctly.", message: "Hi National Filings, I'd like a digital signature certificate. Please guide me." },
+  final: { title: "Need help with a digital signature certificate in Chennai?", sub: "Talk with our experts and get personalised guidance.", message: "Hi National Filings, I'd like a digital signature certificate. Please guide me." },
   catalogue: ["Class 3 digital signature certificate", "Organisation DSC", "DSC renewal"],
 };

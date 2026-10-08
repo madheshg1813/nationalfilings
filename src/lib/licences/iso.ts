@@ -1,5 +1,6 @@
 import { sharedReasons, type LicencePageData } from "./types";
 import { link } from "./links";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * L7 · ISO Certification (/chennai/iso-certification). Primary keyword: "iso certification in chennai".
@@ -16,7 +17,7 @@ export const isoPage: LicencePageData = {
   hero: {
     headline: { line1: "ISO Certification", line2Before: "", accent: "in Chennai" },
     sub: "Build trust and improve business standards with ISO certification. We guide you through the standard, documentation and audit with an accredited certification body.",
-    badges: ["Accredited Certification Bodies", "Documentation Support", "Audit Preparation", "Transparent Process"],
+    badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about ISO certification.",
   },
   illustration: { icon: "Award", kicker: "ISO 9001", title: "Certification", line: "Your Company · Quality", stamp: "Certified", chips: ["Gap analysis done", "Documents ready", "Audit passed"], steps: ["Scope", "Gap review", "Documents", "Audit", "Certificate"] },
@@ -112,6 +113,6 @@ export const isoPage: LicencePageData = {
     { icon: "Building2", label: "Company registration", href: link("P1") },
     { icon: "Globe", label: "IEC registration", href: link("L5") },
   ],
-  final: { title: "Start your ISO certification in Chennai today", sub: "Talk with our experts and plan your ISO certification the right way.", message: "Hi National Filings, I'd like to get ISO certification. Please guide me." },
+  final: { title: "Need help with ISO certification in Chennai?", sub: "Talk with our experts and get personalised guidance.", message: "Hi National Filings, I'd like to get ISO certification. Please guide me." },
   catalogue: ["ISO 9001 certification", "ISO 14001 certification", "ISO 45001 certification", "ISO 27001 certification", "ISO 22000 certification"],
 };

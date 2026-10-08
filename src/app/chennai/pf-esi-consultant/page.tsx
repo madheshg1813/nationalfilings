@@ -26,7 +26,8 @@ import {
 } from "@/components/pf-esi/Sections";
 import { servicePage } from "@/lib/page";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { audienceCta, CALL_LABEL, comparisonCta, faqs, finalCta, hero, includedCta, messages, pillar, processCta, SERVICE, services } from "@/lib/pf-esi";
+import { audienceCta, CALL_LABEL, comparisonCta, faqs, finalCta, hero, includedCta, messages, pillar, processCta, SERVICE, services, reasons } from "@/lib/pf-esi";
+import { ReasonCards } from "@/components/licence/Sections";
 
 // P6 · PF & ESI pillar, built on the Company Registration pillar framework. Primary keyword: "pf esi consultant in chennai".
 const page = servicePage(pillar.path, {
@@ -162,6 +163,10 @@ export default async function PfEsiConsultantPage() {
           lead="Monthly PF and ESI return filing is where most employers slip. These are the recurring tasks we handle every month."
         >
           <MonthlyGrid />
+        </PillarSection>
+
+        <PillarSection id="why-us" eyebrow="Why National Filings" title="Why choose National Filings for PF and ESI compliance in Chennai">
+          <ReasonCards reasons={reasons} />
         </PillarSection>
 
         <Faq items={faqs} title="PF and ESI in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />

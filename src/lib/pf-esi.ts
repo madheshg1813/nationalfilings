@@ -1,4 +1,5 @@
 import { pillars, serviceHref } from "./routes";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * P6 · PF & ESI pillar (/chennai/pf-esi-consultant). Same framework as the Company Registration pillar;
@@ -31,7 +32,7 @@ export const hero = {
   // H1 carries the primary keyword "PF & ESI consultant in Chennai"
   headline: { line1: "PF & ESI Consultant", line2Before: "", accent: "in Chennai" },
   sub: "PF registration, ESI registration, monthly return filing, employee compliance and labour law support for businesses across Chennai.",
-  badges: ["PF Registration Support", "ESI Registration Assistance", "Monthly Return Filing", "Dedicated Compliance Team"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about PF and ESI compliance.",
 };
 
@@ -439,8 +440,8 @@ export const messages = {
 
 export const finalCta = {
   // the brief's heading, with "in Chennai" added for the every-H2-names-the-city rule
-  title: "Need help managing PF & ESI compliance in Chennai?",
-  sub: "Speak with a compliance expert and keep your employee-related statutory obligations on track.",
+  title: "Need help with PF & ESI compliance in Chennai?",
+  sub: "Talk with our experts and get personalised guidance.",
 };
 
 /* Section 11 · Related services ------------------------------------- */
@@ -452,3 +453,14 @@ export const related = [
   { icon: "ReceiptIndianRupee", label: "GST consultant", href: paths.gst },
   { icon: "Briefcase", label: "Company registration", href: paths.company },
 ] as const;
+
+/* Why National Filings (the SEO/CRO system's six reasons, written for this service) --- */
+
+export const reasons = [
+  { icon: "ReceiptText", title: "Transparent fees", line: "A fixed monthly fee based on headcount, quoted before we start." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One compliance expert who knows your payroll and your employees." },
+  { icon: "Award", title: "Expert team", line: "Labour law specialists handling EPFO and ESIC portals every month." },
+  { icon: "Zap", title: "Fast processing", line: "Registrations and monthly challans filed well before due dates." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Challan, return and due date updates sent on WhatsApp." },
+  { icon: "ClipboardCheck", title: "Compliance guidance", line: "Help with inspections, notices and new joiner or exit formalities." },
+];

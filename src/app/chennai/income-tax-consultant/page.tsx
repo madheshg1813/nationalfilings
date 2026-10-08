@@ -25,7 +25,8 @@ import {
 } from "@/components/income-tax/Sections";
 import { servicePage } from "@/lib/page";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { audienceCta, CALL_LABEL, faqs, finalCta, hero, includedCta, messages, packagesCta, pillar, processCta, SERVICE, services } from "@/lib/income-tax";
+import { audienceCta, CALL_LABEL, faqs, finalCta, hero, includedCta, messages, packagesCta, pillar, processCta, SERVICE, services, reasons } from "@/lib/income-tax";
+import { ReasonCards } from "@/components/licence/Sections";
 
 // P3 · Income Tax pillar, built on the Company Registration pillar framework. Primary keyword: "income tax consultant in chennai".
 const page = servicePage(pillar.path, {
@@ -157,6 +158,10 @@ export default async function IncomeTaxConsultantPage() {
           cta={<ReviewCta />}
         >
           <Mistakes />
+        </PillarSection>
+
+        <PillarSection id="why-us" tone="cream" eyebrow="Why National Filings" title="Why choose National Filings for income tax filing in Chennai">
+          <ReasonCards reasons={reasons} />
         </PillarSection>
 
         <Faq items={faqs} title="Income tax filing in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />

@@ -1,4 +1,5 @@
 import { pillars, serviceHref } from "./routes";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * P3 · Income Tax pillar (/chennai/income-tax-consultant). Same framework as the Company Registration pillar.
@@ -33,7 +34,7 @@ export const hero = {
   // H1 carries the primary keyword "income tax consultant in Chennai"
   headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Chennai" },
   sub: "Income tax return filing, tax planning, notice handling and compliance support for individuals, professionals, startups and businesses.",
-  badges: ["Income Tax Return Filing", "Tax Planning Support", "Tax Notice Assistance", "Dedicated Tax Experts"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about my income tax.",
 };
 
@@ -433,7 +434,7 @@ export const messages = {
 export const finalCta = {
   // the brief's heading, with "in Chennai" added for the every-H2-names-the-city rule
   title: "Need help with income tax filing in Chennai?",
-  sub: "Speak with a tax expert and get professional guidance on filing, planning and compliance.",
+  sub: "Talk with our experts and get personalised guidance.",
 };
 
 /* Section 10 · Related services ------------------------------------- */
@@ -445,3 +446,14 @@ export const related = [
   { icon: "FileSpreadsheet", label: "GST return filing", href: paths.gstReturns },
   { icon: "Building2", label: "Company registration", href: paths.company },
 ] as const;
+
+/* Why National Filings (the SEO/CRO system's six reasons, written for this service) --- */
+
+export const reasons = [
+  { icon: "ReceiptText", title: "Transparent fees", line: "A clear fee for your return type before we start, with no surprises later." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One tax expert who knows your income sources, year after year." },
+  { icon: "Award", title: "Expert team", line: "Experienced tax professionals review every return before it is filed." },
+  { icon: "Zap", title: "Fast processing", line: "Returns are prepared quickly once Form 16, AIS and statements are in." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Filing confirmations, refund status and due date reminders on WhatsApp." },
+  { icon: "ClipboardCheck", title: "Compliance guidance", line: "Advance tax, TDS and notice guidance so next year starts clean." },
+];

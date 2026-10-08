@@ -25,7 +25,8 @@ import {
 } from "@/components/company-registration/Sections";
 import { servicePage } from "@/lib/page";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { chennaiCta, faqs, finalCta, hero, includedCta, messages, packagesCta, pillar, processCta, SERVICE, structures } from "@/lib/company-registration";
+import { chennaiCta, faqs, finalCta, hero, includedCta, messages, packagesCta, pillar, processCta, SERVICE, structures, reasons } from "@/lib/company-registration";
+import { ReasonCards } from "@/components/licence/Sections";
 
 // P1 · Company Registration pillar. Primary keyword: "company registration service chennai".
 const page = servicePage(pillar.path, {
@@ -150,6 +151,10 @@ export default async function CompanyRegistrationPage() {
           cta={<ReviewCta />}
         >
           <Mistakes />
+        </PillarSection>
+
+        <PillarSection id="why-us" tone="cream" eyebrow="Why National Filings" title="Why choose National Filings for company registration in Chennai">
+          <ReasonCards reasons={reasons} />
         </PillarSection>
 
         <Faq items={faqs} title="Company registration in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />

@@ -1,5 +1,6 @@
 import { licences, pillars, serviceHref } from "./routes";
 import { sharedReasons, type LicencePageData } from "./licences/types";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * L1 · MSME / Udyam Registration page (/chennai/msme-registration).
@@ -20,7 +21,7 @@ export const hero = {
   // H1 carries the primary keyword "MSME / Udyam registration in Chennai"
   headline: { line1: "MSME / Udyam Registration", line2Before: "", accent: "in Chennai" },
   sub: "Get your Udyam Registration certificate online with expert assistance. Unlock MSME benefits, government schemes, subsidies, priority lending and tender eligibility.",
-  badges: ["Expert Assistance", "Fast Application Support", "PAN India Service", "Transparent Process"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about MSME / Udyam registration.",
 };
 
@@ -131,11 +132,11 @@ export const costCta = {
 /* 9 · Why choose us ------------------------------------------------- */
 
 export const reasons = [
-  { icon: "UserCheck", title: "Dedicated expert", line: "One person handles your application from start to certificate." },
+  { icon: "ReceiptText", title: "Transparent fees", line: "A clear quote upfront, and no fee for the government step." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One person handles your application from start to certificate." },
+  { icon: "Award", title: "Expert team", line: "Registration specialists who know which NIC codes and details fit your business." },
   { icon: "Zap", title: "Fast processing", line: "Most applications are filed the same day we receive your details." },
-  { icon: "ReceiptText", title: "Transparent pricing", line: "A clear quote upfront, and no fee for the government step." },
-  { icon: "MessageCircle", title: "WhatsApp support", line: "Share details and get updates on WhatsApp, Monday to Saturday." },
-  { icon: "MapPinned", title: "PAN India service", line: "Based in Chennai, serving businesses across India online." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Share details and get updates on WhatsApp, Monday to Saturday." },
   { icon: "ClipboardCheck", title: "Compliance guidance", line: "Help with GST, trademark and filings after your Udyam registration." },
 ] as const;
 
@@ -201,8 +202,8 @@ export const messages = {
 
 export const finalCta = {
   // the brief's heading, with "in Chennai" added for the every-H2-names-the-city rule
-  title: "Get your MSME registration certificate in Chennai today",
-  sub: "Talk with our experts and complete your MSME registration process quickly and correctly.",
+  title: "Need help with MSME registration in Chennai?",
+  sub: "Talk with our experts and get personalised guidance.",
 };
 
 /* Everything above, in the shared licence-page format (components/licence/LicencePage.tsx) */

@@ -1,4 +1,5 @@
 import { pillars, serviceHref } from "./routes";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * P1 · Company Registration pillar (/chennai/company-registration).
@@ -27,7 +28,7 @@ export const hero = {
   // H1 carries the primary keyword "company registration service in Chennai"
   headline: { line1: "Company Registration", line2Before: "Service ", accent: "in Chennai" },
   sub: "Register your company without the paperwork. Incorporation, MCA filing and compliance support from one experienced team.",
-  badges: ["Dedicated filing support", "MCA registration experts", "PAN India service", "Transparent process"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a consultation about registering a company.",
 };
 
@@ -370,6 +371,17 @@ export const messages = {
 };
 
 export const finalCta = {
-  title: "Ready to register your company in Chennai?",
-  sub: "Get expert guidance today. Tell us about your business and we'll recommend the right structure, with an itemised quote.",
+  title: "Need help with company registration in Chennai?",
+  sub: "Talk with our experts and get personalised guidance.",
 };
+
+/* Why National Filings (the SEO/CRO system's six reasons, written for this service) --- */
+
+export const reasons = [
+  { icon: "ReceiptText", title: "Transparent fees", line: "An itemised quote before we start, with MCA and stamp duty fees shown at actuals." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One expert handles your incorporation from name approval to certificate." },
+  { icon: "Award", title: "Expert team", line: "Company law specialists choosing between Pvt Ltd, LLP and OPC with you." },
+  { icon: "Zap", title: "Fast processing", line: "SPICe+ forms are filed as soon as your DSCs and documents are ready." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Name approval, filing status and certificate updates sent on WhatsApp." },
+  { icon: "ClipboardCheck", title: "Compliance guidance", line: "First-year help with the auditor appointment, bank account, GST and ROC dates." },
+];

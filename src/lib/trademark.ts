@@ -1,4 +1,5 @@
 import { licences, pillars, serviceHref } from "./routes";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * P5 · Trademark Registration pillar (/chennai/trademark-registration). Same framework as the Company Registration pillar;
@@ -29,7 +30,7 @@ export const hero = {
   // H1 carries the primary keyword "trademark registration in Chennai"
   headline: { line1: "Trademark Registration", line2Before: "", accent: "in Chennai" },
   sub: "Protect your brand name, logo, slogan and business identity with professional trademark registration and intellectual property support.",
-  badges: ["Trademark Filing Support", "Brand Protection Experts", "Objection Reply Assistance", "Dedicated IP Consultants"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about registering my trademark.",
 };
 
@@ -431,8 +432,8 @@ export const messages = {
 
 export const finalCta = {
   // the brief's heading, with Chennai worked in for the every-H2-names-the-city rule
-  title: "Protect your Chennai brand before someone else registers it",
-  sub: "Speak with a trademark expert and secure your brand identity with professional trademark registration support.",
+  title: "Need help with trademark registration in Chennai?",
+  sub: "Talk with our experts and get personalised guidance.",
 };
 
 /* Section 12 · Related services ------------------------------------- */
@@ -444,3 +445,14 @@ export const related = [
   { icon: "Factory", label: "MSME registration", href: paths.msme },
   { icon: "FileWarning", label: "Trademark objection reply", href: "#objection" },
 ] as const;
+
+/* Why National Filings (the SEO/CRO system's six reasons, written for this service) --- */
+
+export const reasons = [
+  { icon: "ReceiptText", title: "Transparent fees", line: "Professional fees and government fees quoted separately before filing." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One IP consultant follows your mark from search to registration." },
+  { icon: "Award", title: "Expert team", line: "Trademark specialists handle the search, class choice and objection replies." },
+  { icon: "Zap", title: "Fast processing", line: "Applications are filed quickly once your brand details are confirmed." },
+  { icon: "MessageCircle", title: "WhatsApp updates", line: "Examination, objection and journal updates shared on WhatsApp." },
+  { icon: "ClipboardCheck", title: "Compliance guidance", line: "Renewal reminders and watch advice to protect the mark after registration." },
+];

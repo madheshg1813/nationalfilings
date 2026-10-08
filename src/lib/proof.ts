@@ -27,6 +27,9 @@ export type Stat = {
   sample?: boolean;
 };
 
+/** Hero trust points on every service page (the SEO/CRO system: same four, in this order). */
+export const heroTrustPoints: string[] = ["Dedicated Expert", "Transparent Pricing", "Fast Processing", "PAN India Service"];
+
 export const stats: Stat[] = [
   { value: "500+", label: "Businesses assisted", note: "Startups, SMEs and NGOs", icon: "Users", tick: "500+ clients", sample: true },
   { value: "1,000+", label: "Registrations completed", note: "Company, GST, trademark and more", icon: "BadgeCheck", tick: "1K+ filings", sample: true },

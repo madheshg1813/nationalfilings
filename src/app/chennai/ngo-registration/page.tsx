@@ -26,7 +26,8 @@ import {
 } from "@/components/ngo/Sections";
 import { servicePage } from "@/lib/page";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { audienceCta, CALL_LABEL, comparisonCta, faqs, finalCta, hero, includedCta, messages, pillar, processCta, SERVICE, services } from "@/lib/ngo";
+import { audienceCta, CALL_LABEL, comparisonCta, faqs, finalCta, hero, includedCta, messages, pillar, processCta, SERVICE, services, reasons } from "@/lib/ngo";
+import { ReasonCards } from "@/components/licence/Sections";
 
 // P4 · NGO Registration pillar, built on the Company Registration pillar framework. Primary keyword: "ngo registration in chennai".
 const page = servicePage(pillar.path, {
@@ -162,6 +163,10 @@ export default async function NgoRegistrationPage() {
           lead="Registration is the start. These filings and renewals keep your NGO's status and tax benefits intact."
         >
           <ComplianceGrid />
+        </PillarSection>
+
+        <PillarSection id="why-us" eyebrow="Why National Filings" title="Why choose National Filings for NGO registration in Chennai">
+          <ReasonCards reasons={reasons} />
         </PillarSection>
 
         <Faq items={faqs} title="NGO registration in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />

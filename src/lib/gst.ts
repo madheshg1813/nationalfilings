@@ -1,4 +1,5 @@
 import { pillars } from "./routes";
+import { heroTrustPoints } from "@/lib/proof";
 
 /**
  * P2 · GST Consultant pillar (/chennai/gst-consultant-service).
@@ -19,7 +20,7 @@ export const hero = {
   // H1 carries the primary keyword "GST consultant in Chennai"
   headline: { line1: "GST Consultant", line2Before: "", accent: "in Chennai" },
   sub: "GST registration, return filing, notices, amendments and compliance support from dedicated GST experts.",
-  badges: ["GST registration", "GST return filing", "Notice handling", "Dedicated consultant"],
+  badges: heroTrustPoints,
   whatsapp: "Hi National Filings, I'd like a consultation with a GST consultant.",
 };
 
@@ -274,14 +275,14 @@ export const packagesNote = "Fees are quoted after a short call, based on your t
 /* Section 10 · Why National Filings ---------------------------------- */
 
 export const reasons = [
-  { icon: "UserCheck", title: "Dedicated GST consultant", line: "One person who knows your business and your GSTIN." },
-  { icon: "Zap", title: "Fast turnaround", line: "We file as soon as your documents are checked." },
-  { icon: "ReceiptText", title: "Transparent pricing", line: "A clear quote before any work starts." },
+  { icon: "UserCheck", title: "Dedicated support", line: "One person who knows your business and your GSTIN." },
+  { icon: "Zap", title: "Fast processing", line: "We file as soon as your documents are checked." },
+  { icon: "ReceiptText", title: "Transparent fees", line: "A clear quote before any work starts." },
   { icon: "MessageCircle", title: "WhatsApp updates", line: "Filing confirmations and reminders where you already are." },
   { icon: "MailCheck", title: "Notice support", line: "Help with replies when a GST notice arrives." },
   { icon: "MapPinned", title: "PAN India service", line: "Fully online, for businesses in any state." },
-  { icon: "Award", title: "Experienced team", line: "Serving businesses from Chennai since 2012." },
-  { icon: "CalendarCheck", title: "Compliance calendar", line: "Every GST due date tracked for you." },
+  { icon: "Award", title: "Expert team", line: "Serving businesses from Chennai since 2012." },
+  { icon: "CalendarCheck", title: "Compliance guidance", line: "Every GST due date tracked for you." },
 ] as const;
 
 /* Section 11 · GST in Chennai insights -------------------------------- */
@@ -375,7 +376,7 @@ export const faqs = [
 /* Section 13 · Final CTA ---------------------------------------------- */
 
 export const finalCta = {
-  title: "Need GST support in Chennai?",
-  sub: "Speak with a GST consultant today and get clear guidance on registration, filing and compliance.",
+  title: "Need help with GST registration and filing in Chennai?",
+  sub: "Talk with our experts and get personalised guidance.",
   message: "Hi National Filings, I need GST support. Please guide me.",
 };

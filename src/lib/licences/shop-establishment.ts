@@ -1,5 +1,6 @@
 import { sharedReasons, type LicencePageData } from "./types";
 import { link } from "./links";
+import { heroTrustPoints } from "@/lib/proof";
 
 /** L4 · Shop & Establishment Registration (/chennai/shop-establishment-registration). Primary keyword: "shop and establishment registration in chennai". */
 export const shopEstablishmentPage: LicencePageData = {
@@ -12,7 +13,7 @@ export const shopEstablishmentPage: LicencePageData = {
   hero: {
     headline: { line1: "Shop & Establishment", line2Before: "Registration ", accent: "in Chennai" },
     sub: "Register your shop, office or commercial establishment with the Tamil Nadu Labour Department, online and correctly, with expert help.",
-    badges: ["Online Application", "Labour Law Guidance", "Fast Filing Support", "Transparent Process"],
+    badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a WhatsApp consultation about Shop and Establishment registration.",
   },
   illustration: { icon: "Store", kicker: "Labour Department", title: "Shop & Establishment", line: "Your Shop · Chennai", stamp: "Registered", chips: ["Employee count set", "Premises verified", "Filed online"], steps: ["Details", "Documents", "Apply", "Review", "Certificate"] },
@@ -96,6 +97,6 @@ export const shopEstablishmentPage: LicencePageData = {
     { icon: "ReceiptIndianRupee", label: "GST consultant", href: link("P2") },
     { icon: "Factory", label: "MSME registration", href: link("L1") },
   ],
-  final: { title: "Get your Shop and Establishment registration in Chennai", sub: "Talk with our experts and complete your registration quickly and correctly.", message: "Hi National Filings, I'd like Shop and Establishment registration. Please guide me." },
+  final: { title: "Need help with Shop and Establishment registration in Chennai?", sub: "Talk with our experts and get personalised guidance.", message: "Hi National Filings, I'd like Shop and Establishment registration. Please guide me." },
   catalogue: ["Shop and Establishment registration", "Shop and Establishment amendment"],
 };
