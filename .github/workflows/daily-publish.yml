@@ -1,12 +1,17 @@
-# Daily page publish: 7:00 AM IST.
+# Daily page publish: 7:00 AM IST, with backup runs at 8:00 AM, 10:00 AM and 1:00 PM IST.
 # If a page in src/lib/publish-schedule.json is due today (IST), redeploy Railway (the build's publish gate
 # then includes it), wait for the deploy, and check the page is live. A failure fails the run, and GitHub emails you.
+# GitHub can delay or drop scheduled runs (it skipped 7 AM on 8 Oct 2026), so the backup runs retry; a run whose due
+# pages are already live skips the deploy, so the site is rebuilt only once a day.
 # Manual runs (Actions tab > Daily page publish > Run workflow) always deploy, as a test.
 name: Daily page publish
 
 on:
   schedule:
-    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST (GitHub may start scheduled runs a few minutes late)
+    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST (GitHub may start scheduled runs late, or drop them)
+    - cron: "30 2 * * *" # 08:00 IST backup
+    - cron: "30 4 * * *" # 10:00 IST backup
+    - cron: "30 7 * * *" # 13:00 IST backup
   workflow_dispatch:
 
 concurrency:
@@ -34,12 +39,19 @@ jobs:
             const { log } = require("./src/lib/publish-schedule.json");
             process.stdout.write(log.filter((e) => e.path && e.date === process.argv[1]).map((e) => e.path).join(" "));
           ' "$TODAY")
+          # Due pages not live yet (an earlier run today may already have published them)
+          PENDING=""
+          for P in $DUE; do
+            [ "$(curl -s -o /dev/null -w '%{http_code}' "$SITE$P")" = "200" ] || PENDING="$PENDING $P"
+          done
+          PENDING=$(echo $PENDING)
           echo "today=$TODAY" >> "$GITHUB_OUTPUT"
           echo "paths=$DUE" >> "$GITHUB_OUTPUT"
-          echo "Today $TODAY IST. Due: ${DUE:-nothing}"
+          echo "pending=$PENDING" >> "$GITHUB_OUTPUT"
+          echo "Today $TODAY IST. Due: ${DUE:-nothing}. Not live yet: ${PENDING:-none}"
 
       - name: Deploy on Railway
-        if: steps.due.outputs.paths != '' || github.event_name == 'workflow_dispatch'
+        if: steps.due.outputs.pending != '' || github.event_name == 'workflow_dispatch'
         id: deploy
         env:
           TOKEN: ${{ secrets.RAILWAY_TOKEN }}
