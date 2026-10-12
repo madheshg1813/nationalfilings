@@ -55,7 +55,7 @@ export const structures: Structure[] = [
     icon: "Building2",
     bestFor: "Startups and growing businesses that plan to raise funding or scale",
     advantages: ["Limited liability for shareholders", "Easy to bring in investors and ESOPs", "Highest credibility with banks and clients"],
-    href: "#process",
+    href: "", // plain card: no "Learn more" link (removed 2026-10-12)
     linkLabel: "how private limited registration works",
     popular: true,
   },
