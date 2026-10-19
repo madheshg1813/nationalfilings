@@ -74,6 +74,7 @@ import {
   reviewCta,
   included,
   structures,
+  exploreIds,
   timeline,
   timelineNote,
 } from "@/lib/company-registration";
@@ -105,18 +106,19 @@ const tile = "grid h-10 w-10 shrink-0 place-items-center rounded-xl border borde
 
 /* 1 · Structures ---------------------------------------------------- */
 
+/** Explore section: the six registration and compliance services, each card linking to its page once published */
 export function StructureCards() {
+  const cards = exploreIds.map((id) => structures.find((s) => s.id === id)!);
   return (
-    <AutoScrollRow interval={4000} label="Business structures" className="-mx-5 flex snap-x snap-mandatory scroll-px-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:snap-none sm:scroll-px-0 sm:overflow-visible sm:px-0 sm:pb-0 gap-3 sm:grid sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-      {structures.map((s, i) => (
-        // plain <li> (no reveal): off-screen items in a swipe row would stay hidden until swiped
-        <li key={s.id} className="sm:h-full w-[82%] shrink-0 snap-start sm:w-auto">
-          <article className={`card relative flex h-full flex-col p-5 sm:p-6 ${s.popular ? "border-brand/30 ring-1 ring-brand/15" : ""}`}>
+    <AutoScrollRow interval={4000} label="Company registration services" className="-mx-5 flex snap-x snap-mandatory scroll-px-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:snap-none sm:scroll-px-0 sm:overflow-visible sm:px-0 sm:pb-0 gap-3 sm:grid sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      {cards.map((s) => {
+        const body = (
+          <>
             {s.popular && <span className="tag-green absolute right-4 top-4 sm:right-5 sm:top-5">Popular with startups</span>}
             <span className={tile}>
               <Icon name={s.icon} className="h-5 w-5 text-brand-deep" />
             </span>
-            <h3 className="mt-4 font-display text-[17px] font-bold leading-snug text-ink sm:text-[19px]">{s.name}</h3>
+            <h3 className="mt-4 font-display text-[17px] font-bold leading-snug text-ink sm:text-[19px]">{s.cardTitle ?? s.name}</h3>
 
             <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-faint">Best for</p>
             <p className="mt-1 text-[14px] leading-relaxed text-ink-soft">{s.bestFor}</p>
@@ -130,24 +132,31 @@ export function StructureCards() {
                 </li>
               ))}
             </ul>
-
-            {/* plain card until its page is published (cards never open WhatsApp) */}
-
-            {s.href && (
-
-            <a
-              href={s.href}
-              {...linkTarget(s.href)}
-              className="group mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14.5px] font-semibold text-brand-deep hover:text-brand-hover"
-            >
-              Learn more<span className="sr-only">: {s.linkLabel}</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </a>
-
+          </>
+        );
+        const frame = `card relative flex h-full flex-col p-5 sm:p-6 ${s.popular ? "border-brand/30 ring-1 ring-brand/15" : ""}`;
+        return (
+          // plain <li> (no reveal): off-screen items in a swipe row would stay hidden until swiped
+          <li key={s.id} className="sm:h-full w-[82%] shrink-0 snap-start sm:w-auto">
+            {s.href ? (
+              // whole card is the link; a plain card until its page is published (cards never open WhatsApp)
+              <a
+                href={s.href}
+                {...linkTarget(s.href)}
+                className={`${frame} group transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2`}
+              >
+                {body}
+                <span className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14.5px] font-semibold text-brand-deep group-hover:text-brand-hover">
+                  Explore service
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </span>
+              </a>
+            ) : (
+              <article className={frame}>{body}</article>
             )}
-          </article>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </AutoScrollRow>
   );
 }
@@ -162,7 +171,7 @@ export function ChennaiSectors() {
       <AutoScrollRow label="Chennai business sectors" className="-mx-5 mt-8 flex snap-x snap-mandatory scroll-px-5 gap-2.5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:scroll-px-0 sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
         {sectors.map((x) => (
           // no reveal animation: off-screen items in a swipe row would stay hidden until swiped
-          <li key={x.title} className="sm:h-full w-[40%] shrink-0 snap-start sm:w-auto">
+          <li key={x.title} className="sm:h-full w-[58%] shrink-0 snap-start min-[480px]:w-[44%] sm:w-auto">
             <figure className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5 sm:aspect-[4/3] sm:rounded-3xl">
               <Image
                 src={x.image}
@@ -173,12 +182,12 @@ export function ChennaiSectors() {
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
               {/* legibility gradient */}
-              <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" aria-hidden />
+              <span className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink/80 sm:h-1/2 via-ink/30 to-transparent" aria-hidden />
               <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-3 sm:p-4">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/15 text-white ring-1 ring-inset ring-white/25 backdrop-blur sm:h-9 sm:w-9">
+                <span className="hidden h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/15 sm:grid text-white ring-1 ring-inset ring-white/25 backdrop-blur sm:h-9 sm:w-9">
                   <Icon name={x.icon} className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
                 </span>
-                <span className="font-display text-[13.5px] font-bold leading-snug text-white sm:text-[16px]">{x.title}</span>
+                <span className="min-w-0 font-display text-[15px] font-bold leading-snug text-white [text-wrap:balance] sm:text-[16px]">{x.title}</span>
               </figcaption>
             </figure>
           </li>

@@ -29,6 +29,8 @@ export const iecPage: LicencePageData = {
     { icon: "TrendingUp", title: "Export schemes", line: "Needed to claim benefits under DGFT export promotion schemes." },
     { icon: "ShoppingCart", title: "Global marketplaces", line: "Sell overseas through export marketplaces and platforms." },
     { icon: "RefreshCw", title: "One code, no renewal", line: "The IEC doesn't expire, as long as you update it every year." },
+    { icon: "Package", title: "Import inputs and machinery", line: "Bring in raw materials, parts and equipment for your business legally." },
+    { icon: "UserRound", title: "Open to every structure", line: "Proprietors, firms, LLPs and companies can all hold an IEC, linked to their PAN." },
   ],
   applicantsSection: { title: "Who needs IEC registration in Chennai", lead: "Any business that imports or exports goods or services." },
   applicants: [

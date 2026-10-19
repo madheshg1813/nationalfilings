@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {
+  Handshake, FileSignature, CalendarCheck, Banknote, Percent, Stamp, ArrowLeftRight, Wallet, Calculator, UserPlus, TriangleAlert, PenLine, Coins,
   ArrowRight,
   ArrowUpRight,
   Award,
@@ -83,6 +84,7 @@ const ICONS: Record<string, LucideIcon> = {
   ShieldCheck, Ship, ShoppingBag, ShoppingCart, Shuffle, Stethoscope, Store, TrendingUp, Truck, UserCheck, UserRound, Users, Zap,
   UtensilsCrossed, ChefHat, Package, Soup, Coffee, Hotel, CalendarClock, RefreshCw, ScrollText, Home, Clock, KeyRound, Globe, Plane,
   Lock, Fingerprint, Gavel, BadgeCheck, Leaf, HardDrive, Scale, SearchCheck, FileText, Mail, Gauge, ShieldAlert, Eye, Signature,
+  Handshake, FileSignature, CalendarCheck, Banknote, Percent, Stamp, ArrowLeftRight, Wallet, Calculator, UserPlus, TriangleAlert, PenLine, Coins,
 };
 
 function Icon({ name, className }: { name: string; className?: string }) {
@@ -153,22 +155,22 @@ export function IndustryTiles({ intro: opportunitiesIntro, industries }: Omit<No
       <AutoScrollRow label="Sectors in Chennai" className="-mx-5 mt-8 flex snap-x snap-mandatory scroll-px-5 gap-2.5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:scroll-px-0 sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
         {industries.map((x) => (
           // no reveal animation: off-screen items in a swipe row would stay hidden until swiped
-          <li key={x.title} className="w-[40%] shrink-0 snap-start sm:h-full sm:w-auto">
+          <li key={x.title} className="w-[58%] shrink-0 snap-start min-[480px]:w-[44%] sm:h-full sm:w-auto">
             <figure className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5 sm:aspect-[4/3] sm:rounded-3xl">
               <Image
                 src={x.image}
                 alt={x.alt}
                 fill
-                sizes="(min-width: 1280px) 300px, (min-width: 1024px) 23vw, (min-width: 640px) 46vw, 40vw"
+                sizes="(min-width: 1280px) 300px, (min-width: 1024px) 23vw, (min-width: 640px) 46vw, 58vw"
                 quality={90}
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
-              <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" aria-hidden />
+              <span className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink/80 sm:h-1/2 via-ink/30 to-transparent" aria-hidden />
               <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-3 sm:p-4">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/15 text-white ring-1 ring-inset ring-white/25 backdrop-blur sm:h-9 sm:w-9">
+                <span className="hidden h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/15 sm:grid text-white ring-1 ring-inset ring-white/25 backdrop-blur sm:h-9 sm:w-9">
                   <Icon name={x.icon} className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
                 </span>
-                <span className="font-display text-[13.5px] font-bold leading-snug text-white sm:text-[16px]">{x.title}</span>
+                <span className="min-w-0 font-display text-[15px] font-bold leading-snug text-white [text-wrap:balance] sm:text-[16px]">{x.title}</span>
               </figcaption>
             </figure>
           </li>
@@ -183,9 +185,15 @@ export function IndustryTiles({ intro: opportunitiesIntro, industries }: Omit<No
 export function DocumentCards({ documents, documentsNote }: Pick<LicencePageData, "documents" | "documentsNote">) {
   return (
     <>
-      <ul className="grid gap-3 sm:grid-cols-2 sm:gap-5">
-        {documents.map((d, i) => (
-          <Reveal as="li" key={d.title} delay={i * 0.06} className="h-full">
+      {/* phones and small tablets: swipeable row (snap); md+: grid, three across when there are three cards */}
+      <AutoScrollRow
+        interval={4000}
+        label="Documents required"
+        className={`-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:snap-none md:scroll-px-0 md:gap-5 md:overflow-visible md:px-0 md:pb-0 ${documents.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}
+      >
+        {documents.map((d) => (
+          // plain <li> (no reveal): off-screen items in a swipe row would stay hidden until swiped
+          <li key={d.title} className="w-[85%] shrink-0 snap-start sm:w-[60%] md:h-full md:w-auto">
             <div className="h-full rounded-3xl border border-ink/[0.07] bg-white p-5 shadow-[0_14px_36px_-26px_rgba(15,60,58,0.45)] sm:p-7">
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-deep text-white">
@@ -205,9 +213,9 @@ export function DocumentCards({ documents, documentsNote }: Pick<LicencePageData
               </ul>
               <p className="mt-4 border-t border-ink/[0.06] pt-3 text-[13px] leading-relaxed text-ink-muted">{d.hint}</p>
             </div>
-          </Reveal>
+          </li>
         ))}
-      </ul>
+      </AutoScrollRow>
 
       <Reveal className="mt-4 sm:mt-6">
         <div className="flex flex-col gap-4 rounded-2xl border border-brand/15 bg-brand-tint/60 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">

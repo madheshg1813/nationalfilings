@@ -8,7 +8,12 @@ import { LicencePreview } from "./LicencePreview";
 
 // A card is a plain crawlable link to its licence page once that page is published, and a plain card until then.
 // Cards never open WhatsApp (the user's rule); the CTA panel below does.
-const cards = licenceSection.cards.map((c) => ({ ...c, href: serviceHref(licences.find((l) => l.id === c.id)!) }));
+// "more" is the eighth card (fills the last row): other registrations, via the contact page
+const cards = licenceSection.cards.map((c) => ({
+  ...c,
+  href: c.id === "more" ? "/contact" : serviceHref(licences.find((l) => l.id === c.id)!),
+  cta: c.id === "more" ? "Ask us" : "Learn more",
+}));
 
 function CardBody({ c }: { c: (typeof cards)[number] }) {
   return (
@@ -41,7 +46,7 @@ function CardBody({ c }: { c: (typeof cards)[number] }) {
         <p className="mt-2 hidden pb-4 text-[13.5px] leading-relaxed text-ink-muted sm:block">{c.line}</p>
         {c.href && (
           <span className="mt-auto flex items-center gap-1 pt-2 text-[12px] font-semibold text-brand-deep sm:border-t sm:border-ink/[0.06] sm:pt-4 sm:text-[14px]">
-            Learn more
+            {c.cta}
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 sm:h-4 sm:w-4" aria-hidden />
           </span>
         )}
@@ -50,7 +55,7 @@ function CardBody({ c }: { c: (typeof cards)[number] }) {
   );
 }
 
-/** Home page: licences, registrations & certifications. Centred grid: 2 per row on phones, 4 on desktop. */
+/** Home page: licences, registrations & certifications. Eight cards: 2 per row on phones, 4 on desktop. */
 export function Licences() {
   const s = licenceSection;
   return (

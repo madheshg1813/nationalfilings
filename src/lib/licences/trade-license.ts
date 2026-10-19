@@ -29,6 +29,8 @@ export const tradeLicensePage: LicencePageData = {
     { icon: "Briefcase", title: "Easier bank accounts and loans", line: "A trade licence supports your business address and activity." },
     { icon: "ClipboardCheck", title: "Clean compliance record", line: "Inspections go smoothly when your licence is current." },
     { icon: "RefreshCw", title: "Simple yearly renewal", line: "Once issued, renewing on time keeps the licence valid." },
+    { icon: "MapPinned", title: "Recognised premises", line: "Confirms your trade is permitted at that address under local rules." },
+    { icon: "ClipboardCheck", title: "Needed for other approvals", line: "Some licences, tenders and landlords ask for a valid trade license." },
   ],
   applicantsSection: { title: "Who needs a trade license in Chennai", lead: "Most businesses trading from a premises within corporation limits need one." },
   applicants: [

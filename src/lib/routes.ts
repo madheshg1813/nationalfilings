@@ -41,6 +41,7 @@ export const pillars: Pillar[] = [
     blurb: "Private limited, LLP, OPC, partnership and proprietorship, plus ongoing ROC compliance.",
     clusters: [
       c("P1-C1", "LLP Registration", "llp-registration-service"),
+      c("P1-C6", "Private Limited Registration", "private-limited-registration-service"),
       c("P1-C2", "OPC Registration", "one-person-company-registration-service"),
       c("P1-C3", "Partnership Registration", "partnership-firm-registration-service"),
       c("P1-C4", "Proprietorship Registration", "proprietorship-registration-service"),

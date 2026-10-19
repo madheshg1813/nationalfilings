@@ -72,6 +72,7 @@ export const licenceSection = {
     { id: "L5", name: "IEC Registration", icon: "Globe", line: "Import Export Code registration for businesses involved in international trade." },
     { id: "L6", name: "Digital Signature Certificate", icon: "KeyRound", line: "Secure DSC certificates for MCA, GST and government filings." },
     { id: "L7", name: "ISO Certification", icon: "BadgeCheck", line: "Build trust and improve business standards through ISO certification." },
+    { id: "more", name: "Other Registrations", icon: "FileStack", line: "Need a licence that isn't listed? Tell us what your business does and we'll guide you." },
   ] as { id: string; name: string; short?: string; icon: IconName; line: string }[],
   cta: {
     title: "Not sure which registration you need?",

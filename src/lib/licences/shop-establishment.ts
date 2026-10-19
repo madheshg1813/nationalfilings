@@ -29,6 +29,8 @@ export const shopEstablishmentPage: LicencePageData = {
     { icon: "ShieldAlert", title: "Avoid penalties", line: "Operating without required registration can attract fines." },
     { icon: "BadgeCheck", title: "Business proof", line: "Used as address and activity proof for other registrations." },
     { icon: "Award", title: "Credibility", line: "Shows clients and landlords you run a registered establishment." },
+    { icon: "Users", title: "Clear rules for staff", line: "Working hours, holidays and leave follow state law, which helps in any dispute." },
+    { icon: "ClipboardCheck", title: "Smoother inspections", line: "Registration and proper records make labour department inspections straightforward." },
   ],
   applicantsSection: { title: "Who needs Shop and Establishment registration in Chennai", lead: "Shops, offices and commercial establishments covered by the Tamil Nadu Act." },
   applicants: [

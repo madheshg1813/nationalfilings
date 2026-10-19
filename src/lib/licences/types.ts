@@ -1,14 +1,17 @@
 /**
- * Data for one licence / registration / certification page (MSME, FSSAI, Trade License, Shop & Establishment, IEC, DSC, ISO).
+ * Data for one single-service page: licences (MSME, FSSAI, Trade License, Shop & Establishment, IEC, DSC, ISO) and
+ * pillar clusters (LLP, Private Limited, OPC, Partnership, Proprietorship).
  * Every page renders through components/licence/LicencePage.tsx, so they share one design and differ only in content.
  * Honesty rules for all of them: no prices we can't stand behind, timelines as estimates, government fees stated only where
  * they are fixed and public, and no promise that an authority will approve an application.
  */
 type Cta = { title: string; sub: string; message: string };
 type Item = { icon: string; title: string; line: string };
+/** Label-led card section (licence types, annual compliance, structure comparisons...) */
+type Highlights = { eyebrow: string; title: string; lead: string; items: { icon: string; title: string; line: string; label?: string; highlight?: boolean }[] };
 
 export type LicencePageData = {
-  /** Route id in lib/routes.ts licences (L1...L7) */
+  /** Route id in lib/routes.ts (licences L1..., clusters P1-C1...) */
   id: string;
   /** Contact form option (licence label) */
   service: string;
@@ -21,9 +24,9 @@ export type LicencePageData = {
   applicantsSection: { title: string; lead: string };
   applicants: Item[];
   /** Optional photo tiles (MSME only so far); every photo must be unique on the site */
-  opportunities?: { title: string; intro: string; industries: { icon: string; title: string; image: string; alt: string; credit: string }[] };
+  opportunities?: { eyebrow?: string; title: string; intro: string; industries: { icon: string; title: string; image: string; alt: string; credit: string }[] };
   /** Optional section unique to the page (licence types, standards, uses...) */
-  highlights?: { eyebrow: string; title: string; lead: string; items: { icon: string; title: string; line: string; label?: string; highlight?: boolean }[] };
+  highlights?: Highlights;
   documentsSection: { title: string; lead: string };
   documents: { icon: string; title: string; items: string[]; hint: string }[];
   documentsNote: { title: string; sub: string; message: string };
@@ -34,11 +37,17 @@ export type LicencePageData = {
   mistakes: { icon: string; title: string; problem: string; fix: string }[];
   costSection: { title: string; lead: string; cta: Cta };
   costs: { icon: string; label: string; title: string; line: string; highlight?: boolean }[];
+  /** Optional: ongoing compliance after registration (after the cost section) */
+  compliance?: Highlights;
+  /** Optional: decision guidance, e.g. "LLP or private limited?" (after compliance) */
+  decision?: Highlights;
   reasonsTitle: string;
   reasons: Item[];
   faqTitle: string;
   faqs: { q: string; a: string }[];
   related: { icon: string; label: string; href: string }[];
+  /** Heading for the related links section (default "Other business services in Chennai") */
+  relatedTitle?: string;
   final: Cta;
   /** Service names for the schema offer catalogue */
   catalogue: string[];

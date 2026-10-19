@@ -23,18 +23,17 @@ import {
   RelatedLinks,
 } from "./Sections";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { licences } from "@/lib/routes";
 import type { Page } from "@/lib/page";
 import type { LicencePageData } from "@/lib/licences/types";
 
 /**
- * One template for every licence / registration / certification page. Section order follows the MSME brief;
+ * One template for every single-service page (licences and pillar clusters). Section order follows the MSME brief;
  * backgrounds alternate white / cream automatically, so optional sections never break the rhythm.
  * The page goes live on its date in publish-schedule.json (the publish gate keeps it out of the build until then).
  */
 export async function LicencePage({ data: d, page }: { data: LicencePageData; page: Page }) {
   const google = await getGoogleReviews();
-  const route = licences.find((l) => l.id === d.id)!;
+  const name = page.headline ?? page.title;
   let n = 0;
   const tone = () => (n++ % 2 === 1 ? "cream" : undefined); // first section white, then alternate
 
@@ -43,7 +42,7 @@ export async function LicencePage({ data: d, page }: { data: LicencePageData; pa
     "@id": `${page.url}#service`,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: route.title,
+      name,
       itemListElement: d.catalogue.map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
     },
   };
@@ -81,7 +80,7 @@ export async function LicencePage({ data: d, page }: { data: LicencePageData; pa
         </PillarSection>
 
         {d.opportunities && (
-          <PillarSection id="opportunities" tone={tone()} eyebrow="Chennai landscape" title={d.opportunities.title}>
+          <PillarSection id="opportunities" tone={tone()} eyebrow={d.opportunities.eyebrow ?? "Chennai landscape"} title={d.opportunities.title}>
             <IndustryTiles intro={d.opportunities.intro} industries={d.opportunities.industries} />
           </PillarSection>
         )}
@@ -122,17 +121,29 @@ export async function LicencePage({ data: d, page }: { data: LicencePageData; pa
           <CostCards costs={d.costs} />
         </PillarSection>
 
+        {d.compliance && (
+          <PillarSection id="compliance" tone={tone()} eyebrow={d.compliance.eyebrow} title={d.compliance.title} lead={d.compliance.lead}>
+            <HighlightCards items={d.compliance.items} />
+          </PillarSection>
+        )}
+
+        {d.decision && (
+          <PillarSection id="compare" tone={tone()} eyebrow={d.decision.eyebrow} title={d.decision.title} lead={d.decision.lead}>
+            <HighlightCards items={d.decision.items} />
+          </PillarSection>
+        )}
+
         <PillarSection id="why-us" tone={tone()} eyebrow="Why National Filings" title={d.reasonsTitle}>
           <ReasonCards reasons={d.reasons} />
         </PillarSection>
 
         <Faq items={d.faqs} title={d.faqTitle} message={d.final.message} className="border-t border-ink/[0.06]" />
 
-        <PillarSection id="related" tone="cream" eyebrow="Related services" title="Other business services in Chennai">
+        <PillarSection id="related" tone="cream" eyebrow="Related services" title={d.relatedTitle ?? "Other business services in Chennai"}>
           <RelatedLinks related={d.related} />
         </PillarSection>
 
-        <LeadCta title={d.final.title} sub={d.final.sub} message={d.final.message} service={d.service} page={route.path} google={google} />
+        <LeadCta title={d.final.title} sub={d.final.sub} message={d.final.message} service={d.service} page={page.path} google={google} />
       </main>
       <Footer />
       <MobileCtaBar callLabel="Talk to an expert" message={d.hero.whatsapp} />

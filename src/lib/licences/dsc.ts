@@ -29,6 +29,8 @@ export const dscPage: LicencePageData = {
     { icon: "Gavel", title: "Tenders and e-procurement", line: "Bid on government tenders that require a DSC." },
     { icon: "Lock", title: "Secure and tamper-proof", line: "Signed documents can't be altered without detection." },
     { icon: "Clock", title: "Saves time", line: "Sign and file from anywhere, without physical paperwork." },
+    { icon: "ShieldCheck", title: "EPFO and trademark filings", line: "Also used to authorise employer filings on EPFO and to file trademark applications." },
+    { icon: "FileText", title: "Sign PDFs and contracts", line: "Sign agreements and invoices digitally, with the signer's identity verifiable." },
   ],
   applicantsSection: { title: "Who needs a digital signature certificate in Chennai", lead: "Anyone who signs filings or documents online for a business or for themselves." },
   applicants: [

@@ -90,7 +90,7 @@ export function Audiences() {
     <AutoScrollRow label="Businesses that need GST support" className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-2.5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:snap-none sm:scroll-px-0 sm:grid-cols-3 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6">
       {audiences.map((a) => (
         // no reveal animation: off-screen items in a swipe row would stay hidden until swiped
-        <li key={a.title} className="w-[40%] shrink-0 snap-start sm:w-auto">
+        <li key={a.title} className="w-[58%] shrink-0 snap-start min-[480px]:w-[44%] sm:w-auto">
           <figure className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5">
             <Image
               src={a.image}
@@ -102,12 +102,12 @@ export function Audiences() {
               className="object-cover transition duration-500 group-hover:scale-105"
             />
             {/* gradient only behind the caption, so the photo stays clear */}
-            <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" aria-hidden />
+            <span className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink/80 sm:h-1/2 via-ink/30 to-transparent" aria-hidden />
             <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-3">
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-white/15 text-white ring-1 ring-inset ring-white/25 backdrop-blur">
+              <span className="hidden h-7 w-7 shrink-0 place-items-center rounded-lg bg-white/15 sm:grid text-white ring-1 ring-inset ring-white/25 backdrop-blur">
                 <Icon name={a.icon} className="h-3.5 w-3.5" />
               </span>
-              <span className="font-display text-[13.5px] font-bold leading-snug text-white sm:text-[14.5px]">{a.title}</span>
+              <span className="min-w-0 font-display text-[15px] font-bold leading-snug text-white [text-wrap:balance] sm:text-[14.5px]">{a.title}</span>
             </figcaption>
           </figure>
         </li>

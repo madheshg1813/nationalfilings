@@ -25,7 +25,7 @@ import {
 } from "@/components/company-registration/Sections";
 import { servicePage } from "@/lib/page";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { chennaiCta, faqs, finalCta, hero, includedCta, messages, packagesCta, pillar, processCta, SERVICE, structures, reasons } from "@/lib/company-registration";
+import { chennaiCta, exploreSection, faqs, finalCta, hero, includedCta, messages, packagesCta, pillar, processCta, SERVICE, structures, reasons } from "@/lib/company-registration";
 import { ReasonCards } from "@/components/licence/Sections";
 
 // P1 · Company Registration pillar. Primary keyword: "company registration service chennai".
@@ -70,10 +70,10 @@ export default async function CompanyRegistrationPage() {
         <TrustSection />
 
         <PillarSection
-          id="structures"
-          eyebrow="Business structures"
-          title="Choose your business structure in Chennai"
-          lead="Every structure suits a different kind of business. Here is what each one is best for."
+          id="explore-services"
+          eyebrow="Registration services"
+          title={exploreSection.title}
+          lead={exploreSection.lead}
         >
           <StructureCards />
         </PillarSection>

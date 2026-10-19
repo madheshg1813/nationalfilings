@@ -1,5 +1,5 @@
 {
-  "_comment": "Work log + publish schedule. Entries with a `path` are page launches: on Railway, a page folder is left out of the build until its IST date arrives (scripts/gate-pages.mjs). Every entry dated today or earlier appears in /publish-log.csv, which the 'national filings works' Google Sheet imports. Add a row here to log other work.",
+  "_comment": "Work log + publish schedule. Entries with a `path` are page launches: on Railway, a page folder is left out of the build until its IST date arrives, and its IST `time` (HH:MM) too when one is set (scripts/gate-pages.mjs). Every entry dated today or earlier appears in /publish-log.csv, which the 'national filings works' Google Sheet imports. Add a row here to log other work.",
   "log": [
     { "date": "2026-10-04", "work": "Published home page", "page": "National Filings home page", "path": "/" },
     { "date": "2026-10-07", "work": "Published pillar page", "page": "Company Registration Service in Chennai", "path": "/chennai/company-registration" },
@@ -14,6 +14,12 @@
     { "date": "2026-10-14", "work": "Published service page", "page": "Shop and Establishment Registration in Chennai", "path": "/chennai/shop-establishment-registration" },
     { "date": "2026-10-15", "work": "Published service page", "page": "IEC Registration in Chennai", "path": "/chennai/iec-registration" },
     { "date": "2026-10-15", "work": "Published service page", "page": "Digital Signature Certificate in Chennai", "path": "/chennai/digital-signature-certificate" },
-    { "date": "2026-10-16", "work": "Published service page", "page": "ISO Certification in Chennai", "path": "/chennai/iso-certification" }
+    { "date": "2026-10-16", "work": "Published service page", "page": "ISO Certification in Chennai", "path": "/chennai/iso-certification" },
+    { "date": "2026-10-17", "work": "Published cluster page", "page": "LLP Registration in Chennai", "path": "/chennai/llp-registration-service" },
+    { "date": "2026-10-17", "work": "Published cluster page", "page": "Private Limited Company Registration in Chennai", "path": "/chennai/private-limited-registration-service" },
+    { "date": "2026-10-18", "work": "Published cluster page", "page": "One Person Company Registration in Chennai", "path": "/chennai/one-person-company-registration-service" },
+    { "date": "2026-10-18", "work": "Published cluster page", "page": "Partnership Firm Registration in Chennai", "path": "/chennai/partnership-firm-registration-service" },
+    { "date": "2026-10-19", "time": "19:00", "work": "Published cluster page", "page": "Proprietorship Registration in Chennai", "path": "/chennai/proprietorship-registration-service" },
+    { "date": "2026-10-20", "work": "Published cluster page", "page": "ROC Compliance Services in Chennai", "path": "/chennai/roc-compliance-service" }
   ]
 }

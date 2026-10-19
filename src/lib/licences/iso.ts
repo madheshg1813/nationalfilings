@@ -33,6 +33,8 @@ export const isoPage: LicencePageData = {
     { icon: "BadgeCheck", title: "Brand credibility", line: "Shows a consistent, audited approach to quality." },
     { icon: "Users", title: "Clear roles for staff", line: "Defined responsibilities and training for your team." },
     { icon: "ShieldCheck", title: "Risk management", line: "Identify and control risks before they become problems." },
+    { icon: "TrendingUp", title: "Continual improvement", line: "Regular internal and surveillance audits push you to measure and improve." },
+    { icon: "UserCheck", title: "Customer satisfaction", line: "Consistent quality and proper complaint handling keep customers coming back." },
   ],
   applicantsSection: { title: "Who should get ISO certification in Chennai", lead: "Businesses of any size that want to prove consistent quality and standards." },
   applicants: [
@@ -55,6 +57,9 @@ export const isoPage: LicencePageData = {
       { icon: "HardHat", label: "Safety", title: "ISO 45001", line: "Occupational health and safety for workplaces with risk." },
       { icon: "Lock", label: "Security", title: "ISO 27001", line: "Information security for IT, SaaS and data-driven businesses." },
       { icon: "UtensilsCrossed", label: "Food", title: "ISO 22000", line: "Food safety management across the food chain." },
+      { icon: "Stethoscope", label: "Medical", title: "ISO 13485", line: "Quality management for medical device makers and their suppliers." },
+      { icon: "Zap", label: "Energy", title: "ISO 50001", line: "Energy management for factories and facilities cutting power costs." },
+      { icon: "HardDrive", label: "IT services", title: "ISO/IEC 20000-1", line: "Service management for IT support and managed service providers." },
     ],
   },
   documentsSection: { title: "Documents required for ISO certification in Chennai", lead: "Business details to start; we help build the system documents." },

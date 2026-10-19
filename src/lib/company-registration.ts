@@ -16,6 +16,7 @@ const cluster = (id: string) => serviceHref(pillar.clusters.find((c) => c.id ===
 
 export const paths = {
   llp: cluster("P1-C1"),
+  pvt: cluster("P1-C6"),
   opc: cluster("P1-C2"),
   partnership: cluster("P1-C3"),
   proprietorship: cluster("P1-C4"),
@@ -44,6 +45,8 @@ export type Structure = {
   advantages: string[];
   href: string;
   linkLabel: string;
+  /** Card heading in the Explore section (the page's own title) */
+  cardTitle?: string;
   popular?: boolean;
 };
 
@@ -55,8 +58,9 @@ export const structures: Structure[] = [
     icon: "Building2",
     bestFor: "Startups and growing businesses that plan to raise funding or scale",
     advantages: ["Limited liability for shareholders", "Easy to bring in investors and ESOPs", "Highest credibility with banks and clients"],
-    href: "", // plain card: no "Learn more" link (removed 2026-10-12)
-    linkLabel: "how private limited registration works",
+    href: paths.pvt,
+    linkLabel: "private limited company registration",
+    cardTitle: "Private Limited Company Registration in Chennai",
     popular: true,
   },
   {
@@ -67,6 +71,7 @@ export const structures: Structure[] = [
     bestFor: "Professional firms and partners who want limited liability with lighter compliance",
     advantages: ["Partners' liability limited to contribution", "No minimum capital", "Audit only above set thresholds"],
     href: paths.llp,
+    cardTitle: "LLP Registration in Chennai",
     linkLabel: "LLP registration",
   },
   {
@@ -77,6 +82,7 @@ export const structures: Structure[] = [
     bestFor: "Solo founders who want a company with limited liability",
     advantages: ["One owner, with a nominee", "Separate legal entity", "Can convert to a private limited later"],
     href: paths.opc,
+    cardTitle: "One Person Company Registration in Chennai",
     linkLabel: "OPC registration",
   },
   {
@@ -87,6 +93,7 @@ export const structures: Structure[] = [
     bestFor: "Small and family businesses run by two or more people",
     advantages: ["Quick and low-cost to set up", "Simple partnership deed", "Minimal ongoing filings"],
     href: paths.partnership,
+    cardTitle: "Partnership Firm Registration in Chennai",
     linkLabel: "Partnership registration",
   },
   {
@@ -97,6 +104,7 @@ export const structures: Structure[] = [
     bestFor: "Freelancers, traders and shop owners starting on their own",
     advantages: ["Fastest way to start trading", "Full control for the owner", "Lowest running cost"],
     href: paths.proprietorship,
+    cardTitle: "Proprietorship Registration in Chennai",
     linkLabel: "Proprietorship registration",
   },
   {
@@ -107,6 +115,7 @@ export const structures: Structure[] = [
     bestFor: "Companies and LLPs that are already registered and need yearly filings done on time",
     advantages: ["Annual returns and financial statements filed", "Director KYC and event-based filings", "Avoids late fees and a struck-off status"],
     href: paths.roc,
+    cardTitle: "ROC Compliance Services in Chennai",
     linkLabel: "ROC compliance",
   },
 ];
@@ -385,3 +394,14 @@ export const reasons = [
   { icon: "MessageCircle", title: "WhatsApp updates", line: "Name approval, filing status and certificate updates sent on WhatsApp." },
   { icon: "ClipboardCheck", title: "Compliance guidance", line: "First-year help with the auditor appointment, bank account, GST and ROC dates." },
 ];
+
+/* Section 1 heading: the structure cards double as the links to the five registration pages */
+
+export const exploreSection = {
+  title: "Explore Company Registration Services",
+  lead: "Explore the right registration and compliance service for your business structure and requirements.",
+};
+
+/** The six registration and compliance pages, in this order */
+export const exploreIds = ["llp", "pvt", "opc", "partnership", "proprietorship", "roc"] as const;
+

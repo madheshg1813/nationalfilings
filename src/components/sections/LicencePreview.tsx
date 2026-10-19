@@ -128,7 +128,24 @@ function Iso() {
   );
 }
 
+function MoreRegistrations() {
+  return (
+    <Window className="w-[86%] max-w-[210px]">
+      <span className="font-display text-[9px] font-bold tracking-[0.12em] text-ink sm:text-[10px]">MORE REGISTRATIONS</span>
+      <div className="mt-2 space-y-1.5">
+        {["100%", "78%", "88%"].map((w) => (
+          <div key={w} className="flex items-center gap-1.5">
+            <Check className="h-3 w-3 shrink-0 text-brand-deep" strokeWidth={3} />
+            <Bar w={w} tone="soft" />
+          </div>
+        ))}
+      </div>
+    </Window>
+  );
+}
+
 const PREVIEWS: Record<string, () => React.ReactElement> = {
+  more: MoreRegistrations,
   L1: Udyam,
   L2: Fssai,
   L3: TradeLicence,
