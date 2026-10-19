@@ -91,8 +91,8 @@ export default async function GstConsultantPage() {
           id="services"
           tone="cream"
           eyebrow="GST services"
-          title="GST services we provide in Chennai"
-          lead="Everything GST, handled by one consultant. Pick a service to get started on WhatsApp."
+          title="Explore GST Services in Chennai"
+          lead="Find the right GST service for your registration, returns, cancellation or notice, all handled by one team."
         >
           <Services />
         </PillarSection>

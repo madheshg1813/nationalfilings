@@ -122,9 +122,10 @@ export function Services() {
   return (
     // phones: swipeable row (snap); sm+: grid
     <AutoScrollRow interval={4000} label="GST services" className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-3 [scrollbar-width:none] sm:mx-0 sm:grid sm:snap-none sm:scroll-px-0 sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
-      {services.map((s) => (
-        <li key={s.title} className="w-[78%] shrink-0 snap-start sm:w-auto">
-          <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-ink/[0.06] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-28px_rgba(15,60,58,0.55)] hover:ring-brand/20">
+      {services.map((s) => {
+        const href = pageHref(s.page);
+        const body = (
+          <>
             {/* visual header */}
             <div className="relative flex h-24 items-center justify-between overflow-hidden bg-gradient-to-br from-brand-tint via-white to-lime-tint px-5 sm:h-28">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-brand-deep shadow-[0_10px_24px_-14px_rgba(15,60,58,0.55)] sm:h-14 sm:w-14">
@@ -143,20 +144,32 @@ export function Services() {
                   </li>
                 ))}
               </ul>
-              {/* cards never open WhatsApp: the link appears once the sub-page is published */}
-              {pageHref(s.page) && (
-                <a
-                  href={pageHref(s.page)}
-                  className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14px] font-semibold text-brand-deep hover:text-brand-hover"
-                >
-                  Learn more<span className="sr-only">: {s.title}</span>
+              {href && (
+                <span className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14px] font-semibold text-brand-deep group-hover:text-brand-hover">
+                  Explore service
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                </a>
+                </span>
               )}
             </div>
-          </article>
-        </li>
-      ))}
+          </>
+        );
+        const frame = "group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-ink/[0.06]";
+        return (
+          <li key={s.title} className="w-[78%] shrink-0 snap-start sm:w-auto">
+            {/* whole card is the link once the sub-page is published; a plain card until then (cards never open WhatsApp) */}
+            {href ? (
+              <a
+                href={href}
+                className={`${frame} transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-28px_rgba(15,60,58,0.55)] hover:ring-brand/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2`}
+              >
+                {body}
+              </a>
+            ) : (
+              <article className={frame}>{body}</article>
+            )}
+          </li>
+        );
+      })}
     </AutoScrollRow>
   );
 }
