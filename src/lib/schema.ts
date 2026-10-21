@@ -38,6 +38,7 @@ export function siteGraph() {
     "@type": "Organization",
     "@id": orgId,
     name: site.name,
+    legalName: site.legalName,
     slogan: site.tagline,
     url: site.url,
     logo: { "@type": "ImageObject", url: `${site.url}/brand/logo-full.png`, width: 924, height: 465 },

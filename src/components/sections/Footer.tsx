@@ -105,7 +105,8 @@ export function Footer() {
       <div className="border-t border-ink/10">
         <div className="shell flex flex-col gap-1.5 py-5 text-[12px] leading-relaxed text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.name}. All rights reserved.
+            © {year} {site.legalName}. All rights reserved.{" "}
+            <span className="whitespace-nowrap">Operating under the brand name &lsquo;{site.name}&rsquo;.</span>
           </p>
           <p>A private consultancy, not a government website or portal.</p>
         </div>
