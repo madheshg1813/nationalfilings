@@ -12,6 +12,8 @@ on:
     - cron: "30 2 * * *" # 08:00 IST backup
     - cron: "30 4 * * *" # 10:00 IST backup
     - cron: "30 7 * * *" # 13:00 IST backup
+    - cron: "30 9 * * *" # 15:00 IST backup (also catches days when Railway pauses Hobby deploys for a while)
+    - cron: "30 11 * * *" # 17:00 IST backup
     # Evening launches (entries with "time": "19:00"): 7 PM IST, with backups at 7:30 PM and 8:30 PM
     - cron: "30 13 * * *" # 19:00 IST
     - cron: "0 14 * * *" # 19:30 IST backup
@@ -31,7 +33,7 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 50 # room for up to 20 min of Railway "paused" retries plus the deploy itself
     steps:
       - uses: actions/checkout@v4
 
@@ -64,9 +66,16 @@ jobs:
           TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           gql() { curl -sS "$RAILWAY_API" -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d "$1"; }
-          RES=$(gql "{\"query\":\"mutation { serviceInstanceDeployV2(serviceId: \\\"$RAILWAY_SERVICE_ID\\\", environmentId: \\\"$RAILWAY_ENVIRONMENT_ID\\\", commitSha: \\\"$GITHUB_SHA\\\") }\"}")
-          ID=$(echo "$RES" | jq -r '.data.serviceInstanceDeployV2 // empty')
-          if [ -z "$ID" ]; then echo "Deploy request failed: $RES"; exit 1; fi
+          # Railway sometimes pauses Hobby deploys during busy periods ("Deploys have been paused temporarily").
+          # Keep asking for up to 20 minutes; if it's still paused, fail and let the next backup run try again.
+          for try in $(seq 1 20); do
+            RES=$(gql "{\"query\":\"mutation { serviceInstanceDeployV2(serviceId: \\\"$RAILWAY_SERVICE_ID\\\", environmentId: \\\"$RAILWAY_ENVIRONMENT_ID\\\", commitSha: \\\"$GITHUB_SHA\\\") }\"}")
+            ID=$(echo "$RES" | jq -r '.data.serviceInstanceDeployV2 // empty')
+            [ -n "$ID" ] && break
+            if echo "$RES" | grep -qi "paused"; then echo "$(date +%T) Railway deploys are paused, retrying in 60s ($try/20)"; sleep 60; continue; fi
+            echo "Deploy request failed: $RES"; exit 1
+          done
+          if [ -z "$ID" ]; then echo "Railway deploys still paused after 20 minutes; the next scheduled run will retry"; exit 1; fi
           echo "Deployment $ID for commit ${GITHUB_SHA:0:7}"
           for i in $(seq 1 60); do
             STATUS=$(gql "{\"query\":\"{ deployment(id: \\\"$ID\\\") { status } }\"}" | jq -r '.data.deployment.status')
