@@ -1,16 +1,17 @@
-# Daily page publish: 7:00 AM IST, with backup runs at 8:00 AM, 10:00 AM and 1:00 PM IST.
-# If a page in src/lib/publish-schedule.json is due today (IST), redeploy Railway (the build's publish gate
+# Daily page publish: 9:00 AM IST (from 22 Oct 2026), with backup runs at 10:00 AM, 11:30 AM, 1:00 PM, 3:00 PM and 5:00 PM IST.
+# Page launches in src/lib/publish-schedule.json carry "time": "09:00", so the publish gate never releases them earlier.
+# If a page is due (its IST date and time have passed) and isn't live yet, redeploy Railway (the build's publish gate
 # then includes it), wait for the deploy, and check the page is live. A failure fails the run, and GitHub emails you.
-# GitHub can delay or drop scheduled runs (it skipped 7 AM on 8 Oct 2026), so the backup runs retry; a run whose due
-# pages are already live skips the deploy, so the site is rebuilt only once a day.
+# GitHub can delay or drop scheduled runs, and Railway sometimes pauses Hobby deploys, so the backup runs retry; a run
+# whose due pages are already live skips the deploy, so the site is rebuilt only once a day.
 # Manual runs (Actions tab > Daily page publish > Run workflow) always deploy, as a test.
 name: Daily page publish
 
 on:
   schedule:
-    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST (GitHub may start scheduled runs late, or drop them)
-    - cron: "30 2 * * *" # 08:00 IST backup
+    - cron: "30 3 * * *" # 03:30 UTC = 09:00 IST (GitHub may start scheduled runs late, or drop them)
     - cron: "30 4 * * *" # 10:00 IST backup
+    - cron: "0 6 * * *" # 11:30 IST backup
     - cron: "30 7 * * *" # 13:00 IST backup
     - cron: "30 9 * * *" # 15:00 IST backup (also catches days when Railway pauses Hobby deploys for a while)
     - cron: "30 11 * * *" # 17:00 IST backup

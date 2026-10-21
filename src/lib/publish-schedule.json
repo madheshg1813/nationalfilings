@@ -1,5 +1,5 @@
 {
-  "_comment": "Work log + publish schedule. Entries with a `path` are page launches: on Railway, a page folder is left out of the build until its IST date arrives, and its IST `time` (HH:MM) too when one is set (scripts/gate-pages.mjs). Every entry dated today or earlier appears in /publish-log.csv, which the 'national filings works' Google Sheet imports. Add a row here to log other work.",
+  "_comment": "Work log + publish schedule. Entries with a `path` are page launches: on Railway, a page folder is left out of the build until its IST date arrives, and its IST `time` (HH:MM) too when one is set (scripts/gate-pages.mjs). From 22 Oct 2026 launches go out at 09:00 IST. Every entry dated today or earlier appears in /publish-log.csv, which the 'national filings works' Google Sheet imports. Add a row here to log other work.",
   "log": [
     { "date": "2026-10-04", "work": "Published home page", "page": "National Filings home page", "path": "/" },
     { "date": "2026-10-07", "work": "Published pillar page", "page": "Company Registration Service in Chennai", "path": "/chennai/company-registration" },
@@ -23,7 +23,7 @@
     { "date": "2026-10-20", "work": "Published cluster page", "page": "ROC Compliance Services in Chennai", "path": "/chennai/roc-compliance-service" },
     { "date": "2026-10-21", "work": "Published cluster page", "page": "GST Registration Service in Chennai", "path": "/chennai/gst-registration-service" },
     { "date": "2026-10-21", "work": "Published cluster page", "page": "GST Return Filing in Chennai", "path": "/chennai/gst-return-filing-service" },
-    { "date": "2026-10-22", "work": "Published cluster page", "page": "GST Cancellation in Chennai", "path": "/chennai/gst-cancellation-service" },
-    { "date": "2026-10-22", "work": "Published cluster page", "page": "GST Notice Reply in Chennai", "path": "/chennai/gst-notice-reply-service" }
+    { "date": "2026-10-22", "time": "09:00", "work": "Published cluster page", "page": "GST Cancellation in Chennai", "path": "/chennai/gst-cancellation-service" },
+    { "date": "2026-10-22", "time": "09:00", "work": "Published cluster page", "page": "GST Notice Reply in Chennai", "path": "/chennai/gst-notice-reply-service" }
   ]
 }
