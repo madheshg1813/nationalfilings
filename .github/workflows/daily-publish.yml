@@ -12,6 +12,10 @@ on:
     - cron: "30 2 * * *" # 08:00 IST backup
     - cron: "30 4 * * *" # 10:00 IST backup
     - cron: "30 7 * * *" # 13:00 IST backup
+    # Evening launches (entries with "time": "19:00"): 7 PM IST, with backups at 7:30 PM and 8:30 PM
+    - cron: "30 13 * * *" # 19:00 IST
+    - cron: "0 14 * * *" # 19:30 IST backup
+    - cron: "0 15 * * *" # 20:30 IST backup
   workflow_dispatch:
 
 concurrency:
@@ -35,10 +39,13 @@ jobs:
         id: due
         run: |
           TODAY=$(TZ=Asia/Kolkata date +%F)
+          NOW=$(TZ=Asia/Kolkata date +%H:%M)
+          # Due today, and past its launch time when the entry has one (the publish gate holds it until then)
           DUE=$(node -e '
             const { log } = require("./src/lib/publish-schedule.json");
-            process.stdout.write(log.filter((e) => e.path && e.date === process.argv[1]).map((e) => e.path).join(" "));
-          ' "$TODAY")
+            const [today, now] = process.argv.slice(1);
+            process.stdout.write(log.filter((e) => e.path && e.date === today && (!e.time || e.time <= now)).map((e) => e.path).join(" "));
+          ' "$TODAY" "$NOW")
           # Due pages not live yet (an earlier run today may already have published them)
           PENDING=""
           for P in $DUE; do
@@ -48,7 +55,7 @@ jobs:
           echo "today=$TODAY" >> "$GITHUB_OUTPUT"
           echo "paths=$DUE" >> "$GITHUB_OUTPUT"
           echo "pending=$PENDING" >> "$GITHUB_OUTPUT"
-          echo "Today $TODAY IST. Due: ${DUE:-nothing}. Not live yet: ${PENDING:-none}"
+          echo "Today $TODAY $NOW IST. Due: ${DUE:-nothing}. Not live yet: ${PENDING:-none}"
 
       - name: Deploy on Railway
         if: steps.due.outputs.pending != '' || github.event_name == 'workflow_dispatch'
