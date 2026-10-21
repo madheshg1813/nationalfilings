@@ -71,8 +71,8 @@ export default async function NgoRegistrationPage() {
         <PillarSection
           id="services"
           eyebrow="NGO services"
-          title="NGO registration services in Chennai"
-          lead="From choosing a structure to 12A, 80G and yearly filings, one team handles your NGO's registration end to end."
+          title="Explore NGO Registration Services in Chennai"
+          lead="Find the right registration for your trust, society or Section 8 company, plus 12A and 80G, all handled by one team."
         >
           <ServiceCards />
         </PillarSection>

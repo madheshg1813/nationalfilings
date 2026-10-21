@@ -93,18 +93,19 @@ const tile = "grid h-10 w-10 shrink-0 place-items-center rounded-xl border borde
 
 /* 1 · Services ---------------------------------------------------- */
 
+/** Explore NGO services: cards with a published page are whole-card links; the rest stay plain cards (cards never open WhatsApp) */
 export function ServiceCards() {
   return (
     <AutoScrollRow interval={4000} label="NGO registration services" className="-mx-5 flex snap-x snap-mandatory scroll-px-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:snap-none sm:scroll-px-0 sm:overflow-visible sm:px-0 sm:pb-0 gap-3 sm:grid sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-      {services.map((s) => (
-        // plain <li> (no reveal): off-screen items in a swipe row would stay hidden until swiped
-        <li key={s.id} className="sm:h-full w-[82%] shrink-0 snap-start sm:w-auto">
-          <article className={`card relative flex h-full flex-col p-5 sm:p-6 ${s.tag ? "border-brand/30 ring-1 ring-brand/15" : ""}`}>
+      {services.map((s) => {
+        const internal = s.href.startsWith("/");
+        const body = (
+          <>
             {s.tag && <span className="tag-green absolute right-4 top-4 sm:right-5 sm:top-5">{s.tag}</span>}
             <span className={tile}>
               <Icon name={s.icon} className="h-5 w-5 text-brand-deep" />
             </span>
-            <h3 className="mt-4 font-display text-[17px] font-bold leading-snug text-ink sm:text-[19px]">{s.name}</h3>
+            <h3 className="mt-4 font-display text-[17px] font-bold leading-snug text-ink sm:text-[19px]">{internal ? (s.cardTitle ?? s.name) : s.name}</h3>
 
             <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-faint">Best for</p>
             <p className="mt-1 text-[14px] leading-relaxed text-ink-soft">{s.bestFor}</p>
@@ -118,26 +119,31 @@ export function ServiceCards() {
                 </li>
               ))}
             </ul>
-
-            {/* plain card until its page is published (cards never open WhatsApp) */}
-
-            {s.href && (
-
-            <a
-              href={s.href}
-              {...linkTarget(s.href)}
-              className="group mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14.5px] font-semibold text-brand-deep hover:text-brand-hover"
-            >
-
-              {s.href.startsWith("/") ? "Learn more" : "Ask an expert"}
-              <span className="sr-only">: {s.linkLabel}</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </a>
-
+            {internal && (
+              <span className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[14.5px] font-semibold text-brand-deep group-hover:text-brand-hover">
+                Explore service
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+              </span>
             )}
-          </article>
-        </li>
-      ))}
+          </>
+        );
+        const frame = `card relative flex h-full flex-col p-5 sm:p-6 ${s.tag ? "border-brand/30 ring-1 ring-brand/15" : ""}`;
+        return (
+          // plain <li> (no reveal): off-screen items in a swipe row would stay hidden until swiped
+          <li key={s.id} className="sm:h-full w-[82%] shrink-0 snap-start sm:w-auto">
+            {internal ? (
+              <a
+                href={s.href}
+                className={`${frame} group transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2`}
+              >
+                {body}
+              </a>
+            ) : (
+              <article className={frame}>{body}</article>
+            )}
+          </li>
+        );
+      })}
     </AutoScrollRow>
   );
 }

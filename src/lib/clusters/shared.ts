@@ -1,7 +1,7 @@
 import { licences, pillars, serviceHref } from "../routes";
 
 /**
- * Shared links for the cluster pages (Company Registration P1-C*, GST P2-C*).
+ * Shared links for the cluster pages (Company Registration P1-C*, GST P2-C*, NGO P4-C*).
  * Each page renders through components/licence/LicencePage.tsx; links resolve to "" (plain card) until a page is published.
  */
 export const p1 = pillars.find((p) => p.id === "P1")!;
@@ -20,5 +20,6 @@ export const licenceHref = (id: string) => serviceHref(licences.find((l) => l.id
 /** Contact form options (the pillar labels) */
 export const SERVICE = "Company Registration";
 export const GST_SERVICE = "GST Services";
+export const NGO_SERVICE = "NGO Registration";
 
 export const relatedTitle = "Related registration services in Chennai";

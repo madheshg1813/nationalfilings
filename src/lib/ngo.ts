@@ -39,6 +39,8 @@ export const hero = {
 export type NgoService = {
   id: string;
   name: string;
+  /** Card heading when the card links to its own page (the page title) */
+  cardTitle?: string;
   icon: "ScrollText" | "Users" | "Building2" | "ReceiptIndianRupee" | "ShieldCheck" | "Handshake" | "ClipboardCheck" | "CalendarCheck";
   bestFor: string;
   advantages: string[];
@@ -52,6 +54,7 @@ export type NgoService = {
 export const services: NgoService[] = [
   {
     id: "trust",
+    cardTitle: "Trust Registration Service in Chennai",
     name: "Trust Registration",
     icon: "ScrollText",
     bestFor: "Founders, families and communities running a charity with a small, trusted group",
@@ -62,6 +65,7 @@ export const services: NgoService[] = [
   },
   {
     id: "society",
+    cardTitle: "Society Registration in Chennai",
     name: "Society Registration",
     icon: "Users",
     bestFor: "Membership-based groups such as associations, clubs and community bodies",
@@ -71,6 +75,7 @@ export const services: NgoService[] = [
   },
   {
     id: "section8",
+    cardTitle: "Section 8 Company Registration in Chennai",
     name: "Section 8 Company Registration",
     icon: "Building2",
     bestFor: "Larger NGOs looking for CSR partners, grants and the highest credibility",

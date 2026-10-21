@@ -24,6 +24,10 @@
     { "date": "2026-10-21", "work": "Published cluster page", "page": "GST Registration Service in Chennai", "path": "/chennai/gst-registration-service" },
     { "date": "2026-10-21", "work": "Published cluster page", "page": "GST Return Filing in Chennai", "path": "/chennai/gst-return-filing-service" },
     { "date": "2026-10-22", "time": "09:00", "work": "Published cluster page", "page": "GST Cancellation in Chennai", "path": "/chennai/gst-cancellation-service" },
-    { "date": "2026-10-22", "time": "09:00", "work": "Published cluster page", "page": "GST Notice Reply in Chennai", "path": "/chennai/gst-notice-reply-service" }
+    { "date": "2026-10-22", "time": "09:00", "work": "Published cluster page", "page": "GST Notice Reply in Chennai", "path": "/chennai/gst-notice-reply-service" },
+    { "date": "2026-10-23", "time": "09:00", "work": "Published cluster page", "page": "Trust Registration Service in Chennai", "path": "/chennai/trust-registration-service" },
+    { "date": "2026-10-23", "time": "09:00", "work": "Published cluster page", "page": "Society Registration in Chennai", "path": "/chennai/society-registration-service" },
+    { "date": "2026-10-24", "time": "09:00", "work": "Published cluster page", "page": "Section 8 Company Registration in Chennai", "path": "/chennai/section-8-company-registration-service" },
+    { "date": "2026-10-24", "time": "09:00", "work": "Published cluster page", "page": "12A and 80G Registration in Chennai", "path": "/chennai/12a-80g-registration-service" }
   ]
 }

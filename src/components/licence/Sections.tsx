@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {
-  Handshake, FileSignature, CalendarCheck, Banknote, Percent, Stamp, ArrowLeftRight, Wallet, Calculator, UserPlus, TriangleAlert, PenLine, Coins,
+  Handshake, FileSignature, CalendarCheck, Banknote, Percent, Stamp, ArrowLeftRight, Wallet, Calculator, UserPlus, TriangleAlert, PenLine, Coins, HeartHandshake,
   ArrowRight,
   ArrowUpRight,
   Award,
@@ -84,7 +84,7 @@ const ICONS: Record<string, LucideIcon> = {
   ShieldCheck, Ship, ShoppingBag, ShoppingCart, Shuffle, Stethoscope, Store, TrendingUp, Truck, UserCheck, UserRound, Users, Zap,
   UtensilsCrossed, ChefHat, Package, Soup, Coffee, Hotel, CalendarClock, RefreshCw, ScrollText, Home, Clock, KeyRound, Globe, Plane,
   Lock, Fingerprint, Gavel, BadgeCheck, Leaf, HardDrive, Scale, SearchCheck, FileText, Mail, Gauge, ShieldAlert, Eye, Signature,
-  Handshake, FileSignature, CalendarCheck, Banknote, Percent, Stamp, ArrowLeftRight, Wallet, Calculator, UserPlus, TriangleAlert, PenLine, Coins,
+  Handshake, FileSignature, CalendarCheck, Banknote, Percent, Stamp, ArrowLeftRight, Wallet, Calculator, UserPlus, TriangleAlert, PenLine, Coins, HeartHandshake,
 };
 
 function Icon({ name, className }: { name: string; className?: string }) {
