@@ -29,7 +29,7 @@
     { "date": "2026-10-23", "time": "09:00", "work": "Published cluster page", "page": "Society Registration in Chennai", "path": "/chennai/society-registration-service" },
     { "date": "2026-10-24", "time": "09:00", "work": "Published cluster page", "page": "Section 8 Company Registration in Chennai", "path": "/chennai/section-8-company-registration-service" },
     { "date": "2026-10-24", "time": "09:00", "work": "Published cluster page", "page": "12A and 80G Registration in Chennai", "path": "/chennai/12a-80g-registration-service" },
-    { "date": "2026-10-27", "time": "09:00", "work": "Published cluster page", "page": "Copyright Registration in Chennai", "path": "/chennai/copyright-registration-service" },
-    { "date": "2026-10-27", "time": "09:00", "work": "Published cluster page", "page": "PF and ESI Registration in Chennai", "path": "/chennai/pf-esi-registration-service" }
+    { "date": "2026-10-25", "work": "Published cluster page", "page": "Copyright Registration in Chennai", "path": "/chennai/copyright-registration-service" },
+    { "date": "2026-10-26", "time": "19:00", "work": "Published cluster page", "page": "PF and ESI Registration in Chennai", "path": "/chennai/pf-esi-registration-service" }
   ]
 }
