@@ -43,22 +43,32 @@ jobs:
         run: |
           TODAY=$(TZ=Asia/Kolkata date +%F)
           NOW=$(TZ=Asia/Kolkata date +%H:%M)
-          # Due today, and past its launch time when the entry has one (the publish gate holds it until then)
+          SINCE=$(TZ=Asia/Kolkata date -d "14 days ago" +%F)
+          # Due: dated today and past its launch time, or dated in the last 14 days. Earlier days are included so a page
+          # missed while Railway paused deploys is caught up by the next run instead of being skipped for good.
           DUE=$(node -e '
             const { log } = require("./src/lib/publish-schedule.json");
-            const [today, now] = process.argv.slice(1);
-            process.stdout.write(log.filter((e) => e.path && e.date === today && (!e.time || e.time <= now)).map((e) => e.path).join(" "));
-          ' "$TODAY" "$NOW")
-          # Due pages not live yet (an earlier run today may already have published them)
+            const [today, now, since] = process.argv.slice(1);
+            const due = (e) => e.path && e.path !== "/" && e.date >= since && (e.date < today || (e.date === today && (!e.time || e.time <= now)));
+            process.stdout.write(log.filter(due).map((e) => e.path).join(" "));
+          ' "$TODAY" "$NOW" "$SINCE")
+          # Due pages not live yet
           PENDING=""
           for P in $DUE; do
             [ "$(curl -s -o /dev/null -w '%{http_code}' "$SITE$P")" = "200" ] || PENDING="$PENDING $P"
           done
           PENDING=$(echo $PENDING)
+          # Pages to verify after a deploy: today's launches plus anything being caught up
+          TODAYS=$(node -e '
+            const { log } = require("./src/lib/publish-schedule.json");
+            const [today, now] = process.argv.slice(1);
+            process.stdout.write(log.filter((e) => e.path && e.date === today && (!e.time || e.time <= now)).map((e) => e.path).join(" "));
+          ' "$TODAY" "$NOW")
+          CHECK=$(for x in $TODAYS $PENDING; do echo "$x"; done | sort -u | xargs)
           echo "today=$TODAY" >> "$GITHUB_OUTPUT"
-          echo "paths=$DUE" >> "$GITHUB_OUTPUT"
+          echo "paths=$CHECK" >> "$GITHUB_OUTPUT"
           echo "pending=$PENDING" >> "$GITHUB_OUTPUT"
-          echo "Today $TODAY $NOW IST. Due: ${DUE:-nothing}. Not live yet: ${PENDING:-none}"
+          echo "Today $TODAY $NOW IST. Due today: ${TODAYS:-nothing}. Not live yet (incl. catch-up): ${PENDING:-none}"
 
       - name: Deploy on Railway
         if: steps.due.outputs.pending != '' || github.event_name == 'workflow_dispatch'
