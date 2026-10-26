@@ -8,6 +8,8 @@ export const site = {
   name: "National Filings",
   /** Registered company that operates the National Filings brand (as on its GST registration) */
   legalName: "CBN Advisory India Private Limited",
+  /** Meta (Facebook/Instagram) Pixel, loaded on every page from app/layout.tsx */
+  metaPixelId: "4737816386543575",
   tagline: "Innovative Accountant",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.nationalfilings.co.in", // confirmed by the client (single L). www is the main host: GoDaddy forwards the bare domain to it
   description:

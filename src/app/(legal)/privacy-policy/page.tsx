@@ -12,7 +12,7 @@ const page = definePage({
 });
 export const metadata = page.metadata;
 
-const UPDATED = "29 September 2026";
+const UPDATED = "26 October 2026";
 
 const ask = whatsappLink("Hi National Filings, I have a privacy question.");
 
@@ -191,8 +191,9 @@ const sections: LegalSection[] = [
     title: "Cookies and analytics",
     body: (
       <p>
-        This website does not use advertising cookies. If analytics is switched on, we use Google Analytics, which sets cookies to measure
-        visits and page views. You can block or delete cookies in your browser settings, and the site will still work.
+        We use the Meta Pixel to measure our Facebook and Instagram ads and to show relevant ads to people who have visited this website. It
+        shares the pages you visit with Meta and sets advertising cookies. If analytics is switched on, we also use Google Analytics, which sets
+        cookies to measure visits and page views. You can block or delete cookies in your browser settings, and the site will still work.
       </p>
     ),
   },

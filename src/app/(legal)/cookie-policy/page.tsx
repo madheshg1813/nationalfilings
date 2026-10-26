@@ -12,7 +12,7 @@ const page = definePage({
 });
 export const metadata = page.metadata;
 
-const UPDATED = "30 September 2026";
+const UPDATED = "26 October 2026";
 
 const sections: LegalSection[] = [
   {
@@ -32,8 +32,13 @@ const sections: LegalSection[] = [
       <>
         <h3>Essential</h3>
         <p>
-          This website does not need cookies to work. Browsing pages and sending the contact form do not set cookies of our own, and we do not
-          use advertising or remarketing cookies.
+          This website does not need cookies to work. Browsing pages and sending the contact form do not set cookies of our own.
+        </p>
+        <h3>Advertising (Meta Pixel)</h3>
+        <p>
+          We use the Meta Pixel to measure how our Facebook and Instagram ads perform and to show relevant ads to people who have visited this
+          website. It shares the pages you visit with Meta and sets a cookie named <strong>_fbp</strong>, which usually lasts about three months.
+          You can block or delete it in your browser settings, and manage ad preferences in your Facebook or Instagram account.
         </p>
         <h3>Analytics (only if switched on)</h3>
         <p>
