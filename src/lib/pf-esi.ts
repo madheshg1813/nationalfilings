@@ -41,6 +41,8 @@ export const hero = {
 export type PfEsiService = {
   id: string;
   name: string;
+  /** Card heading when the card links to its own page (the page title) */
+  cardTitle?: string;
   icon: "PiggyBank" | "HeartPulse" | "FileSpreadsheet" | "ReceiptText" | "UserPlus" | "ArrowLeftRight" | "ClipboardCheck" | "Scale";
   bestFor: string;
   advantages: string[];
@@ -55,6 +57,7 @@ export const services: PfEsiService[] = [
   {
     id: "pf-registration",
     name: "PF Registration",
+    cardTitle: "PF Registration in Chennai",
     icon: "PiggyBank",
     bestFor: "Employers reaching 20 employees, or registering voluntarily earlier",
     advantages: ["Establishment registered on the EPFO portal", "Employees linked to their UAN", "Ready for the first monthly return"],
@@ -65,6 +68,7 @@ export const services: PfEsiService[] = [
   {
     id: "esi-registration",
     name: "ESI Registration",
+    cardTitle: "ESI Registration in Chennai",
     icon: "HeartPulse",
     bestFor: "Employers with 10 or more employees earning within the ESI wage limit",
     advantages: ["Employer registered on the ESIC portal", "Employees registered for ESI cover", "e-Pehchan cards for employees"],

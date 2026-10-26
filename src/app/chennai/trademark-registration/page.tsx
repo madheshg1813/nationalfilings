@@ -73,7 +73,7 @@ export default async function TrademarkRegistrationPage() {
         <PillarSection
           id="services"
           eyebrow="Trademark services"
-          title="Trademark registration services in Chennai"
+          title="Explore Trademark Registration Services in Chennai"
           lead="From searching your brand name to replying to objections and renewing on time, one team protects your brand end to end."
         >
           <ServiceCards />

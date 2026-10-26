@@ -39,6 +39,8 @@ export const hero = {
 export type TrademarkService = {
   id: string;
   name: string;
+  /** Card heading when the card links to its own page (the page title) */
+  cardTitle?: string;
   icon: "Stamp" | "Palette" | "Type" | "RefreshCw" | "FileWarning" | "ArrowLeftRight" | "SearchCheck" | "ShieldCheck";
   bestFor: string;
   advantages: string[];
@@ -115,13 +117,14 @@ export const services: TrademarkService[] = [
     linkLabel: "Trademark search",
   },
   {
-    id: "protection",
-    name: "Brand Protection Support",
+    id: "copyright",
+    name: "Copyright Registration",
+    cardTitle: "Copyright Registration in Chennai",
     icon: "ShieldCheck",
-    bestFor: "Brands facing copycats or similar new applications",
-    advantages: ["Trade Marks Journal watch", "Oppositions to similar applications", "Help with cease-and-desist notices"],
-    href: "" /* no page yet: plain card until one is published */,
-    linkLabel: "Brand protection support",
+    bestFor: "Authors, artists, musicians and software makers protecting original work",
+    advantages: ["Form XIV filed with the Copyright Office", "Registered proof of ownership", "Objections and examiner queries handled"],
+    href: paths.copyright,
+    linkLabel: "Copyright registration",
   },
 ];
 

@@ -71,7 +71,7 @@ export default async function PfEsiConsultantPage() {
         <PillarSection
           id="services"
           eyebrow="PF & ESI services"
-          title="PF and ESI services in Chennai"
+          title="Explore PF and ESI Services in Chennai"
           lead="From registration to monthly returns, onboarding and inspections, one team keeps your employee compliance on track."
         >
           <ServiceCards />
