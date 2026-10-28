@@ -53,6 +53,16 @@ export const pillars: Pillar[] = [
     localities: [
       c("P1-A1", "Company Registration in Kundrathur", "company-registration-in-kundrathur"),
       c("P1-A2", "Company Registration in Pallavaram", "company-registration-in-pallavaram"),
+      c("P1-A3", "Company Registration in Pammal", "company-registration-in-pammal"),
+      c("P1-A4", "Company Registration in Anakaputhur", "company-registration-in-anakaputhur"),
+      c("P1-A5", "Company Registration in Chromepet", "company-registration-in-chromepet"),
+      c("P1-A6", "Company Registration in Tambaram", "company-registration-in-tambaram"),
+      c("P1-A7", "Company Registration in Porur", "company-registration-in-porur"),
+      c("P1-A8", "Company Registration in Mangadu", "company-registration-in-mangadu"),
+      c("P1-A9", "Company Registration in Poonamallee", "company-registration-in-poonamallee"),
+      c("P1-A10", "Company Registration in Gerugambakkam", "company-registration-in-gerugambakkam"),
+      c("P1-A11", "Company Registration in Iyyappanthangal", "company-registration-in-iyyappanthangal"),
+      c("P1-A12", "Company Registration in Sriperumbudur", "company-registration-in-sriperumbudur"),
     ],
   },
   {

@@ -32,6 +32,16 @@
     { "date": "2026-10-25", "work": "Published cluster page", "page": "Copyright Registration in Chennai", "path": "/chennai/copyright-registration-service" },
     { "date": "2026-10-26", "time": "19:00", "work": "Published cluster page", "page": "PF and ESI Registration in Chennai", "path": "/chennai/pf-esi-registration-service" },
     { "date": "2026-10-28", "work": "Published locality page", "page": "Company Registration in Kundrathur", "path": "/chennai/company-registration-in-kundrathur" },
-    { "date": "2026-10-28", "work": "Published locality page", "page": "Company Registration in Pallavaram", "path": "/chennai/company-registration-in-pallavaram" }
+    { "date": "2026-10-28", "work": "Published locality page", "page": "Company Registration in Pallavaram", "path": "/chennai/company-registration-in-pallavaram" },
+    { "date": "2026-10-29", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Pammal", "path": "/chennai/company-registration-in-pammal" },
+    { "date": "2026-10-29", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Anakaputhur", "path": "/chennai/company-registration-in-anakaputhur" },
+    { "date": "2026-10-30", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Chromepet", "path": "/chennai/company-registration-in-chromepet" },
+    { "date": "2026-10-30", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Tambaram", "path": "/chennai/company-registration-in-tambaram" },
+    { "date": "2026-10-31", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Porur", "path": "/chennai/company-registration-in-porur" },
+    { "date": "2026-10-31", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Mangadu", "path": "/chennai/company-registration-in-mangadu" },
+    { "date": "2026-11-01", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Poonamallee", "path": "/chennai/company-registration-in-poonamallee" },
+    { "date": "2026-11-01", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Gerugambakkam", "path": "/chennai/company-registration-in-gerugambakkam" },
+    { "date": "2026-11-02", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Iyyappanthangal", "path": "/chennai/company-registration-in-iyyappanthangal" },
+    { "date": "2026-11-02", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Sriperumbudur", "path": "/chennai/company-registration-in-sriperumbudur" }
   ]
 }

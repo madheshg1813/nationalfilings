@@ -4,7 +4,7 @@ import {
   Handshake, Headset, HeartHandshake, IdCard, IndianRupee, KeyRound, Landmark, MailCheck, MailWarning,
   MapPinned, MessageSquareText, PenLine, Percent, PiggyBank, Receipt, ReceiptIndianRupee, Rocket, Route,
   Scale, SearchCheck, ShieldCheck, Ship, Stamp, Stethoscope, Store, Tag, TrendingUp, UserCog, UserRound,
-  Users, UtensilsCrossed, Wallet, Zap,
+  Users, UtensilsCrossed, Wallet, Zap, Home, Layers, Truck,
   type LucideProps,
 } from "lucide-react";
 
@@ -15,7 +15,7 @@ const icons = {
   Handshake, Headset, HeartHandshake, IdCard, IndianRupee, KeyRound, Landmark, MailCheck, MailWarning,
   MapPinned, MessageSquareText, PenLine, Percent, PiggyBank, Receipt, ReceiptIndianRupee, Rocket, Route,
   Scale, SearchCheck, ShieldCheck, Ship, Stamp, Stethoscope, Store, Tag, TrendingUp, UserCog, UserRound,
-  Users, UtensilsCrossed, Wallet, Zap,
+  Users, UtensilsCrossed, Wallet, Zap, Home, Layers, Truck,
 };
 
 export type IconName = keyof typeof icons;
