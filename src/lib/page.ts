@@ -124,7 +124,7 @@ function findService(path: string): Found | null {
   // No Chennai hub page (removed 2026-10-07). Breadcrumbs only include parent pages in this build, so they never point at a 404
   for (const p of pillars) {
     if (p.path === path) return { page: p, parents: [] };
-    const c = p.clusters.find((x) => x.path === path);
+    const c = [...p.clusters, ...(p.localities ?? [])].find((x) => x.path === path);
     if (c) return { page: c, parents: isBuilt(p.path) ? [{ name: p.label, path: p.path }] : [] };
   }
   const l = licences.find((x) => x.path === path);

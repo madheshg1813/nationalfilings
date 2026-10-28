@@ -14,7 +14,16 @@ export const clusterRoute = (id: string) => {
 };
 
 export const clusterHref = (id: string) => serviceHref(clusterRoute(id));
-export const pillarHref = (id: string) => serviceHref(pillars.find((p) => p.id === id)!);
+
+/** Any pillar's locality page (P1-A1 Kundrathur...) */
+export const localityRoute = (id: string) => {
+  const c = pillars.flatMap((p) => p.localities ?? []).find((x) => x.id === id);
+  if (!c) throw new Error(`localityRoute: unknown locality ${id}`);
+  return c;
+};
+export const localityHref = (id: string) => serviceHref(localityRoute(id));
+export const pillarRoute = (id: string) => pillars.find((p) => p.id === id)!;
+export const pillarHref = (id: string) => serviceHref(pillarRoute(id));
 export const licenceHref = (id: string) => serviceHref(licences.find((l) => l.id === id)!);
 
 /** Contact form options (the pillar labels) */

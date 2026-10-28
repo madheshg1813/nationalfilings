@@ -11,7 +11,7 @@ import { builtPages } from "@/lib/pages.generated";
 type Entry = MetadataRoute.Sitemap[number];
 
 const pillarPaths = new Set(pillars.map((p) => p.path));
-const childPaths = new Set([...pillars.flatMap((p) => p.clusters), ...licences].map((p) => p.path));
+const childPaths = new Set([...pillars.flatMap((p) => [...p.clusters, ...(p.localities ?? [])]), ...licences].map((p) => p.path));
 const legalPaths = new Set<string>(site.legal.map((l) => l.href));
 
 function role(path: string): Pick<Entry, "priority" | "changeFrequency"> {

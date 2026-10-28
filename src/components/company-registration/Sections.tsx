@@ -58,7 +58,7 @@ import { SampleTag } from "@/components/ui/SampleTag";
 import { SHOW_SAMPLES } from "@/lib/proof";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { telLink, whatsappLink } from "@/lib/site";
-import { linkTarget } from "@/lib/routes";
+import { linkTarget, pillars, serviceHref } from "@/lib/routes";
 import { DocumentsIllustration } from "./DocumentsIllustration";
 import {
   everyPackage,
@@ -193,7 +193,29 @@ export function ChennaiSectors() {
           </li>
         ))}
       </AutoScrollRow>
+      <NearbyAreas />
     </>
+  );
+}
+
+/** Text links to the area pages around our Kundrathur office (published ones only, so the line grows as areas go live) */
+function NearbyAreas() {
+  const areas = (pillars.find((p) => p.id === "P1")?.localities ?? [])
+    .map((a) => ({ name: a.title.replace(/^Company Registration in /, ""), href: serviceHref(a) }))
+    .filter((a) => a.href);
+  if (areas.length === 0) return null;
+  return (
+    <p className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center text-[15px] text-ink-soft sm:mt-10">
+      <span className="w-full font-semibold text-ink sm:w-auto">
+        <MapPinned className="mr-1.5 inline h-4 w-4 align-[-2px] text-brand-deep" aria-hidden />
+        Company registration near our Kundrathur office:
+      </span>
+      {areas.map((a) => (
+        <a key={a.href} href={a.href} className="inline-flex min-h-[44px] items-center font-semibold text-brand-deep underline decoration-brand/30 underline-offset-4 hover:text-brand-hover">
+          {a.name}
+        </a>
+      ))}
+    </p>
   );
 }
 

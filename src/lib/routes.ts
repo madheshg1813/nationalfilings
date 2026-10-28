@@ -26,6 +26,9 @@ export type Pillar = ServicePage & {
   icon: IconName;
   blurb: string;
   clusters: ServicePage[];
+  /** Area pages for this service around our Kundrathur office (/chennai/company-registration-in-kundrathur...). Kept out of
+   * `clusters` so they don't fill the homepage and related-service lists; linked from the pillar and from each other. */
+  localities?: ServicePage[];
 };
 
 const c = (id: string, title: string, slug: string): ServicePage => ({ id, title, path: `/chennai/${slug}` });
@@ -46,6 +49,10 @@ export const pillars: Pillar[] = [
       c("P1-C3", "Partnership Registration", "partnership-firm-registration-service"),
       c("P1-C4", "Proprietorship Registration", "proprietorship-registration-service"),
       c("P1-C5", "ROC Compliance", "roc-compliance-service"),
+    ],
+    localities: [
+      c("P1-A1", "Company Registration in Kundrathur", "company-registration-in-kundrathur"),
+      c("P1-A2", "Company Registration in Pallavaram", "company-registration-in-pallavaram"),
     ],
   },
   {
