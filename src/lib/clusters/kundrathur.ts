@@ -1,7 +1,7 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
 import { site } from "@/lib/site";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A1 · Company Registration in Kundrathur (/chennai/company-registration-in-kundrathur).
@@ -193,17 +193,8 @@ export const kundrathurPage: LicencePageData = {
     { q: "Do I need a trade licence from Kundrathur Municipality?", a: "Many trades carried on within the municipality need a licence from it, and this is separate from company registration. Whether you need one depends on your trade and premises. We'll tell you after looking at what you do." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Pallavaram", href: localityHref("P1-A2") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "UserRound", label: "One person company registration", href: clusterHref("P1-C2") },
-    { icon: "Users", label: "Partnership firm registration", href: clusterHref("P1-C3") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "Factory", label: "MSME registration", href: licenceHref("L1") },
-  ],
-  relatedTitle: "Related registration services near Kundrathur",
+  related: nearbyAreas("P1-A1"),
+  relatedTitle: "Company registration in areas near Kundrathur",
 
   final: {
     title: "Register your Kundrathur business with a team down the road",

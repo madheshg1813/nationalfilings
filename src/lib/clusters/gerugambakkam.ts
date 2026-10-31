@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A10 · Company Registration in Gerugambakkam (/chennai/company-registration-in-gerugambakkam).
@@ -196,17 +196,8 @@ export const gerugambakkamPage: LicencePageData = {
     { q: "How long will it take to register my business?", a: "A company, OPC or LLP usually takes two to three weeks from complete documents. A proprietorship needs no incorporation, so you can start once GST, Udyam or a bank account in the business name is in place." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Kundrathur", href: localityHref("P1-A1") },
-    { icon: "MapPinned", label: "Company registration in Porur", href: localityHref("P1-A7") },
-    { icon: "UserRound", label: "One person company registration", href: clusterHref("P1-C2") },
-    { icon: "Store", label: "Proprietorship registration", href: clusterHref("P1-C4") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "Calculator", label: "Income tax filing", href: pillarHref("P3") },
-    { icon: "UtensilsCrossed", label: "FSSAI registration", href: licenceHref("L2") },
-  ],
-  relatedTitle: "Related registration services near Gerugambakkam",
+  related: nearbyAreas("P1-A10"),
+  relatedTitle: "Company registration in areas near Gerugambakkam",
 
   final: {
     title: "Turn your Gerugambakkam side business into a registered one",

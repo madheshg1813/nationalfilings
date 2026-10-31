@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A6 · Company Registration in Tambaram (/chennai/company-registration-in-tambaram).
@@ -196,17 +196,8 @@ export const tambaramPage: LicencePageData = {
     { q: "Is company registration enough to run a clinic in Tambaram?", a: "No. Registration creates the entity. Clinics also need the health approvals that apply to their type of establishment, and often a trade licence from the corporation. We'll point you to what applies." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Chromepet", href: localityHref("P1-A5") },
-    { icon: "MapPinned", label: "Company registration in Pallavaram", href: localityHref("P1-A2") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "HeartHandshake", label: "Section 8 company registration", href: clusterHref("P4-C3") },
-    { icon: "Store", label: "Shop and establishment registration", href: licenceHref("L4") },
-    { icon: "Users", label: "PF and ESI registration", href: clusterHref("P6-C1") },
-  ],
-  relatedTitle: "Related registration services near Tambaram",
+  related: nearbyAreas("P1-A6"),
+  relatedTitle: "Company registration in areas near Tambaram",
 
   final: {
     title: "Start your Tambaram business on the right footing",

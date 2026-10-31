@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A9 · Company Registration in Poonamallee (/chennai/company-registration-in-poonamallee).
@@ -199,17 +199,8 @@ export const poonamalleePage: LicencePageData = {
     { q: "My unit is in the Thirumazhisai SIDCO estate. Does that change anything?", a: "Company registration is the same. Your allotment papers and the electricity bill for the shed or module serve as address proof, along with any consent needed from the allottee. After registration, Udyam and GST are the usual next steps." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Sriperumbudur", href: localityHref("P1-A12") },
-    { icon: "MapPinned", label: "Company registration in Porur", href: localityHref("P1-A7") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "ReceiptText", label: "GST return filing", href: clusterHref("P2-C2") },
-    { icon: "Users", label: "PF and ESI registration", href: clusterHref("P6-C1") },
-  ],
-  relatedTitle: "Related registration services near Poonamallee",
+  related: nearbyAreas("P1-A9"),
+  relatedTitle: "Company registration in areas near Poonamallee",
 
   final: {
     title: "Register your Poonamallee transport or trading business",

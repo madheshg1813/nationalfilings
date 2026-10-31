@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A2 · Company Registration in Pallavaram (/chennai/company-registration-in-pallavaram).
@@ -192,17 +192,8 @@ export const pallavaramPage: LicencePageData = {
     { q: "Does registering a company cover my leather unit's pollution consent?", a: "No. Leather processing units need consent from the Tamil Nadu Pollution Control Board, which is separate from company registration. We'll point you to what applies to your unit." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Kundrathur", href: localityHref("P1-A1") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "Globe", label: "IEC registration", href: licenceHref("L5") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "ShieldCheck", label: "Trademark registration", href: pillarHref("P5") },
-    { icon: "Factory", label: "MSME registration", href: licenceHref("L1") },
-  ],
-  relatedTitle: "Related registration services near Pallavaram",
+  related: nearbyAreas("P1-A2"),
+  relatedTitle: "Company registration in areas near Pallavaram",
 
   final: {
     title: "Register your Pallavaram business the right way",

@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A11 · Company Registration in Iyyappanthangal (/chennai/company-registration-in-iyyappanthangal).
@@ -197,17 +197,8 @@ export const iyyappanthangalPage: LicencePageData = {
     { q: "Will the new metro station change anything for my registration?", a: "No. Company registration is filed online with the MCA and doesn't depend on transport links. The metro may bring more customers, which is often what pushes shops here to register, open a second outlet or take GST." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Porur", href: localityHref("P1-A7") },
-    { icon: "MapPinned", label: "Company registration in Poonamallee", href: localityHref("P1-A9") },
-    { icon: "UtensilsCrossed", label: "FSSAI registration", href: licenceHref("L2") },
-    { icon: "Store", label: "Shop and establishment registration", href: licenceHref("L4") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "UserRound", label: "Proprietorship registration", href: clusterHref("P1-C4") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-  ],
-  relatedTitle: "Related registration services near Iyyappanthangal",
+  related: nearbyAreas("P1-A11"),
+  relatedTitle: "Company registration in areas near Iyyappanthangal",
 
   final: {
     title: "Ready to register your Iyyappanthangal business?",

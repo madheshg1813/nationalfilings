@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A8 · Company Registration in Mangadu (/chennai/company-registration-in-mangadu).
@@ -198,17 +198,8 @@ export const mangaduPage: LicencePageData = {
     { q: "How long does registration take for a Mangadu business?", a: "A partnership deed can be signed within days, while firm registration with the Registrar of Firms takes longer. An LLP or company usually takes two to three weeks once documents are complete." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Porur", href: localityHref("P1-A7") },
-    { icon: "MapPinned", label: "Company registration in Kundrathur", href: localityHref("P1-A1") },
-    { icon: "Users", label: "Partnership firm registration", href: clusterHref("P1-C3") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "UtensilsCrossed", label: "FSSAI registration", href: licenceHref("L2") },
-    { icon: "ScrollText", label: "Trade license", href: licenceHref("L3") },
-  ],
-  relatedTitle: "Related registration services near Mangadu",
+  related: nearbyAreas("P1-A8"),
+  relatedTitle: "Company registration in areas near Mangadu",
 
   final: {
     title: "Give your Mangadu family business a proper footing",

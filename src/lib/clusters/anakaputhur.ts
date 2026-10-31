@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A4 · Company Registration in Anakaputhur (/chennai/company-registration-in-anakaputhur).
@@ -202,17 +202,8 @@ export const anakaputhurPage: LicencePageData = {
     { q: "How long does it take to register a weaving business in Anakaputhur?", a: "A company or LLP usually takes two to three weeks from complete documents. A producer company takes longer because every member's papers and five directors' signatures must be ready, and the law gives the Registrar up to thirty days to decide once documents are filed." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Pammal", href: localityHref("P1-A3") },
-    { icon: "MapPinned", label: "Company registration in Kundrathur", href: localityHref("P1-A1") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "Users", label: "Partnership firm registration", href: clusterHref("P1-C3") },
-    { icon: "ShieldCheck", label: "Trademark registration", href: pillarHref("P5") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "Globe", label: "IEC registration", href: licenceHref("L5") },
-  ],
-  relatedTitle: "Related registration services near Anakaputhur",
+  related: nearbyAreas("P1-A4"),
+  relatedTitle: "Company registration in areas near Anakaputhur",
 
   final: {
     title: "Register your Anakaputhur weaving or craft business",

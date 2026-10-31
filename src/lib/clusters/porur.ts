@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A7 · Company Registration in Porur (/chennai/company-registration-in-porur).
@@ -200,17 +200,8 @@ export const porurPage: LicencePageData = {
     { q: "How long does it take to register a company in Porur?", a: "Usually two to three weeks from complete documents to the Certificate of Incorporation, as anywhere in Tamil Nadu. Health licences, GST and PF or ESI take their own time after that." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Mangadu", href: localityHref("P1-A8") },
-    { icon: "MapPinned", label: "Company registration in Iyyappanthangal", href: localityHref("P1-A11") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "UserRound", label: "One person company registration", href: clusterHref("P1-C2") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "Users", label: "PF and ESI registration", href: clusterHref("P6-C1") },
-  ],
-  relatedTitle: "Related registration services near Porur",
+  related: nearbyAreas("P1-A7"),
+  relatedTitle: "Company registration in areas near Porur",
 
   final: {
     title: "Set up your Porur clinic, lab or IT firm properly",

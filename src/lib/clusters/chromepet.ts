@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A5 · Company Registration in Chromepet (/chennai/company-registration-in-chromepet).
@@ -196,17 +196,8 @@ export const chromepetPage: LicencePageData = {
     { q: "Do I need to come to your office to register?", a: "No. Our only office is in Kundrathur, and most Chromepet founders never visit. Signatures are digital and documents travel over WhatsApp and email. You're welcome to come in if your team prefers to meet." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Tambaram", href: localityHref("P1-A6") },
-    { icon: "MapPinned", label: "Company registration in Pallavaram", href: localityHref("P1-A2") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "UserRound", label: "One person company registration", href: clusterHref("P1-C2") },
-    { icon: "Handshake", label: "LLP registration", href: clusterHref("P1-C1") },
-    { icon: "ShieldCheck", label: "Trademark registration", href: pillarHref("P5") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-  ],
-  relatedTitle: "Related registration services near Chromepet",
+  related: nearbyAreas("P1-A5"),
+  relatedTitle: "Company registration in areas near Chromepet",
 
   final: {
     title: "Turn your Chromepet idea into a registered company",

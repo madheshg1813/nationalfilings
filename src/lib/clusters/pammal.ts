@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A3 · Company Registration in Pammal (/chennai/company-registration-in-pammal).
@@ -195,17 +195,8 @@ export const pammalPage: LicencePageData = {
     { q: "How long does company registration take for a Pammal business?", a: "Usually two to three weeks from complete documents to the Certificate of Incorporation. An unsigned or mismatched NOC is the most common reason for delay in home-office cases." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Pallavaram", href: localityHref("P1-A2") },
-    { icon: "MapPinned", label: "Company registration in Anakaputhur", href: localityHref("P1-A4") },
-    { icon: "UserRound", label: "One person company registration", href: clusterHref("P1-C2") },
-    { icon: "Store", label: "Proprietorship registration", href: clusterHref("P1-C4") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "ChefHat", label: "FSSAI registration", href: licenceHref("L2") },
-    { icon: "Factory", label: "MSME registration", href: licenceHref("L1") },
-  ],
-  relatedTitle: "Related registration services near Pammal",
+  related: nearbyAreas("P1-A3"),
+  relatedTitle: "Company registration in areas near Pammal",
 
   final: {
     title: "Give your Pammal home business a proper footing",

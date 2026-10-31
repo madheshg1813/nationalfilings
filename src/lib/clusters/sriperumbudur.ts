@@ -1,6 +1,6 @@
 import type { LicencePageData } from "../licences/types";
 import { heroTrustPoints } from "@/lib/proof";
-import { SERVICE, clusterHref, licenceHref, localityHref, pillarHref } from "./shared";
+import { SERVICE, nearbyAreas } from "./shared";
 
 /**
  * P1-A12 · Company Registration in Sriperumbudur (/chennai/company-registration-in-sriperumbudur).
@@ -199,17 +199,8 @@ export const sriperumbudurPage: LicencePageData = {
     { q: "How long before I can submit my vendor documents?", a: "The company or LLP usually takes two to three weeks from complete documents. GST, Udyam and the employer codes follow, and some can be done within days of incorporation. We'll give you a realistic timeline against your plant's deadline." },
   ],
 
-  related: [
-    { icon: "Building2", label: "Company registration in Chennai", href: pillarHref("P1") },
-    { icon: "MapPinned", label: "Company registration in Poonamallee", href: localityHref("P1-A9") },
-    { icon: "MapPinned", label: "Company registration in Kundrathur", href: localityHref("P1-A1") },
-    { icon: "Building2", label: "Private limited registration", href: clusterHref("P1-C6") },
-    { icon: "Users", label: "PF and ESI registration", href: clusterHref("P6-C1") },
-    { icon: "Factory", label: "MSME (Udyam) registration", href: licenceHref("L1") },
-    { icon: "ReceiptIndianRupee", label: "GST registration", href: clusterHref("P2-C1") },
-    { icon: "ClipboardCheck", label: "ROC compliance", href: clusterHref("P1-C5") },
-  ],
-  relatedTitle: "Related registration services near Sriperumbudur",
+  related: nearbyAreas("P1-A12"),
+  relatedTitle: "Company registration in areas near Sriperumbudur",
 
   final: {
     title: "Get your Sriperumbudur business onboarding-ready",
