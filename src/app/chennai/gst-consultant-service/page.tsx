@@ -5,6 +5,7 @@ import { Faq } from "@/components/sections/Faq";
 import { PageSchema } from "@/components/PageSchema";
 import { PillarHero } from "@/components/blocks/PillarHero";
 import { PillarSection } from "@/components/blocks/PillarSection";
+import { NearbyAreas } from "@/components/blocks/NearbyAreas";
 import { InlineCta } from "@/components/blocks/InlineCta";
 import { LeadCta } from "@/components/blocks/LeadCta";
 import { HeroTrust } from "@/components/blocks/HeroTrust";
@@ -95,6 +96,7 @@ export default async function GstConsultantPage() {
           lead="Find the right GST service for your registration, returns, cancellation or notice, all handled by one team."
         >
           <Services />
+          <NearbyAreas pillarId="P2" label="GST consultant" />
         </PillarSection>
 
         <PillarSection id="benefits" eyebrow="Why use a consultant" title="Benefits of professional GST support in Chennai">

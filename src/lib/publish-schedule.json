@@ -42,6 +42,18 @@
     { "date": "2026-11-01", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Poonamallee", "path": "/chennai/company-registration-in-poonamallee" },
     { "date": "2026-11-01", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Gerugambakkam", "path": "/chennai/company-registration-in-gerugambakkam" },
     { "date": "2026-11-02", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Iyyappanthangal", "path": "/chennai/company-registration-in-iyyappanthangal" },
-    { "date": "2026-11-02", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Sriperumbudur", "path": "/chennai/company-registration-in-sriperumbudur" }
+    { "date": "2026-11-02", "time": "09:00", "work": "Published locality page", "page": "Company Registration in Sriperumbudur", "path": "/chennai/company-registration-in-sriperumbudur" },
+    { "date": "2026-11-03", "work": "Published locality page", "page": "GST Consultant in Kundrathur", "path": "/chennai/gst-consultant-in-kundrathur" },
+    { "date": "2026-11-03", "work": "Published locality page", "page": "GST Consultant in Pallavaram", "path": "/chennai/gst-consultant-in-pallavaram" },
+    { "date": "2026-11-04", "work": "Published locality page", "page": "GST Consultant in Pammal", "path": "/chennai/gst-consultant-in-pammal" },
+    { "date": "2026-11-04", "work": "Published locality page", "page": "GST Consultant in Anakaputhur", "path": "/chennai/gst-consultant-in-anakaputhur" },
+    { "date": "2026-11-05", "work": "Published locality page", "page": "GST Consultant in Chromepet", "path": "/chennai/gst-consultant-in-chromepet" },
+    { "date": "2026-11-05", "work": "Published locality page", "page": "GST Consultant in Tambaram", "path": "/chennai/gst-consultant-in-tambaram" },
+    { "date": "2026-11-06", "work": "Published locality page", "page": "GST Consultant in Porur", "path": "/chennai/gst-consultant-in-porur" },
+    { "date": "2026-11-06", "work": "Published locality page", "page": "GST Consultant in Mangadu", "path": "/chennai/gst-consultant-in-mangadu" },
+    { "date": "2026-11-07", "work": "Published locality page", "page": "GST Consultant in Poonamallee", "path": "/chennai/gst-consultant-in-poonamallee" },
+    { "date": "2026-11-07", "work": "Published locality page", "page": "GST Consultant in Gerugambakkam", "path": "/chennai/gst-consultant-in-gerugambakkam" },
+    { "date": "2026-11-08", "time": "09:00", "work": "Published locality page", "page": "GST Consultant in Iyyappanthangal", "path": "/chennai/gst-consultant-in-iyyappanthangal" },
+    { "date": "2026-11-08", "time": "09:00", "work": "Published locality page", "page": "GST Consultant in Sriperumbudur", "path": "/chennai/gst-consultant-in-sriperumbudur" }
   ]
 }
