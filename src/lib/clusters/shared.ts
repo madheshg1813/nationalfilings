@@ -62,5 +62,6 @@ export const licenceHref = (id: string) => serviceHref(licences.find((l) => l.id
 export const SERVICE = "Company Registration";
 export const GST_SERVICE = "GST Services";
 export const NGO_SERVICE = "NGO Registration";
+export const INCOME_TAX_SERVICE = "Income Tax Services";
 
 export const relatedTitle = "Related registration services in Chennai";

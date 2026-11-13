@@ -5,6 +5,7 @@ import { Faq } from "@/components/sections/Faq";
 import { PageSchema } from "@/components/PageSchema";
 import { PillarHero } from "@/components/blocks/PillarHero";
 import { PillarSection } from "@/components/blocks/PillarSection";
+import { NearbyAreas } from "@/components/blocks/NearbyAreas";
 import { InlineCta } from "@/components/blocks/InlineCta";
 import { HeroTrust } from "@/components/blocks/HeroTrust";
 import { TrustSection } from "@/components/blocks/TrustSection";
@@ -74,6 +75,7 @@ export default async function IncomeTaxConsultantPage() {
           lead="From your yearly return to notices and capital gains, one team handles your income tax end to end."
         >
           <ServiceCards />
+          <NearbyAreas pillarId="P3" label="Income tax consultant" />
         </PillarSection>
 
         <PillarSection id="who-we-help" tone="cream" eyebrow="Who we help" title="Tax consultant in Chennai for every kind of taxpayer">
