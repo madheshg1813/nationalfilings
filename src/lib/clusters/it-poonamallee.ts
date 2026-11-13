@@ -101,20 +101,18 @@ export const itPoonamalleePage: LicencePageData = {
     { icon: "UserRound", title: "Drivers and cleaners", line: "Salaried crew who need a simple return to claim back TDS or get a loan." },
   ],
 
-  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
-  // opportunities: {
-  //   eyebrow: "Local trades",
-  //   title: "The highway incomes behind Poonamallee's tax returns",
-  //   intro: "With NH 48 running out to Sriperumbudur and Bengaluru, the TN 12 RTO in town and the Thirumazhisai estate close by, much of Poonamallee's income is freight, hire charges and wholesale margin. Each is taxed in its own way.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   // PHOTOS NEEDED: Unsplash search was unreachable from this session (bot check, no WebFetch). Fill image, alt and credit before publishing.
-  //   industries: [
-  //     { icon: "Truck", title: "Owner-driven lorries", image: "", alt: "", credit: "" },
-  //     { icon: "Users", title: "Family fleets", image: "", alt: "", credit: "" },
-  //     { icon: "ReceiptText", title: "Freight bills and TDS", image: "", alt: "", credit: "" },
-  //     { icon: "ShoppingBag", title: "Wholesale trade", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Local trades",
+    title: "The highway incomes behind Poonamallee's tax returns",
+    intro: "With NH 48 running out to Sriperumbudur and Bengaluru, the TN 12 RTO in town and the Thirumazhisai estate close by, much of Poonamallee's income is freight, hire charges and wholesale margin. Each is taxed in its own way.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Truck", title: "Owner-driven lorries", image: "https://images.pexels.com/photos/29057952/pexels-photo-29057952.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Close view of a heavy lorry's front bumper and wheels parked by the road", credit: "Shantum Singh / Pexels" },
+      { icon: "Users", title: "Family fleets", image: "https://images.pexels.com/photos/29057953/pexels-photo-29057953.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "A line of loaded, tarpaulin-covered lorries parked along a highway", credit: "Shantum Singh / Pexels" },
+      { icon: "ReceiptText", title: "Freight bills and TDS", image: "https://images.pexels.com/photos/7680736/pexels-photo-7680736.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Person at a desk sorting receipts and bills next to a calculator", credit: "Kaboompics / Pexels" },
+      { icon: "ShoppingBag", title: "Wholesale trade", image: "https://images.pexels.com/photos/15733306/pexels-photo-15733306.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "A lorry piled high with grain sacks beside stacks of sacks on the ground", credit: "Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Presumptive tax for lorry owners",

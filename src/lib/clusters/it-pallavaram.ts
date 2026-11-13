@@ -95,20 +95,18 @@ export const itPallavaramPage: LicencePageData = {
     { icon: "Laptop", title: "Service exporters", line: "Consultants and freelancers paid by clients outside India." },
   ],
 
-  // TODO photos: Unsplash could not be reached from this session, so the four photo tiles are drafted below without images.
-  // Fill image/alt/credit with free Unsplash photos unique on the site, then uncomment.
-  // opportunities: {
-  //   eyebrow: "Local trades",
-  //   title: "Where Pallavaram's income tax questions come from",
-  //   intro: "Leather leaves Nagalkeni for foreign buyers, payments come back in foreign currency, and the airport next door keeps travel agents booking trips abroad. Each of these leaves a trail in the department's records.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   industries: [
-  //     { icon: "Layers", title: "Leather for export", image: "", alt: "", credit: "" },
-  //     { icon: "Coins", title: "Foreign currency receipts", image: "", alt: "", credit: "" },
-  //     { icon: "Plane", title: "Overseas travel", image: "", alt: "", credit: "" },
-  //     { icon: "Globe", title: "Money sent abroad", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Local trades",
+    title: "Where Pallavaram's income tax questions come from",
+    intro: "Leather leaves Nagalkeni for foreign buyers, payments come back in foreign currency, and the airport next door keeps travel agents booking trips abroad. Each of these leaves a trail in the department's records.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Layers", title: "Leather for export", image: "https://images.pexels.com/photos/17315570/pexels-photo-17315570.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Tannery worker lifting a sheet of finished leather beside stacked hides", credit: "Oğuz Kaan Boğa / Pexels" },
+      { icon: "Coins", title: "Foreign currency receipts", image: "https://images.pexels.com/photos/29916107/pexels-photo-29916107.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "US dollar and Japanese yen banknotes fanned out on a white surface", credit: "Qing Luo / Pexels" },
+      { icon: "Plane", title: "Overseas travel", image: "https://images.pexels.com/photos/12720523/pexels-photo-12720523.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Aircraft wing and engine above the clouds seen from a window seat", credit: "Atlantic Ambience / Pexels" },
+      { icon: "Globe", title: "Money sent abroad", image: "https://images.pexels.com/photos/7235902/pexels-photo-7235902.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Passport and photos lying on a world map beside a compass", credit: "Nataliya Vaitkevich / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "TCS on going abroad",

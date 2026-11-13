@@ -111,9 +111,18 @@ export const itIyyappanthangalPage: LicencePageData = {
     { icon: "Home", title: "Shop owners with rental income", line: "Rent from a portion of the building or a house nearby, added to business income." },
   ],
 
-  // Photo tiles (opportunities) not added yet: Unsplash was unreachable when this page was written. Planned section:
-  // eyebrow "Counter trades", title "How money comes into an Iyyappanthangal shop", 4 free Unsplash photos (eatery kitchen,
-  // bakery counter, phone shop or UPI payment, salon) with the usual licence comment line from kundrathur.ts.
+  opportunities: {
+    eyebrow: "Counter trades",
+    title: "How money comes into an Iyyappanthangal shop",
+    intro: "Eateries, bakeries, phone shops and salons along Mount Poonamallee Road take cash, UPI and app payouts every day. Each one changes how your profit is worked out and what already shows in your AIS.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "UtensilsCrossed", title: "Hotels and eateries", image: "https://images.pexels.com/photos/10102480/pexels-photo-10102480.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Cook frying potato tikkis on a large flat griddle at a food counter", credit: "Swastik Arora / Pexels" },
+      { icon: "ChefHat", title: "Bakeries and sweet shops", image: "https://images.pexels.com/photos/27928429/pexels-photo-27928429.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Buns, caramel puddings and muffins on the shelves of a bakery display counter", credit: "Anh Nguyen / Pexels" },
+      { icon: "Wallet", title: "Phone shops and UPI", image: "https://images.pexels.com/photos/12935064/pexels-photo-12935064.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Customer paying by phone at a shop counter QR code terminal", credit: "iMin Technology / Pexels" },
+      { icon: "Store", title: "Salons and barbers", image: "https://images.pexels.com/photos/31317772/pexels-photo-31317772.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Barber at work on an older customer at a roadside stand", credit: "Daciana Cristina Visan / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Cash, UPI and the presumptive scheme",

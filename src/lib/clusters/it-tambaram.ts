@@ -106,20 +106,18 @@ export const itTambaramPage: LicencePageData = {
     { icon: "Home", title: "Owners selling a house or plot", line: "Families selling an old house or plot, or reinvesting the money." },
   ],
 
-  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
-  // opportunities: {
-  //   eyebrow: "Tambaram households",
-  //   title: "Where Tambaram's income tax questions come from",
-  //   intro: "Madras Christian College in East Tambaram, the MEPZ zone on GST Road and the city's long-settled neighbourhoods give Tambaram a mix of salaried staff, retirees and property owners, each with a different return.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   // Photos not yet chosen: Unsplash search pages could not be fetched from this session. Fill image, alt and credit before publishing.
-  //   industries: [
-  //     { icon: "GraduationCap", title: "Teaching staff", image: "", alt: "", credit: "" },
-  //     { icon: "Factory", title: "Export zone employees", image: "", alt: "", credit: "" },
-  //     { icon: "HeartHandshake", title: "Pensioners", image: "", alt: "", credit: "" },
-  //     { icon: "Home", title: "Houses and plots", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Tambaram households",
+    title: "Where Tambaram's income tax questions come from",
+    intro: "Madras Christian College in East Tambaram, the MEPZ zone on GST Road and the city's long-settled neighbourhoods give Tambaram a mix of salaried staff, retirees and property owners, each with a different return.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "GraduationCap", title: "Schools and colleges", image: "https://images.pexels.com/photos/3231358/pexels-photo-3231358.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Students in white uniforms listening to a lesson in a classroom", credit: "Yogendra Singh / Pexels" },
+      { icon: "Factory", title: "Export zone employees", image: "https://images.pexels.com/photos/31047133/pexels-photo-31047133.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Women in blue uniforms sorting rolled textiles on a garment factory floor", credit: "EqualStock IN / Pexels" },
+      { icon: "HeartHandshake", title: "Pensioners", image: "https://images.pexels.com/photos/5191865/pexels-photo-5191865.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Elderly woman in a white and gold saree seated on a wooden chair in a garden", credit: "Jayakumar Karunakaran / Pexels" },
+      { icon: "Home", title: "Houses and plots", image: "https://images.pexels.com/photos/35289099/pexels-photo-35289099.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Houses with red tiled roofs and a balcony under a clear sky in Tamil Nadu", credit: "#D67 HUNTER / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Selling a house or plot",

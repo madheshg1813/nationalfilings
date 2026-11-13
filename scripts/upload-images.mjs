@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Mirrors the site's images to Cloudinary: every Unsplash photo referenced in src/ (exactly as the site shows it, same
+ * Mirrors the site's images to Cloudinary: every Unsplash or Pexels photo referenced in src/ (exactly as the site shows it, same
  * crop and size) and every PNG/JPG/WebP in public/. Only missing images are uploaded, so it's cheap to run on every build.
  *
  * Runs before `npm run build` (prebuild) and on demand with `npm run images:upload`.
@@ -31,7 +31,8 @@ const seen = new Map(); // photo id -> first place it was found
 const dupes = [];
 for (const file of walkSrc("src")) {
   readFileSync(file, "utf8").split("\n").forEach((line, i) => {
-    for (const [, id] of line.matchAll(/images\.unsplash\.com\/(photo-[\w-]+)/g)) {
+    for (const [, unsplash, pexels] of line.matchAll(/images\.unsplash\.com\/(photo-[\w-]+)|images\.pexels\.com\/photos\/(\d+)\//g)) {
+      const id = unsplash ?? `pexels-${pexels}`;
       const here = `${file}:${i + 1}`;
       if (seen.has(id)) dupes.push(`${id} used in ${seen.get(id)} and ${here}`);
       else seen.set(id, here);
@@ -62,7 +63,7 @@ function walk(dir, keep) {
 // 1. Every image the site can show, keyed by its Cloudinary ID
 const images = new Map(); // id -> { src, file? }
 for (const file of walk("src", (p) => /\.(ts|tsx)$/.test(p))) {
-  for (const [url] of readFileSync(file, "utf8").matchAll(/https:\/\/images\.unsplash\.com\/photo-[\w-]+(\?[^"'`\s)]*)?/g)) {
+  for (const [url] of readFileSync(file, "utf8").matchAll(/https:\/\/(?:images\.unsplash\.com\/photo-[\w-]+|images\.pexels\.com\/photos\/\d+\/[\w.-]+)(\?[^"'`\s)]*)?/g)) {
     const id = cloudinaryId(url);
     if (id) images.set(id, { src: url });
   }

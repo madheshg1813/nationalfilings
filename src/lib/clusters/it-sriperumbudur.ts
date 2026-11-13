@@ -105,9 +105,18 @@ export const itSriperumbudurPage: LicencePageData = {
     { icon: "Package", title: "Small parts and consumables vendors", line: "Suppliers whose turnover is nearing the audit limit." },
   ],
 
-  // Photo tiles (opportunities) not added yet: Unsplash was unreachable when this page was written. Planned section:
-  // eyebrow "The industrial belt", title "Who earns from Sriperumbudur's plants", 4 free Unsplash photos (car assembly line,
-  // shift workers, electronics manufacturing, maintenance or welding work) with the licence comment line from kundrathur.ts.
+  opportunities: {
+    eyebrow: "The industrial belt",
+    title: "Who earns from Sriperumbudur's plants",
+    intro: "Car, electronics and component plants around Sriperumbudur and Oragadam pay salaries, contract bills and manpower invoices every month. Each kind of payment carries its own TDS and its own return.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Factory", title: "Car and component plants", image: "https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Robot arms assembling a car body on a factory line", credit: "Hyundai Motor Group / Pexels" },
+      { icon: "Users", title: "Shift and contract workers", image: "https://images.pexels.com/photos/32399719/pexels-photo-32399719.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Two women in blue work uniforms on a factory floor", credit: "EqualStock IN / Pexels" },
+      { icon: "Laptop", title: "Electronics manufacturing", image: "https://images.pexels.com/photos/10699354/pexels-photo-10699354.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Technician soldering components on a green circuit board", credit: "tnfeez desgin / Pexels" },
+      { icon: "HardHat", title: "Maintenance contractors", image: "https://images.pexels.com/photos/1098401/pexels-photo-1098401.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Welder in a mask and gloves welding a pipe with sparks flying", credit: "Aman Jakhar / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "TDS on plant payments",

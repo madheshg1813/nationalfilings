@@ -104,20 +104,18 @@ export const itGerugambakkamPage: LicencePageData = {
     { icon: "PenLine", title: "Designers and creators", line: "Interior, graphic and content work billed from a home studio." },
   ],
 
-  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
-  // opportunities: {
-  //   eyebrow: "Local households",
-  //   title: "The new-flat households behind Gerugambakkam's tax questions",
-  //   intro: "Gerugambakkam has filled with apartment blocks between Porur and Kundrathur, bought mostly by salaried families on home loans. Many of them now earn something extra from a spare room, which is when the return stops being a Form 16 copy.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   // PHOTOS NEEDED: Unsplash search was unreachable from this session (bot check, no WebFetch). Fill image, alt and credit before publishing.
-  //   industries: [
-  //     { icon: "Home", title: "New apartment buyers", image: "", alt: "", credit: "" },
-  //     { icon: "Laptop", title: "Side work after office", image: "", alt: "", credit: "" },
-  //     { icon: "KeyRound", title: "Home loans and possession", image: "", alt: "", credit: "" },
-  //     { icon: "Calculator", title: "Household tax planning", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Local households",
+    title: "The new-flat households behind Gerugambakkam's tax questions",
+    intro: "Gerugambakkam has filled with apartment blocks between Porur and Kundrathur, bought mostly by salaried families on home loans. Many of them now earn something extra from a spare room, which is when the return stops being a Form 16 copy.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Home", title: "New apartment buyers", image: "https://images.pexels.com/photos/7672059/pexels-photo-7672059.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "New multi-storey apartment block with balconies against a clear sky", credit: "Pexels" },
+      { icon: "Laptop", title: "Side work after office", image: "https://images.pexels.com/photos/4307853/pexels-photo-4307853.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Man working on a laptop at a small table in his room at home", credit: "Ketut Subiyanto / Pexels" },
+      { icon: "KeyRound", title: "Home loans and possession", image: "https://images.pexels.com/photos/7641906/pexels-photo-7641906.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "A bunch of house keys being placed into an open hand", credit: "Pexels" },
+      { icon: "Calculator", title: "Household tax planning", image: "https://images.pexels.com/photos/4308013/pexels-photo-4308013.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Smiling couple at home working through papers with a calculator and laptop", credit: "Ketut Subiyanto / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Home loan and regime",

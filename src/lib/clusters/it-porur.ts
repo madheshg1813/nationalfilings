@@ -109,7 +109,18 @@ export const itPorurPage: LicencePageData = {
     { icon: "Home", title: "Professionals with rent and investments", line: "A flat let out, mutual funds and fixed deposits on top of salary." },
   ],
 
-  // TODO opportunities: 4 Unsplash photo tiles not yet added (photo lookup unavailable to the writing agent).
+  opportunities: {
+    eyebrow: "Porur's taxpayers",
+    title: "Hospital wards and IT parks, two kinds of Porur return",
+    intro: "Porur's income comes from the hospitals around the university campus and the IT parks along Mount Poonamallee Road. Each brings income that Form 16 alone does not cover.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Stethoscope", title: "Doctors with a practice", image: "https://images.pexels.com/photos/19438560/pexels-photo-19438560.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Doctor in a white coat with a stethoscope, arms folded", credit: "Oys Photography / Pexels" },
+      { icon: "Users", title: "Nurses and hospital staff", image: "https://images.pexels.com/photos/6129685/pexels-photo-6129685.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Nurse in blue scrubs holding the hand of a patient in a hospital bed", credit: "RDNE Stock project / Pexels" },
+      { icon: "Laptop", title: "IT employees", image: "https://images.pexels.com/photos/18935831/pexels-photo-18935831.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Programmer writing code on a desktop screen with a laptop below it", credit: "Pexels" },
+      { icon: "TrendingUp", title: "RSUs and foreign shares", image: "https://images.pexels.com/photos/7873553/pexels-photo-7873553.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Phone showing a share price chart on top of printed financial statements", credit: "Leeloo The First / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Doctors' income tax",

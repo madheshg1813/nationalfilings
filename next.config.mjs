@@ -15,7 +15,10 @@ const nextConfig = {
     // Pages ask for 90 on photos; Cloudinary picks quality itself (q_auto), the default optimizer uses these
     qualities: [75, 90],
     // Unsplash photos (free licence) are hotlinked and resized by next/image
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "images.pexels.com" }, // free Pexels licence, used when Unsplash is unreachable
+    ],
   },
   // Renamed legal pages keep their old URLs working (permanent 308)
   async redirects() {

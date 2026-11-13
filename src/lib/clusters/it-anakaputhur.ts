@@ -99,21 +99,18 @@ export const itAnakaputhurPage: LicencePageData = {
     { icon: "Home", title: "Low-income households", line: "Families with one modest wage and some savings interest." },
   ],
 
-  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
-  // opportunities: {
-  //   eyebrow: "Who files in Anakaputhur",
-  //   title: "Small incomes from the loom and the parcel counter",
-  //   intro: "A weaver paid per saree, an artisan selling at fairs and a seller shipping through a marketplace all earn in small amounts. The tax questions come from how that money is paid, not how big it is.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   // TODO photos: Unsplash could not be fetched from this session (bot check, no WebFetch). Pick 4 new free photos, check
-  //   // each with grep across src, preview it, then fill image, alt and credit below.
-  //   industries: [
-  //     { icon: "Layers", title: "Weavers at work", image: "", alt: "", credit: "" },
-  //     { icon: "Leaf", title: "Fibre craft makers", image: "", alt: "", credit: "" },
-  //     { icon: "Package", title: "Packing online orders", image: "", alt: "", credit: "" },
-  //     { icon: "Users", title: "Weavers' groups", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Who files in Anakaputhur",
+    title: "Small incomes from the loom and the parcel counter",
+    intro: "A weaver paid per saree, an artisan selling at fairs and a seller shipping through a marketplace all earn in small amounts. The tax questions come from how that money is paid, not how big it is.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Layers", title: "Weavers at work", image: "https://images.pexels.com/photos/35195886/pexels-photo-35195886.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Woman weaving pink, yellow and green cloth on a hand loom laid out in her courtyard", credit: "MD Monsurul Azam / Pexels" },
+      { icon: "Award", title: "Craft makers", image: "https://images.pexels.com/photos/1102292/pexels-photo-1102292.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Potter shaping a large clay pot on a wheel, with finished clay pieces stacked behind him", credit: "Raman deep / Pexels" },
+      { icon: "Package", title: "Packing online orders", image: "https://images.pexels.com/photos/9594502/pexels-photo-9594502.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Hands pressing a paper-wrapped product into a cardboard shipping box", credit: "Ron Lach / Pexels" },
+      { icon: "Home", title: "Home-based artisans", image: "https://images.pexels.com/photos/19179113/pexels-photo-19179113.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Elderly woman in a blue printed top finishing red clay pots in her workroom", credit: "Akib Pictures / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Marketplace TDS",

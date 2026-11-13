@@ -104,20 +104,18 @@ export const itChromepetPage: LicencePageData = {
     { icon: "Users", title: "Parents of student earners", line: "Families checking whether a son or daughter now needs to file." },
   ],
 
-  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
-  // opportunities: {
-  //   eyebrow: "Chromepet earners",
-  //   title: "Where Chromepet's first incomes come from",
-  //   intro: "The Madras Institute of Technology has trained engineers at Chromepet since 1949. Its students and alumni now earn from internships, campus jobs, remote clients and their own companies, often before they turn 25.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   // Photos not yet chosen: Unsplash search pages could not be fetched from this session. Fill image, alt and credit before publishing.
-  //   industries: [
-  //     { icon: "GraduationCap", title: "Campus placements", image: "", alt: "", credit: "" },
-  //     { icon: "Laptop", title: "Remote client work", image: "", alt: "", credit: "" },
-  //     { icon: "IdCard", title: "Internships and stipends", image: "", alt: "", credit: "" },
-  //     { icon: "Rocket", title: "First companies", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Chromepet earners",
+    title: "Where Chromepet's first incomes come from",
+    intro: "The Madras Institute of Technology has trained engineers at Chromepet since 1949. Its students and alumni now earn from internships, campus jobs, remote clients and their own companies, often before they turn 25.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "GraduationCap", title: "Campus placements", image: "https://images.pexels.com/photos/36706460/pexels-photo-36706460.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Young developer writing code at a two-monitor desk in a small office", credit: "Zayed Hossain / Pexels" },
+      { icon: "Laptop", title: "Remote client work", image: "https://images.pexels.com/photos/7129651/pexels-photo-7129651.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Young man smiling at his laptop while working from a desk at home", credit: "Michael Burrows / Pexels" },
+      { icon: "IdCard", title: "Internships and stipends", image: "https://images.pexels.com/photos/15598845/pexels-photo-15598845.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Young student smiling with a laptop on an outdoor bench", credit: "Sanket Mishra / Pexels" },
+      { icon: "Rocket", title: "First companies", image: "https://images.pexels.com/photos/4308104/pexels-photo-4308104.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Two young partners planning a project over a laptop and notebook", credit: "Ketut Subiyanto / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Freelancers and professionals",

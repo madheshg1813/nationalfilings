@@ -96,20 +96,18 @@ export const itKundrathurPage: LicencePageData = {
     { icon: "UserRound", title: "Supervisors and staff", line: "Salaried people from local units with Form 16, a home loan or a side income." },
   ],
 
-  // TODO photos: Unsplash could not be reached from this session, so the four photo tiles are drafted below without images.
-  // Fill image/alt/credit with free Unsplash photos unique on the site, then uncomment.
-  // opportunities: {
-  //   eyebrow: "Local trades",
-  //   title: "The businesses behind Kundrathur's tax returns",
-  //   intro: "Job charges from the SIDCO estate, steel and cement sold over counters on the main road, and lorries moving both. Each trade shows up in the department's records in a different way.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   industries: [
-  //     { icon: "Factory", title: "Machining job work", image: "", alt: "", credit: "" },
-  //     { icon: "Zap", title: "Fabrication", image: "", alt: "", credit: "" },
-  //     { icon: "Store", title: "Building materials", image: "", alt: "", credit: "" },
-  //     { icon: "FileText", title: "Books and bill registers", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Local trades",
+    title: "The businesses behind Kundrathur's tax returns",
+    intro: "Job charges from the SIDCO estate, steel and cement sold over counters on the main road, and lorries moving both. Each trade shows up in the department's records in a different way.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Factory", title: "Machining job work", image: "https://images.pexels.com/photos/18569750/pexels-photo-18569750.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Rows of lathes and other machine tools on a workshop floor", credit: "J E / Pexels" },
+      { icon: "Zap", title: "Fabrication", image: "https://images.pexels.com/photos/4305372/pexels-photo-4305372.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Welder crouched over a steel pipe with sparks flying in a dim workshop", credit: "Nishant Aneja / Pexels" },
+      { icon: "Store", title: "Building materials", image: "https://images.pexels.com/photos/19756443/pexels-photo-19756443.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Elderly shopkeeper at the counter of a crowded hardware store", credit: "vijesh vijayan / Pexels" },
+      { icon: "FileText", title: "Books and bill registers", image: "https://images.pexels.com/photos/164686/pexels-photo-164686.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Close-up of a ledger page with handwritten entries and figures", credit: "Pixabay / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Deemed profit or full books",

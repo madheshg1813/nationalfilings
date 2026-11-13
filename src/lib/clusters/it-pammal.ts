@@ -105,21 +105,18 @@ export const itPammalPage: LicencePageData = {
     { icon: "Briefcase", title: "Salaried people with a side income", line: "A weekend class, a rented portion or freelance work on top of salary." },
   ],
 
-  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
-  // opportunities: {
-  //   eyebrow: "Who files in Pammal",
-  //   title: "The earners in a typical Pammal household",
-  //   intro: "Each person in the house reaches the tax limits by a different route. A salary, a tuition batch, a counter of goods and a pension book all need a different return.",
-  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-  //   // TODO photos: Unsplash could not be fetched from this session (bot check, no WebFetch). Pick 4 new free photos, check
-  //   // each with grep across src, preview it, then fill image, alt and credit below.
-  //   industries: [
-  //     { icon: "Laptop", title: "Salaried earners", image: "", alt: "", credit: "" },
-  //     { icon: "GraduationCap", title: "Home tutors", image: "", alt: "", credit: "" },
-  //     { icon: "Store", title: "Small shopkeepers", image: "", alt: "", credit: "" },
-  //     { icon: "HeartHandshake", title: "Retired parents", image: "", alt: "", credit: "" },
-  //   ],
-  // },
+  opportunities: {
+    eyebrow: "Who files in Pammal",
+    title: "The earners in a typical Pammal household",
+    intro: "Each person in the house reaches the tax limits by a different route. A salary, a tuition batch, a counter of goods and a pension book all need a different return.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "Laptop", title: "Salaried earners", image: "https://images.pexels.com/photos/9474025/pexels-photo-9474025.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Young man in an orange T-shirt working on a laptop at a table", credit: "Yash Maramangallam / Pexels" },
+      { icon: "GraduationCap", title: "Tutors and coaching classes", image: "https://images.pexels.com/photos/15119089/pexels-photo-15119089.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Children sitting on the floor of a small classroom listening to a lesson", credit: "Pexels" },
+      { icon: "Store", title: "Small shopkeepers", image: "https://images.pexels.com/photos/27786488/pexels-photo-27786488.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Elderly shopkeeper seated at the front of a small shop with a young man sitting on the step beside him", credit: "Kewal Nagda / Pexels" },
+      { icon: "HeartHandshake", title: "Retired parents", image: "https://images.pexels.com/photos/28704408/pexels-photo-28704408.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Elderly woman with grey hair in a pink blouse and yellow shawl sitting with her hands folded", credit: "Mijanur Rahman Niloy / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "New or old regime",

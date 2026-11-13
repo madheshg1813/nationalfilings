@@ -5,6 +5,7 @@ export const CLOUDINARY_FOLDER = "nationalfilings";
 
 const LOCAL_RASTER = /\.(png|jpe?g|webp|avif)$/i;
 const UNSPLASH = /^https:\/\/images\.unsplash\.com\/(photo-[\w-]+)(\?.*)?$/;
+const PEXELS = /^https:\/\/images\.pexels\.com\/photos\/(\d+)\/[\w.-]+(\?.*)?$/;
 
 /** FNV-1a, base36: a short, stable tag for an Unsplash URL's crop and size parameters */
 function hash(text) {
@@ -15,12 +16,15 @@ function hash(text) {
 
 /**
  * Cloudinary public ID for an image src, or null when the image isn't mirrored (SVGs, other hosts, data URLs).
- * Unsplash photos keep their crop parameters in the ID, so each crop the site uses is stored as shown.
+ * Unsplash and Pexels photos keep their crop parameters in the ID, so each crop the site uses is stored as shown.
  */
 export function cloudinaryId(src) {
   if (src.startsWith("/")) {
     return LOCAL_RASTER.test(src) ? `${CLOUDINARY_FOLDER}/public${src.replace(LOCAL_RASTER, "")}` : null;
   }
-  const m = src.replace(/&amp;/g, "&").match(UNSPLASH);
-  return m ? `${CLOUDINARY_FOLDER}/unsplash/${m[1]}-${hash(m[2] ?? "")}` : null;
+  const clean = src.replace(/&amp;/g, "&");
+  const m = clean.match(UNSPLASH);
+  if (m) return `${CLOUDINARY_FOLDER}/unsplash/${m[1]}-${hash(m[2] ?? "")}`;
+  const p = clean.match(PEXELS);
+  return p ? `${CLOUDINARY_FOLDER}/pexels/${p[1]}-${hash(p[2] ?? "")}` : null;
 }

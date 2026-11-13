@@ -108,7 +108,18 @@ export const itMangaduPage: LicencePageData = {
     { icon: "Plane", title: "NRIs with property in Mangadu", line: "Rent or sale of an inherited house, with higher TDS for the buyer." },
   ],
 
-  // TODO opportunities: 4 Unsplash photo tiles not yet added (photo lookup unavailable to the writing agent).
+  opportunities: {
+    eyebrow: "Mangadu property",
+    title: "Rent, halls and land, where Mangadu's tax questions start",
+    intro: "Mangadu is a temple town that is filling up fast. Families let out flats and shops, run wedding halls, and sell or develop land in the newly annexed villages.",
+    // Pexels licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+    industries: [
+      { icon: "KeyRound", title: "Landlords and rent", image: "https://images.pexels.com/photos/10209711/pexels-photo-10209711.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Apartment blocks with planted balconies behind leafy trees", credit: "Abhishek Mehta / Pexels" },
+      { icon: "Building2", title: "Marriage halls", image: "https://images.pexels.com/photos/31307957/pexels-photo-31307957.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Wedding stage with two cane chairs framed by pink flower decorations", credit: "The Event Designer / Pexels" },
+      { icon: "Leaf", title: "Family farmland", image: "https://images.pexels.com/photos/14830280/pexels-photo-14830280.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Dirt road lined with coconut trees between harvested fields", credit: "Pause the Moment / Pexels" },
+      { icon: "HardHat", title: "Builders and JDAs", image: "https://images.pexels.com/photos/13890649/pexels-photo-13890649.jpeg?auto=compress&cs=tinysrgb&w=1600", alt: "Workers on scaffolding at a building under construction", credit: "Aravind P.S. / Pexels" },
+    ],
+  },
 
   highlights: {
     eyebrow: "Marriage halls and income tax",
