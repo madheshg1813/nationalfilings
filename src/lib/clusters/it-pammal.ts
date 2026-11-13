@@ -105,20 +105,21 @@ export const itPammalPage: LicencePageData = {
     { icon: "Briefcase", title: "Salaried people with a side income", line: "A weekend class, a rented portion or freelance work on top of salary." },
   ],
 
-  opportunities: {
-    eyebrow: "Who files in Pammal",
-    title: "The earners in a typical Pammal household",
-    intro: "Each person in the house reaches the tax limits by a different route. A salary, a tuition batch, a counter of goods and a pension book all need a different return.",
-    // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-    // TODO photos: Unsplash could not be fetched from this session (bot check, no WebFetch). Pick 4 new free photos, check
-    // each with grep across src, preview it, then fill image, alt and credit below.
-    industries: [
-      { icon: "Laptop", title: "Salaried earners", image: "", alt: "", credit: "" },
-      { icon: "GraduationCap", title: "Home tutors", image: "", alt: "", credit: "" },
-      { icon: "Store", title: "Small shopkeepers", image: "", alt: "", credit: "" },
-      { icon: "HeartHandshake", title: "Retired parents", image: "", alt: "", credit: "" },
-    ],
-  },
+  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
+  // opportunities: {
+  //   eyebrow: "Who files in Pammal",
+  //   title: "The earners in a typical Pammal household",
+  //   intro: "Each person in the house reaches the tax limits by a different route. A salary, a tuition batch, a counter of goods and a pension book all need a different return.",
+  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+  //   // TODO photos: Unsplash could not be fetched from this session (bot check, no WebFetch). Pick 4 new free photos, check
+  //   // each with grep across src, preview it, then fill image, alt and credit below.
+  //   industries: [
+  //     { icon: "Laptop", title: "Salaried earners", image: "", alt: "", credit: "" },
+  //     { icon: "GraduationCap", title: "Home tutors", image: "", alt: "", credit: "" },
+  //     { icon: "Store", title: "Small shopkeepers", image: "", alt: "", credit: "" },
+  //     { icon: "HeartHandshake", title: "Retired parents", image: "", alt: "", credit: "" },
+  //   ],
+  // },
 
   highlights: {
     eyebrow: "New or old regime",

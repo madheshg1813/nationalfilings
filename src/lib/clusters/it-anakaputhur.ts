@@ -99,20 +99,21 @@ export const itAnakaputhurPage: LicencePageData = {
     { icon: "Home", title: "Low-income households", line: "Families with one modest wage and some savings interest." },
   ],
 
-  opportunities: {
-    eyebrow: "Who files in Anakaputhur",
-    title: "Small incomes from the loom and the parcel counter",
-    intro: "A weaver paid per saree, an artisan selling at fairs and a seller shipping through a marketplace all earn in small amounts. The tax questions come from how that money is paid, not how big it is.",
-    // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
-    // TODO photos: Unsplash could not be fetched from this session (bot check, no WebFetch). Pick 4 new free photos, check
-    // each with grep across src, preview it, then fill image, alt and credit below.
-    industries: [
-      { icon: "Layers", title: "Weavers at work", image: "", alt: "", credit: "" },
-      { icon: "Leaf", title: "Fibre craft makers", image: "", alt: "", credit: "" },
-      { icon: "Package", title: "Packing online orders", image: "", alt: "", credit: "" },
-      { icon: "Users", title: "Weavers' groups", image: "", alt: "", credit: "" },
-    ],
-  },
+  // Photo tiles: add 4 site-unique photos, then uncomment (left out so the page never shows empty tiles)
+  // opportunities: {
+  //   eyebrow: "Who files in Anakaputhur",
+  //   title: "Small incomes from the loom and the parcel counter",
+  //   intro: "A weaver paid per saree, an artisan selling at fairs and a seller shipping through a marketplace all earn in small amounts. The tax questions come from how that money is paid, not how big it is.",
+  //   // Unsplash licence (free commercial use, no attribution required; credits kept for reference). Each photo is unique on the site.
+  //   // TODO photos: Unsplash could not be fetched from this session (bot check, no WebFetch). Pick 4 new free photos, check
+  //   // each with grep across src, preview it, then fill image, alt and credit below.
+  //   industries: [
+  //     { icon: "Layers", title: "Weavers at work", image: "", alt: "", credit: "" },
+  //     { icon: "Leaf", title: "Fibre craft makers", image: "", alt: "", credit: "" },
+  //     { icon: "Package", title: "Packing online orders", image: "", alt: "", credit: "" },
+  //     { icon: "Users", title: "Weavers' groups", image: "", alt: "", credit: "" },
+  //   ],
+  // },
 
   highlights: {
     eyebrow: "Marketplace TDS",
