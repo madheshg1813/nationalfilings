@@ -5,6 +5,7 @@ import { Faq } from "@/components/sections/Faq";
 import { PageSchema } from "@/components/PageSchema";
 import { PillarHero } from "@/components/blocks/PillarHero";
 import { PillarSection } from "@/components/blocks/PillarSection";
+import { NearbyAreas } from "@/components/blocks/NearbyAreas";
 import { InlineCta } from "@/components/blocks/InlineCta";
 import { HeroTrust } from "@/components/blocks/HeroTrust";
 import { TrustSection } from "@/components/blocks/TrustSection";
@@ -75,6 +76,7 @@ export default async function NgoRegistrationPage() {
           lead="Find the right registration for your trust, society or Section 8 company, plus 12A and 80G, all handled by one team."
         >
           <ServiceCards />
+          <NearbyAreas pillarId="P4" label="NGO registration" />
         </PillarSection>
 
         <PillarSection id="who-we-help" tone="cream" eyebrow="Who we help" title="NGOs we help register in Chennai">
