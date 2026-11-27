@@ -8,17 +8,8 @@
 name: Daily page publish
 
 on:
-  schedule:
-    - cron: "30 3 * * *" # 03:30 UTC = 09:00 IST (GitHub may start scheduled runs late, or drop them)
-    - cron: "30 4 * * *" # 10:00 IST backup
-    - cron: "0 6 * * *" # 11:30 IST backup
-    - cron: "30 7 * * *" # 13:00 IST backup
-    - cron: "30 9 * * *" # 15:00 IST backup (also catches days when Railway pauses Hobby deploys for a while)
-    - cron: "30 11 * * *" # 17:00 IST backup
-    # Evening launches (entries with "time": "19:00"): 7 PM IST, with backups at 7:30 PM and 8:30 PM
-    - cron: "30 13 * * *" # 19:00 IST
-    - cron: "0 14 * * *" # 19:30 IST backup
-    - cron: "0 15 * * *" # 20:30 IST backup
+  # Schedule turned off on 27 Nov 2026 while content issues are fixed. Pages dated 2099-12-31 in
+  # src/lib/publish-schedule.json are on hold. To resume, restore the cron lines and give those pages real dates.
   workflow_dispatch:
 
 concurrency:

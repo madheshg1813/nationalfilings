@@ -75,9 +75,9 @@
     { "date": "2026-11-25", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Tambaram", "path": "/chennai/ngo-registration-in-tambaram" },
     { "date": "2026-11-26", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Porur", "path": "/chennai/ngo-registration-in-porur" },
     { "date": "2026-11-26", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Mangadu", "path": "/chennai/ngo-registration-in-mangadu" },
-    { "date": "2026-11-27", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Poonamallee", "path": "/chennai/ngo-registration-in-poonamallee" },
-    { "date": "2026-11-27", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Gerugambakkam", "path": "/chennai/ngo-registration-in-gerugambakkam" },
-    { "date": "2026-11-28", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Iyyappanthangal", "path": "/chennai/ngo-registration-in-iyyappanthangal" },
-    { "date": "2026-11-28", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Sriperumbudur", "path": "/chennai/ngo-registration-in-sriperumbudur" }
+    { "date": "2099-12-31", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Poonamallee", "path": "/chennai/ngo-registration-in-poonamallee" },
+    { "date": "2099-12-31", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Gerugambakkam", "path": "/chennai/ngo-registration-in-gerugambakkam" },
+    { "date": "2099-12-31", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Iyyappanthangal", "path": "/chennai/ngo-registration-in-iyyappanthangal" },
+    { "date": "2099-12-31", "time": "09:00", "work": "Published locality page", "page": "NGO Registration in Sriperumbudur", "path": "/chennai/ngo-registration-in-sriperumbudur" }
   ]
 }
