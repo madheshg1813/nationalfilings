@@ -42,8 +42,8 @@ export const gstKundrathurPage: LicencePageData = {
     description: "GST consultant in Kundrathur for job-work units, SIDCO suppliers and builders. Returns, ITC-04, e-way bills, buyer ITC checks, from our local office.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Kundrathur, ", accent: "Built for Job Work" },
-    sub: "Machining shops, fabricators and parts suppliers around the Thirumudivakkam SIDCO estate deal with challans, job work returns and buyers who check every invoice. We handle that GST work from our office in Karaima Nagar.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Kundrathur" },
+    sub: "GST registration, return filing and compliance for businesses in and around Kundrathur, handled by a team you can visit in person.",
     badges: heroTrustPoints,
     whatsapp,
   },

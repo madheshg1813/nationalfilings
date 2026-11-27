@@ -23,7 +23,7 @@ export const rocPage: LicencePageData = {
     description: "ROC compliance services in Chennai for companies and LLPs. AGM papers, AOC-4, MGT-7, LLP forms and director KYC filed on time, before late fees start.",
   },
   hero: {
-    headline: { line1: "ROC Compliance Services", line2Before: "in Chennai, ", accent: "Always On Time" },
+    headline: { line1: "ROC Compliance Services", line2Before: "", accent: "in Chennai" },
     sub: "Keep your company or LLP in good standing without tracking a single due date. We handle ROC compliance services in Chennai, from the AGM papers to every MCA filing.",
     badges: heroTrustPoints,
     whatsapp,

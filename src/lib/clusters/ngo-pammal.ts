@@ -47,8 +47,8 @@ export const ngoPammalPage: LicencePageData = {
     description: "NGO registration in Pammal for free tuition, scholarships and study centres. Education trust deed, section 332 exemption and 80G for your donors.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Pammal, ", accent: "Lessons Kept Free" },
-    sub: "Retired teachers coaching Class 10 children on a terrace, parents pooling money for a girl's college fees, a spare room turned into a reading corner. We give that work a trust deed, an income tax exemption and donor receipts that count.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Pammal" },
+    sub: "Start your NGO in Pammal on a strong footing. We handle trust deeds, society bylaws or Section 8 incorporation, along with tax registrations.",
     badges: heroTrustPoints,
     whatsapp,
   },

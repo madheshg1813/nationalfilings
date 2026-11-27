@@ -53,8 +53,8 @@ export const ngoAnakaputhurPage: LicencePageData = {
     description: "NGO registration in Anakaputhur for weaver and women artisan projects. Trust, society or Section 8, with 12A, 80G and CSR-1 for training grants.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Anakaputhur, ", accent: "Skills to Markets" },
-    sub: "Anakaputhur once had thousands of looms. Today a few hundred weavers and women artisans keep banana, aloe and bamboo fibre work alive. If you train them or help them sell, we'll set up the NGO that can take grants and CSR money for it.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Anakaputhur" },
+    sub: "Want to start a charity in Anakaputhur? We register your NGO as a trust, society or Section 8 company and help you get 12A and 80G approval.",
     badges: heroTrustPoints,
     whatsapp,
   },

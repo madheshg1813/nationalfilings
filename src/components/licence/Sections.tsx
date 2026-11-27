@@ -381,6 +381,28 @@ export function RelatedLinks({ related }: { related: LicencePageData["related"] 
   );
 }
 
+/** Area pages ("Areas we serve"): compact boxes, the area name in bold with the service above it */
+export function AreaLinks({ related }: { related: LicencePageData["related"] }) {
+  return (
+    <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-2.5 lg:grid-cols-4">
+      {related.map((s) => {
+        const [service, area] = s.label.split(/ in (?=[^ ]+$)/);
+        return (
+          <li key={s.label}>
+            <CardLink href={s.href} className="group flex h-full items-center gap-2.5 rounded-xl border border-ink/[0.07] bg-white px-3 py-2.5">
+              <MapPinned className="h-4 w-4 shrink-0 text-brand-deep" strokeWidth={1.75} aria-hidden />
+              <span className="min-w-0 leading-tight">
+                <span className="block truncate text-[11px] text-ink-muted">{service} in</span>
+                <span className="block truncate font-display text-[14px] font-bold text-ink">{area ?? s.label}</span>
+              </span>
+            </CardLink>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 /* Page-specific section: label-led cards (licence types, standards, uses...) */
 
 export function HighlightCards({ items }: { items: NonNullable<LicencePageData["highlights"]>["items"] }) {

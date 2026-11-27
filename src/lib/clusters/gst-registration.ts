@@ -23,7 +23,7 @@ export const gstRegistrationPage: LicencePageData = {
     description: "GST registration service in Chennai with the right category, HSN codes and Aadhaar authentication handled. No government fee, clear quote, fast GSTIN.",
   },
   hero: {
-    headline: { line1: "GST Registration Service", line2Before: "in Chennai, ", accent: "Done Right" },
+    headline: { line1: "GST Registration Service", line2Before: "", accent: "in Chennai" },
     sub: "Get your GSTIN with the right registration type, business details and HSN or SAC codes from day one. Our GST registration service in Chennai handles it end to end.",
     badges: heroTrustPoints,
     whatsapp,

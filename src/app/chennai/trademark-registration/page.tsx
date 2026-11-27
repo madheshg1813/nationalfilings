@@ -1,3 +1,4 @@
+import { OtherMainServices } from "@/components/blocks/OtherMainServices";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { MobileCtaBar } from "@/components/sections/MobileCtaBar";
@@ -19,7 +20,6 @@ import {
   Mistakes,
   ReviewCta,
   IncludedGrid,
-  RelatedTrademarkServices,
   ServiceCards,
   AudienceGrid,
   Benefits,
@@ -183,8 +183,8 @@ export default async function TrademarkRegistrationPage() {
 
         <Faq items={faqs} title="Trademark registration in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />
 
-        <PillarSection id="related" tone="cream" eyebrow="Related services" title="Other registrations in Chennai">
-          <RelatedTrademarkServices />
+        <PillarSection id="related" tone="cream" eyebrow="Our services" title="Other services we offer in Chennai">
+          <OtherMainServices currentPath={pillar.path} />
         </PillarSection>
 
         <LeadCta

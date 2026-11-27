@@ -59,8 +59,8 @@ export const ngoPoonamalleePage: LicencePageData = {
     description: "NGO registration in Poonamallee for drivers' welfare associations, road safety groups and accident-relief trusts on NH 48, with 12A, 80G and CSR-1.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Poonamallee, ", accent: "Drivers First" },
-    sub: "Poonamallee lives on the NH 48 corridor, and its drivers, lorry owners and loaders often look after each other through informal collections. We register those groups as societies or trusts, and set up 12A and 80G so an accident-relief fund can take donations properly.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Poonamallee" },
+    sub: "From choosing a structure to getting 80G approval, we take care of NGO registration in Poonamallee so you can focus on your work.",
     badges: heroTrustPoints,
     whatsapp,
   },

@@ -31,8 +31,8 @@ export const poonamalleePage: LicencePageData = {
     description: "Company registration in Poonamallee for transporters, fleet owners, warehouses and traders on NH 48. Pvt Ltd and LLP, with GST for goods transport.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Poonamallee, ", accent: "Built for Fleets" },
-    sub: "Poonamallee sits where the Bengaluru highway leaves Chennai, and much of its trade moves on wheels. We register transporters, warehouses and traders as companies, LLPs and firms, and set up the GST that goods transport needs.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Poonamallee" },
+    sub: "We register private limited companies, LLPs, OPCs and partnership firms in Poonamallee, and help with GST and your bank account once you are incorporated.",
     badges: heroTrustPoints,
     whatsapp,
   },

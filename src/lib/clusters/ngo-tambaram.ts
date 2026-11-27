@@ -73,8 +73,8 @@ export const ngoTambaramPage: LicencePageData = {
     description: "NGO registration in Tambaram for educational trusts, school founders and alumni giving from abroad. Trust deed, 12A, 80G and FCRA, step by step.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Tambaram, ", accent: "Classrooms to FCRA" },
-    sub: "Tambaram has been a college town for generations, and its old students now give from all over the world. We set up educational trusts in Tambaram, get their tax approvals, and plan the FCRA route before any foreign money arrives.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Tambaram" },
+    sub: "Whatever cause you work for, we register your NGO in Tambaram and guide you through tax exemption, donor approval and yearly compliance.",
     badges: heroTrustPoints,
     whatsapp,
   },

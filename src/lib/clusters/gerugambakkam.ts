@@ -28,8 +28,8 @@ export const gerugambakkamPage: LicencePageData = {
     description: "Company registration in Gerugambakkam for home-based consultants, salaried professionals with a side business, play schools and online sellers.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Gerugambakkam, ", accent: "Side Business Ready" },
-    sub: "Running a second income from the spare room? We help you pick between a proprietorship, OPC, LLP or company, register it online and keep it compliant alongside your day job.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Gerugambakkam" },
+    sub: "Turn your idea into a registered business in Gerugambakkam. We prepare the documents, file with the MCA and keep you updated at every step until your certificate arrives.",
     badges: heroTrustPoints,
     whatsapp,
   },

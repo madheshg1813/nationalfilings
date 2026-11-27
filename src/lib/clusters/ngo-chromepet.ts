@@ -59,8 +59,8 @@ export const ngoChromepetPage: LicencePageData = {
     description: "NGO registration in Chromepet for alumni associations, youth clubs and tech-for-good projects. Society, Section 8, 12A, 80G, CSR-1 and NGO Darpan.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Chromepet, ", accent: "Campus to Cause" },
-    sub: "Alumni batches near the MIT campus, weekend coding teams and student volunteers all reach a point where a WhatsApp group is not enough. We help Chromepet groups pick a society, Section 8 company or trust and get it registered, with tax approvals after.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Chromepet" },
+    sub: "NGO registration in Chromepet for any cause. We help you choose between a trust, society and Section 8 company and handle the registration end to end.",
     badges: heroTrustPoints,
     whatsapp,
   },

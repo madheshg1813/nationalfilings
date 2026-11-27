@@ -58,8 +58,8 @@ export const itMangaduPage: LicencePageData = {
     description: "Income tax consultant in Mangadu for landlords, hall owners and land sellers. Rent, capital gains on land, builder JDAs and property TDS handled.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Mangadu, ", accent: "Rent to Resale" },
-    sub: "Mangadu families earn from shops let out near the temple, halls booked for weddings and land that builders now want. Each of these is taxed in its own way. We work out the right head, the right year and the right exemption before you file.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Mangadu" },
+    sub: "Whatever your source of income, we file your income tax return in Mangadu with every eligible deduction and exemption claimed.",
     badges: heroTrustPoints,
     whatsapp,
   },

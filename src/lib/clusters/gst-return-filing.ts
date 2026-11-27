@@ -24,7 +24,7 @@ export const gstReturnFilingPage: LicencePageData = {
     description: "GST return filing in Chennai for monthly and quarterly filers. GSTR-1, GSTR-3B, GSTR-9 and GSTR-2B reconciliation, filed on time with ITC checks.",
   },
   hero: {
-    headline: { line1: "GST Return Filing", line2Before: "in Chennai, ", accent: "Filed On Time" },
+    headline: { line1: "GST Return Filing", line2Before: "", accent: "in Chennai" },
     sub: "Send your sales and purchases each month and we handle the rest. Our GST return filing services in Chennai cover GSTR-1, GSTR-3B, annual returns and input credit checks.",
     badges: heroTrustPoints,
     whatsapp,

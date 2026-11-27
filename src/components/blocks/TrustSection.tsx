@@ -1,12 +1,10 @@
 import Image from "next/image";
 import { Award, BadgeCheck, Users, type LucideIcon } from "lucide-react";
-import { clientLogos, platforms, stats, visible, SHOW_SAMPLES, type ClientLogo } from "@/lib/proof";
+import { clientLogos, platforms, stats, visible, type ClientLogo } from "@/lib/proof";
 import { getGoogleReviews } from "@/lib/google-reviews";
 
 type Card = { key: string; icon?: LucideIcon; logo?: { src: string; w: number; h: number }; href?: string; value: string; title: string };
 
-/** Dev-only slots shown while `clientLogos` is empty */
-const placeholders: { name: string }[] = Array.from({ length: 8 }, (_, i) => ({ name: `placeholder-${i}` }));
 /** Grid per card count: phones fit 3 across at most, so 4-5 cards wrap to 2 rows there. */
 const grid: Record<number, string> = {
   1: "max-w-[260px]",
@@ -15,12 +13,11 @@ const grid: Record<number, string> = {
   4: "max-w-5xl grid-cols-2 lg:grid-cols-4",
   5: "max-w-6xl grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 max-sm:[&>li:last-child]:col-span-2",
 };
-const logoItems: (ClientLogo | { name: string })[] = clientLogos.length ? clientLogos : placeholders;
 
 /**
  * Trust bar under every service hero (the SEO/CRO system's order): Google rating, Justdial listing, years of experience,
  * businesses assisted, registrations completed. Counts come from lib/proof.ts and stay hidden in production while marked sample,
- * then the client logo row (dashed placeholders on dev while `clientLogos` is empty, hidden in production).
+ * then the client logo row, shown only once real logos are added to `clientLogos`.
  */
 export async function TrustSection({
   title = "Trusted by businesses across Chennai",
@@ -56,7 +53,7 @@ export async function TrustSection({
       ? [{ key: "completed", icon: BadgeCheck, value: completed.value, title: completed.label }]
       : []),
   ];
-  const showLogos = clientLogos.length > 0 || SHOW_SAMPLES;
+  const showLogos = clientLogos.length > 0;
   if (!cards.length && !showLogos) return null;
 
   return (
@@ -110,23 +107,17 @@ export async function TrustSection({
             <ul className="marquee-track gap-3 sm:gap-5">
               {/* rendered twice for a seamless loop; the copy is hidden from screen readers */}
               {[0, 1].flatMap((copy) =>
-                logoItems.map((l, i) => (
+                clientLogos.map((l: ClientLogo, i) => (
                   <li key={`${copy}-${i}`} aria-hidden={copy === 1 || undefined} className="shrink-0">
-                    {"src" in l ? (
-                      <span className="grid h-14 w-36 place-items-center rounded-xl bg-white px-4 ring-1 ring-ink/[0.05] sm:h-16 sm:w-44">
-                        <Image
-                          src={l.src}
-                          alt={copy === 1 ? "" : l.name}
-                          width={l.width}
-                          height={l.height}
-                          className="max-h-8 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 sm:max-h-9"
-                        />
-                      </span>
-                    ) : (
-                      <span className="grid h-14 w-36 place-items-center rounded-xl border border-dashed border-ink/15 text-[11px] font-semibold uppercase tracking-wider text-ink-faint sm:h-16 sm:w-44">
-                        Client logo
-                      </span>
-                    )}
+                    <span className="grid h-14 w-36 place-items-center rounded-xl bg-white px-4 ring-1 ring-ink/[0.05] sm:h-16 sm:w-44">
+                      <Image
+                        src={l.src}
+                        alt={copy === 1 ? "" : l.name}
+                        width={l.width}
+                        height={l.height}
+                        className="max-h-8 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 sm:max-h-9"
+                      />
+                    </span>
                   </li>
                 )),
               )}

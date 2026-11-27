@@ -49,8 +49,8 @@ export const gstAnakaputhurPage: LicencePageData = {
     description: "GST consultant in Anakaputhur for handloom weavers and craft sellers. Saree and garment rates, HSN codes, marketplace TCS and job work, sorted.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Anakaputhur, ", accent: "Loom to Invoice" },
-    sub: "A banana fibre saree, a stitched kurta and a woven basket can each carry a different GST rate and HSN code. We get those right for Anakaputhur weavers and sellers, then file the returns.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Anakaputhur" },
+    sub: "GST registration, monthly returns and notice replies for businesses in Anakaputhur. We keep your filings on time so you avoid late fees and penalties.",
     badges: heroTrustPoints,
     whatsapp,
   },

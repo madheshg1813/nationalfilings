@@ -45,8 +45,8 @@ export const gstPallavaramPage: LicencePageData = {
     description: "GST consultant in Pallavaram for leather exporters and travel agents. LUT filing, export refunds, shipping bill matching, air ticket commission GST.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Pallavaram, ", accent: "Refunds on Track" },
-    sub: "Pallavaram's leather exporters wait on GST refunds, and its travel agents work under special GST rules. We file the returns, LUTs and refund claims that keep both moving, over WhatsApp and email.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Pallavaram" },
+    sub: "From your first GST registration to annual returns and refunds, we look after GST compliance for businesses in Pallavaram.",
     badges: heroTrustPoints,
     whatsapp,
   },

@@ -24,8 +24,8 @@ export const pallavaramPage: LicencePageData = {
     description: "Company registration in Pallavaram for leather units, exporters, traders and airport businesses. Pvt Ltd, LLP and OPC, with IEC and GST set up too.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Pallavaram, ", accent: "Export Ready" },
-    sub: "From leather units to travel agents near the airport, we register Pallavaram businesses as companies, LLPs and firms, and set up the GST and export codes that follow.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Pallavaram" },
+    sub: "Get your business registered in Pallavaram without the running around. We take care of digital signatures, name approval and incorporation, all online.",
     badges: heroTrustPoints,
     whatsapp,
   },

@@ -49,8 +49,8 @@ export const itAnakaputhurPage: LicencePageData = {
     description: "Income tax consultant in Anakaputhur for weavers, artisans and small online sellers. Low-income returns, marketplace TDS refunds and grants, sorted.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Anakaputhur, ", accent: "Below the Limit" },
-    sub: "Most Anakaputhur weavers and craft sellers earn too little to owe income tax. A simple return still gets back TDS that marketplaces and banks cut, and gives you proof of income for loans and schemes.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Anakaputhur" },
+    sub: "Income tax return filing in Anakaputhur for individuals and businesses. We choose the right ITR form, check your deductions and file before the due date.",
     badges: heroTrustPoints,
     whatsapp,
   },

@@ -54,8 +54,8 @@ export const gstPorurPage: LicencePageData = {
     description: "GST consultant in Porur for clinics, labs, pharmacies and IT firms. Exempt vs taxable billing, credit reversal, monthly returns and notices handled.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Porur, ", accent: "Exempt or Taxable" },
-    sub: "A consultation is exempt, the pharmacy counter is not, and an IT export needs an LUT. We sort out which side of the line each Porur bill falls on, then file your returns to match.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Porur" },
+    sub: "Get expert GST help in Porur, whether you are registering for the first time, catching up on pending returns or replying to a notice.",
     badges: heroTrustPoints,
     whatsapp,
   },

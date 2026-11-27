@@ -52,8 +52,8 @@ export const gstChromepetPage: LicencePageData = {
     description: "GST consultant in Chromepet for freelancers, student founders and GST Road shops. Export of services, LUT, foreign invoices and returns handled.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Chromepet, ", accent: "For Global Clients" },
-    sub: "Coding for a client in Germany, designing for one in Dubai, or running a shop on GST Road? We tell you when GST registration is due, keep your foreign work zero-rated with an LUT, and file your returns every month or quarter.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Chromepet" },
+    sub: "Whether you sell goods or services, we handle GST for businesses in Chromepet, from getting your GSTIN to filing GSTR-1 and GSTR-3B every month.",
     badges: heroTrustPoints,
     whatsapp,
   },

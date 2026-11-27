@@ -53,8 +53,8 @@ export const gstPammalPage: LicencePageData = {
     description: "GST consultant in Pammal for tutors, tailors, home bakers and small shops. Turnover limits, composition, quarterly returns and a home address for GST.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Pammal, ", accent: "Small and Compliant" },
-    sub: "Most Pammal businesses we see are run from a house or a small shop. We tell you honestly whether GST applies yet, which scheme keeps it light, and keep the returns on time once you register.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Pammal" },
+    sub: "GST made easy for businesses in Pammal. We file your returns on time, track your input credit and remind you before every due date.",
     badges: heroTrustPoints,
     whatsapp,
   },

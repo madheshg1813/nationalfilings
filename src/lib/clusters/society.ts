@@ -21,7 +21,7 @@ export const societyPage: LicencePageData = {
     description: "Society registration in Chennai under the Tamil Nadu Societies Act: memorandum, bylaws and the District Registrar application handled by our team.",
   },
   hero: {
-    headline: { line1: "Society Registration", line2Before: "in Chennai, ", accent: "Member-Led" },
+    headline: { line1: "Society Registration", line2Before: "", accent: "in Chennai" },
     sub: "Bring your members together under one registered body with clear rules and elected leadership. We handle society registration in Chennai from bylaws to certificate.",
     badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a consultation about society registration in Chennai.",

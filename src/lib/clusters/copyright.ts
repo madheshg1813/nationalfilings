@@ -22,7 +22,7 @@ export const copyrightPage: LicencePageData = {
     description: "Copyright registration in Chennai for books, art, music, software and logos. Form XIV, documents and objections handled until the certificate arrives.",
   },
   hero: {
-    headline: { line1: "Copyright Registration", line2Before: "in Chennai, ", accent: "Prove It's Yours" },
+    headline: { line1: "Copyright Registration", line2Before: "", accent: "in Chennai" },
     sub: "Your work is yours the moment you create it. Copyright registration in Chennai gives you the certificate to prove it when someone copies it.",
     badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a consultation about copyright registration in Chennai.",

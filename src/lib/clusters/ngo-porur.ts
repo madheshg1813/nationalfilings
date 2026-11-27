@@ -60,8 +60,8 @@ export const ngoPorurPage: LicencePageData = {
     description: "NGO registration in Porur for health charities: patient support, medical camps, dialysis and cancer funds. Trust or Section 8, 12A, 80G and CSR-1.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Porur, ", accent: "Beyond the Wards" },
-    sub: "Doctors, nurses and families near Porur's hospitals often start helping patients long before they have a legal body. We set up the right trust, society or Section 8 company and take it through 12A, 80G and CSR-1, so hospitals, donors and companies can work with you openly.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Porur" },
+    sub: "Register your NGO in Porur and give donors a reason to trust you. We handle registration, 12A, 80G and NGO Darpan in one place.",
     badges: heroTrustPoints,
     whatsapp,
   },

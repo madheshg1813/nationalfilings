@@ -51,8 +51,8 @@ export const ngoKundrathurPage: LicencePageData = {
     description: "NGO registration in Kundrathur for festival, annadhanam and devotee groups. Trust or society, then 12A and 80G so donors can claim a deduction.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Kundrathur, ", accent: "Annadhanam to 80G" },
-    sub: "Kundrathur grew around the Murugan temple on the hill and is the birthplace of Sekkizhar. The committees that feed devotees, run the festival days and help families in the town can register as a trust or society, and then apply so their donors get a tax deduction. Our office is in Karaima Nagar, a short ride from the hill.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Kundrathur" },
+    sub: "Register your trust, society or Section 8 company in Kundrathur with guidance from our local office, from drafting to tax approvals.",
     badges: heroTrustPoints,
     whatsapp,
   },

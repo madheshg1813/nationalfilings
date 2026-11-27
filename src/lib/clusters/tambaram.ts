@@ -28,8 +28,8 @@ export const tambaramPage: LicencePageData = {
     description: "Company registration in Tambaram for SEZ units, service exporters, training institutes, clinics and retailers. Pvt Ltd, LLP and Section 8 set up.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Tambaram, ", accent: "Hub of the South" },
-    sub: "Tambaram has an export zone, a major rail terminal, well-known colleges and a city corporation of its own. We register the companies, LLPs and trusts that grow here, and plan the approvals that follow.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Tambaram" },
+    sub: "Launch your business in Tambaram with the right registration from day one. Private limited, LLP, OPC or partnership, we manage the paperwork so you can focus on customers.",
     badges: heroTrustPoints,
     whatsapp,
   },

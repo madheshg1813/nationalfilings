@@ -28,8 +28,8 @@ export const chromepetPage: LicencePageData = {
     description: "Company registration in Chromepet for student founders, freelancers, tech startups and GST Road shops. Pvt Ltd, OPC or LLP, plus DPIIT startup help.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Chromepet, ", accent: "From Campus Up" },
-    sub: "Built something in college, or billing clients as a freelancer? We help Chromepet founders choose between OPC, private limited and LLP, put the co-founder terms in writing and file with the MCA.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Chromepet" },
+    sub: "From a one-person startup to a growing team, we register companies in Chromepet, with name approval, PAN, TAN and the incorporation certificate handled for you.",
     badges: heroTrustPoints,
     whatsapp,
   },

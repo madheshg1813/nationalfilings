@@ -21,7 +21,7 @@ export const proprietorshipPage: LicencePageData = {
     description: "Proprietorship registration in Chennai, planned around your business. GST, Udyam, trade licence and bank account documents sorted by one expert team.",
   },
   hero: {
-    headline: { line1: "Proprietorship Registration", line2Before: "in Chennai, ", accent: "Set Up Right" },
+    headline: { line1: "Proprietorship Registration", line2Before: "", accent: "in Chennai" },
     sub: "Start trading under your own name with the registrations your business actually needs. We plan your proprietorship registration in Chennai around what you sell and where.",
     badges: heroTrustPoints,
     whatsapp,

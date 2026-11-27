@@ -48,8 +48,8 @@ export const gstGerugambakkamPage: LicencePageData = {
     description: "GST consultant in Gerugambakkam for side businesses run from home: consultants, interior designers, play schools and online sellers. When to register.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Gerugambakkam, ", accent: "Beyond the Payslip" },
-    sub: "Your salary never touches GST. The consulting, design fees, play school or online store you run from home might. We work out whether you need a GSTIN, register it at your flat if you do, and file the returns around your working hours.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Gerugambakkam" },
+    sub: "Need help with GST in Gerugambakkam? We register you, file your returns and reconcile your input tax credit, so your books and the GST portal match.",
     badges: heroTrustPoints,
     whatsapp,
   },

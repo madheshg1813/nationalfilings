@@ -25,8 +25,8 @@ export const kundrathurPage: LicencePageData = {
     description: "Company registration in Kundrathur, Chennai 600069, from our office in Karaima Nagar. Pvt Ltd, LLP, OPC and firms, with documents checked in person.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Kundrathur, ", accent: "Right Next Door" },
-    sub: "Our office is on the main road in Karaima Nagar, Kundrathur. Bring your documents, settle on the right structure across one table, and we handle the MCA filing from start to finish.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Kundrathur" },
+    sub: "Register your company in Kundrathur with a team that is right here in town. We handle private limited, LLP, OPC and partnership registration, and you can meet us at our office.",
     badges: heroTrustPoints,
     whatsapp,
   },

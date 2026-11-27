@@ -9,9 +9,11 @@ import { InlineCta } from "@/components/blocks/InlineCta";
 import { HeroTrust } from "@/components/blocks/HeroTrust";
 import { TrustSection } from "@/components/blocks/TrustSection";
 import { LeadCta } from "@/components/blocks/LeadCta";
+import { OtherMainServices, isMainService } from "@/components/blocks/OtherMainServices";
 import { LicenceIllustration } from "./LicenceIllustration";
 import {
   ApplicantGrid,
+  AreaLinks,
   BenefitCards,
   CostCards,
   DocumentCards,
@@ -139,9 +141,20 @@ export async function LicencePage({ data: d, page }: { data: LicencePageData; pa
 
         <Faq items={d.faqs} title={d.faqTitle} message={d.final.message} className="border-t border-ink/[0.06]" />
 
-        <PillarSection id="related" tone="cream" eyebrow="Related services" title={d.relatedTitle ?? "Other business services in Chennai"}>
-          <RelatedLinks related={d.related} />
-        </PillarSection>
+        {isMainService(page.path) ? (
+          <PillarSection id="related" tone="cream" eyebrow="Our services" title="Other services we offer in Chennai">
+            <OtherMainServices currentPath={page.path} />
+          </PillarSection>
+        ) : /^P\d+-A\d+$/.test(d.id) ? (
+          // Area page: the same service in every other area we serve
+          <PillarSection id="areas" tone="cream" eyebrow={d.service} title="Areas we serve">
+            <AreaLinks related={d.related} />
+          </PillarSection>
+        ) : (
+          <PillarSection id="related" tone="cream" eyebrow="Related services" title={d.relatedTitle ?? "Other business services in Chennai"}>
+            <RelatedLinks related={d.related} />
+          </PillarSection>
+        )}
 
         <LeadCta title={d.final.title} sub={d.final.sub} message={d.final.message} service={d.service} page={page.path} google={google} />
       </main>

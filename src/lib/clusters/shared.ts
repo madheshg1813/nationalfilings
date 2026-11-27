@@ -40,10 +40,10 @@ const AREA_POINTS: Record<string, [number, number]> = {
 };
 
 /**
- * Related links for an area page: the 8 nearest other area pages for the same service (two full rows of four).
+ * Related links for an area page ("Areas we serve"): every other area page for the same service, nearest first.
  * Unpublished areas render as plain cards and become links on their publish date.
  */
-export const nearbyAreas = (id: string, count = 8) => {
+export const nearbyAreas = (id: string, count = 11) => {
   const [pillarId, area] = id.split("-");
   const point = (localityId: string) => AREA_POINTS[localityId.split("-")[1]];
   const [lat, lng] = AREA_POINTS[area];

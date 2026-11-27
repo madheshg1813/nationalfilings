@@ -47,8 +47,8 @@ export const ngoPallavaramPage: LicencePageData = {
     description: "NGO registration in Pallavaram for residents' associations, lake groups and leather worker welfare. Society set up, yearly filings, 12A and 80G.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Pallavaram, ", accent: "Residents United" },
-    sub: "Colony associations, groups watching over the Pallavaram Periya Eri and welfare funds for leather and tannery workers are all run by members who meet, vote and collect dues. A registered society gives them a legal identity, a bank account and a voice with the corporation. We handle it over WhatsApp and email.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Pallavaram" },
+    sub: "NGO registration in Pallavaram for groups of every kind. We set up the right legal structure and help you open a bank account and receive donations properly.",
     badges: heroTrustPoints,
     whatsapp,
   },

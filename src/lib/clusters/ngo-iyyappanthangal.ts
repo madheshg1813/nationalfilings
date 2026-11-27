@@ -51,8 +51,8 @@ export const ngoIyyappanthangalPage: LicencePageData = {
     description: "NGO registration in Iyyappanthangal for traders' associations and food charities. Society for the sangam, trust with 12A and 80G for the kitchen.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Iyyappanthangal, ", accent: "Sangam and Kitchen" },
-    sub: "Shop owners on Mount Poonamallee Road often want two things at once: a merchants' association that speaks for them, and a free meal or food bank run from their own kitchens. We register each as the right body and keep their money apart.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Iyyappanthangal" },
+    sub: "We register NGOs in Iyyappanthangal and take them through 12A, 80G, NGO Darpan and CSR-1, so donors and funders can support you with confidence.",
     badges: heroTrustPoints,
     whatsapp,
   },

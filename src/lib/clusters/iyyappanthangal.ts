@@ -29,8 +29,8 @@ export const iyyappanthangalPage: LicencePageData = {
     description: "Company registration in Iyyappanthangal for restaurants, cloud kitchens, mobile shops, salons and clinics. LLP, Pvt Ltd or firm, plus FSSAI and GST.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Iyyappanthangal, ", accent: "Shop to Company" },
-    sub: "Running a hotel, a mobile shop or a coaching centre on Mount Poonamallee Road? We turn it into a registered firm, LLP or company online, and line up FSSAI, GST and the other papers your trade needs.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Iyyappanthangal" },
+    sub: "Company registration in Iyyappanthangal made simple. Tell us about your business and we suggest the right structure, prepare the papers and complete the filing online.",
     badges: heroTrustPoints,
     whatsapp,
   },

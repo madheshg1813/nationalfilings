@@ -53,8 +53,8 @@ export const ngoSriperumbudurPage: LicencePageData = {
     description: "NGO registration in Sriperumbudur for groups seeking CSR funds from plants: trust or Section 8, 12A and 80G, CSR-1 and audited books, done right.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Sriperumbudur, ", accent: "CSR Partner Ready" },
-    sub: "The plants in the SIPCOT parks spend part of their profit on the villages around them. Their CSR teams fund NGOs that are registered, tax-approved and on the MCA's CSR list. We get your trust or Section 8 company there, step by step.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Sriperumbudur" },
+    sub: "NGO registration in Sriperumbudur as a trust, society or Section 8 company, plus the approvals you need to receive donations and CSR funds.",
     badges: heroTrustPoints,
     whatsapp,
   },

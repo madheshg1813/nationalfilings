@@ -58,8 +58,8 @@ export const gstTambaramPage: LicencePageData = {
     description: "GST consultant in Tambaram for MEPZ suppliers, SEZ units, coaching institutes and retailers. Zero-rated SEZ invoices, LUT, refunds and returns.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Tambaram, ", accent: "SEZ to Classroom" },
-    sub: "Selling to a unit inside MEPZ, running a coaching centre near the colleges, or a shop in the market? Each is taxed differently under GST. We register you, bill each kind of customer correctly and file your returns on time.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Tambaram" },
+    sub: "Clear answers and timely filings for GST in Tambaram. We register your business, file your returns and help you deal with any notice.",
     badges: heroTrustPoints,
     whatsapp,
   },

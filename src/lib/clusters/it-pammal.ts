@@ -55,8 +55,8 @@ export const itPammalPage: LicencePageData = {
     description: "Income tax consultant in Pammal for whole families: salaried earners, tutors, tailors, shopkeepers and pensioners. Right regime, rebate and ITR.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Pammal, ", accent: "For Every Earner" },
-    sub: "In many Pammal homes, one person draws a salary, another takes tuition or stitching orders, and the parents live on a pension. We file a return for each of them, in the regime that suits each one.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Pammal" },
+    sub: "Stress-free income tax filing in Pammal. Share your documents and we prepare, review and file your return on time.",
     badges: heroTrustPoints,
     whatsapp,
   },

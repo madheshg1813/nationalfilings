@@ -32,8 +32,8 @@ export const porurPage: LicencePageData = {
     description: "Company registration in Porur for clinics, diagnostic labs, pharmacies and IT firms. Pvt Ltd, LLP or OPC, with GST and the next licences mapped.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Porur, ", accent: "Clinic to Code" },
-    sub: "Porur is home to a major health sciences campus and a belt of IT parks. Whether you are opening a lab near the Sri Ramachandra campus or billing clients from an IT park, we register the right entity online and tell you which health or tax registrations follow.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Porur" },
+    sub: "Ready to make your business official in Porur? We guide you through choosing a structure, collecting documents and getting your incorporation certificate.",
     badges: heroTrustPoints,
     whatsapp,
   },

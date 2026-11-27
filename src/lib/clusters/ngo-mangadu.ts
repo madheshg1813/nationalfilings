@@ -52,8 +52,8 @@ export const ngoMangaduPage: LicencePageData = {
     description: "NGO registration in Mangadu for annadhanam, marriage aid and elderly care trusts. Religious or charitable objects, 12A, 80G and the 5% rule explained.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Mangadu, ", accent: "Seva on Record" },
-    sub: "Families and devotee groups in Mangadu have fed pilgrims and helped poor brides for years, often from one person's pocket. We put that seva into a registered trust with the right objects, so it qualifies for 12A and, where the work is charitable, 80G.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Mangadu" },
+    sub: "Turning a good cause into a registered NGO in Mangadu is simpler than it looks. We prepare the documents, file the registration and handle 12A and 80G.",
     badges: heroTrustPoints,
     whatsapp,
   },

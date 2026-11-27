@@ -31,8 +31,8 @@ export const sriperumbudurPage: LicencePageData = {
     description: "Company registration in Sriperumbudur for plant vendors, manpower, canteen and transport contractors. Pvt Ltd or LLP, with GST, Udyam, PF and ESI.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Sriperumbudur, ", accent: "Vendor Code Ready" },
-    sub: "Want a supplier code at a plant in the SIPCOT parks? We register your company or LLP and set up GST, Udyam, PF and ESI, so your onboarding file is complete the first time.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Sriperumbudur" },
+    sub: "Company registration in Sriperumbudur for every kind of business. We handle the MCA filings end to end and explain each step in plain language.",
     badges: heroTrustPoints,
     whatsapp,
   },

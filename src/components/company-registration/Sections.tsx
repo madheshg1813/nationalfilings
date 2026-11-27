@@ -59,7 +59,6 @@ import { SHOW_SAMPLES } from "@/lib/proof";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { telLink, whatsappLink } from "@/lib/site";
 import { linkTarget } from "@/lib/routes";
-import { NearbyAreas } from "@/components/blocks/NearbyAreas";
 import { DocumentsIllustration } from "./DocumentsIllustration";
 import {
   everyPackage,
@@ -194,7 +193,6 @@ export function ChennaiSectors() {
           </li>
         ))}
       </AutoScrollRow>
-      <NearbyAreas pillarId="P1" label="Company registration" />
     </>
   );
 }

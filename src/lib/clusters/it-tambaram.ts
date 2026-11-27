@@ -56,8 +56,8 @@ export const itTambaramPage: LicencePageData = {
     description: "Income tax consultant in Tambaram for teachers, MEPZ staff, pensioners and property sellers. Form 16 returns, senior citizen tax and capital gains.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Tambaram, ", accent: "Payslip to Pension" },
-    sub: "Teaching at a Tambaram college, working in a unit at MEPZ, drawing a pension or selling the family plot? We file salary and pension returns, apply every senior citizen benefit and work out the capital gains on a house sale before you sign.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Tambaram" },
+    sub: "Accurate income tax filing in Tambaram for every taxpayer, from first-time filers to established businesses, with help whenever the department writes to you.",
     badges: heroTrustPoints,
     whatsapp,
   },

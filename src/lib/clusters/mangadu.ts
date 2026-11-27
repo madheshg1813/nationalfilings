@@ -30,8 +30,8 @@ export const mangaduPage: LicencePageData = {
     description: "Company registration in Mangadu for halls, caterers, florists, photographers and builders. Partnership, LLP or Pvt Ltd, plus GST and FSSAI set-up.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Mangadu, ", accent: "Family Business Ready" },
-    sub: "Halls, caterers, florists and photographers in Mangadu are often family-run. We turn that arrangement into a registered firm, LLP or company, with shares and roles written down.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Mangadu" },
+    sub: "Whatever your business, we help you register it in Mangadu as a company, LLP or firm, with clear guidance on documents, costs and timelines before we begin.",
     badges: heroTrustPoints,
     whatsapp,
   },

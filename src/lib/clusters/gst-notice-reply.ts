@@ -23,7 +23,7 @@ export const gstNoticeReplyPage: LicencePageData = {
     description: "GST notice reply in Chennai for scrutiny, mismatch and show cause notices. We read the notice, reconcile your data and file a clear reply on time.",
   },
   hero: {
-    headline: { line1: "GST Notice Reply", line2Before: "in Chennai, ", accent: "Before the Deadline" },
+    headline: { line1: "GST Notice Reply", line2Before: "", accent: "in Chennai" },
     sub: "Received a GST notice? Don't ignore it and don't rush a reply. We explain what it means, reconcile your records and file a clear, documented GST notice reply in Chennai.",
     badges: heroTrustPoints,
     whatsapp,

@@ -23,7 +23,7 @@ export const privateLimitedPage: LicencePageData = {
     description: "Private limited registration in Chennai through SPICe+, with DSC, DIN, MOA and AOA handled. Get your CIN, PAN and TAN with clear fees and expert help.",
   },
   hero: {
-    headline: { line1: "Private Limited Registration", line2Before: "in Chennai, ", accent: "Investor Ready" },
+    headline: { line1: "Private Limited Registration", line2Before: "", accent: "in Chennai" },
     sub: "Build a company that banks, clients and investors take seriously. We take your private limited registration in Chennai from name approval to the Certificate of Incorporation.",
     badges: heroTrustPoints,
     whatsapp,

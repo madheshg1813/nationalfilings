@@ -59,8 +59,8 @@ export const ngoGerugambakkamPage: LicencePageData = {
     description: "NGO registration in Gerugambakkam for apartment communities: owners' associations under the 2022 Act, library societies and trusts with 80G.",
   },
   hero: {
-    headline: { line1: "NGO Registration", line2Before: "in Gerugambakkam, ", accent: "Lobby to Library" },
-    sub: "New apartment blocks along the Kundrathur road have brought owners' associations, book corners in the clubhouse and residents' donation drives. Each of these sits under a different law. We sort out which, from the owners' association to a trust that can issue 80G receipts.",
+    headline: { line1: "NGO Registration", line2Before: "", accent: "in Gerugambakkam" },
+    sub: "Give your social work a legal identity in Gerugambakkam. We draft the deed or bylaws, complete the registration and apply for tax exemption.",
     badges: heroTrustPoints,
     whatsapp,
   },

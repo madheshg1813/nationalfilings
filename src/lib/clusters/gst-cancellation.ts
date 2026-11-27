@@ -23,7 +23,7 @@ export const gstCancellationPage: LicencePageData = {
     description: "GST cancellation in Chennai done properly: pending returns, stock and ITC reversal, REG-16 and GSTR-10 handled, plus revocation of cancelled GSTINs.",
   },
   hero: {
-    headline: { line1: "GST Cancellation", line2Before: "in Chennai, ", accent: "Closed Cleanly" },
+    headline: { line1: "GST Cancellation", line2Before: "", accent: "in Chennai" },
     sub: "Closing or changing your business? We handle GST cancellation in Chennai the right way, so no returns, dues or notices follow you after the GSTIN is gone.",
     badges: heroTrustPoints,
     whatsapp,

@@ -46,8 +46,8 @@ export const itKundrathurPage: LicencePageData = {
     description: "Income tax consultant in Kundrathur for job-work units and dealers. Business ITR, presumptive scheme, tax audit, advance tax and customer TDS checks.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Kundrathur, ", accent: "Workshop to Return" },
-    sub: "Lathe shops near the Thirumudivakkam SIDCO estate, fabricators and cement and steel dealers on the main road all file business returns. We work out the profit, check the TDS your customers deducted and file the return, from our office in Karaima Nagar.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Kundrathur" },
+    sub: "Income tax help in Kundrathur from a local office. Returns, tax planning and notice replies for individuals, firms and companies.",
     badges: heroTrustPoints,
     whatsapp,
   },

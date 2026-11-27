@@ -34,8 +34,8 @@ export const anakaputhurPage: LicencePageData = {
     description: "Company registration in Anakaputhur for weavers, artisans and handloom sellers. Firm, LLP or producer company, plus GST and a trademark for a brand.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Anakaputhur, ", accent: "Loom to Brand" },
-    sub: "Anakaputhur's looms now turn banana and other plant fibres into sarees sold online and abroad. We help weavers, artisans and sellers pick the right structure and register it.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Anakaputhur" },
+    sub: "Planning to start a business in Anakaputhur? We help you pick the right structure, whether a private limited company, LLP, OPC or partnership, and take care of the registration from start to finish.",
     badges: heroTrustPoints,
     whatsapp,
   },

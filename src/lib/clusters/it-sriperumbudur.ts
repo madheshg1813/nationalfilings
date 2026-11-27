@@ -55,8 +55,8 @@ export const itSriperumbudurPage: LicencePageData = {
     description: "Income tax consultant in Sriperumbudur for plant contractors and factory staff: TDS matched in Form 168 and AIS, tax audits, and salary returns filed.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Sriperumbudur, ", accent: "TDS Credit Matched" },
-    sub: "Plants in the SIPCOT parks deduct tax on every contractor bill. That tax is yours to claim, but only if it reaches your Form 168 under the right PAN and year. We match it, file your return and handle the audit when one applies.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Sriperumbudur" },
+    sub: "Income tax consultants for Sriperumbudur. We file returns, check TDS credits, handle refunds and answer notices for every kind of taxpayer.",
     badges: heroTrustPoints,
     whatsapp,
   },

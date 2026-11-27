@@ -61,8 +61,8 @@ export const itIyyappanthangalPage: LicencePageData = {
     description: "Income tax consultant in Iyyappanthangal for hotels, bakeries, mobile shops and salons: cash and UPI takings, food app TDS, advance tax and returns.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Iyyappanthangal, ", accent: "Every Rupee Counted" },
-    sub: "Cash in the drawer, UPI on the counter and payouts from food apps. Shops on Mount Poonamallee Road earn in all three ways, and much of it already shows up in your AIS. We turn it into one clean return.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Iyyappanthangal" },
+    sub: "We handle income tax returns, advance tax and TDS for individuals and businesses in Iyyappanthangal, so you pay what is due and not a rupee more.",
     badges: heroTrustPoints,
     whatsapp,
   },

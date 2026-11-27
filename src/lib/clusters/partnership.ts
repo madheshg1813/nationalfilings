@@ -22,7 +22,7 @@ export const partnershipPage: LicencePageData = {
     description: "Partnership firm registration in Chennai with a clear deed, stamp duty and Registrar of Firms filing handled for you. Get a quote and start this week.",
   },
   hero: {
-    headline: { line1: "Partnership Firm Registration", line2Before: "in Chennai, ", accent: "Deed to Certificate" },
+    headline: { line1: "Partnership Firm Registration", line2Before: "", accent: "in Chennai" },
     sub: "Start your business with partners on clear terms. We draft the deed, arrange stamp duty and complete partnership firm registration in Chennai with the Registrar of Firms.",
     badges: heroTrustPoints,
     whatsapp,

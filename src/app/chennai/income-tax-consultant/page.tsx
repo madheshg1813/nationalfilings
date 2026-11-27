@@ -1,3 +1,4 @@
+import { OtherMainServices } from "@/components/blocks/OtherMainServices";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { MobileCtaBar } from "@/components/sections/MobileCtaBar";
@@ -5,7 +6,6 @@ import { Faq } from "@/components/sections/Faq";
 import { PageSchema } from "@/components/PageSchema";
 import { PillarHero } from "@/components/blocks/PillarHero";
 import { PillarSection } from "@/components/blocks/PillarSection";
-import { NearbyAreas } from "@/components/blocks/NearbyAreas";
 import { InlineCta } from "@/components/blocks/InlineCta";
 import { HeroTrust } from "@/components/blocks/HeroTrust";
 import { TrustSection } from "@/components/blocks/TrustSection";
@@ -17,7 +17,6 @@ import {
   Mistakes,
   ReviewCta,
   IncludedGrid,
-  RelatedTaxServices,
   ServiceCards,
   AudienceGrid,
   Benefits,
@@ -75,7 +74,6 @@ export default async function IncomeTaxConsultantPage() {
           lead="From your yearly return to notices and capital gains, one team handles your income tax end to end."
         >
           <ServiceCards />
-          <NearbyAreas pillarId="P3" label="Income tax consultant" />
         </PillarSection>
 
         <PillarSection id="who-we-help" tone="cream" eyebrow="Who we help" title="Tax consultant in Chennai for every kind of taxpayer">
@@ -168,8 +166,8 @@ export default async function IncomeTaxConsultantPage() {
 
         <Faq items={faqs} title="Income tax filing in Chennai: your questions" message={messages.final} className="border-t border-ink/[0.06]" />
 
-        <PillarSection id="related" tone="cream" eyebrow="Related services" title="Other tax services in Chennai">
-          <RelatedTaxServices />
+        <PillarSection id="related" tone="cream" eyebrow="Our services" title="Other services we offer in Chennai">
+          <OtherMainServices currentPath={pillar.path} />
         </PillarSection>
 
         <LeadCta

@@ -22,7 +22,7 @@ export const llpPage: LicencePageData = {
     description: "LLP registration in Chennai with DSC, DPIN, name approval and LLP agreement handled for you. Clear fees, honest timelines and annual filing support.",
   },
   hero: {
-    headline: { line1: "LLP Registration in Chennai", line2Before: "With ", accent: "Limited Liability" },
+    headline: { line1: "LLP Registration", line2Before: "", accent: "in Chennai" },
     sub: "Run your firm as partners without putting your personal assets on the line. We handle LLP registration in Chennai from name approval to the filed LLP agreement.",
     badges: heroTrustPoints,
     whatsapp,

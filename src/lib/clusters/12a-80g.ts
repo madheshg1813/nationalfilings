@@ -21,7 +21,7 @@ export const twelveA80gPage: LicencePageData = {
     description: "12A and 80G registration in Chennai for trusts, societies and Section 8 companies, now under the Income-tax Act 2025. Exemption and donor approval.",
   },
   hero: {
-    headline: { line1: "12A and 80G Registration", line2Before: "in Chennai, ", accent: "Donor Ready" },
+    headline: { line1: "12A and 80G Registration", line2Before: "", accent: "in Chennai" },
     sub: "Keep your NGO's income tax-free and let donors claim deductions. We handle 12A and 80G registration in Chennai under the new Income-tax Act, 2025.",
     badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a consultation about 12A and 80G registration in Chennai.",

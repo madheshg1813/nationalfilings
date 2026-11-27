@@ -22,7 +22,7 @@ export const trustPage: LicencePageData = {
     description: "Trust registration service in Chennai with a clear trust deed, stamp duty and Sub-Registrar registration handled, plus PAN and 12A and 80G next.",
   },
   hero: {
-    headline: { line1: "Trust Registration Service", line2Before: "in Chennai, ", accent: "Done Properly" },
+    headline: { line1: "Trust Registration Service", line2Before: "", accent: "in Chennai" },
     sub: "Give your charity a registered home with a trust deed that will stand the test of time. Our trust registration service in Chennai covers the deed, registration and next steps.",
     badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a consultation about trust registration in Chennai.",

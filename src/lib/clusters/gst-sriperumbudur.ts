@@ -55,8 +55,8 @@ export const gstSriperumbudurPage: LicencePageData = {
     description: "GST consultant in Sriperumbudur for plant vendors: e-invoicing, GSTR-2B checks and rates for manpower, canteen, staff bus and contract manufacturing.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Sriperumbudur, ", accent: "Invoice to Payment" },
-    sub: "Plants in the SIPCOT parks release a vendor's bill only when its GST is clean: a valid IRN, the right rate and the invoice showing in their GSTR-2B. We handle that for manpower, canteen, transport and contract manufacturing firms.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Sriperumbudur" },
+    sub: "Complete GST services for businesses in Sriperumbudur, including registration, return filing, input credit checks and annual returns.",
     badges: heroTrustPoints,
     whatsapp,
   },

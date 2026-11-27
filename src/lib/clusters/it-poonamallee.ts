@@ -51,8 +51,8 @@ export const itPoonamalleePage: LicencePageData = {
     description: "Income tax consultant in Poonamallee for lorry owners and traders on NH 48. Per-truck presumptive tax, TDS on freight, advance tax and ITR filing.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Poonamallee, ", accent: "Taxed Per Truck" },
-    sub: "Own up to ten lorries? Your income can be worked out per vehicle, per month, with no books to keep. We file returns for Poonamallee fleet owners and traders, sort the TDS that freight payments attract and keep cash spends from being disallowed.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Poonamallee" },
+    sub: "Tax returns, tax planning and TDS compliance for individuals and businesses in Poonamallee, with clear advice on the old and new tax regimes.",
     badges: heroTrustPoints,
     whatsapp,
   },

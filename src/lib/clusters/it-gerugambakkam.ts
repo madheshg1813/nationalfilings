@@ -54,8 +54,8 @@ export const itGerugambakkamPage: LicencePageData = {
     description: "Income tax consultant in Gerugambakkam for salaried flat owners with side income. Home loan claims, property TDS, advance tax and the right ITR form.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Gerugambakkam, ", accent: "Salary and Sideline" },
-    sub: "A new flat, a home loan and some consulting on the side change your return more than you'd think. We file salary and side income together, claim the home loan the right way for your regime and handle the TDS you owe when buying the flat.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Gerugambakkam" },
+    sub: "Tax filing and planning for salaried people, professionals and business owners in Gerugambakkam, done accurately and explained simply.",
     badges: heroTrustPoints,
     whatsapp,
   },

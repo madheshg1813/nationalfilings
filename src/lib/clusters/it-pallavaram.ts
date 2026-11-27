@@ -45,8 +45,8 @@ export const itPallavaramPage: LicencePageData = {
     description: "Income tax consultant in Pallavaram for leather exporters and travel agents. Forex income, export incentives, TCS on tours and LRS credit claims.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Pallavaram, ", accent: "Forex to Filing" },
-    sub: "Leather exporters around Nagalkeni earn in dollars and euros. Travel agents near the airport collect TCS on every overseas package, and their customers want that TCS back. We handle the income tax side of all three, over WhatsApp and email.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Pallavaram" },
+    sub: "Income tax return filing, refunds and notice replies for taxpayers in Pallavaram, handled by experienced tax consultants.",
     badges: heroTrustPoints,
     whatsapp,
   },

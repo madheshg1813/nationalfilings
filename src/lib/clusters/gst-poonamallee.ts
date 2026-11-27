@@ -51,8 +51,8 @@ export const gstPoonamalleePage: LicencePageData = {
     description: "GST consultant in Poonamallee for fleet owners, godowns and wholesalers on NH 48. E-way bills, detention replies, ITC matching and monthly returns.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Poonamallee, ", accent: "Loads Kept Moving" },
-    sub: "Trucks leaving Poonamallee for Bengaluru, godowns full of other people's stock, wholesalers buying by the lorry load. We handle the GST that comes with all of it, from the e-way bill on the dashboard to the credit in your monthly return.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Poonamallee" },
+    sub: "Our GST consultants in Poonamallee handle registration, monthly and quarterly returns, e-invoicing and notices, so nothing is missed.",
     badges: heroTrustPoints,
     whatsapp,
   },

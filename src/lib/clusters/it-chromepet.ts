@@ -54,8 +54,8 @@ export const itChromepetPage: LicencePageData = {
     description: "Income tax consultant in Chromepet for first-job earners, interns, freelancers paid from abroad and young founders. ITR, section 58 and advance tax.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Chromepet, ", accent: "Your First Return" },
-    sub: "First salary from a campus placement, a stipend from an internship, or dollars from a client abroad? We file Chromepet's first returns, set freelancers up under the presumptive scheme where it fits, and help young founders choose between salary and dividend.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Chromepet" },
+    sub: "Filing your income tax return in Chromepet? We prepare it correctly, match it with your Form 26AS and AIS, and track your refund.",
     badges: heroTrustPoints,
     whatsapp,
   },

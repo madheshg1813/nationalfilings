@@ -21,7 +21,7 @@ export const pfEsiRegistrationPage: LicencePageData = {
     description: "PF registration in Chennai and ESI registration for employers, with EPFO and ESIC codes, employee UANs and first returns set up by one expert team.",
   },
   hero: {
-    headline: { line1: "PF and ESI Registration", line2Before: "in Chennai, ", accent: "Employer Ready" },
+    headline: { line1: "PF and ESI Registration", line2Before: "", accent: "in Chennai" },
     sub: "Hiring your 10th or 20th employee? We handle PF registration in Chennai and ESI registration together, so you are compliant from your first payroll.",
     badges: heroTrustPoints,
     whatsapp: "Hi National Filings, I'd like a consultation about PF and ESI registration in Chennai.",

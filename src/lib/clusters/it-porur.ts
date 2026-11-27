@@ -59,8 +59,8 @@ export const itPorurPage: LicencePageData = {
     description: "Income tax consultant in Porur for doctors and IT staff. Hospital pay plus practice, RSUs, Schedule FA and foreign tax credit, all filed right.",
   },
   hero: {
-    headline: { line1: "Income Tax Consultant", line2Before: "in Porur, ", accent: "Practice to RSUs" },
-    sub: "A doctor drawing a hospital salary and running an evening clinic. A developer whose US parent company allots shares every quarter. Porur returns are rarely simple. We put every income in the right place and report what you hold abroad.",
+    headline: { line1: "Income Tax Consultant", line2Before: "", accent: "in Porur" },
+    sub: "From your annual return to replying to a tax notice, we look after income tax for individuals and businesses in Porur.",
     badges: heroTrustPoints,
     whatsapp,
   },

@@ -27,8 +27,8 @@ export const pammalPage: LicencePageData = {
     description: "Company registration in Pammal for tuition centres, tailors, home bakers and freelancers. Use your home as the office, with the owner's NOC sorted.",
   },
   hero: {
-    headline: { line1: "Company Registration", line2Before: "in Pammal, ", accent: "From Your Home" },
-    sub: "Plenty of Pammal businesses start in a spare room or a front portion. We help you turn yours into a company, LLP or firm, often with your home as the registered office.",
+    headline: { line1: "Company Registration", line2Before: "", accent: "in Pammal" },
+    sub: "Starting small or planning big, we set up your business in Pammal with the structure that suits it today and leaves room to grow.",
     badges: heroTrustPoints,
     whatsapp,
   },

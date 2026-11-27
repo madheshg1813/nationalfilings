@@ -55,8 +55,8 @@ export const gstIyyappanthangalPage: LicencePageData = {
     description: "GST consultant in Iyyappanthangal for restaurants, cloud kitchens, bakeries, mobile shops and salons. App sales, rates and returns sorted every month.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Iyyappanthangal, ", accent: "Dine-In to Delivery" },
-    sub: "A hotel on Mount Poonamallee Road can bill at the table, pack parcels at the counter and send orders out through food apps, all on the same day. Each of those sales is treated differently under GST. We keep your returns straight.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Iyyappanthangal" },
+    sub: "Simple, reliable GST support for businesses in Iyyappanthangal. Send us your bills and we take care of returns, payments and due dates.",
     badges: heroTrustPoints,
     whatsapp,
   },

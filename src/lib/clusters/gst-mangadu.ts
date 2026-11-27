@@ -50,8 +50,8 @@ export const gstMangaduPage: LicencePageData = {
     description: "GST consultant in Mangadu for marriage halls, caterers, florists and builders. Hall and food packages, booking advances and returns filed right.",
   },
   hero: {
-    headline: { line1: "GST Consultant", line2Before: "in Mangadu, ", accent: "Muhurtham to Return" },
-    sub: "Families come to Mangadu to pray for a wedding, and many come back to hold one. Halls, caterers, florists and photographers here take advances months ahead. We make sure each booking is billed and taxed the right way.",
+    headline: { line1: "GST Consultant", line2Before: "", accent: "in Mangadu" },
+    sub: "Stay on the right side of GST in Mangadu. We handle registration, returns, amendments and replies to notices for businesses of every size.",
     badges: heroTrustPoints,
     whatsapp,
   },
